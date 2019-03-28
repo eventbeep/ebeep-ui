@@ -12,3 +12,4 @@ export 'src/widgets/dialog.dart';
 export 'src/widgets/qr_image.dart';
 export 'src/widgets/ticket_card.dart';
 export 'src/widgets/ticket_type_card.dart';
+export 'src/widgets/text_field.dart';
