@@ -34,7 +34,7 @@ class BeepRaisedButton extends StatelessWidget {
             stops: [0.0, 1.0],
             tileMode: TileMode.clamp,
           ),
-          boxShadow: BeepDimens.lightShadow),
+          boxShadow: (onPressed == null) ? null : BeepDimens.lightShadow),
       child: Material(
         color: BeepColors.transparent,
         child: InkWell(

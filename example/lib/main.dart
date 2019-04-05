@@ -32,6 +32,31 @@ final List<String> imgList = [
 ];
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  final _controller = new PageController();
+
+  static const _kDuration = const Duration(milliseconds: 300);
+
+  static const _kCurve = Curves.ease;
+
+  final List<Widget> _pages = <Widget>[
+    new ConstrainedBox(
+      constraints: const BoxConstraints.expand(),
+      child: new FlutterLogo(colors: Colors.blue),
+    ),
+    new ConstrainedBox(
+      constraints: const BoxConstraints.expand(),
+      child: new FlutterLogo(
+          style: FlutterLogoStyle.stacked, colors: Colors.red),
+    ),
+    new ConstrainedBox(
+      constraints: const BoxConstraints.expand(),
+      child: new FlutterLogo(
+          style: FlutterLogoStyle.horizontal, colors: Colors.green),
+    ),
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {},
         ),
       ),
-      floatingActionButton: BeepFloatingButton(icon: Icon(Icons.home), onPressed: (){}),
+      floatingActionButton:
+      BeepFloatingButton(icon: Icon(Icons.home), onPressed: () {}),
       body: Container(
         color: BeepColors.cardBackground,
         child: SingleChildScrollView(
@@ -64,27 +90,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 autoPlay: false,
                 enlargeCenterPage: true,
                 aspectRatio: 2.0,
-                onPageChanged: (index) {
-                  setState(() {
-//                    _current = index;
-                  });
-                },
+                onPageChanged: (index) {},
               ),
               SizedBox(height: 24.0),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: TextFormField(
-//              textInputAction: TextInputAction.next,
-                  textCapitalization: TextCapitalization.sentences,
-                  decoration: const InputDecoration(
-                    labelText: "Question",
-                    border: OutlineInputBorder(),
-                  ),
-                  validator: (String value) {
-                    return value.isEmpty ? 'Title cannot be Empty' : null;
-                  },
-                ),
-              ),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: BeepTextField(
+                    labelText: 'Mobile Number',
+                    textInputType: TextInputType.number,
+                    maxLength: 10,
+                  )),
               SizedBox(height: 24.0),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -97,30 +112,35 @@ class _MyHomePageState extends State<MyHomePage> {
                   title: 'Event Name',
                   location: 'COEP Auditorium',
                   imageUrl:
-                      'https://cdn2us.denofgeek.com/sites/denofgeekus/files/styles/main_wide/public/2018/04/rick_and_morty_season_4_dan_harmon.jpg',
+                  'https://cdn2us.denofgeek.com/sites/denofgeekus/files/styles/main_wide/public/2018/04/rick_and_morty_season_4_dan_harmon.jpg',
                 ),
               ),
               SizedBox(height: 24.0),
+//              BeepOtpView(),
+//              SizedBox(height: 24.0),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: BeepDimens.padding),
                 child: BeepRaisedButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) => BeepDialog(
-                            title: "Success",
-                            description: "You have success",
-                            buttonText: "Okay",
-                          ),
-                    );
-                  },
+                  onPressed: null,
+//                  onPressed: () {
+//                    showDialog(
+//                      context: context,
+//                      builder: (BuildContext context) => BeepDialog(
+//                            title: "Success",
+//                            description: "You have success",
+//                            buttonText: "Okay",
+//                          ),
+//                    );
+//                  },
                   title: 'Open Dialog',
                 ),
               ),
               SizedBox(height: 24.0),
 //              QrImage(data: "Saurabh Mangrulkar"),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: BeepDimens.padding),
                 child: BeepTicketCard(
                   title: 'Regatta',
                   qrData: 'https://meus.cogitare.space',
@@ -128,6 +148,43 @@ class _MyHomePageState extends State<MyHomePage> {
                   location: 'SASTRA University, Chithvihar block',
                   ticketType: 'VIP ticket',
                   ticketAmount: 120,
+                ),
+              ),
+              SizedBox(height: 24.0),
+              SizedBox(
+                height: 100,
+                child: Stack(
+                  children: <Widget>[
+                    PageView.builder(
+                      physics: AlwaysScrollableScrollPhysics(),
+                      controller: _controller,
+                      itemBuilder: (BuildContext context, int index) {
+                        return _pages[index % _pages.length];
+                      },
+                    ),
+                    Positioned(
+                      bottom: 0.0,
+                      left: 0.0,
+                      right: 0.0,
+                      child: new Container(
+                        color: Colors.grey[800].withOpacity(0.5),
+                        padding: const EdgeInsets.all(20.0),
+                        child: new Center(
+                          child: BeepIndicator(
+                            controller: _controller,
+                            itemCount: _pages.length,
+                            onPageSelected: (int page) {
+                              _controller.animateToPage(
+                                page,
+                                duration: _kDuration,
+                                curve: _kCurve,
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(height: 24.0),
@@ -139,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 24.0),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+                const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepTicketTypeCard(
                     title: 'Golden Ticket',
                     description: 'This is a gold ticket idiot1231234567890',

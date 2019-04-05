@@ -13,3 +13,6 @@ export 'src/widgets/qr_image.dart';
 export 'src/widgets/ticket_card.dart';
 export 'src/widgets/ticket_type_card.dart';
 export 'src/widgets/text_field.dart';
+export 'src/widgets/otp_view.dart';
+export 'src/widgets/chip.dart';
+export 'src/widgets/indicator.dart';
