@@ -16,3 +16,4 @@ export 'src/widgets/text_field.dart';
 export 'src/widgets/otp_view.dart';
 export 'src/widgets/chip.dart';
 export 'src/widgets/indicator.dart';
+export 'src/widgets/loading.dart';
