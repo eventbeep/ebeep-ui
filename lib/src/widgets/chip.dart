@@ -3,14 +3,31 @@ import 'package:flutter/material.dart';
 
 class BeepChip extends StatelessWidget {
   final String label;
+  final Function onDeleted;
+  final Function onSelected;
 
-  const BeepChip({Key key, this.label}) : super(key: key);
+  const BeepChip({
+    Key key,
+    @required this.label,
+    this.onDeleted,
+    this.onSelected,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Chip(
-      label: Text(label),
-      backgroundColor: BeepColors.primary,
+    return GestureDetector(
+      onTap: onSelected,
+      child: Chip(
+        label: Text(label),
+        backgroundColor: BeepColors.primary,
+        labelStyle: TextStyle(
+          color: BeepColors.white,
+        ),
+        onDeleted: onDeleted,
+        deleteIconColor: BeepColors.white,
+        deleteButtonTooltipMessage: 'Remove this interest',
+        elevation: 4.0,
+      ),
     );
   }
 }

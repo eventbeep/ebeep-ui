@@ -117,7 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               SizedBox(height: 24.0),
 //              BeepOtpView(),
-//              SizedBox(height: 24.0),
+              getChips(),
+              SizedBox(height: 24.0),
               Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: BeepDimens.padding),
@@ -217,4 +218,37 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+
+  Widget getChips() {
+    return Wrap(
+      spacing: 8.0,
+      alignment: WrapAlignment.center,
+      children: List<Widget>.generate(
+        _interests.length,
+            (int index) {
+          return BeepChip(
+            label: _interests[index],
+            onDeleted: () {},
+            onSelected: () {
+              print(index);
+            },
+          );
+        },
+      ).toList(),
+    );
+  }
 }
+
+const List<String> _interests = <String>[
+  'flake',
+  'cut',
+  'fragment',
+  'splinter',
+  'nick',
+  'fry',
+  'solder',
+  'cash in',
+  'eat',
+];
+
