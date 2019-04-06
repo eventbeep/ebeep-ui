@@ -34,6 +34,7 @@ final List<String> imgList = [
 class _MyHomePageState extends State<MyHomePage> {
 
   final _controller = new PageController();
+  final _textController = new TextEditingController();
 
   static const _kDuration = const Duration(milliseconds: 300);
 
@@ -59,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    _textController.text = '8220223398';
     return Scaffold(
       appBar: BeepAppBar(
         leading: IconButton(
@@ -96,8 +98,13 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: BeepTextField(
+                    controller: _textController,
                     labelText: 'Mobile Number',
+                    onTap: () {
+                      print('tapped');
+                    },
                     textInputType: TextInputType.number,
+                    getKeyboard: true,
                     maxLength: 10,
                   )),
               SizedBox(height: 24.0),
