@@ -24,42 +24,56 @@ class BeepTicketCard extends StatelessWidget {
           shape: BoxShape.rectangle,
           borderRadius: new BorderRadius.circular(BeepDimens.cornerRadius),
           boxShadow: BeepDimens.lightShadow),
-      child: CustomPaint(
-        painter: _TicketBackground(),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-              vertical: BeepDimens.padding,
-              horizontal: BeepDimens.padding*2),
-          child: Column(
-            children: <Widget>[
-              BeepCustomText(
-                text: this.title,
-                size: 26.0,
-                color: BeepColors.primary,
-                align: TextAlign.center,
-                weight: FontWeight.w700,
+      child: Column(
+        children: <Widget>[
+          CustomPaint(
+            painter: _TicketBackground(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: BeepDimens.ticketCornerRadius * 2,
+                  vertical: BeepDimens.ticketCornerRadius),
+              child: Column(
+                children: <Widget>[
+                  BeepCustomText(
+                    text: this.title,
+                    size: 26.0,
+                    color: BeepColors.primary,
+                    align: TextAlign.center,
+                    weight: FontWeight.w700,
+                  ),
+                  SizedBox(height: BeepDimens.padding),
+                  imageText(Icons.access_time, this.dateTime),
+                  SizedBox(height: BeepDimens.padding),
+                  imageText(Icons.location_on, this.location),
+                  SizedBox(height: BeepDimens.padding),
+                  imageText(Icons.movie,
+                      this.ticketType + ' (Rs.${this.ticketAmount} each)'),
+                  SizedBox(height: BeepDimens.padding),
+                  imageText(Icons.monetization_on,
+                      'Total (${this.ticketAmount} x ${this
+                          .ticketsCount}) is Rs.${this.ticketAmount *
+                          this.ticketsCount}'),
+                ],
               ),
-              SizedBox(height: BeepDimens.padding),
-              imageText(Icons.access_time, this.dateTime),
-              SizedBox(height: BeepDimens.padding),
-              imageText(Icons.location_on, this.location),
-              SizedBox(height: BeepDimens.padding),
-              imageText(Icons.movie,
-                  this.ticketType + ' (Rs.${this.ticketAmount} each)'),
-              SizedBox(height: BeepDimens.padding),
-              imageText(Icons.monetization_on,
-                  'Total (${this.ticketAmount} x ${this
-                      .ticketsCount}) is Rs.${this.ticketAmount *
-                      this.ticketsCount}'),
-              SizedBox(height: BeepDimens.padding*3),
-              QrImage(
-                size: 200.0,
-                data: this.qrData,
-                backgroundColor: BeepColors.white,
-              ),
-            ],
+            ),
           ),
-        ),
+          CustomPaint(
+            painter: _TicketBackground(),
+            child: Column(
+              children: <Widget>[
+                SizedBox(width: double.infinity, height: BeepDimens.padding),
+                QrImage(
+                  size: 200.0,
+                  data: this.qrData,
+                  backgroundColor: BeepColors.white,
+                ),
+                BeepSecondaryText(text: this.qrData),
+                SizedBox(width: double.infinity, height: BeepDimens.padding),
+
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -85,7 +99,7 @@ class _TicketBackground extends CustomPainter {
 //      ..style = PaintingStyle.stroke
 //      ..strokeWidth = 4.0;
 
-    size = Size(size.width, size.height / 2);
+//    size = Size(size.width, size.height / 2);
 
     var path = Path();
     double pi = 22 / 7;
@@ -136,62 +150,62 @@ class _TicketBackground extends CustomPainter {
         false);
     path.lineTo(BeepDimens.ticketCornerRadius, 0.0);
 
-    path.arcTo(
-        Rect.fromLTWH(
-          -BeepDimens.ticketCornerRadius,
-          -BeepDimens.ticketCornerRadius + size.height,
-          BeepDimens.ticketCornerRadius * 2,
-          BeepDimens.ticketCornerRadius * 2,
-        ),
-        degToRad(0),
-        degToRad(90),
-        false);
-    path.lineTo(0, size.height * 2 - BeepDimens.ticketCornerRadius);
-    path.arcTo(
-        Rect.fromLTWH(
-          -BeepDimens.ticketCornerRadius,
-          size.height * 2 - BeepDimens.ticketCornerRadius,
-          BeepDimens.ticketCornerRadius * 2,
-          BeepDimens.ticketCornerRadius * 2,
-        ),
-        degToRad(-90),
-        degToRad(90),
-        false);
-    path.lineTo(size.width - BeepDimens.ticketCornerRadius, size.height * 2);
-    path.arcTo(
-        Rect.fromLTWH(
-          size.width - BeepDimens.ticketCornerRadius,
-          size.height * 2 - BeepDimens.ticketCornerRadius,
-          BeepDimens.ticketCornerRadius * 2,
-          BeepDimens.ticketCornerRadius * 2,
-        ),
-        degToRad(180),
-        degToRad(90),
-        false);
-    path.lineTo(size.width, BeepDimens.ticketCornerRadius + size.height);
-    path.arcTo(
-        Rect.fromLTWH(
-          size.width - BeepDimens.ticketCornerRadius,
-          -BeepDimens.ticketCornerRadius + size.height,
-          BeepDimens.ticketCornerRadius * 2,
-          BeepDimens.ticketCornerRadius * 2,
-        ),
-        degToRad(90),
-        degToRad(90),
-        false);
-    path.lineTo(BeepDimens.ticketCornerRadius, 0.0);
+//    path.arcTo(
+//        Rect.fromLTWH(
+//          -BeepDimens.ticketCornerRadius,
+//          -BeepDimens.ticketCornerRadius + size.height,
+//          BeepDimens.ticketCornerRadius * 2,
+//          BeepDimens.ticketCornerRadius * 2,
+//        ),
+//        degToRad(0),
+//        degToRad(90),
+//        false);
+//    path.lineTo(0, size.height * 2 - BeepDimens.ticketCornerRadius);
+//    path.arcTo(
+//        Rect.fromLTWH(
+//          -BeepDimens.ticketCornerRadius,
+//          size.height * 2 - BeepDimens.ticketCornerRadius,
+//          BeepDimens.ticketCornerRadius * 2,
+//          BeepDimens.ticketCornerRadius * 2,
+//        ),
+//        degToRad(-90),
+//        degToRad(90),
+//        false);
+//    path.lineTo(size.width - BeepDimens.ticketCornerRadius, size.height * 2);
+//    path.arcTo(
+//        Rect.fromLTWH(
+//          size.width - BeepDimens.ticketCornerRadius,
+//          size.height * 2 - BeepDimens.ticketCornerRadius,
+//          BeepDimens.ticketCornerRadius * 2,
+//          BeepDimens.ticketCornerRadius * 2,
+//        ),
+//        degToRad(180),
+//        degToRad(90),
+//        false);
+//    path.lineTo(size.width, BeepDimens.ticketCornerRadius + size.height);
+//    path.arcTo(
+//        Rect.fromLTWH(
+//          size.width - BeepDimens.ticketCornerRadius,
+//          -BeepDimens.ticketCornerRadius + size.height,
+//          BeepDimens.ticketCornerRadius * 2,
+//          BeepDimens.ticketCornerRadius * 2,
+//        ),
+//        degToRad(90),
+//        degToRad(90),
+//        false);
+//    path.lineTo(BeepDimens.ticketCornerRadius, 0.0);
 
-    Paint strokePaint = Paint()
+//    Paint strokePaint = Paint()
 //       ..color = BeepColors.white;
-      ..color = BeepColors.cardBackground
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 2.0;
+//      ..color = BeepColors.cardBackground
+//      ..style = PaintingStyle.stroke
+//      ..strokeWidth = 2.0;
 
     canvas.drawPath(path, paint);
-    canvas.drawLine(
-        Offset(BeepDimens.ticketCornerRadius, size.height),
-        Offset(size.width - BeepDimens.ticketCornerRadius, size.height),
-        strokePaint);
+//    canvas.drawLine(
+//        Offset(BeepDimens.ticketCornerRadius, size.height),
+//        Offset(size.width - BeepDimens.ticketCornerRadius, size.height),
+//        strokePaint);
   }
 
   @override
