@@ -18,11 +18,9 @@ class BeepChip extends StatelessWidget {
     return GestureDetector(
       onTap: onSelected,
       child: Chip(
-        label: Text(label),
+        label: BeepCustomText(
+            text: label, size: BeepDimens.textPrimary, color: BeepColors.white),
         backgroundColor: BeepColors.primary,
-        labelStyle: TextStyle(
-          color: BeepColors.white,
-        ),
         onDeleted: onDeleted,
         deleteIconColor: BeepColors.white,
         deleteButtonTooltipMessage: 'Remove this interest',

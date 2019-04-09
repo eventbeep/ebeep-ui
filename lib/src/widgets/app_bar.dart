@@ -27,7 +27,7 @@ class BeepAppBar extends StatelessWidget implements PreferredSizeWidget {
       decoration: new BoxDecoration(
         boxShadow: BeepDimens.lightShadow,
         gradient: new LinearGradient(
-          colors: BeepColors.appBarGradient,
+          colors: BeepGradients.appBarGradient,
           begin: const FractionalOffset(0.0, 0.0),
           end: const FractionalOffset(1.0, 0.0),
           stops: [0.0, 1.0],

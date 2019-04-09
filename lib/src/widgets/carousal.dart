@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class BeepCarouselSlider extends StatefulWidget {
   BeepCarouselSlider({
@@ -268,13 +269,13 @@ class _BeepCarouselSliderState extends State<BeepCarouselSlider>
                   child:
                       SizedBox(height: distortionValue * height, child: child));
             },
-            child: getItemChild(widget.items[index]));
+            child: getItemChild(widget.items[index], context));
       },
     ));
   }
 }
 
-Widget getItemChild(String url) {
+Widget getItemChild(String url, context) {
   return Container(
 //    decoration: BoxDecoration(
 //      boxShadow: [
@@ -289,6 +290,12 @@ Widget getItemChild(String url) {
     child: ClipRRect(
       borderRadius: BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)),
       child: Stack(children: <Widget>[
+//        Image(image: new CachedNetworkImageProvider(url), fit: BoxFit.cover, width: double.infinity),
+//        CachedNetworkImage(
+//          imageUrl: url,
+//          fit: BoxFit.cover,
+//          width: double.infinity,
+//        ),
         Image.network(url, fit: BoxFit.cover, width: double.infinity),
 //        Positioned(
 //          bottom: 0.0,

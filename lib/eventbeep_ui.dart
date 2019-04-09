@@ -17,3 +17,6 @@ export 'src/widgets/otp_view.dart';
 export 'src/widgets/chip.dart';
 export 'src/widgets/indicator.dart';
 export 'src/widgets/loading.dart';
+export 'src/widgets/tag.dart';
+export 'src/widgets/constants.dart';
+export 'src/widgets/gradients.dart';

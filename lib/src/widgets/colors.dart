@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class BeepColors {
@@ -23,11 +21,6 @@ class BeepColors {
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF182C4F);
   static const Color lightGrey = Color(0xFF7F7F7F);
-
-  static const List<Color> appBarGradient = [
-    const Color(0xFF2665FF),
-    const Color(0xFF1F8EFA),
-  ];
 
   static const Color lightShadow = Color(0x2F000000);
   static const Color darkShadow = Color(0x2F000000);

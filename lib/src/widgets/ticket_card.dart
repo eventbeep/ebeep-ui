@@ -40,13 +40,17 @@ class BeepTicketCard extends StatelessWidget {
                 weight: FontWeight.w700,
               ),
               SizedBox(height: BeepDimens.padding),
-              ImageText(Icons.access_time, this.dateTime),
+              imageText(Icons.access_time, this.dateTime),
               SizedBox(height: BeepDimens.padding),
-              ImageText(Icons.location_on, this.location),
+              imageText(Icons.location_on, this.location),
               SizedBox(height: BeepDimens.padding),
-              ImageText(Icons.movie, this.ticketType+' (Rs.${this.ticketAmount} each)'),
+              imageText(Icons.movie,
+                  this.ticketType + ' (Rs.${this.ticketAmount} each)'),
               SizedBox(height: BeepDimens.padding),
-              ImageText(Icons.monetization_on, 'Total (${this.ticketAmount} x ${this.ticketsCount}) is Rs.${this.ticketAmount*this.ticketsCount}'),
+              imageText(Icons.monetization_on,
+                  'Total (${this.ticketAmount} x ${this
+                      .ticketsCount}) is Rs.${this.ticketAmount *
+                      this.ticketsCount}'),
               SizedBox(height: BeepDimens.padding*3),
               QrImage(
                 size: 200.0,
@@ -60,7 +64,7 @@ class BeepTicketCard extends StatelessWidget {
     );
   }
 
-  ImageText(IconData icon, String text) {
+  imageText(IconData icon, String text) {
     return Row(
       children: <Widget>[
         Icon(icon, color: BeepColors.lightGrey),

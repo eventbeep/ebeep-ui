@@ -2,8 +2,9 @@ import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class BeepEventCard extends StatefulWidget {
-  final String title, imageUrl, location, date, day, month;
+//
+class BeepEventCard extends StatelessWidget {
+  final String title, imageUrl, location, date, day, month, category;
   final double height, width;
 
   BeepEventCard({
@@ -14,25 +15,30 @@ class BeepEventCard extends StatefulWidget {
     @required this.date,
     @required this.day,
     @required this.month,
+    this.category,
     this.height = BeepDimens.eventCardHeight,
     this.width = double.infinity,
   }) : super(key: key);
 
   @override
-  _BeepEventCardState createState() => _BeepEventCardState();
-}
-
-//
-class _BeepEventCardState extends State<BeepEventCard> {
-  @override
   Widget build(BuildContext context) {
     return new Container(
 //      height: widget.height,
-      width: widget.width,
+      width: width,
       child: new Stack(
         children: <Widget>[
           eventCard(),
           eventThumbnail(),
+          (category == null)
+              ? Container()
+              : Padding(
+            padding: const EdgeInsets.symmetric(
+                vertical: BeepDimens.padding,
+                horizontal: BeepDimens.padding * 2),
+            child: BeepTag(
+              text: category,
+            ),
+          ),
         ],
       ),
     );
@@ -45,8 +51,8 @@ class _BeepEventCardState extends State<BeepEventCard> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
         child: Image.network(
-          widget.imageUrl,
-          height: widget.height * 0.666,
+          imageUrl,
+          height: height * 0.666,
           width: double.infinity,
           fit: BoxFit.cover,
         ),
@@ -56,14 +62,14 @@ class _BeepEventCardState extends State<BeepEventCard> {
 
   Widget eventCard() {
     return Container(
-      margin: new EdgeInsets.only(top: widget.height * 0.333),
+      margin: new EdgeInsets.only(top: height * 0.333),
       decoration: new BoxDecoration(
           color: BeepColors.white,
           shape: BoxShape.rectangle,
           borderRadius: new BorderRadius.circular(BeepDimens.cornerRadius),
           boxShadow: BeepDimens.lightShadow),
       child: Container(
-        margin: EdgeInsets.only(top: widget.height * 0.333),
+        margin: EdgeInsets.only(top: height * 0.333),
         padding: EdgeInsets.symmetric(
           vertical: BeepDimens.cardMarginVertical,
           horizontal: BeepDimens.cardMarginHorizontal,
@@ -74,9 +80,9 @@ class _BeepEventCardState extends State<BeepEventCard> {
           children: <Widget>[
             Column(
               children: <Widget>[
-                BeepSmallHeading(text: widget.day),
-                BeepPrimaryText(text: widget.date),
-                BeepPrimaryText(text: widget.month),
+                BeepSmallHeading(text: day),
+                BeepPrimaryText(text: date),
+                BeepPrimaryText(text: month),
               ],
             ),
             Expanded(
@@ -85,12 +91,12 @@ class _BeepEventCardState extends State<BeepEventCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     BeepLargeHeading(
-                      text: widget.title,
+                      text: title,
                       align: TextAlign.center,
                       maxLines: 1,
                     ),
                     BeepSmallHeading(
-                      text: widget.location,
+                      text: location,
                       maxLines: 1,
                     ),
                   ],

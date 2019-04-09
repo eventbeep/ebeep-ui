@@ -32,7 +32,6 @@ final List<String> imgList = [
 ];
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final _controller = new PageController();
   final _textController = new TextEditingController();
 
@@ -47,8 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
     new ConstrainedBox(
       constraints: const BoxConstraints.expand(),
-      child: new FlutterLogo(
-          style: FlutterLogoStyle.stacked, colors: Colors.red),
+      child:
+      new FlutterLogo(style: FlutterLogoStyle.stacked, colors: Colors.red),
     ),
     new ConstrainedBox(
       constraints: const BoxConstraints.expand(),
@@ -56,7 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
           style: FlutterLogoStyle.horizontal, colors: Colors.green),
     ),
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -113,6 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: BeepEventCard(
 //                  height: 200.0,
 //                  width: 300.0,
+                  category: 'Adventure',
                   date: '24',
                   day: 'Tue',
                   month: 'Jan',
@@ -123,12 +122,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               SizedBox(height: 24.0),
+              BeepTag(text: BeepConstants.sports),
+              SizedBox(height: 24.0),
 //              BeepOtpView(),
               getChips(),
               SizedBox(height: 24.0),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: BeepDimens.padding),
+                padding:
+                const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepRaisedButton(
                   onPressed: null,
 //                  onPressed: () {
@@ -147,8 +148,8 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 24.0),
 //              QrImage(data: "Saurabh Mangrulkar"),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: BeepDimens.padding),
+                padding:
+                const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepTicketCard(
                   title: 'Regatta',
                   qrData: 'https://meus.cogitare.space',
@@ -226,7 +227,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-
   Widget getChips() {
     return Wrap(
       spacing: 8.0,
@@ -258,4 +258,3 @@ const List<String> _interests = <String>[
   'cash in',
   'eat',
 ];
-
