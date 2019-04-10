@@ -53,6 +53,7 @@ class BeepTicketCard extends StatelessWidget {
                       'Total (${this.ticketAmount} x ${this
                           .ticketsCount}) is Rs.${this.ticketAmount *
                           this.ticketsCount}'),
+                  SizedBox(height: BeepDimens.padding),
                 ],
               ),
             ),
