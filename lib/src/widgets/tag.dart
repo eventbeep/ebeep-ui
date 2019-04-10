@@ -24,7 +24,7 @@ class BeepTag extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: BeepCustomText(
           text: text,
-          size: 14.0,
+          size: BeepDimens.textSecondary,
           color: BeepColors.white,
         ),
       ),

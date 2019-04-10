@@ -18,6 +18,8 @@ class BeepChip extends StatelessWidget {
     return GestureDetector(
       onTap: onSelected,
       child: Chip(
+//        labelPadding: EdgeInsets.all(8),
+        padding: EdgeInsets.all(8),
         label: BeepCustomText(
             text: label, size: BeepDimens.textPrimary, color: BeepColors.white),
         backgroundColor: BeepColors.primary,

@@ -20,4 +20,5 @@ export 'src/widgets/loading.dart';
 export 'src/widgets/tag.dart';
 export 'src/widgets/constants.dart';
 export 'src/widgets/gradients.dart';
-export 'src/widgets/zoom_scaffold.dart';
+
+//export 'src/widgets/zoom_scaffold.dart';

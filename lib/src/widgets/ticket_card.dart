@@ -86,7 +86,7 @@ class BeepTicketCard extends StatelessWidget {
         SizedBox(
           width: BeepDimens.padding,
         ),
-        BeepSecondaryText(text: text),
+        Flexible(child: BeepSecondaryText(text: text)),
       ],
     );
   }

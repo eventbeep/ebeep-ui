@@ -131,25 +131,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding:
                 const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepRaisedButton(
-                  onPressed: null,
-//                  onPressed: () {
-//                    showDialog(
-//                      context: context,
-//                      builder: (BuildContext context) => BeepDialog(
-//                            title: "Success",
-//                            description: "You have success",
-//                            buttonText: "Okay",
-//                          ),
-//                    );
-//                  },
+//                  onPressed: null,
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) =>
+                          BeepDialog(
+                            title: "Success",
+                            description:
+                            "Lorem ipsum dolor sit is a really noce way to have dummy data and I prefer this method. Thanks for opening my dialog!",
+                            buttonText: "Okay",
+                          ),
+                    );
+                  },
                   title: 'Open Dialog',
                 ),
               ),
               SizedBox(height: 24.0),
 //              QrImage(data: "Saurabh Mangrulkar"),
               Padding(
-                padding:
-                const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: BeepDimens.cardMarginHorizontal),
                 child: BeepTicketCard(
                   title: 'Regatta',
                   qrData: 'https://meus.cogitare.space',

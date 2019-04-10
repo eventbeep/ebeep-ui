@@ -35,15 +35,14 @@ class BeepDialog extends StatelessWidget {
             backgroundColor: BeepColors.tertiary,
             radius: BeepDimens.avatarRadius,
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: BeepDimens.padding),
           BeepLargeHeading(
-            text: "Welcome",
+            text: title,
             align: TextAlign.center,
           ),
-          SizedBox(height: 16.0),
-          BeepPrimaryText(
-            text:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          const SizedBox(height: BeepDimens.padding),
+          BeepSecondaryText(
+            text: description,
             align: TextAlign.center,
           ),
           SizedBox(height: 16.0),
@@ -78,13 +77,12 @@ class BeepDialog extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               BeepLargeHeading(
-                text: "Welcome",
+                text: title,
                 align: TextAlign.center,
               ),
               SizedBox(height: 16.0),
-              BeepPrimaryText(
-                text:
-                    "Lorem ipsum dolor sit is a really noce way to have dummy data and I prefer this method. Thanks for opening my dialog!",
+              BeepSecondaryText(
+                text: description,
                 align: TextAlign.center,
               ),
               SizedBox(height: 24.0),
