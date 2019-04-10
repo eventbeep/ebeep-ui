@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 class BeepTicketCard extends StatelessWidget {
   final String title, qrData, dateTime, location, ticketType;
-  final int ticketsCount,ticketAmount;
+  final int ticketsCount, ticketAmount;
 
   BeepTicketCard({
     @required this.title,
@@ -18,64 +18,58 @@ class BeepTicketCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: new BoxDecoration(
-          shape: BoxShape.rectangle,
-          borderRadius: new BorderRadius.circular(BeepDimens.cornerRadius),
-          boxShadow: BeepDimens.lightShadow),
-      child: Column(
-        children: <Widget>[
-          CustomPaint(
-            painter: _TicketBackground(),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: BeepDimens.ticketCornerRadius * 2,
-                  vertical: BeepDimens.ticketCornerRadius),
-              child: Column(
-                children: <Widget>[
-                  BeepCustomText(
-                    text: this.title,
-                    size: 26.0,
-                    color: BeepColors.primary,
-                    align: TextAlign.center,
-                    weight: FontWeight.w700,
-                  ),
-                  SizedBox(height: BeepDimens.padding),
-                  imageText(Icons.access_time, this.dateTime),
-                  SizedBox(height: BeepDimens.padding),
-                  imageText(Icons.location_on, this.location),
-                  SizedBox(height: BeepDimens.padding),
-                  imageText(Icons.movie,
-                      this.ticketType + ' (Rs.${this.ticketAmount} each)'),
-                  SizedBox(height: BeepDimens.padding),
-                  imageText(Icons.monetization_on,
-                      'Total (${this.ticketAmount} x ${this
-                          .ticketsCount}) is Rs.${this.ticketAmount *
-                          this.ticketsCount}'),
-                  SizedBox(height: BeepDimens.padding),
-                ],
-              ),
-            ),
-          ),
-          CustomPaint(
-            painter: _TicketBackground(),
+    return Column(
+      children: <Widget>[
+        CustomPaint(
+          painter: _TicketBackground(),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: BeepDimens.ticketCornerRadius * 2,
+                vertical: BeepDimens.ticketCornerRadius),
             child: Column(
               children: <Widget>[
-                SizedBox(width: double.infinity, height: BeepDimens.padding),
-                QrImage(
-                  size: 200.0,
-                  data: this.qrData,
-                  backgroundColor: BeepColors.white,
+                BeepCustomText(
+                  text: this.title,
+                  size: 26.0,
+                  maxLines: 1,
+                  color: BeepColors.primary,
+                  align: TextAlign.center,
+                  weight: FontWeight.w700,
                 ),
-                BeepSecondaryText(text: this.qrData),
-                SizedBox(width: double.infinity, height: BeepDimens.padding),
-
+                SizedBox(height: BeepDimens.padding),
+                imageText(Icons.access_time, this.dateTime),
+                SizedBox(height: BeepDimens.padding),
+                imageText(Icons.location_on, this.location),
+                SizedBox(height: BeepDimens.padding),
+                imageText(Icons.movie,
+                    this.ticketType + ' (Rs.${this.ticketAmount} each)'),
+                SizedBox(height: BeepDimens.padding),
+                imageText(Icons.monetization_on,
+                    'Total (${this.ticketAmount} x ${this
+                        .ticketsCount}) is Rs.${this.ticketAmount *
+                        this.ticketsCount}'),
+                SizedBox(height: BeepDimens.padding),
               ],
             ),
           ),
-        ],
-      ),
+        ),
+        CustomPaint(
+          painter: _TicketBackground(),
+          child: Column(
+            children: <Widget>[
+              SizedBox(width: double.infinity, height: BeepDimens.padding),
+              QrImage(
+                size: 150.0,
+                data: this.qrData,
+                backgroundColor: BeepColors.white,
+              ),
+              SizedBox(height: BeepDimens.padding),
+              BeepSecondaryText(text: this.qrData),
+              SizedBox(width: double.infinity, height: BeepDimens.padding),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
@@ -86,7 +80,7 @@ class BeepTicketCard extends StatelessWidget {
         SizedBox(
           width: BeepDimens.padding,
         ),
-        Flexible(child: BeepSecondaryText(text: text)),
+        Flexible(child: BeepSecondaryText(text: text, maxLines: 1)),
       ],
     );
   }

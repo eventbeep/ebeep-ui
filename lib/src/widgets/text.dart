@@ -58,10 +58,12 @@ class BeepPrimaryText extends StatelessWidget {
 class BeepSecondaryText extends StatelessWidget {
   final String text;
   final TextAlign align;
+  final int maxLines;
 
   BeepSecondaryText({
     this.text,
     this.align,
+    this.maxLines,
   });
 
   @override
@@ -69,6 +71,7 @@ class BeepSecondaryText extends StatelessWidget {
     return BeepCustomText(
       text: text,
       align: align,
+      maxLines: maxLines,
       size: BeepDimens.textSecondary,
       color: BeepColors.textSecondary,
     );

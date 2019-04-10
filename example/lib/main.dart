@@ -1,3 +1,4 @@
+import 'package:example/timeline/timeline_page.dart';
 import 'package:flutter/material.dart';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 
@@ -9,7 +10,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Poppins'),
-      home: MyHomePage(title: 'Eventbeep UI Example'),
+//      home: MyHomePage(title: 'Eventbeep UI Example'),
+      home: Scaffold(
+        appBar: PreferredSize(
+            child: Container(), preferredSize: Size.fromHeight(32)),
+        body: TimelinePage(),
+      ),
     );
   }
 }
