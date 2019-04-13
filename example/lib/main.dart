@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Poppins'),
-      home: MyHomePage(title: 'Eventbeep UI Example'),
+      home: MyHomePage(title: 'Eventbeep'),
 //      home: Scaffold(
 //        appBar: PreferredSize(
 //            child: Container(), preferredSize: Size.fromHeight(32)),
@@ -91,6 +91,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
+              SizedBox(height: 24.0),
+              Container(padding: EdgeInsets.symmetric(horizontal: 16),
+                  alignment: Alignment.centerLeft,
+                  child: BeepActionBarText('EventbeeP')),
               SizedBox(height: 24.0),
               BeepCarouselSlider(
                 items: imgList,

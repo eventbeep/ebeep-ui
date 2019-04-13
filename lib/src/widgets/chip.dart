@@ -21,7 +21,10 @@ class BeepChip extends StatelessWidget {
 //        labelPadding: EdgeInsets.all(8),
         padding: EdgeInsets.all(8),
         label: BeepCustomText(
-            text: label, size: BeepDimens.textPrimary, color: BeepColors.white),
+          text: label,
+          size: BeepDimens.textPrimary,
+          color: BeepColors.white,
+          fontFamily: 'Quicksand',),
         backgroundColor: BeepColors.primary,
         onDeleted: onDeleted,
         deleteIconColor: BeepColors.white,

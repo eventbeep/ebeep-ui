@@ -93,9 +93,9 @@ class BeepActionBarText extends StatelessWidget {
       text: text,
       align: TextAlign.center,
       size: BeepDimens.textActionBar,
-      color: BeepColors.white,
-      weight: FontWeight.w700,
-      fontFamily: 'Poppins',
+      color: BeepColors.textPrimary,
+      weight: FontWeight.w600,
+      fontFamily: 'Rocksalt',
     );
   }
 }

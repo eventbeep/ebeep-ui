@@ -27,7 +27,7 @@ class BeepCarouselSlider extends StatefulWidget {
         this.enlargeCenterPage = (enlargeCenterPage ) ?? false,
         this.autoPlayAnimationDuration =
             (autoPlayAnimationDuration) ??
-                const Duration(milliseconds: 800),
+                const Duration(milliseconds: 500),
         this.onPageChanged = onPageChanged,
         this.pageController = PageController(
           viewportFraction: viewportFraction,

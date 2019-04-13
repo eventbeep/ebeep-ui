@@ -42,6 +42,9 @@ flutter:
   - family: Quicksand
     fonts:
     - asset: packages/eventbeep_ui/fonts/Quicksand-Medium.ttf
+  - family: Rocksalt
+    fonts:
+    - asset: packages/eventbeep_ui/fonts/RockSalt-Regular.ttf
   - family: Poppins
     fonts:
     - asset: packages/eventbeep_ui/fonts/Poppins-Regular.ttf
