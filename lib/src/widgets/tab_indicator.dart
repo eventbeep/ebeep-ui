@@ -1,5 +1,6 @@
 library flutter_bubble_tab_indicator;
 
+import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -15,7 +16,6 @@ import 'package:flutter/widgets.dart';
 
 class BeepTabIndicator extends Decoration {
   final double indicatorHeight;
-  final Color indicatorColor;
   final double indicatorRadius;
   final EdgeInsetsGeometry padding;
   final EdgeInsetsGeometry insets;
@@ -23,13 +23,11 @@ class BeepTabIndicator extends Decoration {
 
   const BeepTabIndicator({
     this.indicatorHeight: 20.0,
-    this.indicatorColor: Colors.greenAccent,
     this.indicatorRadius: 100.0,
     this.tabBarIndicatorSize = TabBarIndicatorSize.label,
     this.padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 8.0),
     this.insets: const EdgeInsets.symmetric(horizontal: 5.0),
   })  : assert(indicatorHeight != null),
-        assert(indicatorColor != null),
         assert(indicatorRadius != null),
         assert(padding != null),
         assert(insets != null);
@@ -71,7 +69,6 @@ class _BubblePainter extends BoxPainter {
 
   double get indicatorHeight => decoration.indicatorHeight;
 
-  Color get indicatorColor => decoration.indicatorColor;
 
   double get indicatorRadius => decoration.indicatorRadius;
 
@@ -103,14 +100,16 @@ class _BubblePainter extends BoxPainter {
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     assert(configuration != null);
     assert(configuration.size != null);
+    final Gradient gradient = new LinearGradient(
+        colors: BeepGradients.appBarGradient);
     final Rect rect = Offset(
             offset.dx, (configuration.size.height / 2) - indicatorHeight / 2) &
         Size(configuration.size.width, indicatorHeight);
     final TextDirection textDirection = configuration.textDirection;
     final Rect indicator = _indicatorRectFor(rect, textDirection);
     final Paint paint = Paint();
-    paint.color = indicatorColor;
     paint.style = PaintingStyle.fill;
+    paint.shader = gradient.createShader(rect);
     canvas.drawRRect(
         RRect.fromRectAndRadius(indicator, Radius.circular(indicatorRadius)),
         paint);

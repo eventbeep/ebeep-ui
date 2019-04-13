@@ -93,12 +93,11 @@ class _MyHomePageState extends State<MyHomePage>
               SizedBox(height: 24.0),
               TabBar(
                 isScrollable: true,
-                unselectedLabelColor: BeepColors.lightGrey,
+                unselectedLabelColor: BeepColors.textSecondary,
                 labelColor: Colors.white,
                 indicatorSize: TabBarIndicatorSize.tab,
                 indicator: new BeepTabIndicator(
-                  indicatorHeight: 30.0,
-                  indicatorColor: Colors.blueAccent,
+                  indicatorHeight: 36.0,
                   tabBarIndicatorSize: TabBarIndicatorSize.tab,
                 ),
                 tabs: tabs,
