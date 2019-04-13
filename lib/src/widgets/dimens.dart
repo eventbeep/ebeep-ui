@@ -20,16 +20,16 @@ class BeepDimens {
   static const List<BoxShadow> lightShadow = [
     BoxShadow(
       color: BeepColors.lightShadow,
-      blurRadius: 10.0,
-      offset: const Offset(0.0, 10.0),
+      blurRadius: 8.0,
+      offset: const Offset(0.0, 8.0),
     ),
   ];
 
   static const List<BoxShadow> darkShadow = [
     BoxShadow(
       color: BeepColors.darkShadow,
-      blurRadius: 10.0,
-      offset: const Offset(0.0, 10.0),
+      blurRadius: 8.0,
+      offset: const Offset(0.0, 8.0),
     ),
   ];
 

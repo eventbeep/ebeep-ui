@@ -3,13 +3,12 @@ import 'dart:async';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class BeepCarouselSlider extends StatefulWidget {
   BeepCarouselSlider({
     @required this.items,
     this.height,
-    this.aspectRatio: 16 / 9,
+    this.aspectRatio: 2,
     this.viewportFraction: 0.8,
     this.initialPage: 0,
     this.realPage: 10000,
@@ -277,44 +276,14 @@ class _BeepCarouselSliderState extends State<BeepCarouselSlider>
 
 Widget getItemChild(String url, context) {
   return Container(
-//    decoration: BoxDecoration(
-//      boxShadow: [
-//        new BoxShadow(
-//          color: Colors.black12,
-//          blurRadius: 10.0,
-//          offset: new Offset(0.0, 10.0),
-//        ),
-//      ],
-//    ),
-    margin: EdgeInsets.symmetric(horizontal: 8.0),
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
+        boxShadow: BeepDimens.darkShadow
+    ),
+    margin: EdgeInsets.only(left: 8.0, right: 8.0, bottom: BeepDimens.padding),
     child: ClipRRect(
       borderRadius: BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)),
-      child: Stack(children: <Widget>[
-//        Image(image: new CachedNetworkImageProvider(url), fit: BoxFit.cover, width: double.infinity),
-//        CachedNetworkImage(
-//          imageUrl: url,
-//          fit: BoxFit.cover,
-//          width: double.infinity,
-//        ),
-        Image.network(url, fit: BoxFit.cover, width: double.infinity),
-//        Positioned(
-//          bottom: 0.0,
-//          left: 0.0,
-//          right: 0.0,
-//          child: Container(
-//
-//            padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-////            child: Text(
-////              'No index image',
-////              style: TextStyle(
-////                color: Colors.white,
-////                fontSize: 20.0,
-////                fontWeight: FontWeight.bold,
-////              ),
-////            ),
-//          ),
-//        ),
-      ]),
+      child: Image.network(url, fit: BoxFit.cover, width: double.infinity),
     ),
   );
 }
