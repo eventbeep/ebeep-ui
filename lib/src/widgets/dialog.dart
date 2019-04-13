@@ -20,49 +20,16 @@ class BeepDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(BeepDimens.cornerRadius)),
       elevation: 0.0,
-//      child: dialogContent(context),
-      child: dialogCont(context),
+      child: dialogContent(context),
     );
   }
 
-  dialogContent(context) {
-    return Container(
-      padding: const EdgeInsets.all(BeepDimens.padding),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          CircleAvatar(
-            backgroundColor: BeepColors.tertiary,
-            radius: BeepDimens.avatarRadius,
-          ),
-          const SizedBox(height: BeepDimens.padding),
-          BeepLargeHeading(
-            text: title,
-            align: TextAlign.center,
-          ),
-          const SizedBox(height: BeepDimens.padding),
-          BeepSecondaryText(
-            text: description,
-            align: TextAlign.center,
-          ),
-          SizedBox(height: 16.0),
-          BeepRaisedButton(
-            title: buttonText,
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
-  dialogCont(BuildContext context) {
+  dialogContent(BuildContext context) {
     return Stack(
       children: <Widget>[
         Container(
           padding: EdgeInsets.only(
-            top: BeepDimens.avatarRadius + BeepDimens.padding,
+            top: BeepDimens.avatarRadius + BeepDimens.cardMarginVertical,
             bottom: BeepDimens.padding,
             left: BeepDimens.padding,
             right: BeepDimens.padding,
@@ -80,12 +47,12 @@ class BeepDialog extends StatelessWidget {
                 text: title,
                 align: TextAlign.center,
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: BeepDimens.cardMarginVertical),
               BeepSecondaryText(
                 text: description,
                 align: TextAlign.center,
               ),
-              SizedBox(height: 24.0),
+              SizedBox(height: BeepDimens.padding),
               BeepRaisedButton(
                 title: buttonText,
                 onPressed: () {

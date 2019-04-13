@@ -57,6 +57,7 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
           size: 36.0,
           color: BeepColors.textSecondary,
           weight: FontWeight.w900,
+          fontFamily: 'Quicksand',
         ),
 //        child: Text(
 //          widget.count.toString(),
@@ -74,7 +75,9 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
     return Column(
       children: <Widget>[
         BeepPrimaryText(text: widget.title, align: TextAlign.center),
+        SizedBox(height: 4.0),
         BeepSecondaryText(text: widget.description, align: TextAlign.center),
+        SizedBox(height: 4.0),
         BeepSmallHeading(text: 'x \$' + widget.amount.toString()),
       ],
     );
@@ -96,6 +99,7 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
                 size: 26.0,
                 color: BeepColors.primary,
                 weight: FontWeight.w500,
+                fontFamily: 'Quicksand',
               ),
             ),
             onTap: () {},
@@ -105,12 +109,13 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
           child: InkWell(
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 17.0, vertical: 8.0),
+              const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: BeepCustomText(
                 text: '-',
                 size: 26.0,
                 color: BeepColors.primary,
                 weight: FontWeight.w500,
+                fontFamily: 'Poppins',
               ),
             ),
             onTap: () {},

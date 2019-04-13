@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 class BeepDimens {
   BeepDimens._();
 
-  static const double textButtonSize = 20.0;
+  static const double textButtonSize = 18.0;
   static const double textPrimary = 16.0;
   static const double textSecondary = 14.0;
   static const double textLargeHeading = 26.0;
@@ -38,7 +38,7 @@ class BeepDimens {
 
   static const double eventCardHeight = 300.0;
   static const double eventCardImageHeight = 200.0;
-  static const double cardMarginVertical = 16.0;
+  static const double cardMarginVertical = 12.0;
   static const double cardMarginHorizontal = 24.0;
 
   static const double avatarRadius = 66.0;

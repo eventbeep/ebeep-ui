@@ -34,7 +34,8 @@ class BeepTicketCard extends StatelessWidget {
                   maxLines: 1,
                   color: BeepColors.primary,
                   align: TextAlign.center,
-                  weight: FontWeight.w700,
+                  fontFamily: 'Poppins',
+                  weight: FontWeight.w600,
                 ),
                 SizedBox(height: BeepDimens.padding),
                 imageText(Icons.access_time, this.dateTime),
@@ -59,7 +60,7 @@ class BeepTicketCard extends StatelessWidget {
             children: <Widget>[
               SizedBox(width: double.infinity, height: BeepDimens.padding),
               QrImage(
-                size: 150.0,
+                size: 130.0,
                 data: this.qrData,
                 backgroundColor: BeepColors.white,
               ),

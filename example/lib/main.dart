@@ -10,12 +10,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Poppins'),
-//      home: MyHomePage(title: 'Eventbeep UI Example'),
-      home: Scaffold(
-        appBar: PreferredSize(
-            child: Container(), preferredSize: Size.fromHeight(32)),
-        body: TimelinePage(),
-      ),
+      home: MyHomePage(title: 'Eventbeep UI Example'),
+//      home: Scaffold(
+//        appBar: PreferredSize(
+//            child: Container(), preferredSize: Size.fromHeight(32)),
+//        body: TimelinePage(),
+//      ),
     );
   }
 }
@@ -122,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   day: 'Tue',
                   month: 'Jan',
                   title: 'Event Name',
-                  location: 'COEP Auditorium',
+                  location: 'COEP Auditorium, Pune, India',
                   imageUrl:
                   'https://cdn2us.denofgeek.com/sites/denofgeekus/files/styles/main_wide/public/2018/04/rick_and_morty_season_4_dan_harmon.jpg',
                 ),
@@ -216,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepTicketTypeCard(
                     title: 'Golden Ticket',
-                    description: 'This is a gold ticket idiot1231234567890',
+                    description: 'This is a gold ticket idiot12312345678901231232',
                     amount: 100),
               ),
               SizedBox(height: 24.0),

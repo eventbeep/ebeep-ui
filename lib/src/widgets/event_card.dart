@@ -80,27 +80,46 @@ class BeepEventCard extends StatelessWidget {
           children: <Widget>[
             Column(
               children: <Widget>[
-                BeepSmallHeading(text: day),
-                BeepPrimaryText(text: date),
-                BeepPrimaryText(text: month),
+                BeepCustomText(text: day,
+                    size: BeepDimens.textPrimary,
+                    fontFamily: 'Quicksand',
+                    color: BeepColors.primary),
+                BeepCustomText(text: date,
+                    size: BeepDimens.textSmallHeading,
+                    fontFamily: 'Quicksand',
+                    color: BeepColors.textPrimary),
+                BeepCustomText(text: month,
+                    size: BeepDimens.textSecondary,
+                    fontFamily: 'Quicksand'),
               ],
             ),
+            SizedBox(width: BeepDimens.padding),
             Expanded(
-              child: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    BeepLargeHeading(
-                      text: title,
-                      align: TextAlign.center,
-                      maxLines: 1,
-                    ),
-                    BeepSmallHeading(
-                      text: location,
-                      maxLines: 1,
-                    ),
-                  ],
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  BeepCustomText(text: title,
+                    maxLines: 1,
+                    size: 20,
+                    fontFamily: 'Poppins',
+                    color: BeepColors.textPrimary,),
+                  Row(
+                    children: <Widget>[
+                      Icon(Icons.location_on, size: BeepDimens.textPrimary,
+                          color: BeepColors.lightGrey),
+                      SizedBox(width: 4),
+                      Flexible(child: BeepCustomText(text: location,
+                        maxLines: 1,
+                        size: BeepDimens.textPrimary,
+                        fontFamily: 'Quicksand',)),
+                    ],
+                  ),
+                  SizedBox(height: 4),
+                  BeepCustomText(text: '% Students Offer available',
+                      fontFamily: 'Quicksand',
+                      size: BeepDimens.textSecondary,
+                      color: BeepColors.success),
+                ],
               ),
             ),
           ],
