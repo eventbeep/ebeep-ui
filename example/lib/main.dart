@@ -38,7 +38,8 @@ final List<String> imgList = [
 //  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   final _controller = new PageController();
   final _textController = new TextEditingController();
 
@@ -63,27 +64,24 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
   ];
 
+  TabController _tabController;
+
+  final List<Tab> tabs = <Tab>[
+    new Tab(text: "Featured"),
+    new Tab(text: "Popular"),
+    new Tab(text: "Latest")
+  ];
+
+  @override
+  void initState() {
+    _tabController = new TabController(vsync: this, length: tabs.length);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     _textController.text = '8220223398';
     return Scaffold(
-      appBar: BeepAppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: BeepColors.white,
-          ),
-          onPressed: () {},
-        ),
-        title: widget.title,
-        trailing: IconButton(
-          icon: Icon(
-            Icons.search,
-            color: BeepColors.white,
-          ),
-          onPressed: () {},
-        ),
-      ),
       floatingActionButton:
       BeepFloatingButton(icon: Icon(Icons.home), onPressed: () {}),
       body: Container(
@@ -92,10 +90,26 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: <Widget>[
               SizedBox(height: 24.0),
+              SizedBox(height: 24.0),
+              TabBar(
+                isScrollable: true,
+                unselectedLabelColor: BeepColors.lightGrey,
+                labelColor: Colors.white,
+                indicatorSize: TabBarIndicatorSize.tab,
+                indicator: new BeepTabIndicator(
+                  indicatorHeight: 30.0,
+                  indicatorColor: Colors.blueAccent,
+                  tabBarIndicatorSize: TabBarIndicatorSize.tab,
+                ),
+                tabs: tabs,
+                controller: _tabController,
+              ),
+              SizedBox(height: 24.0),
               Container(padding: EdgeInsets.symmetric(horizontal: 16),
                   alignment: Alignment.centerLeft,
                   child: BeepActionBarText('EventbeeP')),
-              SizedBox(height: 24.0),
+              SizedBox(
+                  height: 24.0),
               BeepCarouselSlider(
                 items: imgList,
                 autoPlay: false,
