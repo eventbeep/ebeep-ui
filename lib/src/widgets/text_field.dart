@@ -2,17 +2,6 @@ import 'package:eventbeep_ui/src/widgets/utils.dart';
 import 'package:flutter/material.dart';
 
 class BeepTextField extends StatelessWidget {
-  final TextCapitalization textCapitalization;
-  final String labelText;
-  final bool isPassword;
-  final TextInputType textInputType;
-  final Function onChanged;
-  final String errorText;
-  final int maxLength;
-  final TextEditingController controller;
-  final Function onTap;
-  final bool getKeyboard;
-
   const BeepTextField({
     Key key,
     this.textCapitalization = TextCapitalization.none,
@@ -27,6 +16,17 @@ class BeepTextField extends StatelessWidget {
     this.getKeyboard = true,
   }) : super(key: key);
 
+  final TextCapitalization textCapitalization;
+  final String labelText;
+  final bool isPassword;
+  final TextInputType textInputType;
+  final Function onChanged;
+  final String errorText;
+  final int maxLength;
+  final TextEditingController controller;
+  final Function onTap;
+  final bool getKeyboard;
+
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -40,8 +40,8 @@ class BeepTextField extends StatelessWidget {
       obscureText: isPassword,
       maxLength: maxLength,
       buildCounter: (BuildContext context,
-          {int currentLength, int maxLength, bool isFocused}) =>
-      null,
+              {int currentLength, int maxLength, bool isFocused}) =>
+          null,
       decoration: InputDecoration(
         labelText: labelText,
         border: OutlineInputBorder(),

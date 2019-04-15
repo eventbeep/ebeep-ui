@@ -3,34 +3,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class BeepAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
-  final Widget leading, trailing;
-  final double barHeight = BeepDimens.appBarHeight;
-
-  @override
-  final Size preferredSize;
-
-  BeepAppBar({
+  const BeepAppBar({
     Key key,
     @required this.title,
     this.leading = BeepDimens.dummyBox,
     this.trailing = BeepDimens.dummyBox,
-  })  : preferredSize = Size.fromHeight(BeepDimens.appBarHeight),
-        super(key: key);
+    this.barHeight = BeepDimens.appBarHeight,
+    this.preferredSize = const Size.fromHeight(BeepDimens.appBarHeight),
+  }) : super(key: key);
+
+  final String title;
+  final Widget leading, trailing;
+  final double barHeight;
+
+  @override
+  final Size preferredSize;
 
   @override
   Widget build(BuildContext context) {
     final double statusBarHeight = MediaQuery.of(context).padding.top;
-    return new Container(
-      padding: new EdgeInsets.only(top: statusBarHeight, left: 8.0, right: 8.0),
+    return Container(
+      padding: EdgeInsets.only(top: statusBarHeight, left: 8.0, right: 8.0),
       height: barHeight + statusBarHeight,
-      decoration: new BoxDecoration(
+      decoration: BoxDecoration(
         boxShadow: BeepDimens.lightShadow,
-        gradient: new LinearGradient(
+        gradient: const LinearGradient(
           colors: BeepGradients.appBarGradient,
-          begin: const FractionalOffset(0.0, 0.0),
-          end: const FractionalOffset(1.0, 0.0),
-          stops: [0.0, 1.0],
+          begin: FractionalOffset(0.0, 0.0),
+          end: FractionalOffset(1.0, 0.0),
+          stops: <double>[0.0, 1.0],
           tileMode: TileMode.clamp,
         ),
       ),

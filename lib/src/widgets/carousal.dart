@@ -8,28 +8,24 @@ class BeepCarouselSlider extends StatefulWidget {
   BeepCarouselSlider({
     @required this.items,
     this.height,
-    this.aspectRatio: 2,
-    this.viewportFraction: 0.8,
-    this.initialPage: 0,
-    this.realPage: 10000,
-    this.reverse: false,
-    this.autoPlay: false,
+    this.aspectRatio = 2,
+    this.viewportFraction = 0.8,
+    this.initialPage = 0,
+    this.realPage = 10000,
+    this.reverse = false,
+    this.autoPlay = false,
     Duration autoPlayInterval,
     Duration autoPlayAnimationDuration,
-    this.autoPlayCurve: Curves.fastOutSlowIn,
+    this.autoPlayCurve = Curves.fastOutSlowIn,
     this.pauseAutoPlayOnTouch,
     bool enlargeCenterPage,
-    Function onPageChanged,
-    this.scrollDirection: Axis.horizontal,
-  })  :
-        this.autoPlayInterval =
-            (autoPlayInterval ) ?? const Duration(seconds: 4),
-        this.enlargeCenterPage = (enlargeCenterPage ) ?? false,
-        this.autoPlayAnimationDuration =
-            (autoPlayAnimationDuration) ??
-                const Duration(milliseconds: 500),
-        this.onPageChanged = onPageChanged,
-        this.pageController = PageController(
+    this.onPageChanged,
+    this.scrollDirection = Axis.horizontal,
+  })  : autoPlayInterval = autoPlayInterval ?? const Duration(seconds: 4),
+        enlargeCenterPage = enlargeCenterPage ?? false,
+        autoPlayAnimationDuration =
+            autoPlayAnimationDuration ?? const Duration(milliseconds: 500),
+        pageController = PageController(
           viewportFraction: viewportFraction,
           initialPage: realPage + initialPage,
         );
@@ -152,7 +148,7 @@ class BeepCarouselSlider extends StatefulWidget {
   /// Jumps the page position from its current value to the given value,
   /// without animation, and without checking if the new value is in range.
   void jumpToPage(int page) {
-    final index =
+    final int index =
         _getRealIndex(pageController.page.toInt(), realPage, items.length);
     return pageController
         .jumpToPage(pageController.page.toInt() + page - index);
@@ -163,7 +159,7 @@ class BeepCarouselSlider extends StatefulWidget {
   /// The animation lasts for the given duration and follows the given curve.
   /// The returned [Future] resolves when the animation completes.
   Future<void> animateToPage(int page, {Duration duration, Curve curve}) {
-    final index =
+    final int index =
         _getRealIndex(pageController.page.toInt(), realPage, items.length);
     return pageController.animateToPage(
         pageController.page.toInt() + page - index,
@@ -235,7 +231,9 @@ class _BeepCarouselSliderState extends State<BeepCarouselSlider>
       onPageChanged: (int index) {
         currentPage =
             _getRealIndex(index, widget.realPage, widget.items.length);
-        if (widget.onPageChanged != null) widget.onPageChanged(currentPage);
+        if (widget.onPageChanged != null) {
+          widget.onPageChanged(currentPage);
+        }
       },
       controller: widget.pageController,
       reverse: widget.reverse,
@@ -245,12 +243,12 @@ class _BeepCarouselSliderState extends State<BeepCarouselSlider>
 
         return AnimatedBuilder(
             animation: widget.pageController,
-            builder: (BuildContext context, child) {
+            builder: (BuildContext context, Widget child) {
               // on the first render, the pageController.page is null,
               // this is a dirty hack
               if (widget.pageController.position.minScrollExtent == null ||
                   widget.pageController.position.maxScrollExtent == null) {
-                Future.delayed(Duration(microseconds: 1), () {
+                Future<void>.delayed(const Duration(microseconds: 1), () {
                   setState(() {});
                 });
                 return Container();
@@ -274,15 +272,16 @@ class _BeepCarouselSliderState extends State<BeepCarouselSlider>
   }
 }
 
-Widget getItemChild(String url, context) {
+Widget getItemChild(String url, BuildContext context) {
   return Container(
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-        boxShadow: BeepDimens.darkShadow
-    ),
-    margin: EdgeInsets.only(left: 8.0, right: 8.0, bottom: BeepDimens.padding),
+        boxShadow: BeepDimens.darkShadow),
+    margin: const EdgeInsets.only(
+        left: 8.0, right: 8.0, bottom: BeepDimens.padding),
     child: ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)),
+      borderRadius:
+          const BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)),
       child: Image.network(url, fit: BoxFit.cover, width: double.infinity),
     ),
   );

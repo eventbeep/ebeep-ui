@@ -4,10 +4,7 @@ import 'package:flutter/widgets.dart';
 
 //
 class BeepEventCard extends StatelessWidget {
-  final String title, imageUrl, location, date, day, month, category;
-  final double height, width;
-
-  BeepEventCard({
+  const BeepEventCard({
     Key key,
     @required this.title,
     @required this.imageUrl,
@@ -20,25 +17,28 @@ class BeepEventCard extends StatelessWidget {
     this.width = double.infinity,
   }) : super(key: key);
 
+  final String title, imageUrl, location, date, day, month, category;
+  final double height, width;
+
   @override
   Widget build(BuildContext context) {
-    return new Container(
+    return Container(
 //      height: widget.height,
       width: width,
-      child: new Stack(
+      child: Stack(
         children: <Widget>[
           eventCard(),
           eventThumbnail(),
           (category == null)
               ? Container()
               : Padding(
-            padding: const EdgeInsets.symmetric(
-                vertical: BeepDimens.padding,
-                horizontal: BeepDimens.padding * 2),
-            child: BeepTag(
-              text: category,
-            ),
-          ),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: BeepDimens.padding,
+                      horizontal: BeepDimens.padding * 2),
+                  child: BeepTag(
+                    text: category,
+                  ),
+                ),
         ],
       ),
     );
@@ -62,15 +62,15 @@ class BeepEventCard extends StatelessWidget {
 
   Widget eventCard() {
     return Container(
-      margin: new EdgeInsets.only(top: height * 0.333),
-      decoration: new BoxDecoration(
+      margin: EdgeInsets.only(top: height * 0.333),
+      decoration: BoxDecoration(
           color: BeepColors.white,
           shape: BoxShape.rectangle,
-          borderRadius: new BorderRadius.circular(BeepDimens.cornerRadius),
+          borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
           boxShadow: BeepDimens.lightShadow),
       child: Container(
         margin: EdgeInsets.only(top: height * 0.333),
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           vertical: BeepDimens.cardMarginVertical,
           horizontal: BeepDimens.cardMarginHorizontal,
         ),
@@ -80,42 +80,52 @@ class BeepEventCard extends StatelessWidget {
           children: <Widget>[
             Column(
               children: <Widget>[
-                BeepCustomText(text: day,
+                BeepCustomText(
+                    text: day,
                     size: BeepDimens.textPrimary,
                     fontFamily: 'Quicksand',
                     color: BeepColors.primary),
-                BeepCustomText(text: date,
+                BeepCustomText(
+                    text: date,
                     size: BeepDimens.textSmallHeading,
                     fontFamily: 'Quicksand',
                     color: BeepColors.textPrimary),
-                BeepCustomText(text: month,
+                BeepCustomText(
+                    text: month,
                     size: BeepDimens.textSecondary,
                     fontFamily: 'Quicksand'),
               ],
             ),
-            SizedBox(width: BeepDimens.padding),
+            const SizedBox(width: BeepDimens.padding),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  BeepCustomText(text: title,
+                  BeepCustomText(
+                    text: title,
                     maxLines: 1,
                     size: 20,
                     fontFamily: 'Poppins',
-                    color: BeepColors.textPrimary,),
+                    color: BeepColors.textPrimary,
+                  ),
                   Row(
                     children: <Widget>[
-                      Icon(Icons.location_on, size: BeepDimens.textPrimary,
+                      const Icon(Icons.location_on,
+                          size: BeepDimens.textPrimary,
                           color: BeepColors.lightGrey),
-                      SizedBox(width: 4),
-                      Flexible(child: BeepCustomText(text: location,
+                      const SizedBox(width: 4),
+                      Flexible(
+                          child: BeepCustomText(
+                        text: location,
                         maxLines: 1,
                         size: BeepDimens.textPrimary,
-                        fontFamily: 'Quicksand',)),
+                        fontFamily: 'Quicksand',
+                      )),
                     ],
                   ),
-                  SizedBox(height: 4),
-                  BeepCustomText(text: '% Students Offer available',
+                  const SizedBox(height: 4),
+                  BeepCustomText(
+                      text: '% Students Offer available',
                       fontFamily: 'Quicksand',
                       size: BeepDimens.textSecondary,
                       color: BeepColors.success),

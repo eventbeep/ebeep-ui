@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class BeepDialog extends StatelessWidget {
-  final String title, description, buttonText;
-  final Image image;
-
-  BeepDialog({
+  const BeepDialog({
     @required this.title,
     @required this.description,
     @required this.buttonText,
     this.image,
   });
+
+  final String title, description, buttonText;
+  final Image image;
 
   @override
   Widget build(BuildContext context) {
@@ -24,21 +24,21 @@ class BeepDialog extends StatelessWidget {
     );
   }
 
-  dialogContent(BuildContext context) {
+  Widget dialogContent(BuildContext context) {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: BeepDimens.avatarRadius + BeepDimens.cardMarginVertical,
             bottom: BeepDimens.padding,
             left: BeepDimens.padding,
             right: BeepDimens.padding,
           ),
-          margin: EdgeInsets.only(top: BeepDimens.avatarRadius),
-          decoration: new BoxDecoration(
+          margin: const EdgeInsets.only(top: BeepDimens.avatarRadius),
+          decoration: BoxDecoration(
               color: BeepColors.white,
               shape: BoxShape.rectangle,
-              borderRadius: new BorderRadius.circular(BeepDimens.cornerRadius),
+              borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
               boxShadow: BeepDimens.lightShadow),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -47,12 +47,12 @@ class BeepDialog extends StatelessWidget {
                 text: title,
                 align: TextAlign.center,
               ),
-              SizedBox(height: BeepDimens.cardMarginVertical),
+              const SizedBox(height: BeepDimens.cardMarginVertical),
               BeepSecondaryText(
                 text: description,
                 align: TextAlign.center,
               ),
-              SizedBox(height: BeepDimens.padding),
+              const SizedBox(height: BeepDimens.padding),
               BeepRaisedButton(
                 title: buttonText,
                 onPressed: () {
@@ -62,7 +62,7 @@ class BeepDialog extends StatelessWidget {
             ],
           ),
         ),
-        Positioned(
+        const Positioned(
           left: BeepDimens.padding,
           right: BeepDimens.padding,
           child: CircleAvatar(

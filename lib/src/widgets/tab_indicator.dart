@@ -15,12 +15,6 @@ import 'package:flutter/widgets.dart';
 /// The selected tab bubble is applied padding by [padding] when [tabBarIndicatorSize] is label.
 
 class BeepTabIndicator extends Decoration {
-  final double indicatorHeight;
-  final double indicatorRadius;
-  final EdgeInsetsGeometry padding;
-  final EdgeInsetsGeometry insets;
-  final TabBarIndicatorSize tabBarIndicatorSize;
-
   const BeepTabIndicator({
     this.indicatorHeight: 20.0,
     this.indicatorRadius: 100.0,
@@ -32,10 +26,17 @@ class BeepTabIndicator extends Decoration {
         assert(padding != null),
         assert(insets != null);
 
+  final double indicatorHeight;
+  final double indicatorRadius;
+  @override
+  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry insets;
+  final TabBarIndicatorSize tabBarIndicatorSize;
+
   @override
   Decoration lerpFrom(Decoration a, double t) {
     if (a is BeepTabIndicator) {
-      return new BeepTabIndicator(
+      return BeepTabIndicator(
         padding: EdgeInsetsGeometry.lerp(a.padding, padding, t),
         insets: EdgeInsetsGeometry.lerp(a.insets, insets, t),
       );
@@ -46,7 +47,7 @@ class BeepTabIndicator extends Decoration {
   @override
   Decoration lerpTo(Decoration b, double t) {
     if (b is BeepTabIndicator) {
-      return new BeepTabIndicator(
+      return BeepTabIndicator(
         padding: EdgeInsetsGeometry.lerp(padding, b.padding, t),
         insets: EdgeInsetsGeometry.lerp(insets, b.insets, t),
       );
@@ -56,7 +57,7 @@ class BeepTabIndicator extends Decoration {
 
   @override
   _BubblePainter createBoxPainter([VoidCallback onChanged]) {
-    return new _BubblePainter(this, onChanged);
+    return _BubblePainter(this, onChanged);
   }
 }
 
@@ -68,7 +69,6 @@ class _BubblePainter extends BoxPainter {
   final BeepTabIndicator decoration;
 
   double get indicatorHeight => decoration.indicatorHeight;
-
 
   double get indicatorRadius => decoration.indicatorRadius;
 
@@ -88,7 +88,7 @@ class _BubblePainter extends BoxPainter {
       indicator = insets.resolve(textDirection).deflateRect(rect);
     }
 
-    return new Rect.fromLTWH(
+    return Rect.fromLTWH(
       indicator.left,
       indicator.top,
       indicator.width,
@@ -100,8 +100,8 @@ class _BubblePainter extends BoxPainter {
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     assert(configuration != null);
     assert(configuration.size != null);
-    final Gradient gradient = new LinearGradient(
-        colors: BeepGradients.appBarGradient);
+    final Gradient gradient =
+        LinearGradient(colors: BeepGradients.appBarGradient);
     final Rect rect = Offset(
             offset.dx, (configuration.size.height / 2) - indicatorHeight / 2) &
         Size(configuration.size.width, indicatorHeight);

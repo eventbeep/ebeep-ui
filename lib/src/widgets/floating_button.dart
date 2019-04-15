@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class BeepFloatingButton extends StatelessWidget {
-  BeepFloatingButton({
+  const BeepFloatingButton({
     @required this.icon,
     @required this.onPressed,
     this.increaseHeightBy = 30.0,
@@ -39,18 +39,12 @@ class BeepFloatingButton extends StatelessWidget {
         height: buttonTheme.height + increaseHeightBy,
         width: buttonTheme.minWidth + increaseWidthBy,
         decoration: BoxDecoration(
-          gradient: new LinearGradient(
+          gradient: LinearGradient(
             colors: BeepGradients.appBarGradient,
-            begin: const FractionalOffset(0.0, 0.0),
-            end: const FractionalOffset(1.0, 0.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp,
           ),
         ),
         child: Center(child: icon),
       ),
-//      child: gradientContainer(
-//          context, gradient, increaseHeightBy, increaseWidthBy, child),
     );
   }
 }

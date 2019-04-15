@@ -2,10 +2,6 @@ import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 
 class BeepChip extends StatelessWidget {
-  final String label;
-  final Function onDeleted;
-  final Function onSelected;
-
   const BeepChip({
     Key key,
     @required this.label,
@@ -13,18 +9,22 @@ class BeepChip extends StatelessWidget {
     this.onSelected,
   }) : super(key: key);
 
+  final String label;
+  final Function onDeleted;
+  final Function onSelected;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onSelected,
       child: Chip(
-//        labelPadding: EdgeInsets.all(8),
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         label: BeepCustomText(
           text: label,
           size: BeepDimens.textPrimary,
           color: BeepColors.white,
-          fontFamily: 'Quicksand',),
+          fontFamily: 'Quicksand',
+        ),
         backgroundColor: BeepColors.primary,
         onDeleted: onDeleted,
         deleteIconColor: BeepColors.white,

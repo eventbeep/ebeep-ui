@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="516f242e-8adc-49fb-b5a0-98685b5bbd1b" name="Default Changelist" comment="Added TabIndicator">
+    <list default="true" id="516f242e-8adc-49fb-b5a0-98685b5bbd1b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/src/widgets/feed_card.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/widgets/news_card.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/widgets/tab_indicator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/widgets/tab_indicator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/eventbeep_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/eventbeep_ui.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/widgets/chip.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/widgets/chip.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/widgets/floating_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/widgets/floating_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/widgets/raised_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/widgets/raised_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/widgets/text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/widgets/text.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/widgets/ticket_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/widgets/ticket_card.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -20,7 +27,7 @@
     <session id="1135418185">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="25" />
+          <entry key="project.closed" value="26" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="1" />
@@ -36,13 +43,13 @@
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="29" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.opened" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="dart" value="187" />
+          <entry key="dart" value="196" />
           <entry key="iml" value="1" />
           <entry key="png" value="1" />
           <entry key="properties" value="9" />
@@ -53,7 +60,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Dart" value="187" />
+          <entry key="Dart" value="196" />
           <entry key="IDEA_MODULE" value="1" />
           <entry key="Image" value="1" />
           <entry key="Properties" value="9" />
@@ -64,17 +71,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dart" value="93484" />
+          <entry key="dart" value="104343" />
           <entry key="properties" value="1" />
           <entry key="svg" value="129" />
-          <entry key="txt" value="378" />
+          <entry key="txt" value="412" />
           <entry key="yaml" value="1706" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Dart" value="93484" />
-          <entry key="PLAIN_TEXT" value="378" />
+          <entry key="Dart" value="104343" />
+          <entry key="PLAIN_TEXT" value="412" />
           <entry key="Properties" value="1" />
           <entry key="SVG" value="129" />
           <entry key="YAML" value="1706" />
@@ -87,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="93" column="20" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="20" />
+            <state relative-caret-position="336">
+              <caret line="128" column="36" selection-start-line="128" selection-start-column="36" selection-end-line="128" selection-end-column="36" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -97,28 +104,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Softwares/flutter/packages/flutter/lib/src/material/tabs.dart">
+        <entry file="file://$PROJECT_DIR$/lib/src/widgets/raised_button.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-749">
-              <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/eventbeep_ui.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/src/widgets/chip.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="288">
+              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -127,10 +116,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/src/widgets/gradients.dart">
+        <entry file="file://$PROJECT_DIR$/lib/src/widgets/floating_button.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/eventbeep_ui.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/src/widgets/chip.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="336">
-              <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,8 +151,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/widgets/dimens.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            <state relative-caret-position="381">
+              <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -150,38 +163,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/widgets/text.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="96" column="29" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="29" />
+            <state relative-caret-position="240">
+              <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
+        <entry file="file://$PROJECT_DIR$/lib/src/widgets/ticket_card.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+            <state relative-caret-position="160">
+              <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/src/widgets/tab_indicator.dart">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/src/widgets/news_card.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="110" column="46" selection-start-line="110" selection-start-column="46" selection-end-line="110" selection-end-column="46" />
+            <state relative-caret-position="192">
+              <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
               <folding>
-                <element signature="e#39#87#0" expanded="true" />
+                <element signature="e#0#48#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Softwares/flutter/packages/flutter/lib/src/painting/decoration.dart">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/src/widgets/feed_card.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+            <state relative-caret-position="192">
+              <caret line="88" column="30" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -211,6 +227,7 @@
       <find>widget.</find>
       <find>BubbleTabIndicator</find>
       <find>bubble</find>
+      <find>appBarGradien</find>
     </findStrings>
     <replaceStrings>
       <replace>BeepOtpView</replace>
@@ -242,8 +259,6 @@
         <option value="$PROJECT_DIR$/lib/src/widgets/text_field.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$USER_HOME$/Softwares/flutter/packages/flutter/lib/src/widgets/text.dart" />
-        <option value="$PROJECT_DIR$/lib/src/widgets/raised_button.dart" />
-        <option value="$PROJECT_DIR$/lib/src/widgets/floating_button.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/app_bar.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/constants.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/gradients.dart" />
@@ -254,16 +269,20 @@
         <option value="$PROJECT_DIR$/lib/src/widgets/ticket_type_card.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/event_card.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/dialog.dart" />
-        <option value="$PROJECT_DIR$/lib/src/widgets/ticket_card.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/colors.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/dimens.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/carousal.dart" />
-        <option value="$PROJECT_DIR$/lib/src/widgets/chip.dart" />
         <option value="$PROJECT_DIR$/example/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/src/widgets/text.dart" />
-        <option value="$PROJECT_DIR$/lib/eventbeep_ui.dart" />
         <option value="$PROJECT_DIR$/lib/src/widgets/tab_indicator.dart" />
+        <option value="$PROJECT_DIR$/lib/src/widgets/raised_button.dart" />
+        <option value="$PROJECT_DIR$/lib/src/widgets/floating_button.dart" />
+        <option value="$PROJECT_DIR$/lib/src/widgets/ticket_card.dart" />
+        <option value="$PROJECT_DIR$/lib/src/widgets/chip.dart" />
+        <option value="$PROJECT_DIR$/lib/eventbeep_ui.dart" />
         <option value="$PROJECT_DIR$/example/lib/main.dart" />
+        <option value="$PROJECT_DIR$/lib/src/widgets/text.dart" />
+        <option value="$PROJECT_DIR$/lib/src/widgets/feed_card.dart" />
+        <option value="$PROJECT_DIR$/lib/src/widgets/news_card.dart" />
       </list>
     </option>
   </component>
@@ -312,13 +331,13 @@
         </subPane>
         <option name="show-excluded-files" value="false" />
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="tex&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/text.dart&#10;chip&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/chip.dart&#10;main&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/example/lib/main.dart&#10;dim&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dimens.dart&#10;car&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/carousal.dart&#10;gra&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/gradients.dart&#10;event&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;carou&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/carousal.dart&#10;ticket&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/ticket_card.dart&#10;dialo&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dialog.dart&#10;rais&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/raised_button.dart&#10;ticke&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/ticket_type_card.dart&#10;dial&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dialog.dart&#10;chi&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/chip.dart&#10;tag&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/tag.dart&#10;BeepGra&#9;null&#9;null&#10;dimens&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dimens.dart&#10;Event&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/eventbeep_ui.dart&#10;floa&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/floating_button.dart&#10;app&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/app_bar.dart&#10;eventC&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;text&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/text_field.dart&#10;carous&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/carousal.dart&#10;floating&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/floating_button.dart&#10;Text&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/text_field.dart&#10;button&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/raised_button.dart&#10;Dialog&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dialog.dart&#10;eve&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;Dime&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dimens.dart&#10;BeepC&#9;null&#9;null&#10;card&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;beepdim&#9;null&#9;null&#10;beep&#9;null&#9;null&#10;pub&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/pubspec.yaml&#10;tick&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/ticket_type_card.dart&#10;Car&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;Dimen&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dimens.dart&#10;rai&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/raised_button.dart&#10;te&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/text.dart&#10;Card&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;Eve&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;dime&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dimens.dart&#10;colors&#9;null&#9;null&#10;color&#9;FILE&#9;file:///home/venkatesh/Softwares/flutter/packages/flutter/lib/src/material/colors.dart&#10;Rais&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/raised_button.dart" />
+    <property name="SearchEverywhereHistoryKey" value="news&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/news_card.dart&#10;main&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/example/lib/main.dart&#10;Ch&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/chip.dart&#10;ticke&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/ticket_card.dart&#10;ui&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/eventbeep_ui.dart&#10;raised&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/raised_button.dart&#10;tex&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/text.dart&#10;chip&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/chip.dart&#10;dim&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dimens.dart&#10;car&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/carousal.dart&#10;gra&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/gradients.dart&#10;event&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;carou&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/carousal.dart&#10;ticket&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/ticket_card.dart&#10;dialo&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dialog.dart&#10;rais&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/raised_button.dart&#10;dial&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dialog.dart&#10;chi&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/chip.dart&#10;tag&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/tag.dart&#10;BeepGra&#9;null&#9;null&#10;dimens&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dimens.dart&#10;Event&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/eventbeep_ui.dart&#10;floa&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/floating_button.dart&#10;app&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/app_bar.dart&#10;eventC&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;text&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/text_field.dart&#10;carous&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/carousal.dart&#10;floating&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/floating_button.dart&#10;Text&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/text_field.dart&#10;button&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/raised_button.dart&#10;Dialog&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dialog.dart&#10;eve&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;Dime&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dimens.dart&#10;BeepC&#9;null&#9;null&#10;card&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;beepdim&#9;null&#9;null&#10;beep&#9;null&#9;null&#10;pub&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/pubspec.yaml&#10;tick&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/ticket_type_card.dart&#10;Car&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;Dimen&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dimens.dart&#10;rai&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/raised_button.dart&#10;te&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/text.dart&#10;Card&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;Eve&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/event_card.dart&#10;dime&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/dimens.dart&#10;colors&#9;null&#9;null&#10;color&#9;FILE&#9;file:///home/venkatesh/Softwares/flutter/packages/flutter/lib/src/material/colors.dart&#10;Rais&#9;FILE&#9;file:///home/venkatesh/Work/FlutterProjects/eventbeep_ui/lib/src/widgets/raised_button.dart" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../AndroidProjects/SimpleTODO" />
@@ -476,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555182805802</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added gradient to TabIndicator">
+      <created>1555183763169</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1555183763169</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -503,7 +529,7 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32724252" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32840723" />
       <window_info anchor="bottom" id="Dart Analysis" order="2" weight="0.32612312" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49924242" weight="0.4551495" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49924242" visible="true" weight="0.4551495" />
       <window_info anchor="bottom" id="TODO" order="4" weight="0.32840723" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.327787" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.32890365" />
@@ -538,18 +564,11 @@
     <MESSAGE value="Changes in shadows and carousal view" />
     <MESSAGE value="Added Rocksalt font in Actionbar" />
     <MESSAGE value="Added TabIndicator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added TabIndicator" />
+    <MESSAGE value="Added gradient to TabIndicator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added gradient to TabIndicator" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Softwares/flutter/packages/flutter/lib/src/material/floating_action_button.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="324" column="36" selection-start-line="324" selection-start-column="36" selection-end-line="324" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/widgets/shadow.dart" />
     <entry file="file://$PROJECT_DIR$/lib/src/widgets/text_box.dart" />
     <entry file="file://$PROJECT_DIR$/lib/src/widgets/BeepCarousal.dart" />
     <entry file="file://$PROJECT_DIR$/lib/src/widgets/avatar.dart" />
@@ -643,13 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/widgets/floating_button.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="43" column="32" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/widgets/app_bar.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
@@ -716,13 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/widgets/raised_button.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/widgets/ticket_type_card.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
@@ -757,13 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/widgets/ticket_card.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Softwares/flutter/packages/flutter/lib/src/material/colors.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -785,51 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/widgets/gradients.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/widgets/dimens.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/widgets/text.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="96" column="29" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/eventbeep_ui.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Softwares/flutter/packages/flutter/lib/src/material/tabs.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-749">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/widgets/carousal.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -840,12 +793,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/widgets/chip.dart">
+    <entry file="file://$USER_HOME$/Softwares/flutter/packages/flutter/lib/src/material/tabs.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="656">
+          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/widgets/gradients.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/widgets/tab_indicator.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1584">
+          <caret line="101" column="17" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#39#87#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -857,22 +831,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/widgets/floating_button.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/widgets/raised_button.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/widgets/chip.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/widgets/ticket_card.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/widgets/dimens.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/eventbeep_ui.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="93" column="20" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="20" />
+        <state relative-caret-position="336">
+          <caret line="128" column="36" selection-start-line="128" selection-start-column="36" selection-end-line="128" selection-end-column="36" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/widgets/tab_indicator.dart">
+    <entry file="file://$PROJECT_DIR$/lib/src/widgets/text.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="110" column="46" selection-start-line="110" selection-start-column="46" selection-end-line="110" selection-end-column="46" />
+        <state relative-caret-position="240">
+          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/widgets/news_card.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
           <folding>
-            <element signature="e#39#87#0" expanded="true" />
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/widgets/feed_card.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="88" column="30" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>

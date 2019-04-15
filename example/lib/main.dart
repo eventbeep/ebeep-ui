@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage>
     new ConstrainedBox(
       constraints: const BoxConstraints.expand(),
       child:
-      new FlutterLogo(style: FlutterLogoStyle.stacked, colors: Colors.red),
+          new FlutterLogo(style: FlutterLogoStyle.stacked, colors: Colors.red),
     ),
     new ConstrainedBox(
       constraints: const BoxConstraints.expand(),
@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage>
     _textController.text = '8220223398';
     return Scaffold(
       floatingActionButton:
-      BeepFloatingButton(icon: Icon(Icons.home), onPressed: () {}),
+          BeepFloatingButton(icon: Icon(Icons.home), onPressed: () {}),
       body: Container(
         color: BeepColors.cardBackground,
         child: SingleChildScrollView(
@@ -104,11 +104,37 @@ class _MyHomePageState extends State<MyHomePage>
                 controller: _tabController,
               ),
               SizedBox(height: 24.0),
-              Container(padding: EdgeInsets.symmetric(horizontal: 16),
+              Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
                   alignment: Alignment.centerLeft,
                   child: BeepActionBarText('EventbeeP')),
-              SizedBox(
-                  height: 24.0),
+              SizedBox(height: 24.0),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal:BeepDimens.padding),
+                child: BeepNewsCard(
+                  title: 'Exams are posponed to June',
+                  backgroundColor: BeepColors.error,
+                  description:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                  postedTime: '3 days ago',
+                  authorName: 'College of Engineering, Pune',
+                  authorImage: 'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
+                ),
+              ),
+              SizedBox(height: 24.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal:BeepDimens.padding),
+                child: BeepFeedCard(
+                  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                  postedTime: '3 days ago',
+                  authorName: 'Saurabh Mangrulkar',
+                  authorImage: 'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
+                  likes: 12,
+                  comments: 3,
+                ),
+              ),
+              SizedBox(height: 24.0),
               BeepCarouselSlider(
                 items: imgList,
                 autoPlay: false,
@@ -142,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage>
                   title: 'Event Name',
                   location: 'COEP Auditorium, Pune, India',
                   imageUrl:
-                  'https://cdn2us.denofgeek.com/sites/denofgeekus/files/styles/main_wide/public/2018/04/rick_and_morty_season_4_dan_harmon.jpg',
+                      'https://cdn2us.denofgeek.com/sites/denofgeekus/files/styles/main_wide/public/2018/04/rick_and_morty_season_4_dan_harmon.jpg',
                 ),
               ),
               SizedBox(height: 24.0),
@@ -153,17 +179,16 @@ class _MyHomePageState extends State<MyHomePage>
               SizedBox(height: 24.0),
               Padding(
                 padding:
-                const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepRaisedButton(
 //                  onPressed: null,
                   onPressed: () {
                     showDialog(
                       context: context,
-                      builder: (BuildContext context) =>
-                          BeepDialog(
+                      builder: (BuildContext context) => BeepDialog(
                             title: "Success",
                             description:
-                            "Lorem ipsum dolor sit is a really noce way to have dummy data and I prefer this method. Thanks for opening my dialog!",
+                                "Lorem ipsum dolor sit is a really noce way to have dummy data and I prefer this method. Thanks for opening my dialog!",
                             buttonText: "Okay",
                           ),
                     );
@@ -231,10 +256,11 @@ class _MyHomePageState extends State<MyHomePage>
               SizedBox(height: 24.0),
               Padding(
                 padding:
-                const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepTicketTypeCard(
                     title: 'Golden Ticket',
-                    description: 'This is a gold ticket idiot12312345678901231232',
+                    description:
+                        'This is a gold ticket idiot12312345678901231232',
                     amount: 100),
               ),
               SizedBox(height: 24.0),
@@ -259,7 +285,7 @@ class _MyHomePageState extends State<MyHomePage>
       alignment: WrapAlignment.center,
       children: List<Widget>.generate(
         _interests.length,
-            (int index) {
+        (int index) {
           return BeepChip(
             label: _interests[index],
             onDeleted: () {},

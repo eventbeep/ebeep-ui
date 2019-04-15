@@ -2,15 +2,7 @@ import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/widgets.dart';
 
 class BeepCustomText extends StatelessWidget {
-  final String text;
-  final TextAlign align;
-  final Color color;
-  final FontWeight weight;
-  final double size;
-  final int maxLines;
-  final String fontFamily;
-
-  BeepCustomText({
+  const BeepCustomText({
     @required this.text,
     this.align = TextAlign.start,
     this.color = BeepColors.lightGrey,
@@ -20,12 +12,20 @@ class BeepCustomText extends StatelessWidget {
     this.maxLines,
   });
 
+  final String text;
+  final TextAlign align;
+  final Color color;
+  final FontWeight weight;
+  final double size;
+  final int maxLines;
+  final String fontFamily;
+
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       maxLines: maxLines,
-      overflow: (maxLines == 1) ? TextOverflow.ellipsis : null,
+      overflow: (maxLines != null) ? TextOverflow.ellipsis : null,
       textAlign: align,
       style: TextStyle(
         color: color,
@@ -38,13 +38,13 @@ class BeepCustomText extends StatelessWidget {
 }
 
 class BeepPrimaryText extends StatelessWidget {
-  final String text;
-  final TextAlign align;
-
-  BeepPrimaryText({
+  const BeepPrimaryText({
     this.text,
     this.align,
   });
+
+  final String text;
+  final TextAlign align;
 
   @override
   Widget build(BuildContext context) {
@@ -59,15 +59,15 @@ class BeepPrimaryText extends StatelessWidget {
 }
 
 class BeepSecondaryText extends StatelessWidget {
-  final String text;
-  final TextAlign align;
-  final int maxLines;
-
-  BeepSecondaryText({
+  const BeepSecondaryText({
     this.text,
     this.align,
     this.maxLines,
   });
+
+  final String text;
+  final TextAlign align;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -83,9 +83,9 @@ class BeepSecondaryText extends StatelessWidget {
 }
 
 class BeepActionBarText extends StatelessWidget {
-  final String text;
+  const BeepActionBarText(this.text);
 
-  BeepActionBarText(this.text);
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -101,9 +101,9 @@ class BeepActionBarText extends StatelessWidget {
 }
 
 class BeepButtonText extends StatelessWidget {
-  final String text;
+  const BeepButtonText(this.text);
 
-  BeepButtonText(this.text);
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -120,15 +120,15 @@ class BeepButtonText extends StatelessWidget {
 }
 
 class BeepLargeHeading extends StatelessWidget {
-  final String text;
-  final TextAlign align;
-  final int maxLines;
-
-  BeepLargeHeading({
+  const BeepLargeHeading({
     this.text,
     this.align,
     this.maxLines,
   });
+
+  final String text;
+  final TextAlign align;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -145,15 +145,15 @@ class BeepLargeHeading extends StatelessWidget {
 }
 
 class BeepSmallHeading extends StatelessWidget {
-  final String text;
-  final TextAlign align;
-  final int maxLines;
-
-  BeepSmallHeading({
+  const BeepSmallHeading({
     this.text,
     this.align,
     this.maxLines,
   });
+
+  final String text;
+  final TextAlign align;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {

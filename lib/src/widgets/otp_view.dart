@@ -2,24 +2,23 @@ import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 
 class BeepOtpView extends StatefulWidget {
-  final int fields;
-  @required
-  final onSubmit;
-  final fieldWidth;
-  final fontSize;
-  final isTextObscure;
-  final inputStyle;
-  final inputDecoration;
-
-  BeepOtpView({
-    this.fields: 4,
+  const BeepOtpView({
+    this.fields = 4,
     this.onSubmit,
-    this.fieldWidth: 50.0,
-    this.fontSize: 20.0,
-    this.isTextObscure: false,
+    this.fieldWidth = 50.0,
+    this.fontSize = 20.0,
+    this.isTextObscure = false,
     this.inputStyle,
     this.inputDecoration,
   }) : assert(fields > 0);
+  final int fields;
+  @required
+  final Function onSubmit;
+  final double fieldWidth;
+  final double fontSize;
+  final bool isTextObscure;
+  final TextStyle inputStyle;
+  final InputDecoration inputDecoration;
 
   @override
   State createState() {
@@ -42,14 +41,19 @@ class BeepOtpViewState extends State<BeepOtpView> {
 
   @override
   void dispose() {
-    _focusNodes.forEach((FocusNode f) => f.dispose());
-    _textControllers.forEach((TextEditingController t) => t.dispose());
+    for (FocusNode focusNode in _focusNodes) {
+      focusNode.dispose();
+    }
+    for (TextEditingController controller in _textControllers) {
+      controller.dispose();
+    }
     super.dispose();
   }
 
   void clearTextFields() {
-    _textControllers.forEach(
-        (TextEditingController tEditController) => tEditController.clear());
+    for (TextEditingController controller in _textControllers) {
+      controller.clear();
+    }
     _pin.clear();
   }
 
@@ -65,7 +69,7 @@ class BeepOtpViewState extends State<BeepOtpView> {
 
     return Container(
       width: widget.fieldWidth,
-      margin: EdgeInsets.only(right: BeepDimens.padding),
+      margin: const EdgeInsets.only(right: BeepDimens.padding),
       child: TextField(
         controller: _textControllers[i],
         keyboardType: TextInputType.number,
@@ -99,7 +103,8 @@ class BeepOtpViewState extends State<BeepOtpView> {
   }
 
   Widget generateTextFields(BuildContext context) {
-    List<Widget> textFields = List.generate(widget.fields, (int i) {
+    final List<Widget> textFields =
+        List<Widget>.generate(widget.fields, (int i) {
       return buildTextField(i, context);
     });
 

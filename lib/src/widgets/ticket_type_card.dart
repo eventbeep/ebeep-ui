@@ -3,12 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class BeepTicketTypeCard extends StatefulWidget {
-  final String title, description;
-  final bool isSoldOut;
-  final int count, amount;
-  final Function onPlus, onMinus;
-
-  BeepTicketTypeCard({
+  const BeepTicketTypeCard({
     @required this.title,
     @required this.description,
     @required this.amount,
@@ -18,6 +13,11 @@ class BeepTicketTypeCard extends StatefulWidget {
     this.onMinus,
   });
 
+  final String title, description;
+  final bool isSoldOut;
+  final int count, amount;
+  final Function onPlus, onMinus;
+
   @override
   BeepTicketTypeCardState createState() => BeepTicketTypeCardState();
 }
@@ -26,10 +26,10 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: new BoxDecoration(
+      decoration: BoxDecoration(
           color: BeepColors.white,
           shape: BoxShape.rectangle,
-          borderRadius: new BorderRadius.circular(BeepDimens.cornerRadius),
+          borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
           boxShadow: BeepDimens.lightShadow),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
@@ -46,7 +46,7 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
     );
   }
 
-  countSection() {
+  Widget countSection() {
     return Container(
       height: 60.0,
       width: 60.0,
@@ -56,34 +56,26 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
           text: widget.count.toString(),
           size: 36.0,
           color: BeepColors.textSecondary,
-          weight: FontWeight.w900,
+          weight: FontWeight.w700,
           fontFamily: 'Quicksand',
         ),
-//        child: Text(
-//          widget.count.toString(),
-//          style: TextStyle(
-//            fontSize: 36,
-//            color: BeepColors.textSecondary,
-//            fontWeight: FontWeight.w900,
-//          ),
-//        ),
       ),
     );
   }
 
-  ticketDetailSection() {
+  Widget ticketDetailSection() {
     return Column(
       children: <Widget>[
         BeepPrimaryText(text: widget.title, align: TextAlign.center),
-        SizedBox(height: 4.0),
+        const SizedBox(height: 4.0),
         BeepSecondaryText(text: widget.description, align: TextAlign.center),
-        SizedBox(height: 4.0),
+        const SizedBox(height: 4.0),
         BeepSmallHeading(text: 'x \$' + widget.amount.toString()),
       ],
     );
   }
 
-  buttonsSection() {
+  Widget buttonsSection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -91,9 +83,8 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
       children: <Widget>[
         Material(
           child: InkWell(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: BeepCustomText(
                 text: '+',
                 size: 26.0,
@@ -107,9 +98,8 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
         ),
         Material(
           child: InkWell(
-            child: Padding(
-              padding:
-              const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: BeepCustomText(
                 text: '-',
                 size: 26.0,
@@ -133,5 +123,5 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
     );
   }
 
-  plus() {}
+  void plus() {}
 }

@@ -21,7 +21,7 @@ class BeepDimens {
     BoxShadow(
       color: BeepColors.lightShadow,
       blurRadius: 8.0,
-      offset: const Offset(0.0, 8.0),
+      offset: Offset(0.0, 8.0),
     ),
   ];
 
@@ -29,7 +29,7 @@ class BeepDimens {
     BoxShadow(
       color: BeepColors.darkShadow,
       blurRadius: 8.0,
-      offset: const Offset(0.0, 8.0),
+      offset: Offset(0.0, 8.0),
     ),
   ];
 
