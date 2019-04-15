@@ -17,7 +17,7 @@ class BeepDimens {
     width: appBarHeight,
   );
 
-  static const List<BoxShadow> lightShadow = [
+  static const List<BoxShadow> lightShadow = <BoxShadow>[
     BoxShadow(
       color: BeepColors.lightShadow,
       blurRadius: 8.0,
@@ -25,7 +25,7 @@ class BeepDimens {
     ),
   ];
 
-  static const List<BoxShadow> darkShadow = [
+  static const List<BoxShadow> darkShadow = <BoxShadow>[
     BoxShadow(
       color: BeepColors.darkShadow,
       blurRadius: 8.0,

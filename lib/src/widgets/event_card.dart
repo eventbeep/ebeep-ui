@@ -124,7 +124,7 @@ class BeepEventCard extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 4),
-                  BeepCustomText(
+                  const BeepCustomText(
                       text: '% Students Offer available',
                       fontFamily: 'Quicksand',
                       size: BeepDimens.textSecondary,
