@@ -117,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage>
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                   eventName: 'Regatta',
                   eventDate: 'January 10',
+                  onViewTicket: () {},
                 ),
               ),
               Padding(
@@ -127,6 +128,7 @@ class _MyHomePageState extends State<MyHomePage>
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                   eventName: 'Regatta',
                   eventDate: 'September 10',
+                  onViewTicket: () {},
                 ),
               ),
               Padding(
@@ -137,6 +139,7 @@ class _MyHomePageState extends State<MyHomePage>
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                   eventName: 'Regatta',
                   eventDate: 'February 10',
+                  onViewTicket: () {},
                 ),
               ),
               SizedBox(height: 24.0),

@@ -2,22 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 
 class BeepTimelineCard extends StatelessWidget {
-  const BeepTimelineCard(
-      {Key key,
-      this.shortDescription,
-      this.eventName,
-      this.eventDate,
-      this.ticketQr})
-      : super(key: key);
+  const BeepTimelineCard({
+    Key key,
+    @required this.shortDescription,
+    @required this.eventName,
+    @required this.eventDate,
+    @required this.ticketQr,
+    @required this.onViewTicket,
+  }) : super(key: key);
 
   final String shortDescription, eventName, eventDate, ticketQr;
+  final Function onViewTicket;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
         Flexible(flex: 5, fit: FlexFit.tight, child: leftSection()),
-        const SizedBox(width: BeepDimens.padding),
+        const SizedBox(width: BeepDimens.cardMarginVertical),
         middleSection(),
         const SizedBox(width: BeepDimens.padding),
         Flexible(flex: 10, child: rightSection()),
@@ -37,7 +39,12 @@ class BeepTimelineCard extends StatelessWidget {
           color: BeepColors.textPrimary,
         ),
         const SizedBox(height: 4),
-        const BeepSecondaryText(text: 'View Ticket'),
+        Material(
+          color: Colors.transparent,
+          child: InkWell(
+              onTap: onViewTicket,
+              child: const BeepSecondaryText(text: 'View Ticket')),
+        ),
       ],
     );
   }
@@ -52,7 +59,7 @@ class BeepTimelineCard extends StatelessWidget {
         ),
         const CircleAvatar(radius: 6),
         Container(
-          height: 40.0,
+          height: 44.0,
           width: 2.0,
           color: BeepColors.primary,
         ),
