@@ -109,9 +109,40 @@ class _MyHomePageState extends State<MyHomePage>
                   alignment: Alignment.centerLeft,
                   child: BeepActionBarText('EventbeeP')),
               SizedBox(height: 24.0),
-
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal:BeepDimens.padding),
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: BeepTimelineCard(
+                  ticketQr: 'eventbeep.com',
+                  shortDescription:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                  eventName: 'Regatta',
+                  eventDate: 'January 10',
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: BeepTimelineCard(
+                  ticketQr: 'eventbeep.com',
+                  shortDescription:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                  eventName: 'Regatta',
+                  eventDate: 'September 10',
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: BeepTimelineCard(
+                  ticketQr: 'eventbeep.com',
+                  shortDescription:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                  eventName: 'Regatta',
+                  eventDate: 'February 10',
+                ),
+              ),
+              SizedBox(height: 24.0),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepNewsCard(
                   title: 'Exams are posponed to June',
                   backgroundColor: BeepColors.error,
@@ -119,17 +150,21 @@ class _MyHomePageState extends State<MyHomePage>
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                   postedTime: '3 days ago',
                   authorName: 'College of Engineering, Pune',
-                  authorImage: 'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
+                  authorImage:
+                      'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
                 ),
               ),
               SizedBox(height: 24.0),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal:BeepDimens.padding),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepFeedCard(
-                  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                  content:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                   postedTime: '3 days ago',
                   authorName: 'Saurabh Mangrulkar',
-                  authorImage: 'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
+                  authorImage:
+                      'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
                   likes: 12,
                   comments: 3,
                 ),
