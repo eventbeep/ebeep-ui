@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage>
                 unselectedLabelColor: BeepColors.textSecondary,
                 labelColor: Colors.white,
                 indicatorSize: TabBarIndicatorSize.tab,
-                indicator: new BeepTabIndicator(
+                indicator: BeepTabIndicator(
                   indicatorHeight: 36.0,
                   tabBarIndicatorSize: TabBarIndicatorSize.tab,
                 ),
@@ -111,14 +111,14 @@ class _MyHomePageState extends State<MyHomePage>
               SizedBox(height: 24.0),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
-                child: BeepTimelineCard(
-                  ticketQr: 'eventbeep.com',
-                  shortDescription:
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                  eventName: 'Regatta',
-                  eventDate: 'January 10',
-                  onViewTicket: () {},
-                ),
+                child: BeepLoadingTimeline(
+                    // ticketQr: 'eventbeep.com',
+                    // shortDescription:
+                    //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                    // eventName: 'Regatta',
+                    // eventDate: 'January 10',
+                    // onViewTicket: () {},
+                    ),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
@@ -146,6 +146,12 @@ class _MyHomePageState extends State<MyHomePage>
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+                child: BeepLoadingNews(),
+              ),
+              SizedBox(height: 24.0),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepNewsCard(
                   title: 'Exams are posponed to June',
                   backgroundColor: BeepColors.error,
@@ -156,6 +162,12 @@ class _MyHomePageState extends State<MyHomePage>
                   authorImage:
                       'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
                 ),
+              ),
+              SizedBox(height: 24.0),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+                child: BeepLoadingFeed(),
               ),
               SizedBox(height: 24.0),
               Padding(
@@ -178,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage>
                 autoPlay: false,
                 enlargeCenterPage: true,
                 aspectRatio: 2.0,
-                onPageChanged: (index) {},
+                onPageChanged: () {},
               ),
               SizedBox(height: 24.0),
               Padding(
@@ -193,6 +205,11 @@ class _MyHomePageState extends State<MyHomePage>
                     getKeyboard: true,
                     maxLength: 10,
                   )),
+              SizedBox(height: 24.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: BeepLoadingEvent(),
+              ),
               SizedBox(height: 24.0),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -221,7 +238,7 @@ class _MyHomePageState extends State<MyHomePage>
                 child: BeepRaisedButton(
 //                  onPressed: null,
                   onPressed: () {
-                    showDialog(
+                    showDialog<BeepDialog>(
                       context: context,
                       builder: (BuildContext context) => BeepDialog(
                             title: "Success",
