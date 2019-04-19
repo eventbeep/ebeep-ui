@@ -1,5 +1,3 @@
-library flutter_bubble_tab_indicator;
-
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

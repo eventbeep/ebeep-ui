@@ -1,6 +1,6 @@
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:shimmer/shimmer.dart';
 
 //
 class BeepEventCard extends StatelessWidget {
@@ -133,6 +133,126 @@ class BeepEventCard extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class BeepLoadingEvent extends StatelessWidget {
+  const BeepLoadingEvent({
+    this.height = BeepDimens.eventCardHeight,
+    this.width = double.infinity,
+  });
+
+  final double height, width;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      child: Stack(
+        children: <Widget>[
+          eventCard(),
+          eventThumbnail(),
+        ],
+      ),
+    );
+  }
+
+  Widget eventThumbnail() {
+    return Shimmer.fromColors(
+      highlightColor: Colors.grey[100],
+      baseColor: Colors.grey[300],
+      child: Container(
+        height: height * 0.666,
+        alignment: FractionalOffset.topCenter,
+        margin: const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+        decoration: BoxDecoration(
+          color: BeepColors.white,
+          borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
+        ),
+      ),
+    );
+  }
+
+  Widget eventCard() {
+    return Container(
+      margin: EdgeInsets.only(top: height * 0.333),
+      decoration: BoxDecoration(
+          color: BeepColors.white,
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
+          boxShadow: BeepDimens.lightShadow),
+      child: Container(
+        margin: EdgeInsets.only(top: height * 0.333),
+        padding: const EdgeInsets.symmetric(
+          vertical: BeepDimens.cardMarginVertical,
+          horizontal: BeepDimens.cardMarginHorizontal,
+        ),
+        width: double.infinity,
+        child: Shimmer.fromColors(
+          highlightColor: Colors.grey[100],
+          baseColor: Colors.grey[300],
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Container(
+                    height: BeepDimens.textPrimary,
+                    width: 35,
+                    color: BeepColors.white,
+                  ),
+                  const SizedBox(height: 4),
+                  Container(
+                    height: BeepDimens.textActionBar,
+                    width: 25,
+                    color: BeepColors.white,
+                  ),
+                  const SizedBox(height: 4),
+                  Container(
+                    height: BeepDimens.textPrimary,
+                    width: 40,
+                    color: BeepColors.white,
+                  ),
+                ],
+              ),
+              const SizedBox(width: BeepDimens.padding),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      height: BeepDimens.textActionBar,
+                      width: 150,
+                      color: BeepColors.white,
+                    ),
+                    const SizedBox(height: 6),
+                    Row(
+                      children: <Widget>[
+                        const Icon(Icons.location_on,
+                            size: BeepDimens.textPrimary,
+                            color: BeepColors.lightGrey),
+                        const SizedBox(width: 4),
+                        Container(
+                          height: BeepDimens.textSmallHeading,
+                          width: 220,
+                          color: BeepColors.white,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+                    Container(
+                      height: BeepDimens.textPrimary,
+                      width: 180,
+                      color: BeepColors.white,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

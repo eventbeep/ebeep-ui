@@ -42,14 +42,22 @@ class BeepTag extends StatelessWidget {
         return BeepGradients.adventure;
       case BeepConstants.gaming:
         return BeepGradients.gaming;
-      case BeepConstants.musicAndDance:
-        return BeepGradients.musicAndDance;
-      case BeepConstants.nightlife:
-        return BeepGradients.nightlife;
+      case BeepConstants.biking:
+        return BeepGradients.biking;
+      case BeepConstants.competitions:
+        return BeepGradients.competitions;
       case BeepConstants.sports:
         return BeepGradients.sports;
-      case BeepConstants.workshopsAndSeminars:
-        return BeepGradients.workshopsAndSeminars;
+      case BeepConstants.quizzes:
+        return BeepGradients.quizzes;
+      case BeepConstants.entertainment:
+        return BeepGradients.entertainment;
+      case BeepConstants.startups:
+        return BeepGradients.startups;
+      case BeepConstants.technical:
+        return BeepGradients.technical;
+      case BeepConstants.others:
+        return BeepGradients.others;
       default:
         return BeepGradients.appBarGradient;
     }
