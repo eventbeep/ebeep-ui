@@ -11,6 +11,7 @@ class BeepEventCard extends StatelessWidget {
     @required this.date,
     @required this.day,
     @required this.month,
+    @required this.views,
     this.hasStudentOffer = false,
     this.category,
     this.height = BeepDimens.eventCardHeight,
@@ -19,6 +20,7 @@ class BeepEventCard extends StatelessWidget {
 
   final String title, imageUrl, location, date, day, month, category;
   final double height, width;
+  final int views;
   final bool hasStudentOffer;
 
   @override
@@ -40,6 +42,38 @@ class BeepEventCard extends StatelessWidget {
                     text: category,
                   ),
                 ),
+          Positioned(
+            top: height * 0.666 - 28,
+            right: 28,
+            child: Container(
+              decoration: BoxDecoration(
+                boxShadow: const <BoxShadow>[
+                  BoxShadow(
+                    color: Colors.black54,
+                    blurRadius: 8,
+                    offset: Offset(0, 0),
+                  )
+                ],
+              ),
+              // margin: EdgeInsets.only(right: 32, top: height * 0.666 - 32),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const Icon(Icons.visibility,
+                      size: BeepDimens.textPrimary, color: BeepColors.white),
+                  const SizedBox(width: 4),
+                  Flexible(
+                      child: BeepCustomText(
+                    text: views.toString(),
+                    maxLines: 1,
+                    color: BeepColors.white,
+                    size: BeepDimens.textSecondary,
+                    fontFamily: 'Quicksand',
+                  )),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -104,7 +138,7 @@ class BeepEventCard extends StatelessWidget {
                   BeepCustomText(
                     text: title,
                     maxLines: 1,
-                    size: 20,
+                    size: BeepDimens.textSmallHeading,
                     fontFamily: 'Poppins',
                     color: BeepColors.textPrimary,
                   ),
@@ -118,7 +152,7 @@ class BeepEventCard extends StatelessWidget {
                           child: BeepCustomText(
                         text: location,
                         maxLines: 1,
-                        size: BeepDimens.textPrimary,
+                        size: BeepDimens.textSecondary,
                         fontFamily: 'Quicksand',
                       )),
                     ],

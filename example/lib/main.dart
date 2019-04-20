@@ -216,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage>
               SizedBox(height: 24.0),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: BeepEventCard(
+                child: const BeepEventCard(
                   height: 200.0,
                   width: 300.0,
                   category: 'Adventure',
@@ -225,6 +225,7 @@ class _MyHomePageState extends State<MyHomePage>
                   month: 'Jan',
                   title: 'Event Name',
                   location: 'COEP Auditorium, Pune, India',
+                  views: 23,
                   imageUrl:
                       'https://cdn2us.denofgeek.com/sites/denofgeekus/files/styles/main_wide/public/2018/04/rick_and_morty_season_4_dan_harmon.jpg',
                 ),
