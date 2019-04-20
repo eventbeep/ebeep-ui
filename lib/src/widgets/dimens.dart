@@ -36,7 +36,7 @@ class BeepDimens {
   static const double padding = 16.0;
   static const double cornerRadius = 16.0;
 
-  static const double eventCardHeight = 300.0;
+  static const double eventCardHeight = 260.0;
   static const double eventCardImageHeight = 200.0;
   static const double cardMarginVertical = 12.0;
   static const double cardMarginHorizontal = 24.0;

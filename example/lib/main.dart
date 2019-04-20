@@ -217,8 +217,6 @@ class _MyHomePageState extends State<MyHomePage>
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: const BeepEventCard(
-                  height: 200.0,
-                  width: 300.0,
                   category: 'Adventure',
                   date: '24',
                   day: 'Tue',

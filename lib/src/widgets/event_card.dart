@@ -60,16 +60,15 @@ class BeepEventCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   const Icon(Icons.visibility,
-                      size: BeepDimens.textPrimary, color: BeepColors.white),
-                  const SizedBox(width: 4),
-                  Flexible(
-                      child: BeepCustomText(
+                      size: BeepDimens.textSecondary, color: BeepColors.white),
+                  const SizedBox(width: 6),
+                  BeepCustomText(
                     text: views.toString(),
                     maxLines: 1,
                     color: BeepColors.white,
                     size: BeepDimens.textSecondary,
-                    fontFamily: 'Quicksand',
-                  )),
+                    fontFamily: 'Poppins',
+                  ),
                 ],
               ),
             ),
@@ -142,10 +141,11 @@ class BeepEventCard extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: BeepColors.textPrimary,
                   ),
+                  const SizedBox(height: 4),
                   Row(
                     children: <Widget>[
                       const Icon(Icons.location_on,
-                          size: BeepDimens.textPrimary,
+                          size: BeepDimens.textSecondary,
                           color: BeepColors.lightGrey),
                       const SizedBox(width: 4),
                       Flexible(
@@ -157,7 +157,7 @@ class BeepEventCard extends StatelessWidget {
                       )),
                     ],
                   ),
-                  const SizedBox(height: 4),
+                  hasStudentOffer ? const SizedBox(height: 4) : Container(),
                   hasStudentOffer
                       ? const BeepCustomText(
                           text: '% Students Offer available',
