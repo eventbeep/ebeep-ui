@@ -2,7 +2,6 @@ import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-//
 class BeepEventCard extends StatelessWidget {
   const BeepEventCard({
     Key key,
@@ -12,6 +11,7 @@ class BeepEventCard extends StatelessWidget {
     @required this.date,
     @required this.day,
     @required this.month,
+    this.hasStudentOffer = false,
     this.category,
     this.height = BeepDimens.eventCardHeight,
     this.width = double.infinity,
@@ -19,6 +19,7 @@ class BeepEventCard extends StatelessWidget {
 
   final String title, imageUrl, location, date, day, month, category;
   final double height, width;
+  final bool hasStudentOffer;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +77,6 @@ class BeepEventCard extends StatelessWidget {
         ),
         width: double.infinity,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Column(
               children: <Widget>[
@@ -124,11 +124,13 @@ class BeepEventCard extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 4),
-                  const BeepCustomText(
-                      text: '% Students Offer available',
-                      fontFamily: 'Quicksand',
-                      size: BeepDimens.textSecondary,
-                      color: BeepColors.success),
+                  hasStudentOffer
+                      ? const BeepCustomText(
+                          text: '% Students Offer available',
+                          fontFamily: 'Quicksand',
+                          size: BeepDimens.textSecondary,
+                          color: BeepColors.success)
+                      : Container(),
                 ],
               ),
             ),
@@ -195,7 +197,6 @@ class BeepLoadingEvent extends StatelessWidget {
           highlightColor: Colors.grey[100],
           baseColor: Colors.grey[300],
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Column(
                 children: <Widget>[
@@ -236,18 +237,18 @@ class BeepLoadingEvent extends StatelessWidget {
                             color: BeepColors.lightGrey),
                         const SizedBox(width: 4),
                         Container(
-                          height: BeepDimens.textSmallHeading,
-                          width: 220,
+                          height: BeepDimens.textActionBar,
+                          width: 150,
                           color: BeepColors.white,
                         ),
                       ],
                     ),
-                    const SizedBox(height: 6),
-                    Container(
-                      height: BeepDimens.textPrimary,
-                      width: 180,
-                      color: BeepColors.white,
-                    ),
+                    // const SizedBox(height: 6),
+                    // Container(
+                    //   height: BeepDimens.textPrimary,
+                    //   width: 180,
+                    //   color: BeepColors.white,
+                    // ),
                   ],
                 ),
               ),
