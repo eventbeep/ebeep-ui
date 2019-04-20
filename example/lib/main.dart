@@ -206,17 +206,15 @@ class _MyHomePageState extends State<MyHomePage>
                     maxLength: 10,
                   )),
               SizedBox(height: 24.0),
-              Padding(
+              Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: BeepLoadingEvent(
-                  height: 200.0,
-                  width: 300.0,
-                ),
+                child: BeepLoadingEvent(),
               ),
               SizedBox(height: 24.0),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: const BeepEventCard(
+                child: BeepEventCard(
+                  onTap: () => print('pressed'),
                   category: 'Adventure',
                   date: '24',
                   day: 'Tue',
