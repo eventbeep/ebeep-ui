@@ -1,6 +1,7 @@
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shimmer/shimmer.dart';
 
 class BeepTicketTypeCard extends StatefulWidget {
   const BeepTicketTypeCard({
@@ -8,14 +9,13 @@ class BeepTicketTypeCard extends StatefulWidget {
     @required this.description,
     @required this.amount,
     this.isSoldOut = false,
-    this.count = 0,
     this.onPlus,
     this.onMinus,
   });
 
   final String title, description;
   final bool isSoldOut;
-  final int count, amount;
+  final int amount;
   final Function onPlus, onMinus;
 
   @override
@@ -23,6 +23,13 @@ class BeepTicketTypeCard extends StatefulWidget {
 }
 
 class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
+  int count;
+  @override
+  void initState() {
+    count = 0;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,34 +38,28 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
           boxShadow: BeepDimens.lightShadow),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-        child: Row(
-//        crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            countSection(),
-            Expanded(child: ticketDetailSection()),
-//          Divider(color: BeepColors.lightGrey),
-            buttonsSection(),
-          ],
-        ),
+      child: Row(
+        children: <Widget>[
+          countSection(),
+          Expanded(child: ticketDetailSection()),
+          buttonsSection(),
+        ],
       ),
     );
   }
 
   Widget countSection() {
     return Container(
-      height: 60.0,
-      width: 60.0,
+      height: 60,
+      width: 60,
+      alignment: Alignment.center,
       decoration: BoxDecoration(color: BeepColors.cardBackground),
-      child: Center(
-        child: BeepCustomText(
-          text: widget.count.toString(),
-          size: 36.0,
-          color: BeepColors.textSecondary,
-          weight: FontWeight.w700,
-          fontFamily: 'Quicksand',
-        ),
+      child: BeepCustomText(
+        text: count.toString(),
+        size: 36,
+        color: BeepColors.textSecondary,
+        weight: FontWeight.bold,
+        fontFamily: 'Poppins',
       ),
     );
   }
@@ -77,51 +78,109 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
 
   Widget buttonsSection() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
-//    mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
-        Material(
-          child: InkWell(
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: BeepCustomText(
-                text: '+',
-                size: 26.0,
-                color: BeepColors.primary,
-                weight: FontWeight.w500,
-                fontFamily: 'Quicksand',
-              ),
-            ),
-            onTap: () {},
+        IconButton(
+          icon: const BeepCustomText(
+            text: '+',
+            size: 24.0,
+            color: BeepColors.primary,
+            fontFamily: 'Poppins',
           ),
+          onPressed: () {
+            if (count >= 10) return;
+            setState(() {
+              count++;
+            });
+          },
         ),
-        Material(
-          child: InkWell(
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: BeepCustomText(
-                text: '-',
-                size: 26.0,
-                color: BeepColors.primary,
-                weight: FontWeight.w500,
-                fontFamily: 'Poppins',
-              ),
-            ),
-            onTap: () {},
+        IconButton(
+          icon: const BeepCustomText(
+            text: '-',
+            size: 24.0,
+            color: BeepColors.primary,
+            fontFamily: 'Poppins',
           ),
+          onPressed: () {
+            if (count <= 0) return;
+            setState(() {
+              count--;
+            });
+          },
         ),
-//        IconButton(
-//          icon: Icon(Icons.keyboard_arrow_up, color: BeepColors.primary),
-//          onPressed: () {},
-//        ),
-//        IconButton(
-//          icon: Icon(Icons.keyboard_arrow_down, color: BeepColors.primary),
-//          onPressed: () {},
-//        ),
       ],
     );
   }
 
   void plus() {}
+}
+
+class BeepLoadingTicket extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          color: BeepColors.white,
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
+          boxShadow: BeepDimens.lightShadow),
+      child: Shimmer.fromColors(
+        highlightColor: Colors.grey[100],
+        baseColor: Colors.grey[300],
+        child: Row(
+          children: <Widget>[
+            countSection(),
+            Expanded(child: ticketDetailSection()),
+            buttonsSection(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget countSection() {
+    return Container(
+      height: 60,
+      width: 60,
+      alignment: Alignment.center,
+      child: const BeepCustomText(
+        text: '0',
+        size: 36,
+        color: BeepColors.textSecondary,
+        weight: FontWeight.bold,
+        fontFamily: 'Poppins',
+      ),
+    );
+  }
+
+  Widget ticketDetailSection() {
+    return Column(
+      children: <Widget>[
+        const SizedBox(height: 4.0),
+        Container(
+          height: BeepDimens.textActionBar,
+          width: 120,
+          color: BeepColors.white,
+        ),
+        const SizedBox(height: 6.0),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+          height: BeepDimens.textPrimary,
+          width: double.infinity,
+          color: BeepColors.white,
+        ),
+        const SizedBox(height: 6.0),
+        Container(
+          height: BeepDimens.textActionBar,
+          width: 60,
+          color: BeepColors.white,
+        ),
+        const SizedBox(height: 4.0),
+      ],
+    );
+  }
+
+  Widget buttonsSection() {
+    return Container(width: 60);
+  }
 }

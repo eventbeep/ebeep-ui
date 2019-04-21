@@ -319,6 +319,11 @@ class _MyHomePageState extends State<MyHomePage>
                     amount: 100),
               ),
               SizedBox(height: 24.0),
+              Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: BeepDimens.padding),
+                  child: BeepLoadingTicket()),
+              SizedBox(height: 24.0),
               BeepLargeHeading(text: "Large Heading"),
               SizedBox(height: 24.0),
               BeepSmallHeading(text: "Small Heading"),
