@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Poppins'),
-      home: MyHomePage(title: 'Eventbeep'),
+      home: const MyHomePage(title: 'Eventbeep'),
 //      home: Scaffold(
 //        appBar: PreferredSize(
 //            child: Container(), preferredSize: Size.fromHeight(32)),
@@ -20,14 +20,14 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-final List<String> imgList = [
+final List<String> imgList = <String>[
   'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F58655718%2F157741597574%2F1%2Foriginal.jpg?w=800&auto=compress&rect=0%2C86%2C960%2C480&s=0f59d910e3401a84aaf18bd5f6c14bd3',
   'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F58655718%2F157741597574%2F1%2Foriginal.jpg?w=800&auto=compress&rect=0%2C86%2C960%2C480&s=0f59d910e3401a84aaf18bd5f6c14bd3',
   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
@@ -40,26 +40,26 @@ final List<String> imgList = [
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
-  final _controller = new PageController();
-  final _textController = new TextEditingController();
+  final PageController _controller = PageController();
+  final TextEditingController _textController = TextEditingController();
 
-  static const _kDuration = const Duration(milliseconds: 300);
+  static const Duration _kDuration = Duration(milliseconds: 300);
 
-  static const _kCurve = Curves.ease;
+  static const Curve _kCurve = Curves.ease;
 
   final List<Widget> _pages = <Widget>[
-    new ConstrainedBox(
+    ConstrainedBox(
       constraints: const BoxConstraints.expand(),
-      child: new FlutterLogo(colors: Colors.blue),
+      child: const FlutterLogo(colors: Colors.blue),
     ),
-    new ConstrainedBox(
+    ConstrainedBox(
       constraints: const BoxConstraints.expand(),
-      child:
-          new FlutterLogo(style: FlutterLogoStyle.stacked, colors: Colors.red),
+      child: const FlutterLogo(
+          style: FlutterLogoStyle.stacked, colors: Colors.red),
     ),
-    new ConstrainedBox(
+    ConstrainedBox(
       constraints: const BoxConstraints.expand(),
-      child: new FlutterLogo(
+      child: const FlutterLogo(
           style: FlutterLogoStyle.horizontal, colors: Colors.green),
     ),
   ];
@@ -67,14 +67,14 @@ class _MyHomePageState extends State<MyHomePage>
   TabController _tabController;
 
   final List<Tab> tabs = <Tab>[
-    new Tab(text: "Featured"),
-    new Tab(text: "Popular"),
-    new Tab(text: "Latest")
+    const Tab(text: 'Featured'),
+    const Tab(text: 'Popular'),
+    const Tab(text: 'Latest')
   ];
 
   @override
   void initState() {
-    _tabController = new TabController(vsync: this, length: tabs.length);
+    _tabController = TabController(vsync: this, length: tabs.length);
     super.initState();
   }
 
@@ -83,14 +83,14 @@ class _MyHomePageState extends State<MyHomePage>
     _textController.text = '8220223398';
     return Scaffold(
       floatingActionButton:
-          BeepFloatingButton(icon: Icon(Icons.home), onPressed: () {}),
+          BeepFloatingButton(icon: const Icon(Icons.home), onPressed: () {}),
       body: Container(
         color: BeepColors.cardBackground,
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              SizedBox(height: 24.0),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               TabBar(
                 isScrollable: true,
                 unselectedLabelColor: BeepColors.textSecondary,
@@ -103,14 +103,14 @@ class _MyHomePageState extends State<MyHomePage>
                 tabs: tabs,
                 controller: _tabController,
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   alignment: Alignment.centerLeft,
-                  child: BeepActionBarText('EventbeeP')),
-              SizedBox(height: 24.0),
+                  child: const BeepActionBarText('EventbeeP')),
+              const SizedBox(height: 24.0),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: BeepLoadingTimeline(
                     // ticketQr: 'eventbeep.com',
                     // shortDescription:
@@ -121,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage>
                     ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: BeepTimelineCard(
                   ticketQr: 'eventbeep.com',
                   shortDescription:
@@ -132,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: BeepTimelineCard(
                   ticketQr: 'eventbeep.com',
                   shortDescription:
@@ -142,16 +142,15 @@ class _MyHomePageState extends State<MyHomePage>
                   onViewTicket: () {},
                 ),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepLoadingNews(),
               ),
-              SizedBox(height: 24.0),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+              const SizedBox(height: 24.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepNewsCard(
                   title: 'Exams are posponed to June',
                   backgroundColor: BeepColors.error,
@@ -163,16 +162,15 @@ class _MyHomePageState extends State<MyHomePage>
                       'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
                 ),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepLoadingFeed(),
               ),
-              SizedBox(height: 24.0),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+              const SizedBox(height: 24.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepFeedCard(
                   content:
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -184,7 +182,7 @@ class _MyHomePageState extends State<MyHomePage>
                   comments: 3,
                 ),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               BeepCarouselSlider(
                 items: imgList,
                 autoPlay: false,
@@ -192,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage>
                 aspectRatio: 2.0,
                 onPageChanged: () {},
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: BeepTextField(
@@ -205,12 +203,12 @@ class _MyHomePageState extends State<MyHomePage>
                     getKeyboard: true,
                     maxLength: 10,
                   )),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: BeepLoadingEvent(),
+                child: const BeepLoadingEvent(),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: BeepEventCard(
@@ -226,12 +224,12 @@ class _MyHomePageState extends State<MyHomePage>
                       'https://cdn2us.denofgeek.com/sites/denofgeekus/files/styles/main_wide/public/2018/04/rick_and_morty_season_4_dan_harmon.jpg',
                 ),
               ),
-              SizedBox(height: 24.0),
-              BeepTag(text: BeepConstants.sports),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
+              const BeepTag(text: BeepConstants.sports),
+              const SizedBox(height: 24.0),
 //              BeepOtpView(),
               getChips(),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
@@ -240,21 +238,21 @@ class _MyHomePageState extends State<MyHomePage>
                   onPressed: () {
                     showDialog<BeepDialog>(
                       context: context,
-                      builder: (BuildContext context) => BeepDialog(
-                            title: "Success",
+                      builder: (BuildContext context) => const BeepDialog(
+                            title: 'Success',
                             description:
-                                "Lorem ipsum dolor sit is a really noce way to have dummy data and I prefer this method. Thanks for opening my dialog!",
-                            buttonText: "Okay",
+                                'Lorem ipsum dolor sit is a really noce way to have dummy data and I prefer this method. Thanks for opening my dialog!',
+                            buttonText: 'Okay',
                           ),
                     );
                   },
                   title: 'Open Dialog',
                 ),
               ),
-              SizedBox(height: 24.0),
-//              QrImage(data: "Saurabh Mangrulkar"),
-              Padding(
-                padding: const EdgeInsets.symmetric(
+              const SizedBox(height: 24.0),
+//              QrImage(data: 'Saurabh Mangrulkar'),
+              const Padding(
+                padding: EdgeInsets.symmetric(
                     horizontal: BeepDimens.cardMarginHorizontal),
                 child: BeepTicketCard(
                   title: 'Regatta',
@@ -262,16 +260,17 @@ class _MyHomePageState extends State<MyHomePage>
                   dateTime: 'Sunday, March 25 2019',
                   location: 'SASTRA University, Chithvihar block',
                   ticketType: 'VIP ticket',
+                  ticketsCount: 2,
                   ticketAmount: 120,
                 ),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               SizedBox(
                 height: 100,
                 child: Stack(
                   children: <Widget>[
                     PageView.builder(
-                      physics: AlwaysScrollableScrollPhysics(),
+                      physics: const AlwaysScrollableScrollPhysics(),
                       controller: _controller,
                       itemBuilder: (BuildContext context, int index) {
                         return _pages[index % _pages.length];
@@ -281,10 +280,10 @@ class _MyHomePageState extends State<MyHomePage>
                       bottom: 0.0,
                       left: 0.0,
                       right: 0.0,
-                      child: new Container(
+                      child: Container(
                         color: Colors.grey[800].withOpacity(0.5),
                         padding: const EdgeInsets.all(20.0),
-                        child: new Center(
+                        child: Center(
                           child: BeepIndicator(
                             controller: _controller,
                             itemCount: _pages.length,
@@ -302,36 +301,35 @@ class _MyHomePageState extends State<MyHomePage>
                   ],
                 ),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               CircleAvatar(
                 radius: BeepDimens.avatarRadius,
                 backgroundImage: NetworkImage(
-                    "https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg"),
+                    'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg'),
               ),
-              SizedBox(height: 24.0),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+              const SizedBox(height: 24.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepTicketTypeCard(
                     title: 'Golden Ticket',
                     description:
                         'This is a gold ticket idiot12312345678901231232',
                     amount: 100),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: BeepDimens.padding),
                   child: BeepLoadingTicket()),
-              SizedBox(height: 24.0),
-              BeepLargeHeading(text: "Large Heading"),
-              SizedBox(height: 24.0),
-              BeepSmallHeading(text: "Small Heading"),
-              SizedBox(height: 24.0),
-              BeepPrimaryText(text: "Primary text"),
-              SizedBox(height: 24.0),
-              BeepSecondaryText(text: "Secondary text Heading"),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
+              const BeepLargeHeading(text: 'Large Heading'),
+              const SizedBox(height: 24.0),
+              const BeepSmallHeading(text: 'Small Heading'),
+              const SizedBox(height: 24.0),
+              const BeepPrimaryText(text: 'Primary text'),
+              const SizedBox(height: 24.0),
+              const BeepSecondaryText(text: 'Secondary text Heading'),
+              const SizedBox(height: 24.0),
             ],
           ),
         ),

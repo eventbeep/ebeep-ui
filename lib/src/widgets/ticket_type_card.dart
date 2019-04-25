@@ -88,7 +88,9 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
             fontFamily: 'Poppins',
           ),
           onPressed: () {
-            if (count >= 10) return;
+            if (count >= 10) {
+              return;
+            }
             setState(() {
               count++;
             });
@@ -102,7 +104,9 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
             fontFamily: 'Poppins',
           ),
           onPressed: () {
-            if (count <= 0) return;
+            if (count <= 0) {
+              return;
+            }
             setState(() {
               count--;
             });

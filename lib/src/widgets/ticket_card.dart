@@ -8,7 +8,7 @@ class BeepTicketCard extends StatelessWidget {
     this.ticketsCount = 1,
     @required this.ticketAmount,
     @required this.qrData,
-    this.qrSize = 150,
+    this.qrSize = 150.0,
     @required this.location,
     @required this.dateTime,
     @required this.ticketType,
