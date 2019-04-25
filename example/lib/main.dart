@@ -312,8 +312,7 @@ class _MyHomePageState extends State<MyHomePage>
                 padding: EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepTicketTypeCard(
                     title: 'Golden Ticket',
-                    description:
-                        'This is a gold ticket idiot12312345678901231232',
+                    description: 'This is a gold ticket idiot',
                     amount: 100),
               ),
               const SizedBox(height: 24.0),

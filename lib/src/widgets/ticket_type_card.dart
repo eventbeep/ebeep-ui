@@ -160,7 +160,7 @@ class BeepLoadingTicket extends StatelessWidget {
   Widget ticketDetailSection() {
     return Column(
       children: <Widget>[
-        const SizedBox(height: 4.0),
+        const SizedBox(height: 12.0),
         Container(
           height: BeepDimens.textActionBar,
           width: 120,
@@ -179,7 +179,7 @@ class BeepLoadingTicket extends StatelessWidget {
           width: 60,
           color: BeepColors.white,
         ),
-        const SizedBox(height: 4.0),
+        const SizedBox(height: 12.0),
       ],
     );
   }
