@@ -309,3 +309,10 @@ int _remainder(int input, int source) {
   final int result = input % source;
   return result < 0 ? source + result : result;
 }
+
+class BeepLoadingCarousal extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}

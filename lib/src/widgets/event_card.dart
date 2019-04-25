@@ -85,6 +85,7 @@ class BeepEventCard extends StatelessWidget {
 
   Widget eventThumbnail() {
     return Container(
+      height: height * 0.666,
       alignment: FractionalOffset.topCenter,
       margin: const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
       decoration: BoxDecoration(
