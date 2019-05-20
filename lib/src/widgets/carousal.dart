@@ -3,15 +3,17 @@ import 'dart:async';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 class BeepCarouselSlider extends StatefulWidget {
   BeepCarouselSlider({
     @required this.items,
+    @required this.onItemTaps,
     this.height,
     this.aspectRatio = 2,
     this.viewportFraction = 0.8,
     this.initialPage = 0,
-    this.realPage = 10000,
+    this.realPage = 100,
     this.reverse = false,
     this.autoPlay = false,
     Duration autoPlayInterval,
@@ -32,6 +34,8 @@ class BeepCarouselSlider extends StatefulWidget {
 
   /// The widgets to be shown in the carousel.
   final List<String> items;
+
+  final List<Function> onItemTaps;
 
   /// Set carousel height and overrides any existing [aspectRatio].
   final double height;
@@ -174,54 +178,22 @@ class BeepCarouselSlider extends StatefulWidget {
 class _BeepCarouselSliderState extends State<BeepCarouselSlider>
     with TickerProviderStateMixin {
   int currentPage;
-  Timer timer;
 
   @override
   void initState() {
     super.initState();
     currentPage = widget.initialPage;
-    timer = getTimer();
-  }
-
-  Timer getTimer() {
-    return Timer.periodic(widget.autoPlayInterval, (_) {
-      if (widget.autoPlay) {
-        widget.pageController.nextPage(
-            duration: widget.autoPlayAnimationDuration,
-            curve: widget.autoPlayCurve);
-      }
-    });
-  }
-
-  void pauseOnTouch() {
-    timer.cancel();
-    timer = Timer(widget.pauseAutoPlayOnTouch, () {
-      timer = getTimer();
-    });
   }
 
   Widget getWrapper(Widget child) {
     if (widget.height != null) {
       final Widget wrapper = Container(height: widget.height, child: child);
-      return widget.autoPlay && widget.pauseAutoPlayOnTouch != null
-          ? addGestureDetection(wrapper)
-          : wrapper;
+      return wrapper;
     } else {
       final Widget wrapper =
           AspectRatio(aspectRatio: widget.aspectRatio, child: child);
-      return widget.autoPlay && widget.pauseAutoPlayOnTouch != null
-          ? addGestureDetection(wrapper)
-          : wrapper;
+      return wrapper;
     }
-  }
-
-  Widget addGestureDetection(Widget child) =>
-      GestureDetector(onPanDown: (_) => pauseOnTouch(), child: child);
-
-  @override
-  void dispose() {
-    super.dispose();
-    timer?.cancel();
   }
 
   @override
@@ -266,7 +238,12 @@ class _BeepCarouselSliderState extends State<BeepCarouselSlider>
                   child:
                       SizedBox(height: distortionValue * height, child: child));
             },
-            child: getItemChild(widget.items[index], context));
+            child: GestureDetector(
+              onTap: () {
+                widget.onItemTaps[index]();
+              },
+              child: getItemChild(widget.items[index], context),
+            ));
       },
     ));
   }
@@ -311,8 +288,30 @@ int _remainder(int input, int source) {
 }
 
 class BeepLoadingCarousal extends StatelessWidget {
+  const BeepLoadingCarousal({
+    Key key,
+    this.aspectRatio = 2.0,
+  }) : super(key: key);
+
+  final double aspectRatio;
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return AspectRatio(
+      aspectRatio: aspectRatio,
+      child: Shimmer.fromColors(
+        highlightColor: Colors.grey[100],
+        baseColor: Colors.grey[300],
+        child: Container(
+          margin: const EdgeInsets.only(left: 46, right: 46, bottom: 16),
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(BeepDimens.cornerRadius),
+            ),
+            color: BeepColors.white,
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -29,13 +29,30 @@ class MyHomePage extends StatefulWidget {
 
 final List<String> imgList = <String>[
   'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F58655718%2F157741597574%2F1%2Foriginal.jpg?w=800&auto=compress&rect=0%2C86%2C960%2C480&s=0f59d910e3401a84aaf18bd5f6c14bd3',
-  'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F58655718%2F157741597574%2F1%2Foriginal.jpg?w=800&auto=compress&rect=0%2C86%2C960%2C480&s=0f59d910e3401a84aaf18bd5f6c14bd3',
   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
   'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
   'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
   'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
 //  'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
 //  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
+];
+
+final List<Function> onItemTapList = <Function>[
+  () {
+    print('index 1');
+  },
+  () {
+    print('index 2');
+  },
+  () {
+    print('index 3');
+  },
+  () {
+    print('index 4');
+  },
+  () {
+    print('index 5');
+  },
 ];
 
 class _MyHomePageState extends State<MyHomePage>
@@ -183,12 +200,14 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
               ),
               const SizedBox(height: 24.0),
+              const BeepLoadingCarousal(),
+              const SizedBox(height: 24.0),
               BeepCarouselSlider(
                 items: imgList,
                 autoPlay: false,
                 enlargeCenterPage: true,
                 aspectRatio: 2.0,
-                onPageChanged: () {},
+                onItemTaps: onItemTapList,
               ),
               const SizedBox(height: 24.0),
               Padding(
