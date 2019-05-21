@@ -106,8 +106,9 @@ class _MyHomePageState extends State<MyHomePage>
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              const SizedBox(height: 24.0),
-              const SizedBox(height: 24.0),
+              const TopBar(
+                height: 200,
+              ),
               TabBar(
                 isScrollable: true,
                 unselectedLabelColor: BeepColors.textSecondary,

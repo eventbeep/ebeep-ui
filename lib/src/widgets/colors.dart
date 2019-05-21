@@ -9,6 +9,10 @@ class BeepColors {
   static const Color secondary = Color(0xFF0C66FF);
   static const Color tertiary = Color(0xFFEF476F);
 
+  static const Color primary250 = Color(0x402C95FF);
+  static const Color primary500 = Color(0x802C95FF);
+  static const Color primary750 = Color(0xC02C95FF);
+
   static const Color error = Color(0xFFF03D3D);
   static const Color success = Color(0xFF3ED3A3);
   static const Color warning = Color(0xFFFFAD0D);

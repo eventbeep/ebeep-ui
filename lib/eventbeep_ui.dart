@@ -25,5 +25,6 @@ export 'src/widgets/text_field.dart';
 export 'src/widgets/ticket_card.dart';
 export 'src/widgets/ticket_type_card.dart';
 export 'src/widgets/timeline_card.dart';
+export 'src/widgets/top_bar.dart';
 
 //export 'src/widgets/zoom_scaffold.dart';
