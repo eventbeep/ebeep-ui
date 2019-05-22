@@ -12,8 +12,8 @@ class BeepFeedCard extends StatelessWidget {
     this.feedType,
     @required this.likes,
     @required this.comments,
-    this.postVideo,
-    this.postImage,
+    this.feedVideo,
+    this.feedImage,
   }) : super(key: key);
 
   final String authorName,
@@ -21,8 +21,8 @@ class BeepFeedCard extends StatelessWidget {
       content,
       postedTime,
       feedType,
-      postVideo,
-      postImage;
+      feedVideo,
+      feedImage;
   final int likes, comments;
 
   @override
@@ -85,6 +85,9 @@ class BeepFeedCard extends StatelessWidget {
   }
 
   Widget feedMedia() {
+    if (feedImage != null) {
+      return Image.network(feedImage, height: 200, fit: BoxFit.cover);
+    }
     return Container(
       height: 200,
       color: BeepColors.cardBackground,

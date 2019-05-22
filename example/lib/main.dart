@@ -181,6 +181,8 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
               ),
               const SizedBox(height: 24.0),
+              // const BeepBadge(icon: Icons.airplanemode_active),
+              // const SizedBox(height: 24.0),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
@@ -198,6 +200,8 @@ class _MyHomePageState extends State<MyHomePage>
                       'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
                   likes: 12,
                   comments: 3,
+                  feedImage:
+                      'https://in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-alex-in-wonderland-2019-5-3-t-15-55-26.jpg',
                 ),
               ),
               const SizedBox(height: 24.0),
