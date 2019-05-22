@@ -86,7 +86,12 @@ class BeepFeedCard extends StatelessWidget {
 
   Widget feedMedia() {
     if (feedImage != null) {
-      return Image.network(feedImage, height: 200, fit: BoxFit.cover);
+      return Image.network(
+        feedImage,
+        height: 200,
+        fit: BoxFit.cover,
+        width: double.infinity,
+      );
     }
     return Container(
       height: 200,

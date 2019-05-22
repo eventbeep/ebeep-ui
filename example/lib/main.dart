@@ -201,7 +201,7 @@ class _MyHomePageState extends State<MyHomePage>
                   likes: 12,
                   comments: 3,
                   feedImage:
-                      'https://in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-alex-in-wonderland-2019-5-3-t-15-55-26.jpg',
+                      'https://eep.io/images/yzco4xsimv0y/5RsU3w3Ga4aaqqC8mm8iK8/757413d0216429d985e88ad460bec767/camp_cb_video_video_w_overlay.png',
                 ),
               ),
               const SizedBox(height: 24.0),
