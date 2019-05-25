@@ -1,5 +1,7 @@
 library eventbeep_ui;
 
+export 'src/icons/ant_icons.dart';
+
 export 'src/widgets/app_bar.dart';
 // export 'src/widgets/badge.dart';
 export 'src/widgets/bottom_sheet.dart';
