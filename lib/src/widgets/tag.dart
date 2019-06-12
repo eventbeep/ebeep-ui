@@ -23,7 +23,7 @@ class BeepTag extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: BeepCustomText(
-          text: text,
+          text: capitalize(text),
           size: BeepDimens.textSecondary,
           color: BeepColors.white,
           fontFamily: 'Quicksand',
@@ -31,6 +31,8 @@ class BeepTag extends StatelessWidget {
       ),
     );
   }
+
+  String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
 
   List<Color> getGradient() {
     switch (text) {
