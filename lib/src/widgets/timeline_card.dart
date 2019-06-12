@@ -58,7 +58,10 @@ class BeepTimelineCard extends StatelessWidget {
           width: 2.0,
           color: BeepColors.primary,
         ),
-        const CircleAvatar(radius: 6),
+        const CircleAvatar(
+          radius: 6,
+          backgroundColor: BeepColors.primary,
+        ),
         Container(
           height: 48.0,
           width: 2.0,
@@ -144,7 +147,9 @@ class BeepLoadingTimeline extends StatelessWidget {
           width: 2.0,
           color: BeepColors.primary,
         ),
-        const CircleAvatar(radius: 6),
+        const CircleAvatar(
+          radius: 6,
+        ),
         Container(
           height: 48.0,
           width: 2.0,

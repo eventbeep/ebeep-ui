@@ -34,30 +34,22 @@ class BeepTag extends StatelessWidget {
 
   List<Color> getGradient() {
     switch (text) {
-      case BeepConstants.collegeEvents:
-        return BeepGradients.collegeEvents;
-      case BeepConstants.food:
+      case BeepCategories.food:
         return BeepGradients.food;
-      case BeepConstants.adventure:
+      case BeepCategories.adventure:
         return BeepGradients.adventure;
-      case BeepConstants.gaming:
+      case BeepCategories.gaming:
         return BeepGradients.gaming;
-      case BeepConstants.biking:
+      case BeepCategories.creative:
         return BeepGradients.biking;
-      case BeepConstants.competitions:
-        return BeepGradients.competitions;
-      case BeepConstants.sports:
+      case BeepCategories.sports:
         return BeepGradients.sports;
-      case BeepConstants.quizzes:
-        return BeepGradients.quizzes;
-      case BeepConstants.entertainment:
+      case BeepCategories.entertainment:
         return BeepGradients.entertainment;
-      case BeepConstants.startups:
+      case BeepCategories.startups:
         return BeepGradients.startups;
-      case BeepConstants.technical:
+      case BeepCategories.technical:
         return BeepGradients.technical;
-      case BeepConstants.others:
-        return BeepGradients.others;
       default:
         return BeepGradients.appBarGradient;
     }
