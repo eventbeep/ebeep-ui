@@ -14,6 +14,7 @@ class BeepTextField extends StatelessWidget {
     this.controller,
     this.onTap,
     this.getKeyboard = true,
+    this.icon,
   }) : super(key: key);
 
   final TextCapitalization textCapitalization;
@@ -26,6 +27,7 @@ class BeepTextField extends StatelessWidget {
   final TextEditingController controller;
   final Function onTap;
   final bool getKeyboard;
+  final Icon icon;
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +45,7 @@ class BeepTextField extends StatelessWidget {
               {int currentLength, int maxLength, bool isFocused}) =>
           null,
       decoration: InputDecoration(
+        icon: icon,
         labelText: labelText,
         border: OutlineInputBorder(),
         errorText: errorText,

@@ -218,6 +218,10 @@ class _MyHomePageState extends State<MyHomePage>
               Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: BeepTextField(
+                    icon: const Icon(
+                      Icons.phone_android,
+                      size: 32,
+                    ),
                     controller: _textController,
                     labelText: 'Mobile Number',
                     onTap: () {
