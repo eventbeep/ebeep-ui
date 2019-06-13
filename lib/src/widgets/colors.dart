@@ -24,7 +24,8 @@ class BeepColors {
 
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF182C4F);
-  static const Color lightGrey = Color(0xff8f909e);
+  static const Color lightGrey = Color(0xffededf1);
+  static const Color darkGrey = Color(0xff8f909e);
 
   static const Color lightShadow = Color(0x2F000000);
   static const Color darkShadow = Color(0x3F000000);
