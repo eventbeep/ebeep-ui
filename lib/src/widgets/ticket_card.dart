@@ -36,7 +36,7 @@ class BeepTicketCard extends StatelessWidget {
                   maxLines: 1,
                   color: BeepColors.primary,
                   align: TextAlign.center,
-                  fontFamily: 'Poppins',
+                  fontFamily: 'Heading',
                   weight: FontWeight.w600,
                 ),
                 const SizedBox(height: BeepDimens.padding),
@@ -78,7 +78,7 @@ class BeepTicketCard extends StatelessWidget {
   Widget imageText(IconData icon, String text) {
     return Row(
       children: <Widget>[
-        Icon(icon, color: BeepColors.lightGrey),
+        Icon(icon, color: BeepColors.darkGrey),
         const SizedBox(
           width: BeepDimens.padding,
         ),

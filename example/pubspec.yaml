@@ -39,47 +39,12 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   fonts:
-  - family: Quicksand
+  - family:  AntIcons
     fonts:
-    - asset: packages/eventbeep_ui/fonts/Quicksand-Medium.ttf
-  - family: Rocksalt
+    - asset: packages/eventbeep_ui/fonts/AntIcons.ttf
+  - family: Simple
     fonts:
-    - asset: packages/eventbeep_ui/fonts/RockSalt-Regular.ttf
-  - family: Poppins
+    - asset: packages/eventbeep_ui/fonts/OpenSans-Regular.ttf
+  - family: Heading
     fonts:
-    - asset: packages/eventbeep_ui/fonts/Poppins-Regular.ttf
-    - asset: packages/eventbeep_ui/fonts/Poppins-Medium.ttf
-      weight: 300
-    - asset: packages/eventbeep_ui/fonts/Poppins-SemiBold.ttf
-      weight: 600
-
-  # To add assets to your application, add an assets section, like this:
-#  assets:
-#  - packages/eventbeep_ui/images/template.png
-  #  - images/a_dot_ham.jpeg
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.io/assets-and-images/#resolution-aware.
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.io/assets-and-images/#from-packages
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.io/custom-fonts/#from-packages
+    - asset: packages/eventbeep_ui/fonts/Montserrat-Regular.ttf

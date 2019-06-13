@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Poppins'),
+      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Heading'),
       home: const MyHomePage(title: 'Eventbeep'),
 //      home: Scaffold(
 //        appBar: PreferredSize(
@@ -241,7 +241,7 @@ class _MyHomePageState extends State<MyHomePage>
                 height: 226,
                 child: BeepEventCard(
                   onTap: () => print('pressed'),
-                  height: 200,
+                  height: 210,
                   width: 300,
                   category: 'adventure',
                   date: '24',

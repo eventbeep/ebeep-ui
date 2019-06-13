@@ -23,7 +23,7 @@ class BeepChip extends StatelessWidget {
           text: label,
           size: BeepDimens.textPrimary,
           color: BeepColors.white,
-          fontFamily: 'Quicksand',
+          fontFamily: 'Simple',
         ),
         backgroundColor: BeepColors.primary,
         onDeleted: onDeleted,

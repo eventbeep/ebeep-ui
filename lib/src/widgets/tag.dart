@@ -26,7 +26,7 @@ class BeepTag extends StatelessWidget {
           text: capitalize(text),
           size: BeepDimens.textSecondary,
           color: BeepColors.white,
-          fontFamily: 'Quicksand',
+          fontFamily: 'Simple',
         ),
       ),
     );

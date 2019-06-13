@@ -33,7 +33,7 @@ class BeepTimelineCard extends StatelessWidget {
       children: <Widget>[
         BeepCustomText(
           text: eventDate,
-          fontFamily: 'Quicksand',
+          fontFamily: 'Simple',
           maxLines: 1,
           size: BeepDimens.textPrimary,
           weight: FontWeight.bold,
@@ -77,7 +77,7 @@ class BeepTimelineCard extends StatelessWidget {
       children: <Widget>[
         BeepCustomText(
           text: eventName,
-          fontFamily: 'Poppins',
+          fontFamily: 'Heading',
           size: BeepDimens.textSmallHeading,
           weight: FontWeight.bold,
           color: BeepColors.textPrimary,

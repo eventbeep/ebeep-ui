@@ -5,7 +5,7 @@ class BeepCustomText extends StatelessWidget {
   const BeepCustomText({
     @required this.text,
     this.align = TextAlign.start,
-    this.color = BeepColors.lightGrey,
+    this.color = BeepColors.textSecondary,
     this.weight = FontWeight.w100,
     @required this.size,
     @required this.fontFamily,
@@ -53,7 +53,7 @@ class BeepPrimaryText extends StatelessWidget {
       color: BeepColors.textPrimary,
       size: BeepDimens.textPrimary,
       align: align,
-      fontFamily: 'Quicksand',
+      fontFamily: 'Simple',
     );
   }
 }
@@ -77,7 +77,7 @@ class BeepSecondaryText extends StatelessWidget {
       maxLines: maxLines,
       size: BeepDimens.textSecondary,
       color: BeepColors.textSecondary,
-      fontFamily: 'Quicksand',
+      fontFamily: 'Simple',
     );
   }
 }
@@ -94,8 +94,8 @@ class BeepActionBarText extends StatelessWidget {
       align: TextAlign.center,
       size: BeepDimens.textActionBar,
       color: BeepColors.textPrimary,
-      weight: FontWeight.w600,
-      fontFamily: 'Rocksalt',
+      weight: FontWeight.bold,
+      fontFamily: 'Heading',
     );
   }
 }
@@ -113,8 +113,8 @@ class BeepButtonText extends StatelessWidget {
       maxLines: 1,
       size: BeepDimens.textButtonSize,
       color: BeepColors.white,
-      weight: FontWeight.w600,
-      fontFamily: 'Poppins',
+      weight: FontWeight.bold,
+      fontFamily: 'Heading',
     );
   }
 }
@@ -138,8 +138,7 @@ class BeepLargeHeading extends StatelessWidget {
       maxLines: maxLines,
       size: BeepDimens.textLargeHeading,
       color: BeepColors.textPrimary,
-      weight: FontWeight.w300,
-      fontFamily: 'Poppins',
+      fontFamily: 'Heading',
     );
   }
 }
@@ -163,8 +162,7 @@ class BeepSmallHeading extends StatelessWidget {
       maxLines: maxLines,
       size: BeepDimens.textSmallHeading,
       color: BeepColors.primary,
-      weight: FontWeight.w300,
-      fontFamily: 'Quicksand',
+      fontFamily: 'Heading',
     );
   }
 }

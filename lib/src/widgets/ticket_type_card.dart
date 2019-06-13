@@ -59,7 +59,7 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
         size: 36,
         color: BeepColors.textSecondary,
         weight: FontWeight.bold,
-        fontFamily: 'Poppins',
+        fontFamily: 'Heading',
       ),
     );
   }
@@ -85,7 +85,7 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
             text: '+',
             size: 24.0,
             color: BeepColors.primary,
-            fontFamily: 'Poppins',
+            fontFamily: 'Heading',
           ),
           onPressed: () {
             if (count >= 10) {
@@ -101,7 +101,7 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
             text: '-',
             size: 24.0,
             color: BeepColors.primary,
-            fontFamily: 'Poppins',
+            fontFamily: 'Heading',
           ),
           onPressed: () {
             if (count <= 0) {
@@ -152,7 +152,7 @@ class BeepLoadingTicket extends StatelessWidget {
         size: 36,
         color: BeepColors.textSecondary,
         weight: FontWeight.bold,
-        fontFamily: 'Poppins',
+        fontFamily: 'Heading',
       ),
     );
   }

@@ -23,10 +23,10 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
 #  fonts:
-#  - family: Poppins
+#  - family: Heading
 #    fonts:
-#    - asset: lib/fonts/Poppins-Regular.ttf
-#    - asset: lib/fonts/Poppins-SemiBold.ttf
+#    - asset: lib/fonts/Heading-Regular.ttf
+#    - asset: lib/fonts/Heading-SemiBold.ttf
 #      weight: 600
 
   # To add assets to your package, add an assets section, like this:
