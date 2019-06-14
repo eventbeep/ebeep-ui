@@ -123,7 +123,7 @@ class BeepEventCard extends StatelessWidget {
             children: <Widget>[
               BeepCustomText(
                   text: day,
-                  size: BeepDimens.textSecondary
+                  size: BeepDimens.textSecondary,
                   fontFamily: 'Heading',
                   color: BeepColors.primary),
               BeepCustomText(

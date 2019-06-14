@@ -10,6 +10,7 @@ class BeepCustomText extends StatelessWidget {
     @required this.size,
     @required this.fontFamily,
     this.maxLines,
+    this.lineSpace = 1,
   });
 
   final String text;
@@ -19,6 +20,7 @@ class BeepCustomText extends StatelessWidget {
   final double size;
   final int maxLines;
   final String fontFamily;
+  final double lineSpace;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class BeepCustomText extends StatelessWidget {
       overflow: (maxLines != null) ? TextOverflow.ellipsis : null,
       textAlign: align,
       style: TextStyle(
+        height: lineSpace,
         color: color,
         fontWeight: weight,
         fontSize: size,
@@ -41,10 +44,12 @@ class BeepPrimaryText extends StatelessWidget {
   const BeepPrimaryText({
     this.text,
     this.align,
+    this.lineSpace,
   });
 
   final String text;
   final TextAlign align;
+  final double lineSpace;
 
   @override
   Widget build(BuildContext context) {
@@ -63,11 +68,13 @@ class BeepSecondaryText extends StatelessWidget {
     this.text,
     this.align,
     this.maxLines,
+    this.lineSpace,
   });
 
   final String text;
   final TextAlign align;
   final int maxLines;
+  final double lineSpace;
 
   @override
   Widget build(BuildContext context) {
