@@ -59,6 +59,7 @@ class BeepPrimaryText extends StatelessWidget {
       size: BeepDimens.textPrimary,
       align: align,
       fontFamily: 'Simple',
+      lineSpace: lineSpace,
     );
   }
 }
@@ -85,6 +86,7 @@ class BeepSecondaryText extends StatelessWidget {
       size: BeepDimens.textSecondary,
       color: BeepColors.textSecondary,
       fontFamily: 'Simple',
+      lineSpace: lineSpace,
     );
   }
 }
