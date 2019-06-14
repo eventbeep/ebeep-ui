@@ -123,19 +123,19 @@ class BeepEventCard extends StatelessWidget {
             children: <Widget>[
               BeepCustomText(
                   text: day,
-                  size: BeepDimens.textPrimary,
-                  fontFamily: 'Simple',
+                  size: BeepDimens.textSecondary
+                  fontFamily: 'Heading',
                   color: BeepColors.primary),
               BeepCustomText(
                   text: date,
-                  size: BeepDimens.textSmallHeading,
+                  size: BeepDimens.textPrimary,
                   fontFamily: 'Simple',
                   color: BeepColors.textPrimary),
               BeepCustomText(
                   text: month,
                   color: BeepColors.textSecondary,
                   size: BeepDimens.textSecondary,
-                  fontFamily: 'Simple'),
+                  fontFamily: 'Heading'),
             ],
           ),
           const SizedBox(width: BeepDimens.padding),

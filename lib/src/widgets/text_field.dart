@@ -1,5 +1,6 @@
 import 'package:eventbeep_ui/src/widgets/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class BeepTextField extends StatelessWidget {
   const BeepTextField({
@@ -41,12 +42,14 @@ class BeepTextField extends StatelessWidget {
       keyboardType: textInputType,
       obscureText: isPassword,
       maxLength: maxLength,
+      style: TextStyle(fontFamily: 'Simple'),
       buildCounter: (BuildContext context,
               {int currentLength, int maxLength, bool isFocused}) =>
           null,
       decoration: InputDecoration(
         icon: icon,
         labelText: labelText,
+        labelStyle: TextStyle(fontFamily: 'Simple'),
         border: OutlineInputBorder(),
         errorText: errorText,
       ),

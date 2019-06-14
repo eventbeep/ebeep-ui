@@ -44,7 +44,7 @@ flutter:
     - asset: packages/eventbeep_ui/fonts/AntIcons.ttf
   - family: Simple
     fonts:
-    - asset: packages/eventbeep_ui/fonts/OpenSans-Regular.ttf
+    - asset: packages/eventbeep_ui/fonts/Lato-Regular.ttf
   - family: Heading
     fonts:
-    - asset: packages/eventbeep_ui/fonts/Montserrat-Regular.ttf
+    - asset: packages/eventbeep_ui/fonts/Poppins-Regular.ttf
