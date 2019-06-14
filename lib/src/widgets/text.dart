@@ -162,6 +162,7 @@ class BeepSmallHeading extends StatelessWidget {
       maxLines: maxLines,
       size: BeepDimens.textSmallHeading,
       color: BeepColors.primary,
+      weight: FontWeight.bold,
       fontFamily: 'Heading',
     );
   }

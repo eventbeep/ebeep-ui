@@ -257,7 +257,38 @@ class _MyHomePageState extends State<MyHomePage>
               const SizedBox(height: 24.0),
               const BeepTag(text: BeepCategories.sports),
               const SizedBox(height: 24.0),
-//              BeepOtpView(),
+              PinCodeTextField(
+                // autofocus: true,
+                // controller: controller,
+                highlight: true,
+                highlightColor: BeepColors.primary,
+                defaultBorderColor: BeepColors.darkGrey,
+                hasTextBorderColor: BeepColors.primary,
+                maxLength: 6,
+                // hasError: snapshot.hasError,
+                errorBorderColor: BeepColors.error,
+                // onTextChanged: (String text) {
+                //   setState(() {
+                //     hasError = false;
+                //   });
+                // },
+                // onTextChanged: _bloc.otpChanged,
+                // onDone: (String text) {
+                //   print('DONE $text');
+                // },
+                // onDone: _bloc.otpChanged,
+                pinCodeTextFieldLayoutType: PinCodeTextFieldLayoutType.WRAP,
+                pinBoxHeight: 55,
+                pinBoxWidth: 50,
+                wrapAlignment: WrapAlignment.center,
+                pinBoxDecoration:
+                    ProvidedPinBoxDecoration.defaultPinBoxDecoration,
+                pinTextStyle: TextStyle(fontSize: BeepDimens.textPrimary),
+                pinTextAnimatedSwitcherTransition:
+                    ProvidedPinBoxTextAnimation.scalingTransition,
+                pinTextAnimatedSwitcherDuration:
+                    const Duration(milliseconds: 100),
+              ),
               getChips(),
               const SizedBox(height: 24.0),
               Padding(
