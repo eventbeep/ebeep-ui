@@ -15,7 +15,9 @@ class Line {
 
   ///Calculate the param K in y = kx +c
   static double paramK(Point<double> p1, Point<double> p2) {
-    if (p1.x == p2.x) return 0;
+    if (p1.x == p2.x) {
+      return 0;
+    }
     return (p2.y - p1.y) / (p2.x - p1.x);
   }
 
@@ -86,8 +88,12 @@ class LineInterCircle {
   ///intersection point
   static Point<double> intersectionPoint(
       Point<double> p1, Point<double> p2, double r) {
-    if (p1.x == p2.x) return _equalX(p1, p2, r);
-    if (p1.y == p2.y) return _equalY(p1, p2, r);
+    if (p1.x == p2.x) {
+      return _equalX(p1, p2, r);
+    }
+    if (p1.y == p2.y) {
+      return _equalY(p1, p2, r);
+    }
     final double delta =
         sqrt(paramA(p1, p2) * paramA(p1, p2) - 4 * paramB(p1, p2, r));
     if (delta < 0.0) {
@@ -107,12 +113,12 @@ class LineInterCircle {
 }
 
 class SizeKeyConst {
-  static const String DEVICE_KEY = "device_size";
-  static const String ROUND_ANGLE_KEY = "round_angle_size";
-  static const String REGULAR_POLYGON_KEY = "regular_angle_size";
-  static const String CIRCLE_KEY = "circle custom painter";
-  static const String CIRCLE_TRIANGLE_KEY = "circle triangle painter";
-  static const String LOGO_KEY = "logo_page_size";
+  static const String DEVICE_KEY = 'device_size';
+  static const String ROUND_ANGLE_KEY = 'round_angle_size';
+  static const String REGULAR_POLYGON_KEY = 'regular_angle_size';
+  static const String CIRCLE_KEY = 'circle custom painter';
+  static const String CIRCLE_TRIANGLE_KEY = 'circle triangle painter';
+  static const String LOGO_KEY = 'logo_page_size';
 }
 
 class SizeUtil {

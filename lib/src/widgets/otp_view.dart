@@ -15,7 +15,7 @@ mixin ProvidedPinBoxDecoration {
           color: borderColor,
           width: 2.0,
         ),
-        borderRadius: const BorderRadius.all(const Radius.circular(5.0)));
+        borderRadius: const BorderRadius.all(Radius.circular(5.0)));
   };
 
   /// Underlined BoxDecoration

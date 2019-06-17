@@ -28,19 +28,19 @@ SizeUtil get _sizeUtil {
 class BadgePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    var paint = Paint()
+    final Paint paint = Paint()
       ..style = PaintingStyle.stroke
       ..color = BeepColors.primary
       ..isAntiAlias = true;
-    List<Point> list1 = [
-      Point(250.0, 0.0),
-      Point(425.0, 75.0),
-      Point(500.0, 250.0),
-      Point(425.0, 425.0),
-      Point(250.0, 500.0),
-      Point(75.0, 426.0),
-      Point(0.0, 250.0),
-      Point(75.0, 75.0),
+    final List<Point<double>> list1 = <Point<double>>[
+      const Point<double>(250.0, 0.0),
+      const Point<double>(425.0, 75.0),
+      const Point<double>(500.0, 250.0),
+      const Point<double>(425.0, 425.0),
+      const Point<double>(250.0, 500.0),
+      const Point<double>(75.0, 426.0),
+      const Point<double>(0.0, 250.0),
+      const Point<double>(75.0, 75.0),
     ];
     paint.color = BeepColors.primary;
     _drawWithPoint(canvas, paint, list1);
