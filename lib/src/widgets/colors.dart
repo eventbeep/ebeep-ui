@@ -11,23 +11,26 @@ class BeepColors {
 
   static const Color primary250 = Color(0x40fcc117);
   static const Color primary500 = Color(0x80fcc117);
-  static const Color primary750 = Color(0xC0fcc117);
+  static const Color primary750 = Color(0xc0fcc117);
 
-  static const Color error = Color(0xFFF03D3D);
-  static const Color success = Color(0xFF3ED3A3);
-  static const Color warning = Color(0xFFFFAD0D);
+  static const Color error = Color(0xfff03D3D);
+  static const Color success = Color(0xff3ED3a3);
+  static const Color warning = Color(0xffffaD0D);
 
-  static const Color textPrimary = Color(0xFF182C4F);
-  static const Color textSecondary = Color(0xFF7F7F7F);
+  static const Color textPrimary = Color(0xff182c4f);
+  static const Color textSecondary = Color(0xff7f7f7f);
 
-  static const Color cardBackground = Color(0xFFF9FAFC);
+  static const Color darkIcon = Color(0xff06102e);
+  static const Color lightIcon = Color(0xffafb0b9);
+  static const Color bottomNavigationIcon = Color(0xffd8d8de);
+  static const Color cardBackground = Color(0xfff9fafc);
 
-  static const Color white = Color(0xFFFFFFFF);
-  static const Color black = Color(0xFF182C4F);
+  static const Color white = Color(0xffffffff);
+  static const Color black = Color(0xff182c4f);
   static const Color lightGrey = Color(0xffededf1);
   static const Color darkGrey = Color(0xff8f909e);
 
   static const Color lightShadow = Color(0x88e0e8f7);
-  static const Color darkShadow = Color(0x3F000000);
+  static const Color darkShadow = Color(0x3f000000);
 //  static const LinearGradient gradient = LinearGradient(colors: appBarGradient);
 }

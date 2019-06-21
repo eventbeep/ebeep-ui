@@ -113,7 +113,10 @@ class BeepFeedCard extends StatelessWidget {
           const EdgeInsets.symmetric(horizontal: BeepDimens.cardMarginVertical),
       child: Row(
         children: <Widget>[
-          IconButton(icon: const Icon(Icons.favorite), onPressed: () {}),
+          IconButton(
+              icon: const Icon(Icons.favorite),
+              color: BeepColors.lightIcon,
+              onPressed: () {}),
           BeepSecondaryText(text: likes.toString()),
           const SizedBox(width: BeepDimens.padding),
           IconButton(icon: const Icon(Icons.comment), onPressed: () {}),

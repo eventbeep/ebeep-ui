@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class BeepGradients {
   BeepGradients._();
   static const List<Color> appBarGradient = <Color>[
-    Color(0xFFfcc117),
-    Color(0xFFfcce00),
+    // Color(0xfffcc117),
+    Color(0xfffcce00),
+    Color(0xfffaae3d),
   ];
 
   static const List<Color> collegeEvents = <Color>[

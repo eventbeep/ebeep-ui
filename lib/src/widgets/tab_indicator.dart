@@ -98,8 +98,11 @@ class _BubblePainter extends BoxPainter {
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     assert(configuration != null);
     assert(configuration.size != null);
-    final Gradient gradient =
-        LinearGradient(colors: BeepGradients.appBarGradient);
+    final Gradient gradient = LinearGradient(
+      colors: BeepGradients.appBarGradient,
+      begin: FractionalOffset.topCenter,
+      end: FractionalOffset.bottomCenter,
+    );
     final Rect rect = Offset(
             offset.dx, (configuration.size.height / 2) - indicatorHeight / 2) &
         Size(configuration.size.width, indicatorHeight);
