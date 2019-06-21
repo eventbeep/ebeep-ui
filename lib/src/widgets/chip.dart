@@ -1,8 +1,8 @@
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 
-class BeepChip extends StatelessWidget {
-  const BeepChip({
+class BeepChip extends StatefulWidget {
+  BeepChip({
     Key key,
     @required this.label,
     this.onDeleted,
@@ -14,22 +14,48 @@ class BeepChip extends StatelessWidget {
   final Function onSelected;
 
   @override
+  _BeepChipState createState() => _BeepChipState();
+}
+
+class _BeepChipState extends State<BeepChip> {
+  bool isSelected;
+
+  @override
+  void didChangeDependencies() {
+    isSelected = false;
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onSelected,
+      onTap: isSelected
+          ? null
+          : () {
+              setState(() {
+                isSelected = true;
+              });
+              return widget.onSelected;
+            },
       child: Chip(
         padding: const EdgeInsets.all(8),
         label: BeepCustomText(
-          text: label,
+          text: widget.label,
           size: BeepDimens.textPrimary,
-          color: BeepColors.white,
+          color: isSelected ? BeepColors.white : BeepColors.tertiary,
           fontFamily: 'Simple',
         ),
-        backgroundColor: BeepColors.primary,
-        onDeleted: onDeleted,
+        backgroundColor: isSelected ? BeepColors.primary : BeepColors.lightGrey,
+        onDeleted: isSelected
+            ? () {
+                setState(() {
+                  isSelected = false;
+                });
+                return widget.onDeleted;
+              }
+            : null,
         deleteIconColor: BeepColors.white,
         deleteButtonTooltipMessage: 'Remove this interest',
-        elevation: 4.0,
       ),
     );
   }
