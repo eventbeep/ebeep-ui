@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   qr: ^1.0.1
   shimmer: ^1.0.0
+  cached_network_image: ^0.8.0      #https://pub.dartlang.org/packages/cached_network_image
+
 
 dev_dependencies:
   flutter_test:

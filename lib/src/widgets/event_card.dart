@@ -1,6 +1,7 @@
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class BeepEventCard extends StatelessWidget {
   const BeepEventCard({
@@ -93,8 +94,10 @@ class BeepEventCard extends StatelessWidget {
           color: BeepColors.darkShadow),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-        child: Image.network(
-          imageUrl,
+        child: CachedNetworkImage(
+          imageUrl: imageUrl,
+          placeholder: (BuildContext context, String text) =>
+              Container(color: BeepColors.lightGrey),
           height: height * 0.666,
           width: double.infinity,
           fit: BoxFit.cover,
@@ -155,7 +158,7 @@ class BeepEventCard extends StatelessWidget {
                   children: <Widget>[
                     const Icon(Icons.location_on,
                         size: BeepDimens.textSecondary,
-                        color: BeepColors.darkGrey),
+                        color: BeepColors.lightIcon),
                     const SizedBox(width: 4),
                     Flexible(
                         child: BeepCustomText(

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -259,7 +260,13 @@ Widget getItemChild(String url, BuildContext context) {
     child: ClipRRect(
       borderRadius:
           const BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)),
-      child: Image.network(url, fit: BoxFit.cover, width: double.infinity),
+      child: CachedNetworkImage(
+        imageUrl: url,
+        placeholder: (BuildContext context, String text) =>
+            Container(color: BeepColors.lightGrey),
+        fit: BoxFit.cover,
+        width: double.infinity,
+      ),
     ),
   );
 }

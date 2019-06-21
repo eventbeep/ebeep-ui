@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
@@ -86,8 +87,10 @@ class BeepFeedCard extends StatelessWidget {
 
   Widget feedMedia() {
     if (feedImage != null) {
-      return Image.network(
-        feedImage,
+      return CachedNetworkImage(
+        imageUrl: feedImage,
+        placeholder: (BuildContext context, String text) =>
+            Container(color: BeepColors.lightGrey),
         height: 200,
         fit: BoxFit.cover,
         width: double.infinity,
@@ -119,7 +122,11 @@ class BeepFeedCard extends StatelessWidget {
               onPressed: () {}),
           BeepSecondaryText(text: likes.toString()),
           const SizedBox(width: BeepDimens.padding),
-          IconButton(icon: const Icon(Icons.comment), onPressed: () {}),
+          IconButton(
+            icon: const Icon(Icons.comment),
+            color: BeepColors.lightIcon,
+            onPressed: () {},
+          ),
           BeepSecondaryText(text: comments.toString()),
         ],
       ),
