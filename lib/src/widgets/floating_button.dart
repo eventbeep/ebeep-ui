@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class BeepFloatingButton extends StatelessWidget {
-  const BeepFloatingButton({
-    @required this.icon,
-    @required this.onPressed,
-    this.increaseHeightBy = 30.0,
-    this.increaseWidthBy = 0.0,
-    this.elevation = 8.0,
-    this.materialTapTargetSize,
-    this.heroTag,
-    this.tooltip,
-  });
+  const BeepFloatingButton(
+      {@required this.icon,
+      @required this.onPressed,
+      this.increaseHeightBy = 30.0,
+      this.increaseWidthBy = 0.0,
+      this.elevation = 8.0,
+      this.materialTapTargetSize,
+      this.heroTag,
+      this.tooltip,
+      this.shape});
 
   final Widget icon;
   final VoidCallback onPressed;
@@ -20,7 +20,7 @@ class BeepFloatingButton extends StatelessWidget {
   final double increaseHeightBy;
   final double increaseWidthBy;
   final String tooltip;
-
+  final ShapeBorder shape;
   final Object heroTag;
   final MaterialTapTargetSize materialTapTargetSize;
 
@@ -35,6 +35,7 @@ class BeepFloatingButton extends StatelessWidget {
       heroTag: heroTag,
       materialTapTargetSize: materialTapTargetSize,
       tooltip: tooltip,
+      shape: shape,
       child: Container(
         height: buttonTheme.height + increaseHeightBy,
         width: buttonTheme.minWidth + increaseWidthBy,
