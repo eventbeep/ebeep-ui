@@ -29,10 +29,8 @@ class BeepRaisedButton extends StatelessWidget {
         ),
         gradient: const LinearGradient(
           colors: BeepGradients.appBarGradient,
-          begin: FractionalOffset(0.0, 0.0),
-          end: FractionalOffset(1.0, 0.0),
-          stops: <double>[0.0, 1.0],
-          tileMode: TileMode.clamp,
+          begin: FractionalOffset.topCenter,
+          end: FractionalOffset.bottomCenter,
         ),
         boxShadow: (onPressed == null) ? null : BeepDimens.lightShadow,
       ),

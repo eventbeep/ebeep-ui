@@ -98,7 +98,7 @@ class _BubblePainter extends BoxPainter {
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     assert(configuration != null);
     assert(configuration.size != null);
-    final Gradient gradient = LinearGradient(
+    const Gradient gradient = LinearGradient(
       colors: BeepGradients.appBarGradient,
       begin: FractionalOffset.topCenter,
       end: FractionalOffset.bottomCenter,
