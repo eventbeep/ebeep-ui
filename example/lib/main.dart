@@ -180,9 +180,14 @@ class _MyHomePageState extends State<MyHomePage>
                       'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
                 ),
               ),
-              const SizedBox(height: 24.0),
-              // const BeepBadge(icon: Icons.airplanemode_active),
               // const SizedBox(height: 24.0),
+              // const BeepBadge(
+              //   sides: 8,
+              //   child: Center(child: Icon(Icons.airplanemode_active)),
+              //   borderRadius: 8,
+              //   // size: 100,
+              // ),
+              const SizedBox(height: 24.0),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
@@ -410,6 +415,7 @@ class _MyHomePageState extends State<MyHomePage>
             onSelected: () {
               print(index);
             },
+            isSelected: true,
           );
         },
       ).toList(),

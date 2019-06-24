@@ -31,7 +31,8 @@ class BeepColors {
   static const Color lightGrey = Color(0xffededf1);
   static const Color darkGrey = Color(0xff8f909e);
 
-  static const Color lightShadow = Color(0x88e0e8f7);
+  // static const Color lightShadow = Color(0x88e0e8f7);
+  static const Color lightShadow = Color(0x11000000);
   static const Color darkShadow = Color(0x3f000000);
 //  static const LinearGradient gradient = LinearGradient(colors: appBarGradient);
 }

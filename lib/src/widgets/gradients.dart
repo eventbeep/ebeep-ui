@@ -8,6 +8,11 @@ class BeepGradients {
     Color(0xfffaae3d),
   ];
 
+  static const List<Color> blueGradient = <Color>[
+    Color(0xff6981ec),
+    Color(0xff81aff0),
+  ];
+
   static const List<Color> collegeEvents = <Color>[
     Color(0xFF333BEA),
     Color(0xFF7F9BF2),

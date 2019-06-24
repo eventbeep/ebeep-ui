@@ -7,11 +7,13 @@ class BeepChip extends StatefulWidget {
     @required this.label,
     this.onDeleted,
     this.onSelected,
+    this.isSelected = false,
   }) : super(key: key);
 
   final String label;
   final Function onDeleted;
   final Function onSelected;
+  final bool isSelected;
 
   @override
   _BeepChipState createState() => _BeepChipState();
@@ -22,7 +24,7 @@ class _BeepChipState extends State<BeepChip> {
 
   @override
   void didChangeDependencies() {
-    isSelected = false;
+    isSelected = widget.isSelected;
     super.didChangeDependencies();
   }
 

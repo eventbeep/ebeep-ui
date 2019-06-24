@@ -40,7 +40,7 @@ class BeepFloatingButton extends StatelessWidget {
         height: buttonTheme.height + increaseHeightBy,
         width: buttonTheme.minWidth + increaseWidthBy,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: BeepGradients.appBarGradient,
             begin: FractionalOffset.topCenter,
             end: FractionalOffset.bottomCenter,

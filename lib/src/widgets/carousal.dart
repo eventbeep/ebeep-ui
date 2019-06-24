@@ -254,7 +254,7 @@ Widget getItemChild(String url, BuildContext context) {
   return Container(
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-        boxShadow: BeepDimens.darkShadow),
+        boxShadow: BeepDimens.lightShadow),
     margin: const EdgeInsets.only(
         left: 8.0, right: 8.0, bottom: BeepDimens.padding),
     child: ClipRRect(
