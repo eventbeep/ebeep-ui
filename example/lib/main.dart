@@ -194,8 +194,9 @@ class _MyHomePageState extends State<MyHomePage>
                 child: BeepLoadingFeed(),
               ),
               const SizedBox(height: 24.0),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepFeedCard(
                   content:
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -207,6 +208,7 @@ class _MyHomePageState extends State<MyHomePage>
                   comments: 3,
                   feedImage:
                       'https://eep.io/images/yzco4xsimv0y/5RsU3w3Ga4aaqqC8mm8iK8/757413d0216429d985e88ad460bec767/camp_cb_video_video_w_overlay.png',
+                  context: context,
                 ),
               ),
               const SizedBox(height: 24.0),
@@ -415,7 +417,6 @@ class _MyHomePageState extends State<MyHomePage>
             onSelected: () {
               print(index);
             },
-            isSelected: true,
           );
         },
       ).toList(),

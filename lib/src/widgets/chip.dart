@@ -34,10 +34,10 @@ class _BeepChipState extends State<BeepChip> {
       onTap: isSelected
           ? null
           : () {
+              widget.onSelected();
               setState(() {
                 isSelected = true;
               });
-              return widget.onSelected;
             },
       child: Chip(
         padding: const EdgeInsets.all(8),
@@ -50,10 +50,10 @@ class _BeepChipState extends State<BeepChip> {
         backgroundColor: isSelected ? BeepColors.primary : BeepColors.lightGrey,
         onDeleted: isSelected
             ? () {
+                widget.onDeleted();
                 setState(() {
                   isSelected = false;
                 });
-                return widget.onDeleted;
               }
             : null,
         deleteIconColor: BeepColors.white,

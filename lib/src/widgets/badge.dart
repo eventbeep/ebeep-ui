@@ -68,9 +68,12 @@ class BoxShadowPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final Path path = PolygonPathDrawer(size: size, specs: specs).draw();
 
-    boxShadows.forEach((PolygonBoxShadow shadow) {
+    for (PolygonBoxShadow shadow in boxShadows) {
       canvas.drawShadow(path, shadow.color, shadow.elevation, false);
-    });
+    }
+    // boxShadows.forEach((PolygonBoxShadow shadow) {
+    //   canvas.drawShadow(path, shadow.color, shadow.elevation, false);
+    // });
   }
 
   @override

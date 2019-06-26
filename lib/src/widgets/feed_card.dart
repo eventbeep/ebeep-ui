@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
@@ -13,6 +14,7 @@ class BeepFeedCard extends StatelessWidget {
     this.feedType,
     @required this.likes,
     @required this.comments,
+    @required this.context,
     this.feedVideo,
     this.feedImage,
   }) : super(key: key);
@@ -25,6 +27,7 @@ class BeepFeedCard extends StatelessWidget {
       feedVideo,
       feedImage;
   final int likes, comments;
+  final BuildContext context;
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +97,24 @@ class BeepFeedCard extends StatelessWidget {
         height: 200,
         fit: BoxFit.cover,
         width: double.infinity,
+      );
+    } else if (feedVideo != null) {
+      return YoutubePlayer(
+        context: context,
+        videoId: 'iLnmTe5Q2Qw',
+        flags: const YoutubePlayerFlags(
+          autoPlay: true,
+          showVideoProgressIndicator: true,
+        ),
+        videoProgressIndicatorColor: Colors.amber,
+        progressColors: ProgressColors(
+          playedColor: BeepColors.primary,
+          handleColor: BeepColors.secondary,
+        ),
+        // onPlayerInitialized: (YoutubePlayerController controller) {
+        //   _controller = controller;
+        //   _controller.addListener(listener);
+        // },
       );
     }
     return Container(
