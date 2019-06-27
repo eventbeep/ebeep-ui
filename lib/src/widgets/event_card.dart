@@ -94,13 +94,16 @@ class BeepEventCard extends StatelessWidget {
           color: BeepColors.darkShadow),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-        child: CachedNetworkImage(
-          imageUrl: imageUrl,
-          placeholder: (BuildContext context, String text) =>
-              Container(color: BeepColors.lightGrey),
-          height: height * 0.666,
-          width: double.infinity,
-          fit: BoxFit.cover,
+        child: Hero(
+          tag: 'eventImage',
+          child: CachedNetworkImage(
+            imageUrl: imageUrl,
+            placeholder: (BuildContext context, String text) =>
+                Container(color: BeepColors.lightGrey),
+            height: height * 0.666,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );
