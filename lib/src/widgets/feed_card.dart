@@ -92,8 +92,11 @@ class BeepFeedCard extends StatelessWidget {
     if (feedImage != null) {
       return CachedNetworkImage(
         imageUrl: feedImage,
-        placeholder: (BuildContext context, String text) =>
-            Container(color: BeepColors.lightGrey),
+        placeholder: (BuildContext context, String text) => Shimmer.fromColors(
+              highlightColor: Colors.grey[100],
+              baseColor: Colors.grey[300],
+              child: Container(color: BeepColors.lightGrey),
+            ),
         height: 200,
         fit: BoxFit.cover,
         width: double.infinity,

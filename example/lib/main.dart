@@ -258,7 +258,7 @@ class _MyHomePageState extends State<MyHomePage>
                   location: 'COEP Auditorium, Pune, India',
                   views: 23,
                   imageUrl:
-                      'https://cdn2us.denofgeek.com/sites/denofgeekus/files/styles/main_wide/public/2018/04/rick_and_morty_season_4_dan_harmon.jpg',
+                      'https://hire4event.com/blogs/wp-content/uploads/2019/03/best-Event-company-in-Greater-Noida-.jpg',
                 ),
               ),
               const SizedBox(height: 24.0),

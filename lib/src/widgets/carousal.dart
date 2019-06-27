@@ -262,8 +262,11 @@ Widget getItemChild(String url, BuildContext context) {
           const BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)),
       child: CachedNetworkImage(
         imageUrl: url,
-        placeholder: (BuildContext context, String text) =>
-            Container(color: BeepColors.lightGrey),
+        placeholder: (BuildContext context, String text) => Shimmer.fromColors(
+              highlightColor: Colors.grey[100],
+              baseColor: Colors.grey[300],
+              child: Container(color: BeepColors.lightGrey),
+            ),
         fit: BoxFit.cover,
         width: double.infinity,
       ),
