@@ -274,11 +274,25 @@ class _MyHomePageState extends State<MyHomePage>
                   3,
                   (int index) => BeepFestEventCard(
                         imageUrl:
-                            'https://targetmillionaire.com/websitetemplate/images/events_banner.jpg',
+                            'https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg',
                         eventName: 'All night long fun event',
                         startsAt: 'July 10 | 11 PM',
                         onTap: () {},
                       ),
+                ),
+              ),
+              const SizedBox(height: 24.0),
+              GridView.count(
+                padding: const EdgeInsets.all(BeepDimens.padding),
+                shrinkWrap: true,
+                childAspectRatio: 0.74,
+                crossAxisSpacing: BeepDimens.padding,
+                mainAxisSpacing: BeepDimens.padding,
+                physics: const NeverScrollableScrollPhysics(),
+                crossAxisCount: 2,
+                children: List<Widget>.generate(
+                  3,
+                  (int index) => const BeepFestEventLoading(),
                 ),
               ),
               const SizedBox(height: 24.0),
