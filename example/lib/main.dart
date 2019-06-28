@@ -262,6 +262,27 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
               ),
               const SizedBox(height: 24.0),
+              GridView.count(
+                padding: const EdgeInsets.all(BeepDimens.padding),
+                shrinkWrap: true,
+                childAspectRatio: 0.74,
+                crossAxisSpacing: BeepDimens.padding,
+                mainAxisSpacing: BeepDimens.padding,
+                physics: const NeverScrollableScrollPhysics(),
+                crossAxisCount: 2,
+                children: List<Widget>.generate(
+                  3,
+                  (int index) => BeepFestEventCard(
+                        imageUrl:
+                            'https://targetmillionaire.com/websitetemplate/images/events_banner.jpg',
+                        eventName: 'All night long fun event',
+                        startsAt: 'July 10 | 11 PM',
+                        onTap: () {},
+                      ),
+                ),
+              ),
+              const SizedBox(height: 24.0),
+
               const BeepTag(text: BeepCategories.sports),
               const SizedBox(height: 24.0),
               PinCodeTextField(

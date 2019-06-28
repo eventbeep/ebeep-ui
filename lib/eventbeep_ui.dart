@@ -13,6 +13,7 @@ export 'src/widgets/dialog.dart';
 export 'src/widgets/dimens.dart';
 export 'src/widgets/event_card.dart';
 export 'src/widgets/feed_card.dart';
+export 'src/widgets/fest_event_card.dart';
 export 'src/widgets/floating_button.dart';
 export 'src/widgets/gradients.dart';
 export 'src/widgets/indicator.dart';
