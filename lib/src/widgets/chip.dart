@@ -2,7 +2,7 @@ import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 
 class BeepChip extends StatefulWidget {
-  BeepChip({
+  const BeepChip({
     Key key,
     @required this.label,
     this.onDeleted,

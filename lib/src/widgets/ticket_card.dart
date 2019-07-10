@@ -103,7 +103,7 @@ class _TicketBackground extends CustomPainter {
     num degToRad(num deg) => deg * (pi / 180.0);
 
     path.arcTo(
-        Rect.fromLTWH(
+        const Rect.fromLTWH(
           -BeepDimens.ticketCornerRadius,
           -BeepDimens.ticketCornerRadius,
           BeepDimens.ticketCornerRadius * 2,

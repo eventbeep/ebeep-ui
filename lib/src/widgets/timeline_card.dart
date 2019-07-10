@@ -10,10 +10,12 @@ class BeepTimelineCard extends StatelessWidget {
     @required this.eventDate,
     @required this.ticketQr,
     @required this.onViewTicket,
+    this.isLast = false,
   }) : super(key: key);
 
   final String shortDescription, eventName, eventDate, ticketQr;
   final Function onViewTicket;
+  final bool isLast;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +67,7 @@ class BeepTimelineCard extends StatelessWidget {
         Container(
           height: 48.0,
           width: 2.0,
-          color: BeepColors.primary,
+          color: isLast ? BeepColors.transparent : BeepColors.primary,
         ),
       ],
     );

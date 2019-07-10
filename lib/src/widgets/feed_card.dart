@@ -17,6 +17,10 @@ class BeepFeedCard extends StatelessWidget {
     @required this.context,
     this.feedVideo,
     this.feedImage,
+    this.isLiked = false,
+    this.likeAction,
+    this.unlikeAction,
+    this.commentAction,
   }) : super(key: key);
 
   final String authorName,
@@ -28,6 +32,8 @@ class BeepFeedCard extends StatelessWidget {
       feedImage;
   final int likes, comments;
   final BuildContext context;
+  final bool isLiked;
+  final Function likeAction, unlikeAction, commentAction;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +66,7 @@ class BeepFeedCard extends StatelessWidget {
       child: Row(
         children: <Widget>[
           CircleAvatar(
-            backgroundImage: NetworkImage(authorImage),
+            backgroundImage: CachedNetworkImageProvider(authorImage),
           ),
           const SizedBox(width: BeepDimens.padding),
           Flexible(
@@ -93,10 +99,10 @@ class BeepFeedCard extends StatelessWidget {
       return CachedNetworkImage(
         imageUrl: feedImage,
         placeholder: (BuildContext context, String text) => Shimmer.fromColors(
-              highlightColor: Colors.grey[100],
-              baseColor: Colors.grey[300],
-              child: Container(color: BeepColors.lightGrey),
-            ),
+          highlightColor: Colors.grey[100],
+          baseColor: Colors.grey[300],
+          child: Container(color: BeepColors.lightGrey),
+        ),
         height: 200,
         fit: BoxFit.cover,
         width: double.infinity,
@@ -140,16 +146,23 @@ class BeepFeedCard extends StatelessWidget {
           const EdgeInsets.symmetric(horizontal: BeepDimens.cardMarginVertical),
       child: Row(
         children: <Widget>[
-          IconButton(
-              icon: const Icon(Icons.favorite),
-              color: BeepColors.lightIcon,
-              onPressed: () {}),
+          isLiked
+              ? IconButton(
+                  icon: const Icon(Icons.favorite),
+                  color: BeepColors.tertiary,
+                  onPressed: unlikeAction,
+                )
+              : IconButton(
+                  icon: const Icon(Icons.favorite_border),
+                  color: BeepColors.lightIcon,
+                  onPressed: likeAction,
+                ),
           BeepSecondaryText(text: likes.toString()),
           const SizedBox(width: BeepDimens.padding),
           IconButton(
             icon: const Icon(Icons.comment),
             color: BeepColors.lightIcon,
-            onPressed: () {},
+            onPressed: commentAction,
           ),
           BeepSecondaryText(text: comments.toString()),
         ],

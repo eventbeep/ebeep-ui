@@ -91,7 +91,7 @@ class BeepEventCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-          color: BeepColors.darkShadow),
+          color: BeepColors.lightGrey),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
         child: CachedNetworkImage(

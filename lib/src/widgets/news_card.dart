@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
@@ -34,7 +35,7 @@ class BeepNewsCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               CircleAvatar(
-                backgroundImage: NetworkImage(authorImage),
+                backgroundImage: CachedNetworkImageProvider(authorImage),
               ),
               const SizedBox(width: BeepDimens.padding),
               Expanded(

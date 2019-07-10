@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 
@@ -157,6 +158,7 @@ class _MyHomePageState extends State<MyHomePage>
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                   eventName: 'Regatta',
                   eventDate: 'February 10',
+                  isLast: true,
                   onViewTicket: () {},
                 ),
               ),
@@ -209,6 +211,9 @@ class _MyHomePageState extends State<MyHomePage>
                   feedImage:
                       'https://eep.io/images/yzco4xsimv0y/5RsU3w3Ga4aaqqC8mm8iK8/757413d0216429d985e88ad460bec767/camp_cb_video_video_w_overlay.png',
                   context: context,
+                  likeAction: () {
+                    print('Clicked');
+                  },
                 ),
               ),
               const SizedBox(height: 24.0),
@@ -273,12 +278,12 @@ class _MyHomePageState extends State<MyHomePage>
                 children: List<Widget>.generate(
                   3,
                   (int index) => BeepFestEventCard(
-                        imageUrl:
-                            'https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg',
-                        eventName: 'All night long fun event',
-                        startsAt: 'July 10 | 11 PM',
-                        onTap: () {},
-                      ),
+                    imageUrl:
+                        'https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg',
+                    eventName: 'All night long fun event',
+                    startsAt: 'July 10 | 11 PM',
+                    onTap: () {},
+                  ),
                 ),
               ),
               const SizedBox(height: 24.0),
@@ -342,11 +347,11 @@ class _MyHomePageState extends State<MyHomePage>
                     showDialog<BeepDialog>(
                       context: context,
                       builder: (BuildContext context) => const BeepDialog(
-                            title: 'Success',
-                            description:
-                                'Lorem ipsum dolor sit is a really noce way to have dummy data and I prefer this method. Thanks for opening my dialog!',
-                            buttonText: 'Okay',
-                          ),
+                        title: 'Success',
+                        description:
+                            'Lorem ipsum dolor sit is a really noce way to have dummy data and I prefer this method. Thanks for opening my dialog!',
+                        buttonText: 'Okay',
+                      ),
                     );
                   },
                   title: 'Open Dialog',
@@ -407,7 +412,7 @@ class _MyHomePageState extends State<MyHomePage>
               const SizedBox(height: 24.0),
               CircleAvatar(
                 radius: BeepDimens.avatarRadius,
-                backgroundImage: NetworkImage(
+                backgroundImage: CachedNetworkImageProvider(
                     'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg'),
               ),
               const SizedBox(height: 24.0),
