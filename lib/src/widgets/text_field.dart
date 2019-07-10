@@ -16,6 +16,7 @@ class BeepTextField extends StatelessWidget {
     this.onTap,
     this.getKeyboard = true,
     this.icon,
+    this.enabled = true,
   }) : super(key: key);
 
   final TextCapitalization textCapitalization;
@@ -29,12 +30,13 @@ class BeepTextField extends StatelessWidget {
   final Function onTap;
   final bool getKeyboard;
   final Icon icon;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       onTap: onTap,
-//      enabled: false,
+      enabled: enabled,
       focusNode: getKeyboard ? null : AlwaysDisabledFocusNode(),
       controller: controller,
       onChanged: onChanged,
