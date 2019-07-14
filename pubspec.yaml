@@ -10,9 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  qr: ^1.0.1
-  shimmer: ^1.0.0
-  cached_network_image: ^0.8.0      #https://pub.dartlang.org/packages/cached_network_image
+  qr: ^1.2.0                        #https://pub.dev/packages/qr
+  shimmer: ^1.0.0                   #https://pub.dev/packages/shimmer
+  cached_network_image: ^1.1.0      #https://pub.dev/packages/cached_network_image
   youtube_player_flutter: ^3.0.0+1  #https://pub.dev/packages/youtube_player_flutter
 
 
@@ -21,7 +21,7 @@ dev_dependencies:
     sdk: flutter
 
 # For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
+# following page: https://www.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
