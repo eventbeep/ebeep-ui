@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/cupertino.dart' show CupertinoTextField;
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
@@ -11,11 +12,13 @@ mixin ProvidedPinBoxDecoration {
   /// Default BoxDecoration
   static PinBoxDecoration defaultPinBoxDecoration = (Color borderColor) {
     return BoxDecoration(
-        border: Border.all(
-          color: borderColor,
-          width: 2.0,
-        ),
-        borderRadius: const BorderRadius.all(Radius.circular(5.0)));
+        // border: Border.all(
+        //   color: borderColor,
+        //   width: 2.0,
+        // ),
+        color: borderColor,
+        borderRadius:
+            const BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)));
   };
 
   /// Underlined BoxDecoration
