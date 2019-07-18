@@ -125,10 +125,9 @@ class _BeepFeedCardState extends State<BeepFeedCard> {
         context: context,
         videoId: widget.feedVideo,
         flags: const YoutubePlayerFlags(
-          autoPlay: true,
-          showVideoProgressIndicator: true,
+          autoPlay: false,
         ),
-        videoProgressIndicatorColor: Colors.amber,
+        videoProgressIndicatorColor: BeepColors.primary,
         progressColors: ProgressColors(
           playedColor: BeepColors.primary,
           handleColor: BeepColors.secondary,
