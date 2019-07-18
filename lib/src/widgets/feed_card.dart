@@ -123,7 +123,7 @@ class _BeepFeedCardState extends State<BeepFeedCard> {
     } else if (widget.feedVideo != null) {
       return YoutubePlayer(
         context: context,
-        videoId: 'iLnmTe5Q2Qw',
+        videoId: widget.feedVideo,
         flags: const YoutubePlayerFlags(
           autoPlay: true,
           showVideoProgressIndicator: true,
@@ -133,10 +133,6 @@ class _BeepFeedCardState extends State<BeepFeedCard> {
           playedColor: BeepColors.primary,
           handleColor: BeepColors.secondary,
         ),
-        // onPlayerInitialized: (YoutubePlayerController controller) {
-        //   _controller = controller;
-        //   _controller.addListener(listener);
-        // },
       );
     }
     return Container(

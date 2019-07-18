@@ -217,6 +217,27 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
               ),
               const SizedBox(height: 24.0),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+                child: BeepFeedCard(
+                  content:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                  postedTime: '3 days ago',
+                  authorName: 'Saurabh Mangrulkar',
+                  authorImage:
+                      'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
+                  likes: 12,
+                  comments: 3,
+                  feedVideo: '2kgEc6oH9J0',
+                  context: context,
+                  isLiked: true,
+                  likeAction: () {
+                    print('Clicked');
+                  },
+                ),
+              ),
+              const SizedBox(height: 24.0),
               const BeepLoadingCarousal(),
               const SizedBox(height: 24.0),
               BeepCarouselSlider(
