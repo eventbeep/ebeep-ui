@@ -98,7 +98,6 @@ class _MyHomePageState extends State<MyHomePage>
 
   @override
   Widget build(BuildContext context) {
-    _textController.text = '8220223398';
     return Scaffold(
       floatingActionButton:
           BeepFloatingButton(icon: const Icon(Icons.home), onPressed: () {}),
@@ -211,6 +210,7 @@ class _MyHomePageState extends State<MyHomePage>
                   feedImage:
                       'https://eep.io/images/yzco4xsimv0y/5RsU3w3Ga4aaqqC8mm8iK8/757413d0216429d985e88ad460bec767/camp_cb_video_video_w_overlay.png',
                   context: context,
+                  isLiked: true,
                   likeAction: () {
                     print('Clicked');
                   },
@@ -230,18 +230,17 @@ class _MyHomePageState extends State<MyHomePage>
               Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: BeepTextField(
-                    icon: const Icon(
-                      Icons.phone_android,
-                      size: 32,
-                    ),
+                    icon: Icons.phone_android,
                     controller: _textController,
                     labelText: 'Mobile Number',
+                    hintText: 'Eg. 8220****98',
                     onTap: () {
                       print('tapped');
                     },
                     textInputType: TextInputType.number,
                     getKeyboard: true,
                     maxLength: 10,
+                    errorText: 'Invalid mobile number',
                   )),
               const SizedBox(height: 24.0),
               Container(
