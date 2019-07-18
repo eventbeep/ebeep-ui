@@ -5,7 +5,7 @@ author:
 homepage:
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -13,7 +13,7 @@ dependencies:
   qr: ^1.2.0                        #https://pub.dev/packages/qr
   shimmer: ^1.0.0                   #https://pub.dev/packages/shimmer
   cached_network_image: ^1.1.0      #https://pub.dev/packages/cached_network_image
-  youtube_player_flutter: ^3.4.1    #https://pub.dev/packages/youtube_player_flutter
+  youtube_player_flutter: ^3.0.0+1  #https://pub.dev/packages/youtube_player_flutter
 
 
 dev_dependencies:
