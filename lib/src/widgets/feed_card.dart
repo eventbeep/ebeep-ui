@@ -4,7 +4,7 @@ import 'package:eventbeep_ui/eventbeep_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class BeepFeedCard extends StatelessWidget {
+class BeepFeedCard extends StatefulWidget {
   const BeepFeedCard({
     Key key,
     @required this.authorName,
@@ -34,6 +34,19 @@ class BeepFeedCard extends StatelessWidget {
   final BuildContext context;
   final bool isLiked;
   final Function likeAction, unlikeAction, commentAction;
+
+  @override
+  _BeepFeedCardState createState() => _BeepFeedCardState();
+}
+
+class _BeepFeedCardState extends State<BeepFeedCard> {
+  bool isLiked;
+
+  @override
+  void initState() {
+    super.initState();
+    isLiked = widget.isLiked;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +79,7 @@ class BeepFeedCard extends StatelessWidget {
       child: Row(
         children: <Widget>[
           CircleAvatar(
-            backgroundImage: CachedNetworkImageProvider(authorImage),
+            backgroundImage: CachedNetworkImageProvider(widget.authorImage),
           ),
           const SizedBox(width: BeepDimens.padding),
           Flexible(
@@ -74,14 +87,14 @@ class BeepFeedCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 BeepCustomText(
-                  text: authorName,
+                  text: widget.authorName,
                   maxLines: 1,
                   size: 16,
                   fontFamily: 'Simple',
                   color: BeepColors.textPrimary,
                 ),
                 BeepCustomText(
-                  text: postedTime,
+                  text: widget.postedTime,
                   size: 14,
                   fontFamily: 'Simple',
                   color: BeepColors.textSecondary,
@@ -95,9 +108,9 @@ class BeepFeedCard extends StatelessWidget {
   }
 
   Widget feedMedia() {
-    if (feedImage != null) {
+    if (widget.feedImage != null) {
       return CachedNetworkImage(
-        imageUrl: feedImage,
+        imageUrl: widget.feedImage,
         placeholder: (BuildContext context, String text) => Shimmer.fromColors(
           highlightColor: Colors.grey[100],
           baseColor: Colors.grey[300],
@@ -107,7 +120,7 @@ class BeepFeedCard extends StatelessWidget {
         fit: BoxFit.cover,
         width: double.infinity,
       );
-    } else if (feedVideo != null) {
+    } else if (widget.feedVideo != null) {
       return YoutubePlayer(
         context: context,
         videoId: 'iLnmTe5Q2Qw',
@@ -136,7 +149,7 @@ class BeepFeedCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(
           horizontal: BeepDimens.cardMarginHorizontal),
-      child: BeepSecondaryText(text: content, maxLines: 2),
+      child: BeepSecondaryText(text: widget.content, maxLines: 2),
     );
   }
 
@@ -149,22 +162,32 @@ class BeepFeedCard extends StatelessWidget {
           isLiked
               ? IconButton(
                   icon: const Icon(Icons.favorite),
-                  color: BeepColors.tertiary,
-                  onPressed: unlikeAction,
+                  color: BeepColors.secondary,
+                  onPressed: () {
+                    setState(() {
+                      isLiked = !isLiked;
+                    });
+                    return widget.unlikeAction();
+                  },
                 )
               : IconButton(
                   icon: const Icon(Icons.favorite_border),
                   color: BeepColors.lightIcon,
-                  onPressed: likeAction,
+                  onPressed: () {
+                    setState(() {
+                      isLiked = !isLiked;
+                    });
+                    return widget.likeAction();
+                  },
                 ),
-          BeepSecondaryText(text: likes.toString()),
+          BeepSecondaryText(text: widget.likes.toString()),
           const SizedBox(width: BeepDimens.padding),
           IconButton(
             icon: const Icon(Icons.comment),
             color: BeepColors.lightIcon,
-            onPressed: commentAction,
+            onPressed: widget.commentAction,
           ),
-          BeepSecondaryText(text: comments.toString()),
+          BeepSecondaryText(text: widget.comments.toString()),
         ],
       ),
     );
