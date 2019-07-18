@@ -303,6 +303,28 @@ class _MyHomePageState extends State<MyHomePage>
 
               const BeepTag(text: BeepCategories.sports),
               const SizedBox(height: 24.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: BeepCommentCard(
+                  comment: 'Saurab is an idiot',
+                  authorName: 'Saurabh',
+                  time: '2 days',
+                  profileUrl:
+                      'https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg',
+                ),
+              ),
+              const SizedBox(height: 16.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: BeepCommentCard(
+                  comment: 'Saurab is an idiot',
+                  authorName: 'Saurabh',
+                  time: '2 days',
+                  profileUrl:
+                      'https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg',
+                ),
+              ),
+              const SizedBox(height: 24.0),
               PinCodeTextField(
                 // autofocus: true,
                 // controller: controller,

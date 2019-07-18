@@ -8,6 +8,7 @@ export 'src/widgets/bottom_sheet.dart';
 export 'src/widgets/carousal.dart';
 export 'src/widgets/chip.dart';
 export 'src/widgets/colors.dart';
+export 'src/widgets/comment_card.dart';
 export 'src/widgets/constants.dart';
 export 'src/widgets/dialog.dart';
 export 'src/widgets/dimens.dart';
