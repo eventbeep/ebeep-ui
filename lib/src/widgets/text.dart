@@ -100,11 +100,12 @@ class BeepActionBarText extends StatelessWidget {
   Widget build(BuildContext context) {
     return BeepCustomText(
       text: text,
-      align: TextAlign.center,
+      // align: TextAlign.center,
       size: BeepDimens.textActionBar,
-      color: BeepColors.textPrimary,
+      color: BeepColors.quaternary,
       weight: FontWeight.bold,
       fontFamily: 'Heading',
+      // lineSpace: 1.2,
     );
   }
 }

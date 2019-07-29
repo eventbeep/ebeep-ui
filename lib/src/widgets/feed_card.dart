@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
@@ -11,12 +13,14 @@ class BeepFeedCard extends StatefulWidget {
     @required this.authorImage,
     @required this.content,
     @required this.postedTime,
-    this.feedType,
+    @required this.feedType,
     @required this.likes,
     @required this.comments,
     @required this.context,
     this.feedVideo,
     this.feedImage,
+    this.feedPoll,
+    this.feedPollTaps,
     this.isLiked = false,
     this.likeAction,
     this.unlikeAction,
@@ -34,6 +38,8 @@ class BeepFeedCard extends StatefulWidget {
   final BuildContext context;
   final bool isLiked;
   final Function likeAction, unlikeAction, commentAction;
+  final List<Function> feedPollTaps;
+  final LinkedHashMap<String, int> feedPoll;
 
   @override
   _BeepFeedCardState createState() => _BeepFeedCardState();
@@ -108,36 +114,56 @@ class _BeepFeedCardState extends State<BeepFeedCard> {
   }
 
   Widget feedMedia() {
-    if (widget.feedImage != null) {
-      return CachedNetworkImage(
-        imageUrl: widget.feedImage,
-        placeholder: (BuildContext context, String text) => Shimmer.fromColors(
-          highlightColor: Colors.grey[100],
-          baseColor: Colors.grey[300],
-          child: Container(color: BeepColors.lightGrey),
-        ),
-        height: 200,
-        fit: BoxFit.cover,
-        width: double.infinity,
-      );
-    } else if (widget.feedVideo != null) {
-      return YoutubePlayer(
-        context: context,
-        videoId: widget.feedVideo,
-        flags: const YoutubePlayerFlags(
-          autoPlay: false,
-        ),
-        videoProgressIndicatorColor: BeepColors.primary,
-        progressColors: ProgressColors(
-          playedColor: BeepColors.primary,
-          handleColor: BeepColors.secondary,
-        ),
-      );
+    switch (widget.feedType) {
+      case 'image':
+        return CachedNetworkImage(
+          imageUrl: widget.feedImage,
+          placeholder: (BuildContext context, String text) =>
+              Shimmer.fromColors(
+            highlightColor: Colors.grey[100],
+            baseColor: Colors.grey[300],
+            child: Container(color: BeepColors.lightGrey),
+          ),
+          height: 200,
+          fit: BoxFit.cover,
+          width: double.infinity,
+        );
+      case 'video':
+        return YoutubePlayer(
+          context: context,
+          videoId: widget.feedVideo,
+          flags: const YoutubePlayerFlags(
+            autoPlay: false,
+          ),
+          videoProgressIndicatorColor: BeepColors.primary,
+          progressColors: ProgressColors(
+            playedColor: BeepColors.primary,
+            handleColor: BeepColors.secondary,
+          ),
+        );
+        break;
+      case 'poll':
+        return Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: BeepDimens.cardMarginHorizontal),
+          child: BeepPoll(
+            map: widget.feedPoll,
+            onTapItems: widget.feedPollTaps,
+          ),
+        );
+        break;
+      case 'images':
+        return Container(
+          height: 200,
+          color: BeepColors.cardBackground,
+        );
+        break;
+      default:
+        return Container(
+          height: 200,
+          color: BeepColors.cardBackground,
+        );
     }
-    return Container(
-      height: 200,
-      color: BeepColors.cardBackground,
-    );
   }
 
   Widget feedContent() {

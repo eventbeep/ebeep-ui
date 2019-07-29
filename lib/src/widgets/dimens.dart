@@ -9,9 +9,9 @@ class BeepDimens {
   static const double textSecondary = 14.0;
   static const double textLargeHeading = 26.0;
   static const double textSmallHeading = 18.0;
-  static const double textActionBar = 21.0;
+  static const double textActionBar = 22.0;
 
-  static const double appBarHeight = 66.0;
+  static const double appBarHeight = 70.0;
   static const SizedBox dummyBox = SizedBox(
     height: appBarHeight,
     width: appBarHeight,

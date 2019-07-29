@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
@@ -58,29 +60,7 @@ final List<Function> onItemTapList = <Function>[
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
-  final PageController _controller = PageController();
   final TextEditingController _textController = TextEditingController();
-
-  static const Duration _kDuration = Duration(milliseconds: 300);
-
-  static const Curve _kCurve = Curves.ease;
-
-  final List<Widget> _pages = <Widget>[
-    ConstrainedBox(
-      constraints: const BoxConstraints.expand(),
-      child: const FlutterLogo(colors: Colors.blue),
-    ),
-    ConstrainedBox(
-      constraints: const BoxConstraints.expand(),
-      child: const FlutterLogo(
-          style: FlutterLogoStyle.stacked, colors: Colors.red),
-    ),
-    ConstrainedBox(
-      constraints: const BoxConstraints.expand(),
-      child: const FlutterLogo(
-          style: FlutterLogoStyle.horizontal, colors: Colors.green),
-    ),
-  ];
 
   TabController _tabController;
 
@@ -106,9 +86,19 @@ class _MyHomePageState extends State<MyHomePage>
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              const TopBar(
-                height: 200,
+              BeepAppBar(
+                leading: IconButton(
+                  icon: Icon(Icons.menu),
+                  onPressed: () {},
+                ),
+                title: 'What are you interested in pleasee select more than 3',
+                // title: 'Settings'
+                // trailing: IconButton(
+                //   icon: Icon(Icons.search),
+                //   onPressed: () {},
+                // ),
               ),
+              const SizedBox(height: 24.0),
               TabBar(
                 isScrollable: true,
                 unselectedLabelColor: BeepColors.textSecondary,
@@ -121,11 +111,6 @@ class _MyHomePageState extends State<MyHomePage>
                 tabs: tabs,
                 controller: _tabController,
               ),
-              const SizedBox(height: 24.0),
-              Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  alignment: Alignment.centerLeft,
-                  child: const BeepActionBarText('EventbeeP')),
               const SizedBox(height: 24.0),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -207,16 +192,29 @@ class _MyHomePageState extends State<MyHomePage>
                       'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
                   likes: 12,
                   comments: 3,
+                  feedType: 'poll',
+                  feedPoll: LinkedHashMap<String, int>.from(<String, int>{
+                    'Kholi': 10,
+                    'Dhoni': 15,
+                    'Raina': 6,
+                    'Shubham': 0,
+                    'Aachal': 2,
+                  }),
                   feedImage:
                       'https://eep.io/images/yzco4xsimv0y/5RsU3w3Ga4aaqqC8mm8iK8/757413d0216429d985e88ad460bec767/camp_cb_video_video_w_overlay.png',
                   context: context,
                   isLiked: true,
-                  likeAction: () {
-                    print('Clicked');
-                  },
+                  likeAction: () => print('Liked'),
+                  unlikeAction: () => print('Unliked'),
+                  commentAction: () => print('Comment'),
+                  feedPollTaps: List<Function>.generate(
+                    5,
+                    (int index) => () => print('Pressed on Index : $index'),
+                  ),
                 ),
               ),
               const SizedBox(height: 24.0),
+              /*
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
@@ -238,6 +236,7 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
               ),
               const SizedBox(height: 24.0),
+              */
               const BeepLoadingCarousal(),
               const SizedBox(height: 24.0),
               BeepCarouselSlider(
@@ -246,6 +245,22 @@ class _MyHomePageState extends State<MyHomePage>
                 enlargeCenterPage: true,
                 aspectRatio: 2.0,
                 onItemTaps: onItemTapList,
+              ),
+              const SizedBox(height: 24.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: BeepOrganiserCard(
+                  image:
+                      'https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg',
+                  name: 'Amanda Waller',
+                  college: 'COEP University',
+                  followAction: () {
+                    print('Follow');
+                  },
+                  unfollowAction: () {
+                    print('Unfollow');
+                  },
+                ),
               ),
               const SizedBox(height: 24.0),
               Padding(
@@ -412,43 +427,6 @@ class _MyHomePageState extends State<MyHomePage>
                   ticketType: 'VIP ticket',
                   ticketsCount: 2,
                   ticketAmount: 120,
-                ),
-              ),
-              const SizedBox(height: 24.0),
-              SizedBox(
-                height: 100,
-                child: Stack(
-                  children: <Widget>[
-                    PageView.builder(
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      controller: _controller,
-                      itemBuilder: (BuildContext context, int index) {
-                        return _pages[index % _pages.length];
-                      },
-                    ),
-                    Positioned(
-                      bottom: 0.0,
-                      left: 0.0,
-                      right: 0.0,
-                      child: Container(
-                        color: Colors.grey[800].withOpacity(0.5),
-                        padding: const EdgeInsets.all(20.0),
-                        child: Center(
-                          child: BeepIndicator(
-                            controller: _controller,
-                            itemCount: _pages.length,
-                            onPageSelected: (int page) {
-                              _controller.animateToPage(
-                                page,
-                                duration: _kDuration,
-                                curve: _kCurve,
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
               ),
               const SizedBox(height: 24.0),
