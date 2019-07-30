@@ -32,7 +32,7 @@ class BeepTicketCard extends StatelessWidget {
               children: <Widget>[
                 BeepCustomText(
                   text: title,
-                  size: 26.0,
+                  size: 22.0,
                   maxLines: 1,
                   color: BeepColors.primary,
                   align: TextAlign.center,
