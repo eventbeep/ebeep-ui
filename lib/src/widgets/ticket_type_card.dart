@@ -53,7 +53,7 @@ class BeepTicketTypeCardState extends State<BeepTicketTypeCard> {
       height: 60,
       width: 60,
       alignment: Alignment.center,
-      decoration: BoxDecoration(color: BeepColors.cardBackground),
+      decoration: const BoxDecoration(color: BeepColors.cardBackground),
       child: BeepCustomText(
         text: count.toString(),
         size: 36,

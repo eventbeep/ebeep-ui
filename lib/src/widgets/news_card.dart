@@ -83,9 +83,9 @@ class BeepLoadingNews extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(
           horizontal: BeepDimens.cardMarginHorizontal),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           borderRadius:
-              const BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)),
+              BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)),
           color: BeepColors.white,
           boxShadow: BeepDimens.lightShadow),
       child: Shimmer.fromColors(

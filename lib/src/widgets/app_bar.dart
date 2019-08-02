@@ -25,9 +25,9 @@ class BeepAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       padding: EdgeInsets.only(top: statusBarHeight, left: 8.0, right: 8.0),
       height: barHeight + statusBarHeight,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         boxShadow: BeepDimens.lightShadow,
-        gradient: const LinearGradient(
+        gradient: LinearGradient(
           colors: BeepGradients.appBarGradient,
           begin: FractionalOffset(0.0, 0.0),
           end: FractionalOffset(1.0, 0.0),

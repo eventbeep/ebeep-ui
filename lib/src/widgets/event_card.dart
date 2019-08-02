@@ -49,8 +49,8 @@ class BeepEventCard extends StatelessWidget {
               top: height * 0.666 - 28,
               right: 28,
               child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: const <BoxShadow>[
+                decoration: const BoxDecoration(
+                  boxShadow: <BoxShadow>[
                     BoxShadow(
                       color: Colors.black54,
                       blurRadius: 8,
