@@ -193,6 +193,7 @@ class _MyHomePageState extends State<MyHomePage>
                   likes: 12,
                   comments: 3,
                   feedType: 'poll',
+                  feedVideo: 'Q06qEqf2Oyg',
                   feedPoll: LinkedHashMap<String, int>.from(<String, int>{
                     'Kholi': 10,
                     'Dhoni': 15,
