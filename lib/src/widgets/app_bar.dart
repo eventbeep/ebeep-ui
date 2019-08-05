@@ -21,10 +21,9 @@ class BeepAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double statusBarHeight = MediaQuery.of(context).padding.top;
     return Container(
-      padding: EdgeInsets.only(top: statusBarHeight, left: 8.0, right: 8.0),
-      height: barHeight + statusBarHeight,
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+      height: barHeight,
       decoration: const BoxDecoration(
         boxShadow: BeepDimens.lightShadow,
         gradient: LinearGradient(

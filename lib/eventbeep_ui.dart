@@ -1,6 +1,6 @@
 library eventbeep_ui;
 
-export 'src/widgets/app_bar.dart';
+// export 'src/widgets/app_bar.dart';
 export 'src/widgets/carousal.dart';
 export 'src/widgets/chip.dart';
 export 'src/widgets/colors.dart';
