@@ -432,7 +432,7 @@ class BeepFeedCard extends StatelessWidget {
             color: BeepColors.lightIcon,
             onPressed: () {
               // _controller.pause();
-              return commentAction;
+              return commentAction();
             },
           ),
           BeepSecondaryText(text: '${comments.toString()} Comments'),
