@@ -92,20 +92,21 @@ class BeepSecondaryText extends StatelessWidget {
 }
 
 class BeepActionBarText extends StatelessWidget {
-  const BeepActionBarText(this.text);
+  const BeepActionBarText({this.text, this.singleLine = true});
 
   final String text;
+  final bool singleLine;
 
   @override
   Widget build(BuildContext context) {
     return BeepCustomText(
       text: text,
-      // align: TextAlign.center,
       size: BeepDimens.textActionBar,
       color: BeepColors.quaternary,
-      weight: FontWeight.bold,
-      fontFamily: 'Heading',
-      // lineSpace: 1.2,
+      // weight: FontWeight.bold,
+      fontFamily: 'Title',
+      lineSpace: 1.3,
+      maxLines: singleLine ? 1 : 3,
     );
   }
 }

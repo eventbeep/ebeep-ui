@@ -16,8 +16,12 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # eventbeep_core:
+  #   path: ../../eventbeep_core
   eventbeep_ui:
     path: ../
+  college_space:
+    path: ../../college_space
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -48,3 +52,6 @@ flutter:
   - family: Heading
     fonts:
     - asset: packages/eventbeep_ui/fonts/Poppins-Regular.ttf
+  - family: Title
+    fonts:
+    - asset: packages/eventbeep_ui/fonts/JosefinSans-SemiBold.ttf

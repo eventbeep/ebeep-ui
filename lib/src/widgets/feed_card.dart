@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:youtube_player/youtube_player.dart';
 
-class BeepFeedTempCard extends StatefulWidget {
-  const BeepFeedTempCard({
+class BeepFeedCard extends StatefulWidget {
+  const BeepFeedCard({
     Key key,
     @required this.authorName,
     @required this.authorImage,
@@ -45,7 +45,7 @@ class BeepFeedTempCard extends StatefulWidget {
   _BeepFeedCardState createState() => _BeepFeedCardState();
 }
 
-class _BeepFeedCardState extends State<BeepFeedTempCard> {
+class _BeepFeedCardState extends State<BeepFeedCard> {
   bool isLiked;
   VideoPlayerController _controller;
 
@@ -69,7 +69,9 @@ class _BeepFeedCardState extends State<BeepFeedTempCard> {
           feedHeader(),
           const SizedBox(height: BeepDimens.padding),
           feedMedia(),
-          const SizedBox(height: BeepDimens.padding),
+          (widget.feedType == 'content')
+              ? Container()
+              : const SizedBox(height: BeepDimens.padding),
           feedContent(),
           const SizedBox(height: BeepDimens.cardMarginVertical),
           feedFooter(),
@@ -170,19 +172,24 @@ class _BeepFeedCardState extends State<BeepFeedTempCard> {
           color: BeepColors.cardBackground,
         );
         break;
+      case 'content':
+        return Container();
+        break;
       default:
-        return Container(
-          height: 200,
-          color: BeepColors.cardBackground,
-        );
+        return Container();
     }
   }
 
   Widget feedContent() {
-    return Padding(
+    return Container(
+      width: double.infinity,
       padding: const EdgeInsets.symmetric(
           horizontal: BeepDimens.cardMarginHorizontal),
-      child: BeepSecondaryText(text: widget.content, maxLines: 2),
+      child: BeepSecondaryText(
+        text: widget.content,
+        maxLines: 2,
+        align: TextAlign.start,
+      ),
     );
   }
 
@@ -230,8 +237,8 @@ class _BeepFeedCardState extends State<BeepFeedTempCard> {
   }
 }
 
-class BeepFeedCard extends StatelessWidget {
-  const BeepFeedCard({
+class BeepFeedTempCard extends StatelessWidget {
+  const BeepFeedTempCard({
     Key key,
     @required this.authorName,
     @required this.authorImage,
@@ -279,7 +286,9 @@ class BeepFeedCard extends StatelessWidget {
           feedHeader(),
           const SizedBox(height: BeepDimens.padding),
           feedMedia(),
-          const SizedBox(height: BeepDimens.padding),
+          (feedType == 'content')
+              ? Container()
+              : const SizedBox(height: BeepDimens.padding),
           feedContent(),
           const SizedBox(height: BeepDimens.cardMarginVertical),
           feedFooter(),
@@ -351,18 +360,6 @@ class BeepFeedCard extends StatelessWidget {
             // _controller = controller;
           },
         );
-        // return YoutubePlayer(
-        //   context: context,
-        //   videoId: feedVideo,
-        //   flags: const YoutubePlayerFlags(
-        //     autoPlay: false,
-        //   ),
-        //   videoProgressIndicatorColor: BeepColors.primary,
-        //   progressColors: ProgressColors(
-        //     playedColor: BeepColors.primary,
-        //     handleColor: BeepColors.secondary,
-        //   ),
-        // );
         break;
       case 'poll':
         return Padding(
@@ -380,19 +377,24 @@ class BeepFeedCard extends StatelessWidget {
           color: BeepColors.cardBackground,
         );
         break;
+      case 'content':
+        return Container();
+        break;
       default:
-        return Container(
-          height: 200,
-          color: BeepColors.cardBackground,
-        );
+        return Container();
     }
   }
 
   Widget feedContent() {
-    return Padding(
+    return Container(
+      width: double.infinity,
       padding: const EdgeInsets.symmetric(
           horizontal: BeepDimens.cardMarginHorizontal),
-      child: BeepSecondaryText(text: content, maxLines: 2),
+      child: BeepSecondaryText(
+        text: content,
+        maxLines: 2,
+        align: TextAlign.start,
+      ),
     );
   }
 

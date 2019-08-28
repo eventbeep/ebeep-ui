@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:college_space/college_space.dart';
 import 'package:flutter/material.dart';
 import 'package:eventbeep_ui/eventbeep_ui.dart';
 
@@ -79,8 +80,18 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton:
-          BeepFloatingButton(icon: const Icon(Icons.home), onPressed: () {}),
+      floatingActionButton: BeepFloatingButton(
+          icon: const Icon(Icons.home),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute<CollegeScreen>(
+                builder: (BuildContext context) => Scaffold(
+                  body: const CollegeScreen(),
+                ),
+              ),
+            );
+          }),
       body: Container(
         color: BeepColors.cardBackground,
         child: SingleChildScrollView(
@@ -98,7 +109,6 @@ class _MyHomePageState extends State<MyHomePage>
                 //   onPressed: () {},
                 // ),
               ),
-              const SizedBox(height: 24.0),
               TabBar(
                 isScrollable: true,
                 unselectedLabelColor: BeepColors.textSecondary,

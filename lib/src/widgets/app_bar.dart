@@ -36,7 +36,7 @@ class BeepAppBar extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
-              child: BeepActionBarText(title),
+              child: BeepActionBarText(text: title, singleLine: !isMultiline),
             ),
           ),
           (trailing == null)
