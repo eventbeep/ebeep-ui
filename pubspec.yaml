@@ -5,17 +5,17 @@ author:
 homepage:
 
 environment:
-  sdk: ">=2.2.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  qr: ^1.2.0                        #https://pub.dev/packages/qr
-  shimmer: ^1.0.0                   #https://pub.dev/packages/shimmer
-  cached_network_image: ^1.1.0      #https://pub.dev/packages/cached_network_image
-  # youtube_player_flutter: ^3.0.0+1  #https://pub.dev/packages/youtube_player_flutter
+  qr: ^1.2.0
+  shimmer: ^1.0.0
+  cached_network_image: ^1.1.0
   youtube_player: ^3.4.1
   separated_column: ^1.0.1+2
+  flutter_html: ^0.10.4
 
 
 dev_dependencies:

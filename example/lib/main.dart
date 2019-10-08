@@ -1,25 +1,26 @@
 import 'dart:collection';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:college_space/college_space.dart';
 import 'package:flutter/material.dart';
-import 'package:eventbeep_ui/eventbeep_ui.dart';
+import 'package:eventbeep_ui/shared.dart';
+import 'package:eventbeep_ui/widgets.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(EventbeepApp());
 
-class MyApp extends StatelessWidget {
+class EventbeepApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Heading'),
-      home: const MyHomePage(title: 'Eventbeep'),
+        title: 'Flutter Demo',
+        theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Heading'),
+        // home: const MyHomePage(title: 'Eventbeep'),
+        home: const PollExamplePage()
 //      home: Scaffold(
 //        appBar: PreferredSize(
 //            child: Container(), preferredSize: Size.fromHeight(32)),
 //        body: TimelinePage(),
 //      ),
-    );
+        );
   }
 }
 
@@ -80,18 +81,8 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: BeepFloatingButton(
-          icon: const Icon(Icons.home),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute<CollegeScreen>(
-                builder: (BuildContext context) => Scaffold(
-                  body: const CollegeScreen(),
-                ),
-              ),
-            );
-          }),
+      floatingActionButton:
+          BeepFloatingButton(icon: const Icon(Icons.home), onPressed: () {}),
       body: Container(
         color: BeepColors.cardBackground,
         child: SingleChildScrollView(
@@ -122,17 +113,26 @@ class _MyHomePageState extends State<MyHomePage>
                 controller: _tabController,
               ),
               const SizedBox(height: 24.0),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: BeepLoadingTimeline(
-                    // ticketQr: 'eventbeep.com',
-                    // shortDescription:
-                    //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                    // eventName: 'Regatta',
-                    // eventDate: 'January 10',
-                    // onViewTicket: () {},
-                    ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: BeepCommentCard(
+                  authorName: 'Venkie',
+                  time: 'Few minutes ago',
+                  comment: 'This comment is amazing',
+                  profileUrl:
+                      'https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg',
+                ),
               ),
+              const SizedBox(height: 24.0),
+              // const Padding(
+              //   padding: EdgeInsets.symmetric(horizontal: 16),
+              //   child: BeepLoadingComment(),
+              // ),
+              // const SizedBox(height: 24.0),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 16),
+              //   child: BeepLoadingTimeline(),
+              // ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: BeepTimelineCard(
@@ -157,15 +157,16 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
               ),
               const SizedBox(height: 24.0),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
-                child: BeepLoadingNews(),
-              ),
-              const SizedBox(height: 24.0),
+              // Padding(
+              //   padding:
+              //       const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+              //   child: BeepLoadingNews(),
+              // ),
+              // const SizedBox(height: 24.0),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepNewsCard(
+                  stream: 'COEP CSE',
                   title: 'Exams are posponed to June',
                   backgroundColor: BeepColors.error,
                   description:
@@ -183,12 +184,13 @@ class _MyHomePageState extends State<MyHomePage>
               //   borderRadius: 8,
               //   // size: 100,
               // ),
-              const SizedBox(height: 24.0),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
-                child: BeepLoadingFeed(),
-              ),
+              // Padding(
+              //   padding:
+              //       const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+              //   child: BeepLoadingFeed(),
+              // ),
+              // const SizedBox(height: 24.0),
+
               const SizedBox(height: 24.0),
               Padding(
                 padding:
@@ -204,52 +206,19 @@ class _MyHomePageState extends State<MyHomePage>
                   comments: 3,
                   feedType: 'poll',
                   feedVideo: 'Q06qEqf2Oyg',
-                  feedPoll: LinkedHashMap<String, int>.from(<String, int>{
-                    'Kholi': 10,
-                    'Dhoni': 15,
-                    'Raina': 6,
-                    'Shubham': 0,
-                    'Aachal': 2,
-                  }),
-                  feedImage:
-                      'https://eep.io/images/yzco4xsimv0y/5RsU3w3Ga4aaqqC8mm8iK8/757413d0216429d985e88ad460bec767/camp_cb_video_video_w_overlay.png',
+                  feedImage: const <String>[
+                    'https://eep.io/images/yzco4xsimv0y/5RsU3w3Ga4aaqqC8mm8iK8/757413d0216429d985e88ad460bec767/camp_cb_video_video_w_overlay.png'
+                  ],
                   context: context,
                   isLiked: true,
                   likeAction: () => print('Liked'),
                   unlikeAction: () => print('Unliked'),
                   commentAction: () => print('Comment'),
-                  feedPollTaps: List<Function>.generate(
-                    5,
-                    (int index) => () => print('Pressed on Index : $index'),
-                  ),
                 ),
               ),
               const SizedBox(height: 24.0),
-              /*
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
-                child: BeepFeedCard(
-                  content:
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                  postedTime: '3 days ago',
-                  authorName: 'Saurabh Mangrulkar',
-                  authorImage:
-                      'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
-                  likes: 12,
-                  comments: 3,
-                  feedVideo: '2kgEc6oH9J0',
-                  context: context,
-                  isLiked: true,
-                  likeAction: () {
-                    print('Clicked');
-                  },
-                ),
-              ),
-              const SizedBox(height: 24.0),
-              */
-              const BeepLoadingCarousal(),
-              const SizedBox(height: 24.0),
+              // const BeepLoadingCarousal(),
+              // const SizedBox(height: 24.0),
               BeepCarouselSlider(
                 items: imgList,
                 autoPlay: false,
@@ -290,17 +259,15 @@ class _MyHomePageState extends State<MyHomePage>
                     errorText: 'Invalid mobile number',
                   )),
               const SizedBox(height: 24.0),
+              // Container(
+              //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              //   child: const BeepLoadingEvent(),
+              // ),
+              // const SizedBox(height: 24.0),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: const BeepLoadingEvent(),
-              ),
-              const SizedBox(height: 24.0),
-              Container(
-                height: 226,
                 child: BeepEventCard(
                   onTap: () => print('pressed'),
-                  height: 210,
-                  width: 300,
                   category: 'adventure',
                   date: '24',
                   day: 'Tue',
@@ -309,14 +276,14 @@ class _MyHomePageState extends State<MyHomePage>
                   location: 'COEP Auditorium, Pune, India',
                   views: 23,
                   imageUrl:
-                      'https://hire4event.com/blogs/wp-content/uploads/2019/03/best-Event-company-in-Greater-Noida-.jpg',
+                      'https://upload.wikimedia.org/wikipedia/commons/f/f8/Podzial_16x9.png',
                 ),
               ),
               const SizedBox(height: 24.0),
               GridView.count(
                 padding: const EdgeInsets.all(BeepDimens.padding),
                 shrinkWrap: true,
-                childAspectRatio: 0.74,
+                childAspectRatio: BeepDimens.festEventRadio,
                 crossAxisSpacing: BeepDimens.padding,
                 mainAxisSpacing: BeepDimens.padding,
                 physics: const NeverScrollableScrollPhysics(),
@@ -325,18 +292,20 @@ class _MyHomePageState extends State<MyHomePage>
                   3,
                   (int index) => BeepFestEventCard(
                     imageUrl:
-                        'https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/22223742/Events-1200x630.jpg',
+                        'https://upload.wikimedia.org/wikipedia/commons/f/f8/Podzial_16x9.png',
                     eventName: 'All night long fun event',
                     startsAt: 'July 10 | 11 PM',
+                    price: 'Starts form ₹100',
                     onTap: () {},
                   ),
                 ),
               ),
               const SizedBox(height: 24.0),
+              /*
               GridView.count(
                 padding: const EdgeInsets.all(BeepDimens.padding),
                 shrinkWrap: true,
-                childAspectRatio: 0.74,
+                childAspectRatio: BeepDimens.festEventRadio,
                 crossAxisSpacing: BeepDimens.padding,
                 mainAxisSpacing: BeepDimens.padding,
                 physics: const NeverScrollableScrollPhysics(),
@@ -347,7 +316,7 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
               ),
               const SizedBox(height: 24.0),
-
+*/
               const BeepTag(text: BeepCategories.sports),
               const SizedBox(height: 24.0),
               const Padding(
@@ -452,7 +421,7 @@ class _MyHomePageState extends State<MyHomePage>
                 child: BeepTicketTypeCard(
                     title: 'Golden Ticket',
                     description: 'This is a gold ticket idiot',
-                    amount: 100),
+                    ticketStatus: 'COMING SOON'),
               ),
               const SizedBox(height: 24.0),
               Padding(
@@ -491,6 +460,45 @@ class _MyHomePageState extends State<MyHomePage>
           );
         },
       ).toList(),
+    );
+  }
+}
+
+class PollExamplePage extends StatelessWidget {
+  const PollExamplePage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+              child: BeepPollCard(
+                question: 'Who is the best batsman?',
+                postedTime: '3 days ago',
+                authorName: 'Saurabh Mangrulkar',
+                authorImage:
+                    'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
+                polls: 32,
+                feedPoll: LinkedHashMap<String, int>.from(<String, int>{
+                  'Kholi': 10,
+                  'Dhoni': 15,
+                  'Raina': 6,
+                  'Shubham': 0,
+                  'Vivek': 5,
+                }),
+                feedPollTaps: List<Function>.generate(
+                  5,
+                  (int index) => () => print('Pressed on Index : $index'),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
