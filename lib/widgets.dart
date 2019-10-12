@@ -7,7 +7,6 @@ export 'widgets/bottom_sheet.dart';
 export 'widgets/carousal.dart';
 export 'widgets/chip.dart';
 export 'widgets/comment_card.dart';
-export 'widgets/constants.dart';
 export 'widgets/dialog.dart';
 export 'widgets/event_card.dart';
 export 'widgets/feed_card.dart';

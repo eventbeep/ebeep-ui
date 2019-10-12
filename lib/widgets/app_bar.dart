@@ -10,11 +10,13 @@ class BeepAppBar extends StatelessWidget {
     this.leading,
     this.trailing,
     this.isMultiline = false,
+    this.isDark = false,
   }) : super(key: key);
 
   final String title;
   final Widget leading, trailing;
   final bool isMultiline;
+  final bool isDark;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,11 @@ class BeepAppBar extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
-              child: BeepActionBarText(text: title, singleLine: !isMultiline),
+              child: BeepActionBarText(
+                text: title,
+                singleLine: !isMultiline,
+                color: isDark ? BeepColors.white : null,
+              ),
             ),
           ),
           (trailing == null)

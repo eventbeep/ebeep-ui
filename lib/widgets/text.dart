@@ -8,7 +8,7 @@ class BeepCustomText extends StatelessWidget {
     this.color = BeepColors.textSecondary,
     this.weight = FontWeight.w100,
     @required this.size,
-    @required this.fontFamily,
+    this.fontFamily,
     this.maxLines,
     this.lineSpace = 1,
   });
@@ -95,17 +95,22 @@ class BeepSecondaryText extends StatelessWidget {
 }
 
 class BeepActionBarText extends StatelessWidget {
-  const BeepActionBarText({this.text, this.singleLine = true});
+  const BeepActionBarText({
+    this.text,
+    this.singleLine = true,
+    this.color = BeepColors.quaternary,
+  });
 
   final String text;
   final bool singleLine;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return BeepCustomText(
       text: text,
       size: BeepDimens.textActionBar,
-      color: BeepColors.quaternary,
+      color: color,
       // weight: FontWeight.bold,
       fontFamily: 'Title',
       lineSpace: 1.3,
@@ -138,11 +143,13 @@ class BeepLargeHeading extends StatelessWidget {
     this.text,
     this.align,
     this.maxLines,
+    this.lineSpace,
   });
 
   final String text;
   final TextAlign align;
   final int maxLines;
+  final double lineSpace;
 
   @override
   Widget build(BuildContext context) {
@@ -153,6 +160,7 @@ class BeepLargeHeading extends StatelessWidget {
       size: BeepDimens.textLargeHeading,
       color: BeepColors.textPrimary,
       fontFamily: 'Heading',
+      lineSpace: lineSpace,
     );
   }
 }
