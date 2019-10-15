@@ -122,10 +122,11 @@ class BeepEventCard extends StatelessWidget {
       ),
       margin: EdgeInsets.only(top: height * 0.333),
       decoration: BoxDecoration(
-          color: BeepColors.white,
-          shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-          boxShadow: BeepDimens.lightShadow),
+        color: BeepColors.white,
+        shape: BoxShape.rectangle,
+        borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
+        boxShadow: BeepDimens.lightShadow,
+      ),
       child: Row(
         children: <Widget>[
           Column(

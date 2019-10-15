@@ -25,7 +25,6 @@ export 'widgets/tab_indicator.dart';
 export 'widgets/tag.dart';
 export 'widgets/text.dart';
 export 'widgets/text_field.dart';
-export 'widgets/ticket_card.dart';
 export 'widgets/ticket_type_card.dart';
 export 'widgets/timeline_card.dart';
 export 'widgets/top_bar.dart';

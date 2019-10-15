@@ -1,3 +1,4 @@
+import 'package:eventbeep_ui/shared/constants.dart';
 import 'package:flutter/material.dart';
 
 class BeepGradients {
@@ -61,4 +62,27 @@ class BeepGradients {
     Color(0xFF000000),
     Color(0xFF434343),
   ];
+
+  static List<Color> getGradient(String category) {
+    switch (category) {
+      case BeepCategories.food:
+        return BeepGradients.food;
+      case BeepCategories.adventure:
+        return BeepGradients.adventure;
+      case BeepCategories.gaming:
+        return BeepGradients.gaming;
+      case BeepCategories.creative:
+        return BeepGradients.biking;
+      case BeepCategories.sports:
+        return BeepGradients.sports;
+      case BeepCategories.entertainment:
+        return BeepGradients.entertainment;
+      case BeepCategories.startups:
+        return BeepGradients.startups;
+      case BeepCategories.technical:
+        return BeepGradients.technical;
+      default:
+        return BeepGradients.appBarGradient;
+    }
+  }
 }

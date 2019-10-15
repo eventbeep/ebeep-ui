@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ui' as ui;
+import 'package:eventbeep_ui/shared.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:qr/qr.dart';
@@ -12,18 +13,19 @@ class QrImage extends StatelessWidget {
     this.size,
     this.padding = const EdgeInsets.all(10.0),
     this.backgroundColor,
-    Color foregroundColor = const Color(0xFF000000),
-    int version = 4,
-    int errorCorrectionLevel = QrErrorCorrectLevel.L,
+    Color foregroundColor = BeepColors.quaternary,
+    int version = 2,
+    int errorCorrectionLevel = QrErrorCorrectLevel.Q,
     this.onError,
     this.gapless = false,
   }) : _painter = _QrPainter(
-            data: data,
-            color: foregroundColor,
-            version: version,
-            errorCorrectionLevel: errorCorrectionLevel,
-            gapless: gapless,
-            onError: onError);
+          data: data,
+          color: foregroundColor,
+          version: version,
+          errorCorrectionLevel: errorCorrectionLevel,
+          gapless: gapless,
+          onError: onError,
+        );
 
   final _QrPainter _painter;
   final Color backgroundColor;
@@ -60,7 +62,7 @@ class _QrPainter extends CustomPainter {
     @required String data,
     @required this.version,
     this.errorCorrectionLevel = QrErrorCorrectLevel.L,
-    this.color = const Color(0xff000000),
+    this.color = BeepColors.black,
     this.emptyColor,
     this.onError,
     this.gapless = false,

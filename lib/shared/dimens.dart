@@ -50,5 +50,5 @@ class BeepDimens {
 
   static const double buttonHeight = 50.0;
 
-  static const double ticketCornerRadius = 16.0;
+  static const double ticketCornerRadius = 8.0;
 }

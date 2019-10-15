@@ -14,7 +14,7 @@ class BeepTag extends StatelessWidget {
         boxShadow: BeepDimens.darkShadow,
         borderRadius: BorderRadius.circular(12.0),
         gradient: LinearGradient(
-          colors: getGradient(),
+          colors: BeepGradients.getGradient(text),
           begin: const FractionalOffset(0.0, 0.0),
           end: const FractionalOffset(1.0, 0.0),
           stops: const <double>[0.0, 1.0],
@@ -34,27 +34,4 @@ class BeepTag extends StatelessWidget {
   }
 
   String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
-
-  List<Color> getGradient() {
-    switch (text) {
-      case BeepCategories.food:
-        return BeepGradients.food;
-      case BeepCategories.adventure:
-        return BeepGradients.adventure;
-      case BeepCategories.gaming:
-        return BeepGradients.gaming;
-      case BeepCategories.creative:
-        return BeepGradients.biking;
-      case BeepCategories.sports:
-        return BeepGradients.sports;
-      case BeepCategories.entertainment:
-        return BeepGradients.entertainment;
-      case BeepCategories.startups:
-        return BeepGradients.startups;
-      case BeepCategories.technical:
-        return BeepGradients.technical;
-      default:
-        return BeepGradients.appBarGradient;
-    }
-  }
 }

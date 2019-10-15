@@ -21,14 +21,17 @@ class BeepTimelineCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Flexible(flex: 5, fit: FlexFit.tight, child: leftSection()),
-        UIHelper.horizontalM,
-        middleSection(),
-        UIHelper.horizontalL,
-        Flexible(flex: 10, child: rightSection()),
-      ],
+    return GestureDetector(
+      onTap: onViewTicket,
+      child: Row(
+        children: <Widget>[
+          Flexible(flex: 5, fit: FlexFit.tight, child: leftSection()),
+          UIHelper.horizontalM,
+          middleSection(),
+          UIHelper.horizontalL,
+          Flexible(flex: 10, child: rightSection()),
+        ],
+      ),
     );
   }
 
@@ -44,12 +47,10 @@ class BeepTimelineCard extends StatelessWidget {
           color: BeepColors.textPrimary,
         ),
         UIHelper.verticalXS,
-        Material(
-          color: Colors.transparent,
-          child: InkWell(
-              onTap: onViewTicket,
-              child: const BeepSecondaryText(text: 'View Ticket')),
-        ),
+        const BeepCustomText(
+            text: 'View Ticket',
+            color: BeepColors.tertiary,
+            size: BeepDimens.textSecondary),
       ],
     );
   }

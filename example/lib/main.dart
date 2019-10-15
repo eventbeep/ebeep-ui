@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:eventbeep_ui/shared.dart';
@@ -139,8 +137,10 @@ class _MyHomePageState extends State<MyHomePage>
                   ticketQr: 'eventbeep.com',
                   shortDescription:
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                  // eventImage: '',
                   eventName: 'Regatta',
                   eventDate: 'September 10',
+                  // eventLocation: 'Pune',
                   onViewTicket: () {},
                 ),
               ),
@@ -396,19 +396,7 @@ class _MyHomePageState extends State<MyHomePage>
               ),
               const SizedBox(height: 24.0),
 //              QrImage(data: 'Saurabh Mangrulkar'),
-              const Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: BeepDimens.cardMarginHorizontal),
-                child: BeepTicketCard(
-                  title: 'Regatta',
-                  qrData: 'https://meus.cogitare.space',
-                  dateTime: 'Sunday, March 25 2019',
-                  location: 'SASTRA University, Chithvihar block',
-                  ticketType: 'VIP ticket',
-                  ticketsCount: 2,
-                  ticketAmount: 120,
-                ),
-              ),
+
               const SizedBox(height: 24.0),
               CircleAvatar(
                 radius: BeepDimens.avatarRadius,
@@ -473,28 +461,13 @@ class PollExamplePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
-              child: BeepPollCard(
-                question: 'Who is the best batsman?',
-                postedTime: '3 days ago',
-                authorName: 'Saurabh Mangrulkar',
-                authorImage:
-                    'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
-                polls: 32,
-                feedPoll: LinkedHashMap<String, int>.from(<String, int>{
-                  'Kholi': 10,
-                  'Dhoni': 15,
-                  'Raina': 6,
-                  'Shubham': 0,
-                  'Vivek': 5,
-                }),
-                feedPollTaps: List<Function>.generate(
-                  5,
-                  (int index) => () => print('Pressed on Index : $index'),
-                ),
-              ),
+            BeepTimelineCard(
+              eventName: 'Regatta',
+              eventDate: 'Thursday, Nov 07',
+              shortDescription:
+                  'This is sad to main tain humilation pretense so unhappy',
+              ticketQr: 'skasfdfjdfsfdjk',
+              onViewTicket: () => null,
             ),
           ],
         ),
