@@ -20,40 +20,40 @@ class BeepAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double statusBarHeight = MediaQuery.of(context).padding.top;
-    return Container(
-      padding: EdgeInsets.only(
-        left: BeepDimens.cardMarginVertical,
-        right: BeepDimens.cardMarginVertical,
-        top: statusBarHeight,
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                vertical: BeepDimens.cardMarginVertical),
-            child: leading,
-          ),
-          UIHelper.horizontalM,
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: BeepActionBarText(
-                text: title,
-                singleLine: !isMultiline,
-                color: isDark ? BeepColors.white : null,
+    return SafeArea(
+      child: Container(
+        padding: const EdgeInsets.only(
+          left: BeepDimens.cardMarginVertical,
+          right: BeepDimens.cardMarginVertical,
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  vertical: BeepDimens.cardMarginVertical),
+              child: leading,
+            ),
+            UIHelper.horizontalM,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: BeepActionBarText(
+                  text: title,
+                  singleLine: !isMultiline,
+                  color: isDark ? BeepColors.white : null,
+                ),
               ),
             ),
-          ),
-          (trailing == null)
-              ? Container()
-              : Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: BeepDimens.cardMarginVertical),
-                  child: trailing,
-                ),
-        ],
+            (trailing == null)
+                ? Container()
+                : Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: BeepDimens.cardMarginVertical),
+                    child: trailing,
+                  ),
+          ],
+        ),
       ),
     );
   }

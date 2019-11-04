@@ -1,7 +1,7 @@
 import 'package:eventbeep_ui/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:eventbeep_ui/widgets.dart';
-import 'package:flutter_html/flutter_html.dart';
+// import 'package:flutter_html/flutter_html.dart';
 import 'package:shimmer/shimmer.dart';
 
 class BeepTimelineCard extends StatelessWidget {
@@ -10,12 +10,11 @@ class BeepTimelineCard extends StatelessWidget {
     @required this.shortDescription,
     @required this.eventName,
     @required this.eventDate,
-    @required this.ticketQr,
     @required this.onViewTicket,
     this.isLast = false,
   }) : super(key: key);
 
-  final String shortDescription, eventName, eventDate, ticketQr;
+  final String shortDescription, eventName, eventDate;
   final Function onViewTicket;
   final bool isLast;
 
@@ -86,9 +85,11 @@ class BeepTimelineCard extends StatelessWidget {
           size: BeepDimens.textPrimary,
           weight: FontWeight.bold,
           color: BeepColors.textPrimary,
-          maxLines: 1,
+          maxLines: 2,
         ),
-        // BeepSecondaryText(text: shortDescription, maxLines: 2),
+        UIHelper.verticalXS,
+        BeepPrimaryText(text: shortDescription),
+        /*
         Html(
           data: shortDescription.substring(0, 55).trim() + '...',
           defaultTextStyle: TextStyle(
@@ -96,6 +97,7 @@ class BeepTimelineCard extends StatelessWidget {
             color: BeepColors.textSecondary,
           ),
         ),
+        */
       ],
     );
   }

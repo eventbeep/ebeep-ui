@@ -9,16 +9,16 @@ class EventbeepApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Heading'),
-        // home: const MyHomePage(title: 'Eventbeep'),
-        home: const PollExamplePage()
+      title: 'Flutter Demo',
+      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Heading'),
+      home: const MyHomePage(title: 'Eventbeep'),
+      // home: const PollExamplePage()
 //      home: Scaffold(
 //        appBar: PreferredSize(
 //            child: Container(), preferredSize: Size.fromHeight(32)),
 //        body: TimelinePage(),
 //      ),
-        );
+    );
   }
 }
 
@@ -134,7 +134,6 @@ class _MyHomePageState extends State<MyHomePage>
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: BeepTimelineCard(
-                  ticketQr: 'eventbeep.com',
                   shortDescription:
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                   // eventImage: '',
@@ -147,7 +146,6 @@ class _MyHomePageState extends State<MyHomePage>
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: BeepTimelineCard(
-                  ticketQr: 'eventbeep.com',
                   shortDescription:
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                   eventName: 'Regatta',
@@ -167,7 +165,6 @@ class _MyHomePageState extends State<MyHomePage>
                 padding: EdgeInsets.symmetric(horizontal: BeepDimens.padding),
                 child: BeepNewsCard(
                   stream: 'COEP CSE',
-                  title: 'Exams are posponed to June',
                   backgroundColor: BeepColors.error,
                   description:
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -301,7 +298,6 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
               ),
               const SizedBox(height: 24.0),
-              /*
               GridView.count(
                 padding: const EdgeInsets.all(BeepDimens.padding),
                 shrinkWrap: true,
@@ -316,7 +312,6 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
               ),
               const SizedBox(height: 24.0),
-*/
               const BeepTag(text: BeepCategories.sports),
               const SizedBox(height: 24.0),
               const Padding(
@@ -466,7 +461,6 @@ class PollExamplePage extends StatelessWidget {
               eventDate: 'Thursday, Nov 07',
               shortDescription:
                   'This is sad to main tain humilation pretense so unhappy',
-              ticketQr: 'skasfdfjdfsfdjk',
               onViewTicket: () => null,
             ),
           ],

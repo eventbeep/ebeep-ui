@@ -44,7 +44,7 @@ class BeepDimens {
   static const double cardMarginVertical = 12.0;
   static const double cardMarginHorizontal = 24.0;
 
-  static const double festEventRadio = 0.958;
+  static const double festEventRadio = 1.995;
 
   static const double avatarRadius = 66.0;
 

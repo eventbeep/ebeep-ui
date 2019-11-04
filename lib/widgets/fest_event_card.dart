@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eventbeep_ui/shared.dart';
 import 'package:eventbeep_ui/widgets.dart';
 import 'package:flutter/material.dart';
@@ -22,38 +21,38 @@ class BeepFestEventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: BeepColors.white,
-        borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-        boxShadow: BeepDimens.lightShadow,
-      ),
-      child: GestureDetector(
-        onTap: onTap,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          color: BeepColors.white,
+          borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
+          boxShadow: BeepDimens.lightShadow,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Expanded(
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(BeepDimens.cornerRadius),
-                  topRight: Radius.circular(BeepDimens.cornerRadius),
-                ),
-                // borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-                child: CachedNetworkImage(
-                  imageUrl: imageUrl,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  placeholder: (BuildContext context, String value) =>
-                      Shimmer.fromColors(
-                    highlightColor: Colors.grey[100],
-                    baseColor: Colors.grey[300],
-                    child: Container(color: BeepColors.lightGrey),
-                  ),
-                ),
-              ),
-            ),
-            UIHelper.verticalS,
+            // Expanded(
+            //   child: ClipRRect(
+            //     borderRadius: const BorderRadius.only(
+            //       topLeft: Radius.circular(BeepDimens.cornerRadius),
+            //       topRight: Radius.circular(BeepDimens.cornerRadius),
+            //     ),
+            //     // borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
+            //     child: CachedNetworkImage(
+            //       imageUrl: imageUrl,
+            //       fit: BoxFit.cover,
+            //       width: double.infinity,
+            //       placeholder: (BuildContext context, String value) =>
+            //           Shimmer.fromColors(
+            //         highlightColor: Colors.grey[100],
+            //         baseColor: Colors.grey[300],
+            //         child: Container(color: BeepColors.lightGrey),
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            UIHelper.verticalL,
             Padding(
               padding: const EdgeInsets.symmetric(
                   horizontal: BeepDimens.cardMarginVertical),
@@ -76,7 +75,19 @@ class BeepFestEventCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(
                   horizontal: BeepDimens.cardMarginVertical),
-              child: BeepSecondaryText(text: price),
+              child: RichText(
+                text: TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: price,
+                      style: TextStyle(
+                        color: BeepColors.textSecondary,
+                        fontSize: BeepDimens.textSecondary,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
             UIHelper.verticalM,
           ],
@@ -102,20 +113,6 @@ class BeepFestEventLoading extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Expanded(
-            child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(BeepDimens.cornerRadius),
-                topRight: Radius.circular(BeepDimens.cornerRadius),
-              ),
-              // borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-              child: Shimmer.fromColors(
-                highlightColor: Colors.grey[100],
-                baseColor: Colors.grey[300],
-                child: Container(color: BeepColors.lightGrey),
-              ),
-            ),
-          ),
           UIHelper.verticalM,
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -143,7 +140,7 @@ class BeepFestEventLoading extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(
                 horizontal: BeepDimens.cardMarginVertical),

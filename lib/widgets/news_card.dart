@@ -7,7 +7,6 @@ import 'package:shimmer/shimmer.dart';
 class BeepNewsCard extends StatelessWidget {
   const BeepNewsCard({
     Key key,
-    @required this.title,
     @required this.description,
     @required this.authorName,
     @required this.authorImage,
@@ -16,7 +15,7 @@ class BeepNewsCard extends StatelessWidget {
     this.backgroundColor = BeepColors.primary,
   }) : super(key: key);
 
-  final String title, description, authorName, postedTime, authorImage, stream;
+  final String description, authorName, postedTime, authorImage, stream;
   final Color backgroundColor;
 
   @override
@@ -76,14 +75,6 @@ class BeepNewsCard extends StatelessWidget {
             ],
           ),
           UIHelper.verticalL,
-          BeepCustomText(
-            text: title,
-            size: 18,
-            fontFamily: 'Simple',
-            color: BeepColors.white,
-            weight: FontWeight.bold,
-          ),
-          UIHelper.verticalM,
           BeepCustomText(
             text: description,
             size: 14,
