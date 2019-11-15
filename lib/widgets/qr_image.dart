@@ -90,7 +90,7 @@ class _QrPainter extends CustomPainter {
     } catch (ex) {
       if (onError != null) {
         _hasError = true;
-        this.onError(ex);
+        onError(ex);
       }
     }
   }

@@ -80,7 +80,7 @@ class BeepFestEventCard extends StatelessWidget {
                   children: <TextSpan>[
                     TextSpan(
                       text: price,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: BeepColors.textSecondary,
                         fontSize: BeepDimens.textSecondary,
                       ),

@@ -301,7 +301,7 @@ class PinCodeTextFieldState extends State<PinCodeTextField> {
             height: 0.0,
             color: Colors.transparent,
           ),
-          labelStyle: TextStyle(height: 0.1),
+          labelStyle: const TextStyle(height: 0.1),
           fillColor: Colors.transparent,
           border: InputBorder.none,
         ),

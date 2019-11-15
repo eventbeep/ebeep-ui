@@ -103,12 +103,25 @@ class _MyHomePageState extends State<MyHomePage>
                 unselectedLabelColor: BeepColors.textSecondary,
                 labelColor: Colors.white,
                 indicatorSize: TabBarIndicatorSize.tab,
-                indicator: BeepTabIndicator(
+                indicator: const BeepTabIndicator(
                   indicatorHeight: 36.0,
                   tabBarIndicatorSize: TabBarIndicatorSize.tab,
                 ),
                 tabs: tabs,
                 controller: _tabController,
+              ),
+              const SizedBox(height: 24.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: BeepLearnCard(
+                  width: 210,
+                  name: 'Master Competitive Coding',
+                  image:
+                      'https://media.geeksforgeeks.org/wp-content/cdn-uploads/Competitive-Programming.jpg',
+                  price: '₹500',
+                  platform: 'MyCaptain',
+                  onTap: null,
+                ),
               ),
               const SizedBox(height: 24.0),
               const Padding(
@@ -395,7 +408,7 @@ class _MyHomePageState extends State<MyHomePage>
               const SizedBox(height: 24.0),
               CircleAvatar(
                 radius: BeepDimens.avatarRadius,
-                backgroundImage: CachedNetworkImageProvider(
+                backgroundImage: const CachedNetworkImageProvider(
                     'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg'),
               ),
               const SizedBox(height: 24.0),

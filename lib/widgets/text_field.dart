@@ -73,7 +73,7 @@ class BeepTextField extends StatelessWidget {
                   keyboardType: textInputType,
                   obscureText: isPassword,
                   maxLength: maxLength,
-                  style: TextStyle(fontFamily: 'Simple'),
+                  style: const TextStyle(fontFamily: 'Simple'),
                   buildCounter: (
                     BuildContext context, {
                     int currentLength,

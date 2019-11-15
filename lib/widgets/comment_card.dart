@@ -81,7 +81,7 @@ class BeepLoadingComment extends StatelessWidget {
                       width: 100,
                       color: BeepColors.white,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Container(
                       height: BeepDimens.textSecondary,
                       width: 80,
