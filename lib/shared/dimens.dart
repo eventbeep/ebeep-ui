@@ -9,7 +9,7 @@ class BeepDimens {
   static const double textSecondary = 14.0;
   static const double textLargeHeading = 26.0;
   static const double textSmallHeading = 18.0;
-  static const double textActionBar = 26.0;
+  static const double textActionBar = 24.0;
 
   static const double appBarHeight = 70.0;
   static const SizedBox dummyBox = SizedBox(
@@ -44,7 +44,7 @@ class BeepDimens {
   static const double cardMarginVertical = 12.0;
   static const double cardMarginHorizontal = 24.0;
 
-  static const double festEventRadio = 1.995;
+  static const double festEventRadio = 1.980;
 
   static const double avatarRadius = 66.0;
 

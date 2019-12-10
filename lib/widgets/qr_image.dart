@@ -15,7 +15,7 @@ class QrImage extends StatelessWidget {
     this.backgroundColor,
     Color foregroundColor = BeepColors.quaternary,
     int version = 2,
-    int errorCorrectionLevel = QrErrorCorrectLevel.Q,
+    int errorCorrectionLevel = QrErrorCorrectLevel.L,
     this.onError,
     this.gapless = false,
   }) : _painter = _QrPainter(

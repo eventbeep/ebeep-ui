@@ -1,0 +1,1 @@
+{"dependencyGraph":[{"name":"path_provider","dependencies":[]},{"name":"sqflite","dependencies":[]},{"name":"webview_flutter","dependencies":[]}]}

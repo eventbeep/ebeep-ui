@@ -38,6 +38,7 @@ class BeepTicketTypeCard extends StatelessWidget {
     return Container(
       height: 60,
       width: 60,
+      margin: const EdgeInsets.symmetric(vertical: 20),
       alignment: Alignment.center,
       decoration: const BoxDecoration(color: BeepColors.cardBackground),
       child: const BeepCustomText(
@@ -95,6 +96,7 @@ class BeepLoadingTicket extends StatelessWidget {
     return Container(
       height: 60,
       width: 60,
+      margin: const EdgeInsets.symmetric(vertical: 20),
       alignment: Alignment.center,
       child: const BeepCustomText(
         text: '0',

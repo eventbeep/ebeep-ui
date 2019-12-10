@@ -2,10 +2,11 @@ import 'dart:collection';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eventbeep_ui/shared.dart';
+// import 'package:eventbeep_ui/views/youtube_player_page.dart';
 import 'package:eventbeep_ui/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:youtube_player/youtube_player.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BeepFeedCard extends StatefulWidget {
   const BeepFeedCard({
@@ -28,6 +29,7 @@ class BeepFeedCard extends StatefulWidget {
     this.commentAction,
     this.reportAction,
     this.deleteAction,
+    this.collegeName,
     this.isOwner = false,
   }) : super(key: key);
 
@@ -36,6 +38,7 @@ class BeepFeedCard extends StatefulWidget {
       content,
       postedTime,
       feedType,
+      collegeName,
       feedVideo;
   final List<String> feedImage;
   final int likes, comments;
@@ -116,14 +119,17 @@ class _BeepFeedCardState extends State<BeepFeedCard>
                 ),
                 UIHelper.verticalXS,
                 BeepCustomText(
-                  text: widget.postedTime,
+                  text: widget.collegeName,
                   size: 14,
                   fontFamily: 'Simple',
                   color: BeepColors.textSecondary,
+                  maxLines: 1,
                 ),
               ],
             ),
           ),
+          UIHelper.horizontalXL,
+          /*
           PopupMenuButton<String>(
             icon: Icon(Icons.more_vert, color: BeepColors.lightIcon),
             tooltip: 'Options',
@@ -152,6 +158,7 @@ class _BeepFeedCardState extends State<BeepFeedCard>
               }).toList();
             },
           ),
+                */
         ],
       ),
     );
@@ -173,16 +180,60 @@ class _BeepFeedCardState extends State<BeepFeedCard>
           width: double.infinity,
         );
       case 'video':
-        return YoutubePlayer(
-          context: context,
-          source: widget.feedVideo,
-          quality: YoutubeQuality.MEDIUM,
-          autoPlay: false,
-          callbackController: (VideoPlayerController controller) {
-            // _controller = controller;
-          },
+        return Stack(
+          children: <Widget>[
+            CachedNetworkImage(
+              imageUrl:
+                  'https://img.youtube.com/vi/${widget.feedVideo}/sddefault.jpg',
+              placeholder: (BuildContext context, String text) =>
+                  Shimmer.fromColors(
+                highlightColor: Colors.grey[100],
+                baseColor: Colors.grey[300],
+                child: Container(color: BeepColors.lightGrey),
+              ),
+              height: 200,
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              top: 0,
+              child: IconButton(
+                icon: Icon(
+                  Icons.play_arrow,
+                  size: 56,
+                  color: BeepColors.white,
+                ),
+                onPressed: () async {
+                  if (await canLaunch(
+                      'https://youtube.com/watch?v=${widget.feedVideo}')) {
+                    final bool nativeAppLaunchSucceeded = await launch(
+                      'https://youtube.com/watch?v=${widget.feedVideo}',
+                      forceSafariVC: false,
+                      universalLinksOnly: true,
+                    );
+                    if (!nativeAppLaunchSucceeded) {
+                      await launch(
+                        'https://youtube.com/watch?v=${widget.feedVideo}',
+                        forceSafariVC: true,
+                      );
+                    }
+                  }
+                },
+                // onPressed: () => Navigator.push(
+                //   context,
+                //   MaterialPageRoute<YoutubePlayerPage>(
+                //       builder: (_) =>
+                //           YoutubePlayerPage(videoId: widget.feedVideo)),
+                // ),
+              ),
+            ),
+          ],
         );
-        break;
+
+      // return Container();
       // case 'poll':
       //   return Padding(
       //     padding: const EdgeInsets.symmetric(
@@ -195,10 +246,8 @@ class _BeepFeedCardState extends State<BeepFeedCard>
           height: 200,
           color: BeepColors.cardBackground,
         );
-        break;
       case 'content':
         return Container();
-        break;
       default:
         return Container();
     }
@@ -247,7 +296,7 @@ class _BeepFeedCardState extends State<BeepFeedCard>
                   },
                 ),
           BeepSecondaryText(text: likeCount.toString()),
-          UIHelper.horizontalL,
+          UIHelper.horizontalS,
           IconButton(
             icon: const Icon(Icons.comment),
             color: BeepColors.lightIcon,
@@ -257,6 +306,9 @@ class _BeepFeedCardState extends State<BeepFeedCard>
             },
           ),
           BeepSecondaryText(text: widget.comments.toString()),
+          Spacer(),
+          BeepSecondaryText(text: widget.postedTime),
+          UIHelper.horizontalM,
         ],
       ),
     );

@@ -25,7 +25,7 @@ class BeepCommentCard extends StatelessWidget {
       children: <Widget>[
         CircleAvatar(
           backgroundImage: CachedNetworkImageProvider(profileUrl),
-          radius: 18,
+          radius: 16,
         ),
         UIHelper.horizontalL,
         Expanded(
@@ -34,21 +34,20 @@ class BeepCommentCard extends StatelessWidget {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  Expanded(
-                    child: BeepCustomText(
-                      fontFamily: 'Simple',
-                      text: authorName,
-                      size: BeepDimens.textPrimary,
-                      color: BeepColors.quaternary,
-                      maxLines: 1,
-                    ),
+                  BeepSecondaryText(text: authorName),
+                  const BeepCustomText(
+                    text: ' · ',
+                    weight: FontWeight.bold,
+                    size: BeepDimens.textSecondary,
                   ),
-                  UIHelper.horizontalL,
-                  BeepSecondaryText(text: time),
+                  BeepCustomText(
+                    text: time,
+                    size: 12,
+                  ),
                 ],
               ),
-              const SizedBox(height: 8.0),
-              BeepSecondaryText(text: comment),
+              UIHelper.horizontalS,
+              BeepPrimaryText(text: comment),
             ],
           ),
         ),
@@ -68,7 +67,7 @@ class BeepLoadingComment extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const CircleAvatar(radius: 19),
+          const CircleAvatar(radius: 16),
           UIHelper.horizontalL,
           Expanded(
             child: Column(
@@ -81,12 +80,12 @@ class BeepLoadingComment extends StatelessWidget {
                       width: 100,
                       color: BeepColors.white,
                     ),
-                    const Spacer(),
-                    Container(
-                      height: BeepDimens.textSecondary,
-                      width: 80,
-                      color: BeepColors.white,
-                    ),
+                    // const Spacer(),
+                    // Container(
+                    //   height: BeepDimens.textSecondary,
+                    //   width: 80,
+                    //   color: BeepColors.white,
+                    // ),
                   ],
                 ),
                 UIHelper.verticalM,

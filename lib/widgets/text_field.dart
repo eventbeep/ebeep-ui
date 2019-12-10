@@ -20,6 +20,7 @@ class BeepTextField extends StatelessWidget {
     this.getKeyboard = true,
     this.icon,
     this.enabled = true,
+    this.onSubmit,
   }) : super(key: key);
 
   final TextCapitalization textCapitalization;
@@ -27,6 +28,7 @@ class BeepTextField extends StatelessWidget {
   final bool isPassword;
   final TextInputType textInputType;
   final Function onChanged;
+  final Function onSubmit;
   final String errorText;
   final int maxLength;
   final TextEditingController controller;
@@ -64,6 +66,7 @@ class BeepTextField extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: TextField(
+                  onSubmitted: onSubmit,
                   onTap: onTap,
                   enabled: enabled,
                   focusNode: getKeyboard ? null : AlwaysDisabledFocusNode(),

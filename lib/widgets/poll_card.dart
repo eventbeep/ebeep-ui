@@ -22,9 +22,15 @@ class BeepPollCard extends StatefulWidget {
     this.reportAction,
     this.deleteAction,
     this.isOwner = false,
+    this.collegeName,
   }) : super(key: key);
 
-  final String authorName, authorImage, question, postedTime, selectedChoice;
+  final String authorName,
+      authorImage,
+      question,
+      postedTime,
+      selectedChoice,
+      collegeName;
   final bool isOwner;
   final int polls;
   final Function reportAction, deleteAction;
@@ -102,14 +108,17 @@ class _BeepPollCardState extends State<BeepPollCard>
                 ),
                 UIHelper.verticalXS,
                 BeepCustomText(
-                  text: widget.postedTime,
+                  text: widget.collegeName,
                   size: 14,
                   fontFamily: 'Simple',
                   color: BeepColors.textSecondary,
+                  maxLines: 1,
                 ),
               ],
             ),
           ),
+          UIHelper.horizontalXL,
+          /*
           PopupMenuButton<String>(
             icon: Icon(Icons.more_vert, color: BeepColors.lightIcon),
             tooltip: 'Options',
@@ -138,6 +147,7 @@ class _BeepPollCardState extends State<BeepPollCard>
               }).toList();
             },
           ),
+          */
         ],
       ),
     );
@@ -250,8 +260,9 @@ class _BeepPollCardState extends State<BeepPollCard>
       padding: const EdgeInsets.symmetric(
           horizontal: BeepDimens.cardMarginHorizontal),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
+          BeepSecondaryText(text: widget.postedTime),
+          const Spacer(),
           const Icon(
             Icons.check_circle,
             color: BeepColors.lightIcon,

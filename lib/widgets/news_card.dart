@@ -138,13 +138,7 @@ class BeepLoadingNews extends StatelessWidget {
             ),
             UIHelper.verticalL,
             Container(
-              height: BeepDimens.textSmallHeading,
-              width: 220,
-              color: BeepColors.white,
-            ),
-            UIHelper.verticalL,
-            Container(
-              height: BeepDimens.textSmallHeading * 6,
+              height: BeepDimens.textSmallHeading * 3,
               width: double.infinity,
               color: BeepColors.white,
             ),

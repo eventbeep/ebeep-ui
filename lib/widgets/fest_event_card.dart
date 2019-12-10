@@ -31,28 +31,8 @@ class BeepFestEventCard extends StatelessWidget {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // Expanded(
-            //   child: ClipRRect(
-            //     borderRadius: const BorderRadius.only(
-            //       topLeft: Radius.circular(BeepDimens.cornerRadius),
-            //       topRight: Radius.circular(BeepDimens.cornerRadius),
-            //     ),
-            //     // borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-            //     child: CachedNetworkImage(
-            //       imageUrl: imageUrl,
-            //       fit: BoxFit.cover,
-            //       width: double.infinity,
-            //       placeholder: (BuildContext context, String value) =>
-            //           Shimmer.fromColors(
-            //         highlightColor: Colors.grey[100],
-            //         baseColor: Colors.grey[300],
-            //         child: Container(color: BeepColors.lightGrey),
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            UIHelper.verticalL,
             Padding(
               padding: const EdgeInsets.symmetric(
                   horizontal: BeepDimens.cardMarginVertical),
@@ -89,7 +69,6 @@ class BeepFestEventCard extends StatelessWidget {
                 ),
               ),
             ),
-            UIHelper.verticalM,
           ],
         ),
       ),
@@ -112,8 +91,8 @@ class BeepFestEventLoading extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          UIHelper.verticalM,
           Padding(
             padding: const EdgeInsets.symmetric(
                 horizontal: BeepDimens.cardMarginVertical),
@@ -154,7 +133,6 @@ class BeepFestEventLoading extends StatelessWidget {
               ),
             ),
           ),
-          UIHelper.verticalM,
         ],
       ),
     );
