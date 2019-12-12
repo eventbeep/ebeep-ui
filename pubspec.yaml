@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
   qr: ^1.2.0
   shimmer: ^1.0.0
-  cached_network_image: 
+  cached_network_image: ^2.0.0-rc 
   # youtube_player_flutter: 
   separated_column: ^1.0.1+2
   flutter_html: ^0.10.4
