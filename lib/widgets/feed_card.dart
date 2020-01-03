@@ -29,6 +29,7 @@ class BeepFeedCard extends StatefulWidget {
     this.commentAction,
     this.reportAction,
     this.deleteAction,
+    this.clubAction,
     this.collegeName,
     this.isOwner = false,
   }) : super(key: key);
@@ -48,7 +49,8 @@ class BeepFeedCard extends StatefulWidget {
       unlikeAction,
       commentAction,
       reportAction,
-      deleteAction;
+      deleteAction,
+      clubAction;
   final List<Function> feedPollTaps;
   final LinkedHashMap<String, int> feedPoll;
 
@@ -76,6 +78,7 @@ class _BeepFeedCardState extends State<BeepFeedCard>
   Widget build(BuildContext context) {
     super.build(context);
     return Container(
+      // margin: const EdgeInsets.only(bottom: BeepDimens.padding),
       decoration: const BoxDecoration(
           borderRadius:
               BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)),
@@ -102,8 +105,11 @@ class _BeepFeedCardState extends State<BeepFeedCard>
       padding: const EdgeInsets.only(left: BeepDimens.cardMarginHorizontal),
       child: Row(
         children: <Widget>[
-          CircleAvatar(
-            backgroundImage: CachedNetworkImageProvider(widget.authorImage),
+          GestureDetector(
+            onTap: widget.clubAction,
+            child: CircleAvatar(
+              backgroundImage: CachedNetworkImageProvider(widget.authorImage),
+            ),
           ),
           UIHelper.horizontalL,
           Expanded(
@@ -129,7 +135,6 @@ class _BeepFeedCardState extends State<BeepFeedCard>
             ),
           ),
           UIHelper.horizontalXL,
-          /*
           PopupMenuButton<String>(
             icon: Icon(Icons.more_vert, color: BeepColors.lightIcon),
             tooltip: 'Options',
@@ -158,7 +163,6 @@ class _BeepFeedCardState extends State<BeepFeedCard>
               }).toList();
             },
           ),
-                */
         ],
       ),
     );
@@ -260,7 +264,7 @@ class _BeepFeedCardState extends State<BeepFeedCard>
           horizontal: BeepDimens.cardMarginHorizontal),
       child: BeepSecondaryText(
         text: widget.content,
-        maxLines: 2,
+        maxLines: (widget.feedType == 'content') ? null : 2,
         align: TextAlign.start,
       ),
     );
@@ -306,7 +310,7 @@ class _BeepFeedCardState extends State<BeepFeedCard>
             },
           ),
           BeepSecondaryText(text: widget.comments.toString()),
-          Spacer(),
+          const Spacer(),
           BeepSecondaryText(text: widget.postedTime),
           UIHelper.horizontalM,
         ],

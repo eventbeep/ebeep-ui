@@ -21,6 +21,7 @@ class BeepPollCard extends StatefulWidget {
     this.selectedChoice,
     this.reportAction,
     this.deleteAction,
+    this.clubAction,
     this.isOwner = false,
     this.collegeName,
   }) : super(key: key);
@@ -33,7 +34,7 @@ class BeepPollCard extends StatefulWidget {
       collegeName;
   final bool isOwner;
   final int polls;
-  final Function reportAction, deleteAction;
+  final Function reportAction, deleteAction, clubAction;
   final List<Function> feedPollTaps;
   final LinkedHashMap<String, int> feedPoll;
 
@@ -91,8 +92,11 @@ class _BeepPollCardState extends State<BeepPollCard>
       padding: const EdgeInsets.only(left: BeepDimens.cardMarginHorizontal),
       child: Row(
         children: <Widget>[
-          CircleAvatar(
-            backgroundImage: CachedNetworkImageProvider(widget.authorImage),
+          GestureDetector(
+            onTap: widget.clubAction,
+            child: CircleAvatar(
+              backgroundImage: CachedNetworkImageProvider(widget.authorImage),
+            ),
           ),
           UIHelper.horizontalL,
           Expanded(
@@ -118,7 +122,6 @@ class _BeepPollCardState extends State<BeepPollCard>
             ),
           ),
           UIHelper.horizontalXL,
-          /*
           PopupMenuButton<String>(
             icon: Icon(Icons.more_vert, color: BeepColors.lightIcon),
             tooltip: 'Options',
@@ -147,7 +150,6 @@ class _BeepPollCardState extends State<BeepPollCard>
               }).toList();
             },
           ),
-          */
         ],
       ),
     );
