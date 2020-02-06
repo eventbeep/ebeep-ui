@@ -27,7 +27,7 @@ class BeepNewsCard extends StatelessWidget {
           borderRadius:
               const BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)),
           color: backgroundColor,
-          boxShadow: BeepDimens.lightShadow),
+          boxShadow: BeepDimens.darkShadow),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

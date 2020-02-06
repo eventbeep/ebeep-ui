@@ -21,6 +21,7 @@ export 'widgets/organiser_card.dart';
 export 'widgets/otp_view.dart';
 export 'widgets/poll_card.dart';
 export 'widgets/qr_image.dart';
+export 'widgets/quiz_card.dart';
 export 'widgets/raised_button.dart';
 export 'widgets/state_widgets.dart';
 export 'widgets/tab_indicator.dart';

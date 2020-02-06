@@ -86,7 +86,6 @@ class BeepTextField extends StatelessWidget {
                       null,
                   decoration: InputDecoration(
                     hintText: hintText,
-                    contentPadding: const EdgeInsets.only(top: 8.0),
                     border: InputBorder.none,
                   ),
                 ),

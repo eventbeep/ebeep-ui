@@ -214,25 +214,27 @@ class _BeepPollCardState extends State<BeepPollCard>
                   (selectedChoice == null)
                       ? Container()
                       : BeepCustomText(
-                          text: '${(value * 100).toInt()}%',
+                          text: '${(value * 100).round()}%',
                           size: 17,
                           fontFamily: 'Simple',
                           color: BeepColors.quaternary,
                           maxLines: 1,
                         ),
                   UIHelper.horizontalS,
-                  BeepCustomText(
-                    text: '$label',
-                    size: 16,
-                    fontFamily: 'Simple',
-                    color: BeepColors.quaternary,
-                    weight: (widget.feedPoll.keys
-                                .toList()
-                                .indexOf(selectedChoice) ==
-                            index)
-                        ? FontWeight.bold
-                        : FontWeight.normal,
-                    maxLines: 1,
+                  Expanded(
+                    child: BeepCustomText(
+                      text: '$label',
+                      size: 16,
+                      fontFamily: 'Simple',
+                      color: BeepColors.quaternary,
+                      weight: (widget.feedPoll.keys
+                                  .toList()
+                                  .indexOf(selectedChoice) ==
+                              index)
+                          ? FontWeight.bold
+                          : FontWeight.normal,
+                      maxLines: 1,
+                    ),
                   ),
                 ],
               ),
