@@ -40,11 +40,13 @@ class QuizCard extends StatelessWidget {
                 topLeft: Radius.circular(BeepDimens.cornerRadius),
                 topRight: Radius.circular(BeepDimens.cornerRadius),
               ),
-              child: CachedNetworkImage(
-                imageUrl: imageUrl,
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: 130,
+              child: AspectRatio(
+                aspectRatio: 2,
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                ),
               ),
             ),
             UIHelper.verticalL,

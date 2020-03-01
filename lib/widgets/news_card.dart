@@ -12,78 +12,102 @@ class BeepNewsCard extends StatelessWidget {
     @required this.authorImage,
     @required this.postedTime,
     @required this.stream,
-    this.backgroundColor = BeepColors.primary,
+    this.onTap,
+    this.backgroundColor = BeepColors.secondary,
   }) : super(key: key);
 
   final String description, authorName, postedTime, authorImage, stream;
+  final Function onTap;
   final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: BeepDimens.cardMarginHorizontal),
-      decoration: BoxDecoration(
-          borderRadius:
-              const BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)),
-          color: backgroundColor,
-          boxShadow: BeepDimens.darkShadow),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          UIHelper.verticalXL,
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              CircleAvatar(
-                backgroundImage: CachedNetworkImageProvider(authorImage),
-              ),
-              UIHelper.horizontalL,
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    BeepCustomText(
-                      text: authorName,
-                      weight: FontWeight.bold,
-                      size: 16,
-                      maxLines: 1,
-                      fontFamily: 'Simple',
-                      color: BeepColors.white,
-                    ),
-                    UIHelper.verticalS,
-                    BeepCustomText(
-                      text: stream,
-                      weight: FontWeight.bold,
-                      size: 14,
-                      maxLines: 1,
-                      fontFamily: 'Simple',
-                      color: BeepColors.lightGrey,
-                    ),
-                  ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+            horizontal: BeepDimens.cardMarginHorizontal),
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(
+                Radius.circular(BeepDimens.cornerRadius)),
+            color: backgroundColor,
+            boxShadow: BeepDimens.darkShadow),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            UIHelper.verticalXL,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                CircleAvatar(
+                  backgroundImage: CachedNetworkImageProvider(authorImage),
                 ),
+                UIHelper.horizontalL,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      BeepCustomText(
+                        text: authorName,
+                        weight: FontWeight.bold,
+                        size: 16,
+                        maxLines: 1,
+                        fontFamily: 'Simple',
+                        color: BeepColors.white,
+                      ),
+                      UIHelper.verticalS,
+                      BeepCustomText(
+                        text: stream,
+                        weight: FontWeight.bold,
+                        size: 14,
+                        maxLines: 1,
+                        fontFamily: 'Simple',
+                        color: BeepColors.lightGrey,
+                      ),
+                    ],
+                  ),
+                ),
+                UIHelper.horizontalL,
+                BeepCustomText(
+                  text: postedTime,
+                  size: 13,
+                  fontFamily: 'Simple',
+                  color: BeepColors.cardBackground,
+                  align: TextAlign.end,
+                  lineSpace: 1.3,
+                ),
+              ],
+            ),
+            UIHelper.verticalL,
+            BeepCustomText(
+              text: description,
+              size: 14,
+              fontFamily: 'Simple',
+              color: BeepColors.white,
+              lineSpace: 1.2,
+            ),
+            if (onTap != null) UIHelper.verticalM,
+            if (onTap != null)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Icon(
+                    Icons.attach_file,
+                    color: BeepColors.white,
+                    size: 14,
+                  ),
+                  UIHelper.horizontalXS,
+                  const BeepCustomText(
+                    color: BeepColors.white,
+                    size: 14,
+                    text: 'File Attached',
+                  ),
+                ],
               ),
-              UIHelper.horizontalL,
-              BeepCustomText(
-                text: postedTime,
-                size: 13,
-                fontFamily: 'Simple',
-                color: BeepColors.cardBackground,
-                align: TextAlign.end,
-                lineSpace: 1.3,
-              ),
-            ],
-          ),
-          UIHelper.verticalL,
-          BeepCustomText(
-            text: description,
-            size: 14,
-            fontFamily: 'Simple',
-            color: BeepColors.white,
-            lineSpace: 1.2,
-          ),
-          UIHelper.verticalXL,
-        ],
+            UIHelper.verticalXL,
+          ],
+        ),
       ),
     );
   }

@@ -38,16 +38,16 @@ class BeepEventCard extends StatelessWidget {
           children: <Widget>[
             eventCard(),
             eventThumbnail(),
-            (category == null)
-                ? Container()
-                : Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: BeepDimens.padding,
-                        horizontal: BeepDimens.padding * 2),
-                    child: BeepTag(
-                      text: category,
-                    ),
-                  ),
+            if (category != null)
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: BeepDimens.padding,
+                  left: BeepDimens.padding * 2,
+                ),
+                child: BeepTag(
+                  text: category,
+                ),
+              ),
             Positioned(
               top: height * 0.666 - 28,
               right: 28,
@@ -65,9 +65,11 @@ class BeepEventCard extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    const Icon(Icons.visibility,
-                        size: BeepDimens.textSecondary,
-                        color: BeepColors.white),
+                    const Icon(
+                      Icons.visibility,
+                      size: BeepDimens.textSecondary,
+                      color: BeepColors.white,
+                    ),
                     const SizedBox(width: 6),
                     BeepCustomText(
                       text: views.toString(),
@@ -89,24 +91,25 @@ class BeepEventCard extends StatelessWidget {
   Widget eventThumbnail() {
     return Container(
       height: height * 0.666,
-      alignment: FractionalOffset.topCenter,
-      margin: const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-          color: BeepColors.lightGrey),
+      padding: const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+      // decoration: BoxDecoration(
+      //   borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
+      //   color: BeepColors.lightGrey,
+      // ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
         child: CachedNetworkImage(
-          imageUrl: imageUrl,
-          placeholder: (BuildContext context, String text) =>
-              Shimmer.fromColors(
-            highlightColor: Colors.grey[100],
-            baseColor: Colors.grey[300],
-            child: Container(color: BeepColors.lightGrey),
-          ),
-          height: height * 0.666,
-          width: double.infinity,
           fit: BoxFit.cover,
+          width: double.infinity,
+          imageUrl: imageUrl,
+          placeholder: (BuildContext context, String text) => SizedBox(
+            height: double.infinity,
+            child: Shimmer.fromColors(
+              highlightColor: Colors.grey[100],
+              baseColor: Colors.grey[300],
+              child: Container(color: BeepColors.lightGrey),
+            ),
+          ),
         ),
       ),
     );

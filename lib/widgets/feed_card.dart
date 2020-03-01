@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eventbeep_ui/shared.dart';
 // import 'package:eventbeep_ui/views/youtube_player_page.dart';
 import 'package:eventbeep_ui/widgets.dart';
+import 'package:eventbeep_ui/widgets/description_text.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -179,7 +180,6 @@ class _BeepFeedCardState extends State<BeepFeedCard>
             baseColor: Colors.grey[300],
             child: Container(color: BeepColors.lightGrey),
           ),
-          height: 200,
           fit: BoxFit.cover,
           width: double.infinity,
         );
@@ -262,11 +262,12 @@ class _BeepFeedCardState extends State<BeepFeedCard>
       width: double.infinity,
       padding: const EdgeInsets.symmetric(
           horizontal: BeepDimens.cardMarginHorizontal),
-      child: BeepSecondaryText(
-        text: widget.content,
-        maxLines: (widget.feedType == 'content') ? null : 2,
-        align: TextAlign.start,
-      ),
+      // child: BeepSecondaryText(
+      //   text: widget.content,
+      //   maxLines: (widget.feedType == 'content') ? null : 2,
+      //   align: TextAlign.start,
+      // ),
+      child: DescriptionText(text: widget.content),
     );
   }
 

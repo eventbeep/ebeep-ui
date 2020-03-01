@@ -9,7 +9,7 @@ class Themes {
       accentColor: Colors.cyan[600],
       fontFamily: 'Simple',
       textTheme: TextTheme(
-        headline: TextStyle(
+        headline5: TextStyle(
           fontSize: 72.0,
           fontWeight: FontWeight.bold,
         ),
