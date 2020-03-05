@@ -1,7 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:eventbeep_ui/shared.dart';
-import 'package:eventbeep_ui/widgets.dart';
 import 'package:flutter/material.dart';
+
+import '../shared.dart';
+import '../widgets.dart';
 
 class QuizCard extends StatelessWidget {
   const QuizCard(

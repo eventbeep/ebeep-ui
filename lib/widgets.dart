@@ -12,6 +12,7 @@ export 'widgets/event_card.dart';
 export 'widgets/feed_card.dart';
 export 'widgets/fest_event_card.dart';
 export 'widgets/floating_button.dart';
+export 'widgets/idea_card.dart';
 export 'widgets/indicator.dart';
 export 'widgets/learn_card.dart';
 export 'widgets/loading.dart';
