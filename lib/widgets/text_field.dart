@@ -3,6 +3,7 @@ import 'package:eventbeep_ui/shared/focus_node.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:eventbeep_ui/shared.dart';
+import 'package:flutter/services.dart';
 
 class BeepTextField extends StatelessWidget {
   const BeepTextField({
@@ -45,7 +46,7 @@ class BeepTextField extends StatelessWidget {
         (labelText == null || labelText.isEmpty)
             ? Container()
             : Padding(
-                padding: const EdgeInsets.only(left: 16.0, bottom: 4.0),
+                padding: const EdgeInsets.only(left: 12, bottom: 8),
                 child: BeepCustomText(
                   text: labelText,
                   size: 15,
@@ -56,9 +57,9 @@ class BeepTextField extends StatelessWidget {
               ),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
-          height: 50,
+          // height: 50,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(16),
             color: BeepColors.tertiary.withAlpha(40),
           ),
           child: Row(
@@ -76,6 +77,7 @@ class BeepTextField extends StatelessWidget {
                   keyboardType: textInputType,
                   obscureText: isPassword,
                   maxLength: maxLength,
+                  maxLines: null,
                   style: const TextStyle(fontFamily: 'Simple'),
                   buildCounter: (
                     BuildContext context, {
@@ -87,6 +89,7 @@ class BeepTextField extends StatelessWidget {
                   decoration: InputDecoration(
                     hintText: hintText,
                     border: InputBorder.none,
+                    counterText: '',
                   ),
                 ),
               ),

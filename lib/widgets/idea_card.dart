@@ -15,12 +15,14 @@ class BeepIdeaCard extends StatelessWidget {
     @required this.authorName,
     @required this.collegeName,
     @required this.tags,
+    @required this.ideaType,
   }) : super(key: key);
 
   final String image;
   final String authorImage;
   final String authorName;
   final String collegeName;
+  final String ideaType;
   final String name;
   final List<String> tags;
   final Function onTap;
@@ -42,20 +44,26 @@ class BeepIdeaCard extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Image.asset(
-                      image,
-                      width: 100,
-                    ),
-                    UIHelper.verticalS,
-                    const BeepCustomText(
-                      text: 'Startup Idea',
-                      size: 14,
-                      color: BeepColors.white,
-                      weight: FontWeight.bold,
-                    ),
-                  ],
+                // Column(
+                //   children: <Widget>[
+                //     // BeepCustomText(
+                //     //   text: ideaType,
+                //     //   size: 14,
+                //     //   color: BeepColors.white,
+                //     //   weight: FontWeight.bold,
+                //     // ),
+                //     // UIHelper.verticalS,
+                //     Image.asset(
+                //       image,
+                //       // 'assets/invention.png',
+                //       width: 80,
+                //     ),
+                //   ],
+                // ),
+                Image.asset(
+                  image,
+                  // 'assets/invention.png',
+                  width: 80,
                 ),
                 UIHelper.horizontalL,
                 Expanded(
@@ -64,6 +72,7 @@ class BeepIdeaCard extends StatelessWidget {
                       Row(
                         children: <Widget>[
                           CircleAvatar(
+                            radius: 18,
                             backgroundImage:
                                 CachedNetworkImageProvider(authorImage),
                           ),
@@ -96,10 +105,10 @@ class BeepIdeaCard extends StatelessWidget {
                       UIHelper.verticalM,
                       BeepCustomText(
                         text: name,
-                        size: 24,
+                        size: 22,
                         color: BeepColors.white,
                         weight: FontWeight.bold,
-                        align: TextAlign.center,
+                        // align: TextAlign.center,
                         lineSpace: 1.3,
                       ),
                       UIHelper.verticalM,
@@ -112,11 +121,13 @@ class BeepIdeaCard extends StatelessWidget {
               spacing: 8,
               alignment: WrapAlignment.center,
               children: List<Widget>.generate(tags.length, (int index) {
-                print(tags[index]);
                 return Chip(
                   label: Text(
                     tags[index],
-                    style: const TextStyle(color: BeepColors.white),
+                    style: const TextStyle(
+                      color: BeepColors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   backgroundColor: backgroundColor.withOpacity(0.8),
                 );

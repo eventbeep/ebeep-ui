@@ -17,6 +17,7 @@ export 'widgets/indicator.dart';
 export 'widgets/learn_card.dart';
 export 'widgets/loading.dart';
 export 'widgets/loading.dart';
+export 'widgets/my_idea_card.dart';
 export 'widgets/news_card.dart';
 export 'widgets/organiser_card.dart';
 export 'widgets/otp_view.dart';
