@@ -48,6 +48,7 @@ class BeepEventCard extends StatelessWidget {
                   text: category,
                 ),
               ),
+            /*
             Positioned(
               top: height * 0.666 - 28,
               right: 28,
@@ -82,6 +83,7 @@ class BeepEventCard extends StatelessWidget {
                 ),
               ),
             ),
+            */
           ],
         ),
       ),

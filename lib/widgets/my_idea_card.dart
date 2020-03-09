@@ -30,7 +30,7 @@ class BeepMyIdeaCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 16),
+      margin: const EdgeInsets.only(bottom: 24),
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       decoration: BoxDecoration(
         color: backgroundColor,
@@ -41,10 +41,7 @@ class BeepMyIdeaCard extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Image.asset(
-                image,
-                width: 80,
-              ),
+              Image.asset(image, width: 80),
               UIHelper.horizontalL,
               Expanded(
                 child: Column(

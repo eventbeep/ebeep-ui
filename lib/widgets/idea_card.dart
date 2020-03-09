@@ -33,7 +33,7 @@ class BeepIdeaCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: 16),
+        margin: const EdgeInsets.only(bottom: 24),
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         decoration: BoxDecoration(
           color: backgroundColor,
@@ -44,27 +44,7 @@ class BeepIdeaCard extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                // Column(
-                //   children: <Widget>[
-                //     // BeepCustomText(
-                //     //   text: ideaType,
-                //     //   size: 14,
-                //     //   color: BeepColors.white,
-                //     //   weight: FontWeight.bold,
-                //     // ),
-                //     // UIHelper.verticalS,
-                //     Image.asset(
-                //       image,
-                //       // 'assets/invention.png',
-                //       width: 80,
-                //     ),
-                //   ],
-                // ),
-                Image.asset(
-                  image,
-                  // 'assets/invention.png',
-                  width: 80,
-                ),
+                Image.asset(image, width: 80),
                 UIHelper.horizontalL,
                 Expanded(
                   child: Column(
