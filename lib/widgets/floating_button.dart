@@ -1,5 +1,6 @@
-import 'package:eventbeep_ui/shared.dart';
 import 'package:flutter/material.dart';
+
+import '../shared.dart';
 
 class BeepFloatingButton extends StatelessWidget {
   const BeepFloatingButton(

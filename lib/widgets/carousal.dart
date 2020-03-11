@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:eventbeep_ui/shared.dart';
-import 'package:eventbeep_ui/shared/dimens.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../shared.dart';
+import '../shared/dimens.dart';
 
 class BeepCarouselSlider extends StatefulWidget {
   BeepCarouselSlider({

@@ -1,8 +1,8 @@
-import 'package:eventbeep_ui/shared.dart';
 import 'package:flutter/material.dart';
-import 'package:eventbeep_ui/widgets.dart';
-// import 'package:flutter_html/flutter_html.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../shared.dart';
+import '../widgets.dart';
 
 class BeepTimelineCard extends StatelessWidget {
   const BeepTimelineCard({

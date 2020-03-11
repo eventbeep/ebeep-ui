@@ -1,7 +1,8 @@
-import 'package:eventbeep_ui/shared.dart';
-import 'package:eventbeep_ui/shared/dimens.dart';
-import 'package:eventbeep_ui/widgets.dart';
 import 'package:flutter/material.dart';
+
+import '../shared.dart';
+import '../shared/dimens.dart';
+import '../widgets.dart';
 
 class BeepAppBar extends StatelessWidget {
   const BeepAppBar({

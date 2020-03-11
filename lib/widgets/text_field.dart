@@ -1,9 +1,10 @@
-import 'package:eventbeep_ui/widgets.dart';
-import 'package:eventbeep_ui/shared/focus_node.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:eventbeep_ui/shared.dart';
 import 'package:flutter/services.dart';
+
+import '../shared.dart';
+import '../shared/focus_node.dart';
+import '../widgets.dart';
 
 class BeepTextField extends StatelessWidget {
   const BeepTextField({
@@ -42,6 +43,7 @@ class BeepTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         (labelText == null || labelText.isEmpty)
             ? Container()

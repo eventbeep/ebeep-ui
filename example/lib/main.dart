@@ -389,15 +389,15 @@ class _MyHomePageState extends State<MyHomePage>
                 child: BeepRaisedButton(
 //                  onPressed: null,
                   onPressed: () {
-                    showDialog<BeepDialog>(
-                      context: context,
-                      builder: (BuildContext context) => const BeepDialog(
-                        title: 'Success',
-                        description:
-                            'Lorem ipsum dolor sit is a really noce way to have dummy data and I prefer this method. Thanks for opening my dialog!',
-                        buttonText: 'Okay',
-                      ),
-                    );
+                    // showDialog<BeepDialog>(
+                    //   context: context,
+                    //   builder: (BuildContext context) => const BeepDialog(
+                    //     title: 'Success',
+                    //     description:
+                    //         'Lorem ipsum dolor sit is a really noce way to have dummy data and I prefer this method. Thanks for opening my dialog!',
+                    //     buttonText: 'Okay',
+                    //   ),
+                    // );
                   },
                   title: 'Open Dialog',
                 ),

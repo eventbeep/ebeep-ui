@@ -2,11 +2,12 @@ import 'dart:collection';
 import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:eventbeep_ui/shared.dart';
-import 'package:eventbeep_ui/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:separated_column/separated_column.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../shared.dart';
+import '../widgets.dart';
 
 class BeepPollCard extends StatefulWidget {
   const BeepPollCard({

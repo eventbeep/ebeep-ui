@@ -1,5 +1,6 @@
-import 'package:eventbeep_ui/shared.dart';
 import 'package:flutter/material.dart';
+
+import '../shared.dart';
 
 /// Used with [TabBar.indicator] to draw a bubble on the
 /// selected tab.

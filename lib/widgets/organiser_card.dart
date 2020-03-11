@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:eventbeep_ui/widgets.dart';
-import 'package:eventbeep_ui/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+
+import '../shared.dart';
+import '../widgets.dart';
 
 class BeepOrganiserCard extends StatefulWidget {
   const BeepOrganiserCard({

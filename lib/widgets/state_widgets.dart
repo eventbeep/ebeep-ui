@@ -1,5 +1,6 @@
-import 'package:eventbeep_ui/widgets.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets.dart';
 
 class EmptyWidget extends StatelessWidget {
   const EmptyWidget({

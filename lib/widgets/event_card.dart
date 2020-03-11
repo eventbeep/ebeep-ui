@@ -1,9 +1,10 @@
-import 'package:eventbeep_ui/shared.dart';
-import 'package:eventbeep_ui/shared/ui_helper.dart';
-import 'package:eventbeep_ui/widgets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+
+import '../shared.dart';
+import '../shared/ui_helper.dart';
+import '../widgets.dart';
 
 class BeepEventCard extends StatelessWidget {
   const BeepEventCard({

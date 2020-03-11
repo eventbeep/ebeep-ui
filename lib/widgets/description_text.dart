@@ -1,6 +1,7 @@
-import 'package:eventbeep_ui/shared/colors.dart';
-import 'package:eventbeep_ui/widgets.dart';
 import 'package:flutter/material.dart';
+
+import '../shared/colors.dart';
+import '../widgets.dart';
 
 class DescriptionText extends StatefulWidget {
   const DescriptionText({

@@ -1,13 +1,13 @@
 import 'dart:collection';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:eventbeep_ui/shared.dart';
-// import 'package:eventbeep_ui/views/youtube_player_page.dart';
 import 'package:eventbeep_ui/widgets.dart';
 import 'package:eventbeep_ui/widgets/description_text.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../shared.dart';
 
 class BeepFeedCard extends StatefulWidget {
   const BeepFeedCard({

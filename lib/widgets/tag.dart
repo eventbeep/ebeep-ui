@@ -1,6 +1,7 @@
-import 'package:eventbeep_ui/widgets.dart';
-import 'package:eventbeep_ui/shared.dart';
 import 'package:flutter/material.dart';
+
+import '../shared.dart';
+import '../widgets.dart';
 
 class BeepTag extends StatelessWidget {
   const BeepTag({Key key, this.text}) : super(key: key);

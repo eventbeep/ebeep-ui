@@ -1,9 +1,10 @@
 import 'dart:async';
 
-import 'package:eventbeep_ui/shared.dart';
+import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart' show CupertinoTextField;
 import 'package:flutter/material.dart';
-import 'package:flutter/animation.dart';
+
+import '../shared.dart';
 
 typedef OnDone = void Function(String text);
 typedef PinBoxDecoration = BoxDecoration Function(Color borderColor);

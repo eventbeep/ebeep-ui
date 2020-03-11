@@ -1,6 +1,7 @@
-import 'package:eventbeep_ui/widgets.dart';
-import 'package:eventbeep_ui/shared.dart';
 import 'package:flutter/material.dart';
+
+import '../shared.dart';
+import '../widgets.dart';
 
 class BeepRaisedButton extends StatelessWidget {
   const BeepRaisedButton({

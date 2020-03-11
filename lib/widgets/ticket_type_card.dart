@@ -1,7 +1,8 @@
-import 'package:eventbeep_ui/widgets.dart';
-import 'package:eventbeep_ui/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../shared.dart';
+import '../widgets.dart';
 
 class BeepTicketTypeCard extends StatelessWidget {
   const BeepTicketTypeCard({

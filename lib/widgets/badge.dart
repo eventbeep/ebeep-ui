@@ -1,93 +1,94 @@
-import 'package:flutter/material.dart';
-import 'polygon_path.dart';
+// import 'package:flutter/material.dart';
 
-class BeepBadge extends StatelessWidget {
-  const BeepBadge({
-    @required this.child,
-    @required this.sides,
-    this.rotate = 0.0,
-    this.borderRadius = 0.0,
-    this.size = double.infinity,
-  });
+// import 'polygon_path.dart';
 
-  final Widget child;
-  final int sides;
-  final double rotate;
-  final double borderRadius;
-  final double size;
+// class BeepBadge extends StatelessWidget {
+//   const BeepBadge({
+//     @required this.child,
+//     @required this.sides,
+//     this.rotate = 0.0,
+//     this.borderRadius = 0.0,
+//     this.size = double.infinity,
+//   });
 
-  @override
-  Widget build(BuildContext context) {
-    final List<PolygonBoxShadow> boxShadows = <PolygonBoxShadow>[
-      PolygonBoxShadow(color: Colors.grey, elevation: 5.0)
-    ];
+//   final Widget child;
+//   final int sides;
+//   final double rotate;
+//   final double borderRadius;
+//   final double size;
 
-    final PolygonPathSpecs specs = PolygonPathSpecs(
-      sides: sides < 3 ? 3 : sides,
-      rotate: rotate,
-      borderRadiusAngle: borderRadius,
-    );
+//   @override
+//   Widget build(BuildContext context) {
+//     final List<PolygonBoxShadow> boxShadows = <PolygonBoxShadow>[
+//       PolygonBoxShadow(color: Colors.grey, elevation: 5.0)
+//     ];
 
-    return Container(
-      height: size,
-      width: size,
-      child: CustomPaint(
-        painter: BoxShadowPainter(specs, boxShadows),
-        child: ClipPath(
-          clipper: Polygon(specs),
-          child: child,
-        ),
-      ),
-    );
-  }
-}
+//     final PolygonPathSpecs specs = PolygonPathSpecs(
+//       sides: sides < 3 ? 3 : sides,
+//       rotate: rotate,
+//       borderRadiusAngle: borderRadius,
+//     );
 
-class Polygon extends CustomClipper<Path> {
-  Polygon(this.specs);
+//     return Container(
+//       height: size,
+//       width: size,
+//       child: CustomPaint(
+//         painter: BoxShadowPainter(specs, boxShadows),
+//         child: ClipPath(
+//           clipper: Polygon(specs),
+//           child: child,
+//         ),
+//       ),
+//     );
+//   }
+// }
 
-  final PolygonPathSpecs specs;
+// class Polygon extends CustomClipper<Path> {
+//   Polygon(this.specs);
 
-  @override
-  Path getClip(Size size) {
-    return PolygonPathDrawer(size: size, specs: specs).draw();
-  }
+//   final PolygonPathSpecs specs;
 
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return true;
-  }
-}
+//   @override
+//   Path getClip(Size size) {
+//     return PolygonPathDrawer(size: size, specs: specs).draw();
+//   }
 
-class BoxShadowPainter extends CustomPainter {
-  BoxShadowPainter(this.specs, this.boxShadows);
+//   @override
+//   bool shouldReclip(CustomClipper<Path> oldClipper) {
+//     return true;
+//   }
+// }
 
-  final PolygonPathSpecs specs;
-  final List<PolygonBoxShadow> boxShadows;
+// class BoxShadowPainter extends CustomPainter {
+//   BoxShadowPainter(this.specs, this.boxShadows);
 
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Path path = PolygonPathDrawer(size: size, specs: specs).draw();
+//   final PolygonPathSpecs specs;
+//   final List<PolygonBoxShadow> boxShadows;
 
-    for (PolygonBoxShadow shadow in boxShadows) {
-      canvas.drawShadow(path, shadow.color, shadow.elevation, false);
-    }
-    // boxShadows.forEach((PolygonBoxShadow shadow) {
-    //   canvas.drawShadow(path, shadow.color, shadow.elevation, false);
-    // });
-  }
+//   @override
+//   void paint(Canvas canvas, Size size) {
+//     final Path path = PolygonPathDrawer(size: size, specs: specs).draw();
 
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
-  }
-}
+//     for (PolygonBoxShadow shadow in boxShadows) {
+//       canvas.drawShadow(path, shadow.color, shadow.elevation, false);
+//     }
+//     // boxShadows.forEach((PolygonBoxShadow shadow) {
+//     //   canvas.drawShadow(path, shadow.color, shadow.elevation, false);
+//     // });
+//   }
 
-class PolygonBoxShadow {
-  PolygonBoxShadow({
-    @required this.color,
-    @required this.elevation,
-  });
+//   @override
+//   bool shouldRepaint(CustomPainter oldDelegate) {
+//     return true;
+//   }
+// }
 
-  final Color color;
-  final double elevation;
-}
+// class PolygonBoxShadow {
+//   PolygonBoxShadow({
+//     @required this.color,
+//     @required this.elevation,
+//   });
+
+//   final Color color;
+//   final double elevation;
+// }

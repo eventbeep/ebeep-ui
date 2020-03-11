@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:eventbeep_ui/shared.dart';
+
+import '../shared.dart';
 
 class BeepCustomText extends StatelessWidget {
   const BeepCustomText({

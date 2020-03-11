@@ -1,8 +1,9 @@
-import 'package:eventbeep_ui/shared/colors.dart';
-import 'package:eventbeep_ui/shared/ui_helper.dart';
-import 'package:eventbeep_ui/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../shared/colors.dart';
+import '../shared/ui_helper.dart';
+import '../widgets.dart';
 
 class BeepBottomAppBarItem {
   BeepBottomAppBarItem({
