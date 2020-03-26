@@ -12,12 +12,6 @@ class EventbeepApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Heading'),
       home: const MyHomePage(title: 'Eventbeep'),
-      // home: const PollExamplePage()
-//      home: Scaffold(
-//        appBar: PreferredSize(
-//            child: Container(), preferredSize: Size.fromHeight(32)),
-//        body: TimelinePage(),
-//      ),
     );
   }
 }

@@ -10,19 +10,13 @@ typedef OnDone = void Function(String text);
 typedef PinBoxDecoration = BoxDecoration Function(Color borderColor);
 
 mixin ProvidedPinBoxDecoration {
-  /// Default BoxDecoration
   static PinBoxDecoration defaultPinBoxDecoration = (Color borderColor) {
     return BoxDecoration(
-        // border: Border.all(
-        //   color: borderColor,
-        //   width: 2.0,
-        // ),
         color: borderColor,
         borderRadius:
             const BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)));
   };
 
-  /// Underlined BoxDecoration
   static PinBoxDecoration underlinedPinBoxDecoration = (Color borderColor) {
     return BoxDecoration(
         border: Border(bottom: BorderSide(color: borderColor, width: 2.0)));
@@ -30,7 +24,6 @@ mixin ProvidedPinBoxDecoration {
 }
 
 mixin ProvidedPinBoxTextAnimation {
-  /// A combination of RotationTransition, DefaultTextStyleTransition, ScaleTransition
   static AnimatedSwitcherTransitionBuilder awesomeTransition =
       (Widget child, Animation<double> animation) {
     return RotationTransition(
