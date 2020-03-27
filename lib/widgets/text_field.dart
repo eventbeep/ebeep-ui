@@ -45,18 +45,17 @@ class BeepTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        (labelText == null || labelText.isEmpty)
-            ? Container()
-            : Padding(
-                padding: const EdgeInsets.only(left: 12, bottom: 8),
-                child: BeepCustomText(
-                  text: labelText,
-                  size: 15,
-                  fontFamily: 'Heading',
-                  weight: FontWeight.bold,
-                  color: BeepColors.tertiary,
-                ),
-              ),
+        if (labelText != null && labelText.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.only(left: 12, bottom: 8),
+            child: BeepCustomText(
+              text: labelText,
+              size: 15,
+              fontFamily: 'Heading',
+              weight: FontWeight.bold,
+              color: BeepColors.tertiary,
+            ),
+          ),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
           // height: 50,
@@ -102,21 +101,20 @@ class BeepTextField extends StatelessWidget {
             ],
           ),
         ),
-        (errorText == null || errorText.isEmpty)
-            ? Container()
-            : Padding(
-                padding: const EdgeInsets.only(
-                  left: BeepDimens.padding,
-                  right: BeepDimens.padding,
-                  top: 4.0,
-                ),
-                child: BeepCustomText(
-                  text: errorText,
-                  fontFamily: 'Simple',
-                  size: 13,
-                  color: BeepColors.secondary,
-                ),
-              ),
+        if (errorText != null && errorText.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.only(
+              left: BeepDimens.padding,
+              right: BeepDimens.padding,
+              top: 4.0,
+            ),
+            child: BeepCustomText(
+              text: errorText,
+              fontFamily: 'Simple',
+              size: 13,
+              color: BeepColors.secondary,
+            ),
+          ),
       ],
     );
   }

@@ -88,7 +88,8 @@ class BeepOtpField extends StatefulWidget {
     this.autofocus = false,
     this.wrapAlignment = WrapAlignment.center,
     this.pinCodeTextFieldLayoutType = PinCodeTextFieldLayoutType.WRAP,
-    this.error,
+    this.error = '',
+    this.labelText = '',
   }) : super(key: key);
 
   final bool isCupertino;
@@ -114,6 +115,7 @@ class BeepOtpField extends StatefulWidget {
   final WrapAlignment wrapAlignment;
   final PinCodeTextFieldLayoutType pinCodeTextFieldLayoutType;
   final String error;
+  final String labelText;
 
   @override
   State<StatefulWidget> createState() {
@@ -243,17 +245,31 @@ class PinCodeTextFieldState extends State<BeepOtpField> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
+          if (widget.labelText != null && widget.labelText.isNotEmpty)
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.only(left: 12, bottom: 8),
+              child: BeepCustomText(
+                text: widget.labelText,
+                size: 15,
+                fontFamily: 'Heading',
+                weight: FontWeight.bold,
+                color: BeepColors.tertiary,
+              ),
+            ),
           _touchPinBoxRow(),
           !widget.isCupertino ? _fakeTextInput() : _fakeTextInputCupertino(),
-          Visibility(
-            visible: widget.hasError,
-            child: BeepCustomText(
-              text: widget.error,
-              size: 12,
-              color: BeepColors.error,
-              fontFamily: 'Simple',
+          if (widget.hasError && widget.error != null)
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EBPadding.horizontalL,
+              child: BeepCustomText(
+                text: widget.error,
+                size: 12,
+                color: BeepColors.error,
+                fontFamily: 'Simple',
+              ),
             ),
-          ),
         ],
       ),
     );
@@ -356,7 +372,6 @@ class PinCodeTextFieldState extends State<BeepOtpField> {
       currentIndex = text.length;
     });
     if (text.length == widget.maxLength) {
-      // FocusScope.of(context).requestFocus(FocusNode());
       widget.onDone(text);
     }
   }

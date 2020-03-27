@@ -210,7 +210,7 @@ class _MyHomePageState extends State<MyHomePage>
                 wrapAlignment: WrapAlignment.center,
                 pinBoxDecoration:
                     ProvidedPinBoxDecoration.defaultPinBoxDecoration,
-                pinTextStyle: TextStyle(fontSize: BeepDimens.textPrimary),
+                pinTextStyle: const TextStyle(fontSize: BeepDimens.textPrimary),
                 pinTextAnimatedSwitcherTransition:
                     ProvidedPinBoxTextAnimation.scalingTransition,
                 pinTextAnimatedSwitcherDuration:
