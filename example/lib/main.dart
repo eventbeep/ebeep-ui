@@ -105,30 +105,6 @@ class _MyHomePageState extends State<MyHomePage>
                 controller: _tabController,
               ),
               const SizedBox(height: 24.0),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: BeepLearnCard(
-                  width: 210,
-                  name: 'Master Competitive Coding',
-                  image:
-                      'https://media.geeksforgeeks.org/wp-content/cdn-uploads/Competitive-Programming.jpg',
-                  price: '₹500',
-                  platform: 'MyCaptain',
-                  onTap: null,
-                ),
-              ),
-              const SizedBox(height: 24.0),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: BeepCommentCard(
-                  authorName: 'Venkie',
-                  time: 'Few minutes ago',
-                  comment: 'This comment is amazing',
-                  profileUrl:
-                      'https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg',
-                ),
-              ),
-              const SizedBox(height: 24.0),
               // const Padding(
               //   padding: EdgeInsets.symmetric(horizontal: 16),
               //   child: BeepLoadingComment(),
@@ -138,49 +114,11 @@ class _MyHomePageState extends State<MyHomePage>
               //   padding: const EdgeInsets.symmetric(horizontal: 16),
               //   child: BeepLoadingTimeline(),
               // ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: BeepTimelineCard(
-                  shortDescription:
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                  // eventImage: '',
-                  eventName: 'Regatta',
-                  eventDate: 'September 10',
-                  // eventLocation: 'Pune',
-                  onViewTicket: () {},
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: BeepTimelineCard(
-                  shortDescription:
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                  eventName: 'Regatta',
-                  eventDate: 'February 10',
-                  isLast: true,
-                  onViewTicket: () {},
-                ),
-              ),
-              const SizedBox(height: 24.0),
               // Padding(
               //   padding:
               //       const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
               //   child: BeepLoadingNews(),
               // ),
-              // const SizedBox(height: 24.0),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: BeepDimens.padding),
-                child: BeepNewsCard(
-                  stream: 'COEP CSE',
-                  backgroundColor: BeepColors.error,
-                  description:
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                  postedTime: '3 days ago',
-                  authorName: 'College of Engineering, Pune',
-                  authorImage:
-                      'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
-                ),
-              ),
               // const SizedBox(height: 24.0),
               // const BeepBadge(
               //   sides: 8,
@@ -195,31 +133,6 @@ class _MyHomePageState extends State<MyHomePage>
               // ),
               // const SizedBox(height: 24.0),
 
-              const SizedBox(height: 24.0),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
-                child: BeepFeedCard(
-                  content:
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                  postedTime: '3 days ago',
-                  authorName: 'Saurabh Mangrulkar',
-                  authorImage:
-                      'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg',
-                  likes: 12,
-                  comments: 3,
-                  feedType: 'poll',
-                  feedVideo: 'Q06qEqf2Oyg',
-                  feedImage: const <String>[
-                    'https://eep.io/images/yzco4xsimv0y/5RsU3w3Ga4aaqqC8mm8iK8/757413d0216429d985e88ad460bec767/camp_cb_video_video_w_overlay.png'
-                  ],
-                  context: context,
-                  isLiked: true,
-                  likeAction: () => print('Liked'),
-                  unlikeAction: () => print('Unliked'),
-                  commentAction: () => print('Comment'),
-                ),
-              ),
               const SizedBox(height: 24.0),
               // const BeepLoadingCarousal(),
               // const SizedBox(height: 24.0),
@@ -268,82 +181,10 @@ class _MyHomePageState extends State<MyHomePage>
               //   child: const BeepLoadingEvent(),
               // ),
               // const SizedBox(height: 24.0),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: BeepEventCard(
-                  onTap: () => print('pressed'),
-                  category: 'adventure',
-                  date: '24',
-                  day: 'Tue',
-                  month: 'Jan',
-                  title: 'Event Name',
-                  location: 'COEP Auditorium, Pune, India',
-                  views: 23,
-                  imageUrl:
-                      'https://upload.wikimedia.org/wikipedia/commons/f/f8/Podzial_16x9.png',
-                ),
-              ),
-              const SizedBox(height: 24.0),
-              GridView.count(
-                padding: const EdgeInsets.all(BeepDimens.padding),
-                shrinkWrap: true,
-                childAspectRatio: BeepDimens.festEventRadio,
-                crossAxisSpacing: BeepDimens.padding,
-                mainAxisSpacing: BeepDimens.padding,
-                physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: 2,
-                children: List<Widget>.generate(
-                  3,
-                  (int index) => BeepFestEventCard(
-                    imageUrl:
-                        'https://upload.wikimedia.org/wikipedia/commons/f/f8/Podzial_16x9.png',
-                    eventName: 'All night long fun event',
-                    startsAt: 'July 10 | 11 PM',
-                    price: 'Starts form ₹100',
-                    onTap: () {},
-                  ),
-                ),
-              ),
-              const SizedBox(height: 24.0),
-              GridView.count(
-                padding: const EdgeInsets.all(BeepDimens.padding),
-                shrinkWrap: true,
-                childAspectRatio: BeepDimens.festEventRadio,
-                crossAxisSpacing: BeepDimens.padding,
-                mainAxisSpacing: BeepDimens.padding,
-                physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: 2,
-                children: List<Widget>.generate(
-                  3,
-                  (int index) => const BeepFestEventLoading(),
-                ),
-              ),
               const SizedBox(height: 24.0),
               const BeepTag(text: BeepCategories.sports),
               const SizedBox(height: 24.0),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: BeepCommentCard(
-                  comment: 'Saurab is an idiot',
-                  authorName: 'Saurabh',
-                  time: '2 days',
-                  profileUrl:
-                      'https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg',
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: BeepCommentCard(
-                  comment: 'Saurab is an idiot',
-                  authorName: 'Saurabh',
-                  time: '2 days',
-                  profileUrl:
-                      'https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg',
-                ),
-              ),
-              const SizedBox(height: 24.0),
-              PinCodeTextField(
+              BeepOtpField(
                 // autofocus: true,
                 // controller: controller,
                 highlight: true,
@@ -406,19 +247,6 @@ class _MyHomePageState extends State<MyHomePage>
                     'https://pbs.twimg.com/profile_images/378800000804897008/f521157e62d083fc4bd07d28909e34fe.jpeg'),
               ),
               const SizedBox(height: 24.0),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: BeepDimens.padding),
-                child: BeepTicketTypeCard(
-                    title: 'Golden Ticket',
-                    description: 'This is a gold ticket idiot',
-                    ticketStatus: 'COMING SOON'),
-              ),
-              const SizedBox(height: 24.0),
-              Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: BeepDimens.padding),
-                  child: BeepLoadingTicket()),
-              const SizedBox(height: 24.0),
               const BeepLargeHeading(text: 'Large Heading'),
               const SizedBox(height: 24.0),
               const BeepSmallHeading(text: 'Small Heading'),
@@ -450,29 +278,6 @@ class _MyHomePageState extends State<MyHomePage>
           );
         },
       ).toList(),
-    );
-  }
-}
-
-class PollExamplePage extends StatelessWidget {
-  const PollExamplePage({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            BeepTimelineCard(
-              eventName: 'Regatta',
-              eventDate: 'Thursday, Nov 07',
-              shortDescription:
-                  'This is sad to main tain humilation pretense so unhappy',
-              onViewTicket: () => null,
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

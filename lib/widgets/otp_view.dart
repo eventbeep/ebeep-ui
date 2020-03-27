@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart' show CupertinoTextField;
 import 'package:flutter/material.dart';
 
 import '../shared.dart';
+import 'text.dart';
 
 typedef OnDone = void Function(String text);
 typedef PinBoxDecoration = BoxDecoration Function(Color borderColor);
@@ -62,31 +63,32 @@ mixin ProvidedPinBoxTextAnimation {
   };
 }
 
-class PinCodeTextField extends StatefulWidget {
-  const PinCodeTextField({
+class BeepOtpField extends StatefulWidget {
+  const BeepOtpField({
     Key key,
     this.isCupertino = false,
-    this.maxLength = 4,
+    this.maxLength = 6,
     this.controller,
     this.hideCharacter = false,
-    this.highlight = false,
-    this.highlightColor = Colors.black,
+    this.highlight = true,
     this.pinBoxDecoration,
     this.maskCharacter = ' ',
-    this.pinBoxWidth = 70.0,
-    this.pinBoxHeight = 70.0,
-    this.pinTextStyle,
+    this.pinBoxWidth = 40.0,
+    this.pinBoxHeight = 50.0,
+    this.pinTextStyle = const TextStyle(fontSize: BeepDimens.textPrimary),
     this.onDone,
-    this.defaultBorderColor = Colors.black,
-    this.hasTextBorderColor = Colors.black,
+    this.highlightColor = BeepColors.primary200,
+    this.defaultBorderColor = BeepColors.tertiary200,
+    this.hasTextBorderColor = BeepColors.tertiary200,
+    this.errorBorderColor = BeepColors.error200,
     this.pinTextAnimatedSwitcherTransition,
-    this.pinTextAnimatedSwitcherDuration = const Duration(),
+    this.pinTextAnimatedSwitcherDuration = const Duration(milliseconds: 100),
     this.hasError = false,
-    this.errorBorderColor = Colors.red,
     this.onTextChanged,
     this.autofocus = false,
-    this.wrapAlignment = WrapAlignment.start,
-    this.pinCodeTextFieldLayoutType = PinCodeTextFieldLayoutType.NORMAL,
+    this.wrapAlignment = WrapAlignment.center,
+    this.pinCodeTextFieldLayoutType = PinCodeTextFieldLayoutType.WRAP,
+    this.error,
   }) : super(key: key);
 
   final bool isCupertino;
@@ -111,6 +113,7 @@ class PinCodeTextField extends StatefulWidget {
   final Duration pinTextAnimatedSwitcherDuration;
   final WrapAlignment wrapAlignment;
   final PinCodeTextFieldLayoutType pinCodeTextFieldLayoutType;
+  final String error;
 
   @override
   State<StatefulWidget> createState() {
@@ -118,7 +121,7 @@ class PinCodeTextField extends StatefulWidget {
   }
 }
 
-class PinCodeTextFieldState extends State<PinCodeTextField> {
+class PinCodeTextFieldState extends State<BeepOtpField> {
   FocusNode focusNode = FocusNode();
   String text = '';
   int currentIndex = 0;
@@ -128,7 +131,7 @@ class PinCodeTextFieldState extends State<PinCodeTextField> {
   double screenWidth;
 
   @override
-  void didUpdateWidget(PinCodeTextField oldWidget) {
+  void didUpdateWidget(BeepOtpField oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.maxLength < widget.maxLength) {
       setState(() {
@@ -242,6 +245,15 @@ class PinCodeTextFieldState extends State<PinCodeTextField> {
         children: <Widget>[
           _touchPinBoxRow(),
           !widget.isCupertino ? _fakeTextInput() : _fakeTextInputCupertino(),
+          Visibility(
+            visible: widget.hasError,
+            child: BeepCustomText(
+              text: widget.error,
+              size: 12,
+              color: BeepColors.error,
+              fontFamily: 'Simple',
+            ),
+          ),
         ],
       ),
     );
@@ -368,7 +380,8 @@ class PinCodeTextFieldState extends State<PinCodeTextField> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             verticalDirection: VerticalDirection.down,
-            children: pinCodes);
+            children: pinCodes,
+          );
   }
 
   Widget _buildPinCode(int i, BuildContext context) {
@@ -394,14 +407,16 @@ class PinCodeTextFieldState extends State<PinCodeTextField> {
           ProvidedPinBoxDecoration.defaultPinBoxDecoration(borderColor);
     }
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-      child: Container(
-        key: ValueKey<String>('container$i'),
-        child: Center(child: _animatedTextBox(strList[i], i)),
-        decoration: boxDecoration,
-        width: pinWidth,
-        height: widget.pinBoxHeight,
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+        child: Container(
+          key: ValueKey<String>('container$i'),
+          child: Center(child: _animatedTextBox(strList[i], i)),
+          decoration: boxDecoration,
+          width: pinWidth,
+          height: widget.pinBoxHeight,
+        ),
       ),
     );
   }

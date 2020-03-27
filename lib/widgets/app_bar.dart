@@ -4,7 +4,7 @@ import '../shared.dart';
 import '../shared/dimens.dart';
 import '../widgets.dart';
 
-class BeepAppBar extends StatelessWidget {
+class BeepAppBar extends StatelessWidget implements PreferredSizeWidget {
   const BeepAppBar({
     Key key,
     @required this.title,
@@ -58,4 +58,7 @@ class BeepAppBar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(BeepDimens.appBarHeight);
 }
