@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../shared.dart';
+import '../../shared.dart';
 
-class BeepCustomText extends StatelessWidget {
-  const BeepCustomText({
+class EBText extends StatelessWidget {
+  const EBText({
     @required this.text,
     this.align = TextAlign.start,
-    this.color = BeepColors.textSecondary,
+    this.color = EBColors.textSecondary,
     this.weight = FontWeight.w100,
     @required this.size,
     this.fontFamily,
@@ -56,10 +56,10 @@ class BeepPrimaryText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BeepCustomText(
+    return EBText(
       text: text,
-      color: BeepColors.textPrimary,
-      size: BeepDimens.textPrimary,
+      color: EBColors.textPrimary,
+      size: EBDimens.textPrimary,
       align: align,
       fontFamily: 'Simple',
       lineSpace: lineSpace,
@@ -83,12 +83,12 @@ class BeepSecondaryText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BeepCustomText(
+    return EBText(
       text: text,
       align: align,
       maxLines: maxLines,
-      size: BeepDimens.textSecondary,
-      color: BeepColors.textSecondary,
+      size: EBDimens.textSecondary,
+      color: EBColors.textSecondary,
       fontFamily: 'Simple',
       lineSpace: lineSpace,
     );
@@ -99,7 +99,7 @@ class BeepActionBarText extends StatelessWidget {
   const BeepActionBarText({
     this.text,
     this.singleLine = true,
-    this.color = BeepColors.quaternary,
+    this.color = EBColors.quaternary,
   });
 
   final String text;
@@ -108,9 +108,9 @@ class BeepActionBarText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BeepCustomText(
+    return EBText(
       text: text,
-      size: BeepDimens.textActionBar,
+      size: EBDimens.textActionBar,
       color: color,
       // weight: FontWeight.bold,
       fontFamily: 'Title',
@@ -127,12 +127,12 @@ class BeepButtonText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BeepCustomText(
+    return EBText(
       text: text,
       align: TextAlign.center,
       maxLines: 1,
-      size: BeepDimens.textButtonSize,
-      color: BeepColors.white,
+      size: EBDimens.textButtonSize,
+      color: EBColors.white,
       weight: FontWeight.bold,
       fontFamily: 'Heading',
     );
@@ -154,12 +154,12 @@ class BeepLargeHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BeepCustomText(
+    return EBText(
       text: text,
       align: align,
       maxLines: maxLines,
-      size: BeepDimens.textLargeHeading,
-      color: BeepColors.textPrimary,
+      size: EBDimens.textLargeHeading,
+      color: EBColors.textPrimary,
       fontFamily: 'Heading',
       lineSpace: lineSpace,
     );
@@ -179,12 +179,12 @@ class BeepSmallHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BeepCustomText(
+    return EBText(
       text: text,
       align: align,
       maxLines: maxLines,
-      size: BeepDimens.textSmallHeading,
-      color: BeepColors.primary,
+      size: EBDimens.textSmallHeading,
+      color: EBColors.primary,
       weight: FontWeight.bold,
       fontFamily: 'Heading',
     );

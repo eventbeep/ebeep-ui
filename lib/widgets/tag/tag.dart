@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../shared.dart';
-import '../widgets.dart';
+import '../../shared.dart';
+import '../../widgets.dart';
 
-class BeepTag extends StatelessWidget {
-  const BeepTag({Key key, this.text}) : super(key: key);
+class EBTag extends StatelessWidget {
+  const EBTag({Key key, this.text}) : super(key: key);
 
   final String text;
 
@@ -12,10 +12,10 @@ class BeepTag extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        boxShadow: BeepDimens.darkShadow,
+        boxShadow: EBShadows.darkShadow,
         borderRadius: BorderRadius.circular(12.0),
         gradient: LinearGradient(
-          colors: BeepGradients.getGradient(text),
+          colors: EBGradients.getGradient(text),
           begin: const FractionalOffset(0.0, 0.0),
           end: const FractionalOffset(1.0, 0.0),
           stops: const <double>[0.0, 1.0],
@@ -24,10 +24,10 @@ class BeepTag extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BeepCustomText(
+        child: EBText(
           text: capitalize(text),
-          size: BeepDimens.textSecondary,
-          color: BeepColors.white,
+          size: EBDimens.textSecondary,
+          color: EBColors.white,
           fontFamily: 'Simple',
         ),
       ),

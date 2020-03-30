@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../shared.dart';
-import '../widgets.dart';
+import '../../shared.dart';
+import '../../widgets.dart';
 
-class BeepChip extends StatefulWidget {
-  const BeepChip({
+class EBChip extends StatefulWidget {
+  const EBChip({
     Key key,
     @required this.label,
     this.onDeleted,
@@ -18,10 +18,10 @@ class BeepChip extends StatefulWidget {
   final bool isSelected;
 
   @override
-  _BeepChipState createState() => _BeepChipState();
+  _EBChipState createState() => _EBChipState();
 }
 
-class _BeepChipState extends State<BeepChip> {
+class _EBChipState extends State<EBChip> {
   bool isSelected;
 
   @override
@@ -43,13 +43,13 @@ class _BeepChipState extends State<BeepChip> {
             },
       child: Chip(
         padding: const EdgeInsets.all(8),
-        label: BeepCustomText(
+        label: EBText(
           text: widget.label,
-          size: BeepDimens.textPrimary,
-          color: isSelected ? BeepColors.white : BeepColors.tertiary,
+          size: EBDimens.textPrimary,
+          color: isSelected ? EBColors.white : EBColors.tertiary,
           fontFamily: 'Simple',
         ),
-        backgroundColor: isSelected ? BeepColors.primary : BeepColors.lightGrey,
+        backgroundColor: isSelected ? EBColors.primary : EBColors.lightGrey,
         onDeleted: isSelected
             ? () {
                 widget.onDeleted();
@@ -58,7 +58,7 @@ class _BeepChipState extends State<BeepChip> {
                 });
               }
             : null,
-        deleteIconColor: BeepColors.white,
+        deleteIconColor: EBColors.white,
         deleteButtonTooltipMessage: 'Remove this interest',
       ),
     );

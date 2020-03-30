@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../shared/colors.dart';
-import '../widgets.dart';
+import '../../shared.dart';
+import '../../widgets.dart';
 
-class DescriptionText extends StatefulWidget {
-  const DescriptionText({
+class EBLimitedText extends StatefulWidget {
+  const EBLimitedText({
     Key key,
     @required this.text,
   }) : super(key: key);
@@ -12,10 +12,10 @@ class DescriptionText extends StatefulWidget {
   final String text;
 
   @override
-  _DescriptionTextState createState() => _DescriptionTextState();
+  _EBLimitedTextState createState() => _EBLimitedTextState();
 }
 
-class _DescriptionTextState extends State<DescriptionText> {
+class _EBLimitedTextState extends State<EBLimitedText> {
   String firstHalf;
   String secondHalf;
 
@@ -48,7 +48,7 @@ class _DescriptionTextState extends State<DescriptionText> {
                   children: <Widget>[
                     Text(
                       flag ? 'show more' : 'show less',
-                      style: const TextStyle(color: BeepColors.tertiary),
+                      style: const TextStyle(color: EBColors.tertiary),
                     ),
                   ],
                 ),

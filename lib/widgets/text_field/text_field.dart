@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
-import '../shared.dart';
-import '../shared/focus_node.dart';
-import '../widgets.dart';
+import '../../shared.dart';
+import '../../shared/focus_node.dart';
+import '../../widgets.dart';
 
-class BeepTextField extends StatelessWidget {
-  const BeepTextField({
+class EBTextField extends StatelessWidget {
+  const EBTextField({
     Key key,
     this.textCapitalization = TextCapitalization.none,
     this.labelText,
@@ -48,20 +48,20 @@ class BeepTextField extends StatelessWidget {
         if (labelText != null && labelText.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(left: 12, bottom: 8),
-            child: BeepCustomText(
+            child: EBText(
               text: labelText,
               size: 15,
               fontFamily: 'Heading',
               weight: FontWeight.bold,
-              color: BeepColors.tertiary,
+              color: EBColors.tertiary,
             ),
           ),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: BeepDimens.padding),
+          padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
           // height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: BeepColors.tertiary.withAlpha(40),
+            color: EBColors.tertiary.withAlpha(40),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -96,7 +96,7 @@ class BeepTextField extends StatelessWidget {
               ),
               Icon(
                 icon,
-                color: BeepColors.tertiary,
+                color: EBColors.tertiary,
               ),
             ],
           ),
@@ -104,15 +104,15 @@ class BeepTextField extends StatelessWidget {
         if (errorText != null && errorText.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(
-              left: BeepDimens.padding,
-              right: BeepDimens.padding,
+              left: EBDimens.padding,
+              right: EBDimens.padding,
               top: 4.0,
             ),
-            child: BeepCustomText(
+            child: EBText(
               text: errorText,
               fontFamily: 'Simple',
               size: 13,
-              color: BeepColors.secondary,
+              color: EBColors.secondary,
             ),
           ),
       ],

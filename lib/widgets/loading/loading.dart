@@ -1,10 +1,11 @@
-import 'package:eventbeep_ui/shared/colors.dart';
 import 'package:flutter/material.dart';
 
-class BeepLoading extends StatelessWidget {
-  const BeepLoading({
+import '../../shared.dart';
+
+class EBLoading extends StatelessWidget {
+  const EBLoading({
     Key key,
-    this.color = BeepColors.tertiary,
+    this.color = EBColors.tertiary,
     this.radius = 15,
     this.strokeWidth = 2,
   }) : super(key: key);

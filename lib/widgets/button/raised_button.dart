@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-import '../shared.dart';
-import '../widgets.dart';
+import '../../shared.dart';
+import '../../widgets.dart';
 
-class BeepRaisedButton extends StatelessWidget {
-  const BeepRaisedButton({
+class EBRaisedButtom extends StatelessWidget {
+  const EBRaisedButtom({
     Key key,
     @required this.title,
     @required this.onPressed,
-    this.color = BeepColors.primary,
+    this.color = EBColors.primary,
     this.width = double.infinity,
-    this.height = BeepDimens.buttonHeight,
-    this.fontSize = BeepDimens.textButtonSize,
-    this.cornerRadius = BeepDimens.buttonHeight / 2,
+    this.height = EBDimens.buttonHeight,
+    this.fontSize = EBDimens.textButtonSize,
+    this.cornerRadius = EBDimens.buttonHeight / 2,
     this.isLoading = false,
   }) : super(key: key);
 
@@ -33,25 +33,25 @@ class BeepRaisedButton extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(cornerRadius)),
         color: color,
-        boxShadow: (onPressed == null) ? null : BeepDimens.lightShadow,
+        boxShadow: (onPressed == null) ? null : EBShadows.lightShadow,
       ),
       child: isLoading
           ? const Center(
-              child: BeepLoading(
-                color: BeepColors.white,
+              child: EBLoading(
+                color: EBColors.white,
                 radius: 12,
                 strokeWidth: 3,
               ),
             )
           : Material(
-              color: BeepColors.transparent,
+              color: EBColors.transparent,
               child: InkWell(
                 borderRadius: BorderRadius.all(Radius.circular(cornerRadius)),
                 onTap: onPressed,
                 child: Center(
-                  child: BeepCustomText(
+                  child: EBText(
                     text: title,
-                    color: BeepColors.white,
+                    color: EBColors.white,
                     weight: FontWeight.bold,
                     size: fontSize,
                   ),

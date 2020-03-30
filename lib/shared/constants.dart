@@ -1,5 +1,5 @@
-class BeepCategories {
-  BeepCategories._();
+class EBCategories {
+  EBCategories._();
 
   static const String technical = 'technical';
   static const String adventure = 'adventure';

@@ -6,15 +6,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:qr/qr.dart';
 
-import '../shared.dart';
+import '../../shared.dart';
 
-class QrImage extends StatelessWidget {
-  QrImage({
+class EBQrImage extends StatelessWidget {
+  EBQrImage({
     @required String data,
     this.size,
     this.padding = const EdgeInsets.all(10.0),
     this.backgroundColor,
-    Color foregroundColor = BeepColors.quaternary,
+    Color foregroundColor = EBColors.quaternary,
     int version = 2,
     int errorCorrectionLevel = QrErrorCorrectLevel.L,
     this.onError,
@@ -63,7 +63,7 @@ class _QrPainter extends CustomPainter {
     @required String data,
     @required this.version,
     this.errorCorrectionLevel = QrErrorCorrectLevel.L,
-    this.color = BeepColors.black,
+    this.color = EBColors.black,
     this.emptyColor,
     this.onError,
     this.gapless = false,

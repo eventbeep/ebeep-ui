@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BeepColors {
-  BeepColors._();
+class EBColors {
+  EBColors._();
 
   static const Color transparent = Color(0x00000000);
 

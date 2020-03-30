@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../shared.dart';
+import '../../shared.dart';
 
 /// Used with [TabBar.indicator] to draw a bubble on the
 /// selected tab.
@@ -12,8 +12,8 @@ import '../shared.dart';
 /// /// The selected tab bubble is inset from the tab's boundary by [insets] when [tabBarIndicatorSize] is tab.
 /// The selected tab bubble is applied padding by [padding] when [tabBarIndicatorSize] is label.
 
-class BeepTabIndicator extends Decoration {
-  const BeepTabIndicator({
+class EBTabIndicator extends Decoration {
+  const EBTabIndicator({
     this.indicatorHeight = 20.0,
     this.indicatorRadius = 100.0,
     this.tabBarIndicatorSize = TabBarIndicatorSize.label,
@@ -33,8 +33,8 @@ class BeepTabIndicator extends Decoration {
 
   @override
   Decoration lerpFrom(Decoration a, double t) {
-    if (a is BeepTabIndicator) {
-      return BeepTabIndicator(
+    if (a is EBTabIndicator) {
+      return EBTabIndicator(
         padding: EdgeInsetsGeometry.lerp(a.padding, padding, t),
         insets: EdgeInsetsGeometry.lerp(a.insets, insets, t),
       );
@@ -44,8 +44,8 @@ class BeepTabIndicator extends Decoration {
 
   @override
   Decoration lerpTo(Decoration b, double t) {
-    if (b is BeepTabIndicator) {
-      return BeepTabIndicator(
+    if (b is EBTabIndicator) {
+      return EBTabIndicator(
         padding: EdgeInsetsGeometry.lerp(padding, b.padding, t),
         insets: EdgeInsetsGeometry.lerp(insets, b.insets, t),
       );
@@ -64,7 +64,7 @@ class _BubblePainter extends BoxPainter {
       : assert(decoration != null),
         super(onChanged);
 
-  final BeepTabIndicator decoration;
+  final EBTabIndicator decoration;
 
   double get indicatorHeight => decoration.indicatorHeight;
 
@@ -99,7 +99,7 @@ class _BubblePainter extends BoxPainter {
     assert(configuration != null);
     assert(configuration.size != null);
     const Gradient gradient = LinearGradient(
-      colors: BeepGradients.appBarGradient,
+      colors: EBGradients.appBarGradient,
       begin: FractionalOffset.topCenter,
       end: FractionalOffset.bottomCenter,
     );

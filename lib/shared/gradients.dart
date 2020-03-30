@@ -1,8 +1,9 @@
-import 'package:eventbeep_ui/shared/constants.dart';
 import 'package:flutter/material.dart';
 
-class BeepGradients {
-  BeepGradients._();
+import 'constants.dart';
+
+class EBGradients {
+  EBGradients._();
   static const List<Color> appBarGradient = <Color>[
     // Color(0xfffcc117),
     Color(0xfffcce00),
@@ -65,24 +66,24 @@ class BeepGradients {
 
   static List<Color> getGradient(String category) {
     switch (category) {
-      case BeepCategories.food:
-        return BeepGradients.food;
-      case BeepCategories.adventure:
-        return BeepGradients.adventure;
-      case BeepCategories.gaming:
-        return BeepGradients.gaming;
-      case BeepCategories.creative:
-        return BeepGradients.biking;
-      case BeepCategories.sports:
-        return BeepGradients.sports;
-      case BeepCategories.entertainment:
-        return BeepGradients.entertainment;
-      case BeepCategories.startups:
-        return BeepGradients.startups;
-      case BeepCategories.technical:
-        return BeepGradients.technical;
+      case EBCategories.food:
+        return EBGradients.food;
+      case EBCategories.adventure:
+        return EBGradients.adventure;
+      case EBCategories.gaming:
+        return EBGradients.gaming;
+      case EBCategories.creative:
+        return EBGradients.biking;
+      case EBCategories.sports:
+        return EBGradients.sports;
+      case EBCategories.entertainment:
+        return EBGradients.entertainment;
+      case EBCategories.startups:
+        return EBGradients.startups;
+      case EBCategories.technical:
+        return EBGradients.technical;
       default:
-        return BeepGradients.appBarGradient;
+        return EBGradients.appBarGradient;
     }
   }
 }

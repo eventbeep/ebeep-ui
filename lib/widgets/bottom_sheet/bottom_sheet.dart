@@ -15,7 +15,7 @@ import 'package:flutter/material.dart';
 /// [this gist](https://gist.github.com/slightfoot/5af4c5dfa52194a3f8577bf83af2e391).
 ///
 /// ```dart
-/// showRoundedModalBottomSheet(
+/// showRoundedBottomSheet(
 ///    context: context,
 ///    radius: 10.0,  // This is the default
 ///    color: Colors.white,  // Also default
@@ -24,7 +24,7 @@ import 'package:flutter/material.dart';
 ///
 /// ```
 
-Future<T> showRoundedModalBottomSheet<T>({
+Future<T> showRoundedBottomSheet<T>({
   @required BuildContext context,
   @required WidgetBuilder builder,
   Color color = Colors.white,
@@ -57,15 +57,15 @@ const double _kCloseProgressThreshold = 0.5;
 ///
 ///  * _Modal_. A modal bottom sheet is an alternative to a menu or a dialog and
 ///    prevents the user from interacting with the rest of the app. Modal bottom
-///    sheets can be created and displayed with the [showRoundedModalBottomSheet]
+///    sheets can be created and displayed with the [showRoundedBottomSheet]
 ///    function.
 ///
 /// The [RoundedBottomSheet] widget itself is rarely used directly. Instead, prefer to
-/// create a modal bottom sheet with [showRoundedModalBottomSheet].
+/// create a modal bottom sheet with [showRoundedBottomSheet].
 ///
 /// See also:
 ///
-///  * [showRoundedModalBottomSheet]
+///  * [showRoundedBottomSheet]
 ///  * <https://material.google.com/components/bottom-sheets.html>
 class RoundedBottomSheet extends StatefulWidget {
   /// Creates a bottom sheet.

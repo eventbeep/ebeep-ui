@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../shared/colors.dart';
-import '../shared/ui_helper.dart';
-import '../widgets.dart';
+import '../../shared/colors.dart';
+import '../../shared/ui_helper.dart';
+import '../../widgets.dart';
 
-class BeepBottomAppBarItem {
-  BeepBottomAppBarItem({
+class EBBottomAppBarItem {
+  EBBottomAppBarItem({
     this.iconData,
     this.text,
     this.enableDot = false,
@@ -16,8 +16,8 @@ class BeepBottomAppBarItem {
   final bool enableDot;
 }
 
-class BeepBottomAppBar extends StatefulWidget {
-  const BeepBottomAppBar({
+class EBBottomAppBar extends StatefulWidget {
+  const EBBottomAppBar({
     this.items,
     this.centerItemText,
     this.height = 60.0,
@@ -29,7 +29,7 @@ class BeepBottomAppBar extends StatefulWidget {
     this.onTabSelected,
   }) : assert(items.length == 2 || items.length == 4);
 
-  final List<BeepBottomAppBarItem> items;
+  final List<EBBottomAppBarItem> items;
   final String centerItemText;
   final double height;
   final double iconSize;
@@ -40,10 +40,10 @@ class BeepBottomAppBar extends StatefulWidget {
   final ValueChanged<int> onTabSelected;
 
   @override
-  State<StatefulWidget> createState() => BeepBottomAppBarState();
+  State<StatefulWidget> createState() => EBBottomAppBarState();
 }
 
-class BeepBottomAppBarState extends State<BeepBottomAppBar> {
+class EBBottomAppBarState extends State<EBBottomAppBar> {
   int _selectedIndex = 0;
   void _updateIndex(int index) {
     widget.onTabSelected(index);
@@ -87,7 +87,7 @@ class BeepBottomAppBarState extends State<BeepBottomAppBar> {
           children: <Widget>[
             SizedBox(height: widget.iconSize),
             UIHelper.verticalXS,
-            BeepCustomText(
+            EBText(
               text: widget.centerItemText ?? '',
               size: 14,
               color: widget.color,
@@ -101,7 +101,7 @@ class BeepBottomAppBarState extends State<BeepBottomAppBar> {
   }
 
   Widget _buildTabItem({
-    BeepBottomAppBarItem item,
+    EBBottomAppBarItem item,
     int index,
     ValueChanged<int> onPressed,
   }) {
@@ -125,7 +125,7 @@ class BeepBottomAppBarState extends State<BeepBottomAppBar> {
                     top: 8,
                     child: Icon(
                       Icons.brightness_1,
-                      color: BeepColors.secondary,
+                      color: EBColors.secondary,
                       size: 12,
                     ),
                   ),
@@ -137,7 +137,7 @@ class BeepBottomAppBarState extends State<BeepBottomAppBar> {
                     children: <Widget>[
                       Icon(item.iconData, color: color, size: widget.iconSize),
                       UIHelper.verticalXS,
-                      BeepCustomText(
+                      EBText(
                         text: item.text,
                         color: color,
                         size: 14,

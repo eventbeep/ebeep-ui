@@ -2,15 +2,15 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class BeepIndicator extends AnimatedWidget {
-  const BeepIndicator({
+class EBIndicator extends AnimatedWidget {
+  const EBIndicator({
     this.controller,
     this.itemCount,
     this.onPageSelected,
     this.color = Colors.white,
   }) : super(listenable: controller);
 
-  /// The PageController that this BeepIndicator is representing.
+  /// The PageController that this EBIndicator is representing.
   final PageController controller;
 
   /// The number of items managed by the PageController

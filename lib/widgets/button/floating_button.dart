@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../shared.dart';
+import '../../shared.dart';
 
-class BeepFloatingButton extends StatelessWidget {
-  const BeepFloatingButton(
+class EBFloatingButton extends StatelessWidget {
+  const EBFloatingButton(
       {@required this.icon,
       @required this.onPressed,
       this.increaseHeightBy = 30.0,
@@ -41,7 +41,7 @@ class BeepFloatingButton extends StatelessWidget {
         width: buttonTheme.minWidth + increaseWidthBy,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: BeepGradients.appBarGradient,
+            colors: EBGradients.appBarGradient,
             begin: FractionalOffset.topCenter,
             end: FractionalOffset.bottomCenter,
           ),

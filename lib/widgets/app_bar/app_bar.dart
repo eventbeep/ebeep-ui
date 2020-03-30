@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../shared.dart';
-import '../shared/dimens.dart';
-import '../widgets.dart';
+import '../../shared.dart';
+import '../../shared/dimens.dart';
+import '../../widgets.dart';
 
-class BeepAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const BeepAppBar({
+class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const EBAppBar({
     Key key,
     @required this.title,
     this.leading,
@@ -24,15 +24,16 @@ class BeepAppBar extends StatelessWidget implements PreferredSizeWidget {
     return SafeArea(
       child: Container(
         padding: const EdgeInsets.only(
-          left: BeepDimens.cardMarginVertical,
-          right: BeepDimens.cardMarginVertical,
+          left: EBDimens.cardMarginVertical,
+          right: EBDimens.cardMarginVertical,
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.symmetric(
-                  vertical: BeepDimens.cardMarginVertical),
+                vertical: EBDimens.cardMarginVertical,
+              ),
               child: leading,
             ),
             UIHelper.horizontalM,
@@ -42,7 +43,7 @@ class BeepAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: BeepActionBarText(
                   text: title,
                   singleLine: !isMultiline,
-                  color: isDark ? BeepColors.white : null,
+                  color: isDark ? EBColors.white : null,
                 ),
               ),
             ),
@@ -50,7 +51,7 @@ class BeepAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ? Container()
                 : Padding(
                     padding: const EdgeInsets.symmetric(
-                        vertical: BeepDimens.cardMarginVertical),
+                        vertical: EBDimens.cardMarginVertical),
                     child: trailing,
                   ),
           ],
@@ -60,5 +61,5 @@ class BeepAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(BeepDimens.appBarHeight);
+  Size get preferredSize => const Size.fromHeight(EBDimens.appBarHeight);
 }

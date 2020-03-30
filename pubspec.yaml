@@ -1,24 +1,34 @@
 name: eventbeep_ui
 description: An User Interface framework for flutter
-version: 0.0.1
+version: 0.1.1
 author:
 homepage:
 
 environment:
-  sdk: ">=2.2.2 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   qr: ^1.2.0
-  shimmer: ^1.0.0
-  cached_network_image: ^2.0.0-rc
+  shimmer: ^1.1.0
+  cached_network_image: ^2.0.0
   separated_column: ^1.0.1+2
-  flutter_html: ^0.10.4
-  url_launcher:
+  url_launcher: ^5.4.2
+  flutter_html: ^0.11.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
+  fonts:
+    - family: Simple
+      fonts:
+        - asset: lib/fonts/Lato-Regular.ttf
+    - family: Heading
+      fonts:
+        - asset: lib/fonts/Poppins-Regular.ttf
+    - family: Title
+      fonts:
+        - asset: lib/fonts/JosefinSans-SemiBold.ttf

@@ -5,11 +5,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../shared.dart';
-import '../shared/dimens.dart';
+import '../../shared.dart';
 
-class BeepCarouselSlider extends StatefulWidget {
-  BeepCarouselSlider({
+class EBCarouselSlider extends StatefulWidget {
+  EBCarouselSlider({
     @required this.items,
     @required this.onItemTaps,
     this.height,
@@ -51,7 +50,7 @@ class BeepCarouselSlider extends StatefulWidget {
   /// Defaults to 0.8, which means each page fills 80% of the carousel.
   final num viewportFraction;
 
-  /// The page to show when first creating the [BeepCarouselSlider].
+  /// The page to show when first creating the [EBCarouselSlider].
   /// Defaults to 0.
   final num initialPage;
 
@@ -134,7 +133,7 @@ class BeepCarouselSlider extends StatefulWidget {
   /// and can be used to control the [PageView] it is passed to.
   final PageController pageController;
 
-  /// Animates the controlled [BeepCarouselSlider] to the next page.
+  /// Animates the controlled [EBCarouselSlider] to the next page.
   ///
   /// The animation lasts for the given duration and follows the given curve.
   /// The returned [Future] resolves when the animation completes.
@@ -142,7 +141,7 @@ class BeepCarouselSlider extends StatefulWidget {
     return pageController.nextPage(duration: duration, curve: curve);
   }
 
-  /// Animates the controlled [BeepCarouselSlider] to the previous page.
+  /// Animates the controlled [EBCarouselSlider] to the previous page.
   ///
   /// The animation lasts for the given duration and follows the given curve.
   /// The returned [Future] resolves when the animation completes.
@@ -150,7 +149,7 @@ class BeepCarouselSlider extends StatefulWidget {
     return pageController.previousPage(duration: duration, curve: curve);
   }
 
-  /// Changes which page is displayed in the controlled [BeepCarouselSlider].
+  /// Changes which page is displayed in the controlled [EBCarouselSlider].
   ///
   /// Jumps the page position from its current value to the given value,
   /// without animation, and without checking if the new value is in range.
@@ -161,7 +160,7 @@ class BeepCarouselSlider extends StatefulWidget {
         .jumpToPage(pageController.page.toInt() + page - index);
   }
 
-  /// Animates the controlled [BeepCarouselSlider] from the current page to the given page.
+  /// Animates the controlled [EBCarouselSlider] from the current page to the given page.
   ///
   /// The animation lasts for the given duration and follows the given curve.
   /// The returned [Future] resolves when the animation completes.
@@ -175,10 +174,10 @@ class BeepCarouselSlider extends StatefulWidget {
   }
 
   @override
-  _BeepCarouselSliderState createState() => _BeepCarouselSliderState();
+  _EBCarouselSliderState createState() => _EBCarouselSliderState();
 }
 
-class _BeepCarouselSliderState extends State<BeepCarouselSlider>
+class _EBCarouselSliderState extends State<EBCarouselSlider>
     with TickerProviderStateMixin {
   int currentPage;
 
@@ -255,19 +254,19 @@ class _BeepCarouselSliderState extends State<BeepCarouselSlider>
 Widget getItemChild(String url, BuildContext context) {
   return Container(
     decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(BeepDimens.cornerRadius),
-        boxShadow: BeepDimens.lightShadow),
-    margin: const EdgeInsets.only(
-        left: 8.0, right: 8.0, bottom: BeepDimens.padding),
+        borderRadius: BorderRadius.circular(EBDimens.cornerRadius),
+        boxShadow: EBShadows.lightShadow),
+    margin:
+        const EdgeInsets.only(left: 8.0, right: 8.0, bottom: EBDimens.padding),
     child: ClipRRect(
       borderRadius:
-          const BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)),
+          const BorderRadius.all(Radius.circular(EBDimens.cornerRadius)),
       child: CachedNetworkImage(
         imageUrl: url,
         placeholder: (BuildContext context, String text) => Shimmer.fromColors(
           highlightColor: Colors.grey[100],
           baseColor: Colors.grey[300],
-          child: Container(color: BeepColors.lightGrey),
+          child: Container(color: EBColors.lightGrey),
         ),
         fit: BoxFit.cover,
         width: double.infinity,
@@ -299,8 +298,8 @@ int _remainder(int input, int source) {
   return result < 0 ? source + result : result;
 }
 
-class BeepLoadingCarousal extends StatelessWidget {
-  const BeepLoadingCarousal({
+class EBLoadingCarousal extends StatelessWidget {
+  const EBLoadingCarousal({
     Key key,
     this.aspectRatio = 2.0,
   }) : super(key: key);
@@ -318,9 +317,9 @@ class BeepLoadingCarousal extends StatelessWidget {
           margin: const EdgeInsets.only(left: 46, right: 46, bottom: 16),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(
-              Radius.circular(BeepDimens.cornerRadius),
+              Radius.circular(EBDimens.cornerRadius),
             ),
-            color: BeepColors.white,
+            color: EBColors.white,
           ),
         ),
       ),

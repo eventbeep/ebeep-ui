@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BeepFlatButton extends StatelessWidget {
-  const BeepFlatButton({
+class EBFlatButton extends StatelessWidget {
+  const EBFlatButton({
     Key key,
   }) : super(key: key);
 

@@ -1,8 +1,5 @@
-import 'package:eventbeep_ui/shared.dart';
-import 'package:flutter/material.dart';
-
-class BeepDimens {
-  BeepDimens._();
+class EBDimens {
+  EBDimens._();
 
   static const double textButtonSize = 18.0;
   static const double textPrimary = 16.0;
@@ -12,26 +9,6 @@ class BeepDimens {
   static const double textActionBar = 24.0;
 
   static const double appBarHeight = 70.0;
-  static const SizedBox dummyBox = SizedBox(
-    height: appBarHeight,
-    width: appBarHeight,
-  );
-
-  static const List<BoxShadow> lightShadow = <BoxShadow>[
-    BoxShadow(
-      color: BeepColors.lightShadow,
-      blurRadius: 8.0,
-      offset: Offset(0.0, 8.0),
-    ),
-  ];
-
-  static const List<BoxShadow> darkShadow = <BoxShadow>[
-    BoxShadow(
-      color: BeepColors.darkShadow,
-      blurRadius: 8.0,
-      offset: Offset(0.0, 8.0),
-    ),
-  ];
 
   static const double padding = 16.0;
   static const double cornerRadius = 16.0;

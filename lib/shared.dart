@@ -5,5 +5,6 @@ export 'shared/constants.dart';
 export 'shared/dimens.dart';
 export 'shared/gradients.dart';
 export 'shared/paddings.dart';
+export 'shared/shadows.dart';
 export 'shared/themes.dart';
 export 'shared/ui_helper.dart';

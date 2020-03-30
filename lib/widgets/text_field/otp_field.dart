@@ -4,8 +4,8 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart' show CupertinoTextField;
 import 'package:flutter/material.dart';
 
-import '../shared.dart';
-import 'text.dart';
+import '../../shared.dart';
+import '../text/text.dart';
 
 typedef OnDone = void Function(String text);
 typedef PinBoxDecoration = BoxDecoration Function(Color borderColor);
@@ -15,7 +15,7 @@ mixin ProvidedPinBoxDecoration {
     return BoxDecoration(
         color: borderColor,
         borderRadius:
-            const BorderRadius.all(Radius.circular(BeepDimens.cornerRadius)));
+            const BorderRadius.all(Radius.circular(EBDimens.cornerRadius)));
   };
 
   static PinBoxDecoration underlinedPinBoxDecoration = (Color borderColor) {
@@ -63,8 +63,8 @@ mixin ProvidedPinBoxTextAnimation {
   };
 }
 
-class BeepOtpField extends StatefulWidget {
-  const BeepOtpField({
+class EBOtpField extends StatefulWidget {
+  const EBOtpField({
     Key key,
     this.isCupertino = false,
     this.maxLength = 6,
@@ -75,12 +75,12 @@ class BeepOtpField extends StatefulWidget {
     this.maskCharacter = ' ',
     this.pinBoxWidth = 40.0,
     this.pinBoxHeight = 50.0,
-    this.pinTextStyle = const TextStyle(fontSize: BeepDimens.textPrimary),
+    this.pinTextStyle = const TextStyle(fontSize: EBDimens.textPrimary),
     this.onDone,
-    this.highlightColor = BeepColors.primary200,
-    this.defaultBorderColor = BeepColors.tertiary200,
-    this.hasTextBorderColor = BeepColors.tertiary200,
-    this.errorBorderColor = BeepColors.error200,
+    this.highlightColor = EBColors.primary200,
+    this.defaultBorderColor = EBColors.tertiary200,
+    this.hasTextBorderColor = EBColors.tertiary200,
+    this.errorBorderColor = EBColors.error200,
     this.pinTextAnimatedSwitcherTransition,
     this.pinTextAnimatedSwitcherDuration = const Duration(milliseconds: 100),
     this.hasError = false,
@@ -123,7 +123,7 @@ class BeepOtpField extends StatefulWidget {
   }
 }
 
-class PinCodeTextFieldState extends State<BeepOtpField> {
+class PinCodeTextFieldState extends State<EBOtpField> {
   FocusNode focusNode = FocusNode();
   String text = '';
   int currentIndex = 0;
@@ -133,7 +133,7 @@ class PinCodeTextFieldState extends State<BeepOtpField> {
   double screenWidth;
 
   @override
-  void didUpdateWidget(BeepOtpField oldWidget) {
+  void didUpdateWidget(EBOtpField oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.maxLength < widget.maxLength) {
       setState(() {
@@ -249,12 +249,12 @@ class PinCodeTextFieldState extends State<BeepOtpField> {
             Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.only(left: 12, bottom: 8),
-              child: BeepCustomText(
+              child: EBText(
                 text: widget.labelText,
                 size: 15,
                 fontFamily: 'Heading',
                 weight: FontWeight.bold,
-                color: BeepColors.tertiary,
+                color: EBColors.tertiary,
               ),
             ),
           _touchPinBoxRow(),
@@ -263,10 +263,10 @@ class PinCodeTextFieldState extends State<BeepOtpField> {
             Container(
               alignment: Alignment.centerLeft,
               padding: EBPadding.horizontalL,
-              child: BeepCustomText(
+              child: EBText(
                 text: widget.error,
                 size: 12,
-                color: BeepColors.error,
+                color: EBColors.error,
                 fontFamily: 'Simple',
               ),
             ),
