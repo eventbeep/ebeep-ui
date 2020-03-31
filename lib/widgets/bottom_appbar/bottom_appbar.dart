@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../shared/colors.dart';
-import '../../shared/ui_helper.dart';
+import '../../shared.dart';
 import '../../widgets.dart';
 
 class EBBottomAppBarItem {

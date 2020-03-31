@@ -1,9 +1,9 @@
 library shared;
 
-export 'shared/colors.dart';
+export 'colors/colors.dart';
+export 'colors/gradients.dart';
 export 'shared/constants.dart';
 export 'shared/dimens.dart';
-export 'shared/gradients.dart';
 export 'shared/paddings.dart';
 export 'shared/shadows.dart';
 export 'shared/themes.dart';

@@ -2,7 +2,7 @@ import 'package:eventbeep_ui/shared/dimens.dart';
 import 'package:eventbeep_ui/widgets/text/text_styles.dart';
 import 'package:flutter/material.dart';
 
-import 'colors.dart';
+import '../colors/colors.dart';
 
 mixin EBThemes {
   static ThemeData lightTheme = ThemeData(

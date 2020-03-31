@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'colors.dart';
+import '../colors/colors.dart';
 
 class EBShadows {
   static const List<BoxShadow> lightShadow = <BoxShadow>[
