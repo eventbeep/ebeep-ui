@@ -6,6 +6,7 @@ export 'widgets/bottom_appbar/bottom_appbar.dart';
 export 'widgets/bottom_sheet/bottom_sheet.dart';
 export 'widgets/button/floating_button.dart';
 export 'widgets/button/raised_button.dart';
+export 'widgets/card/card.dart';
 export 'widgets/carousal/carousal.dart';
 export 'widgets/chip/chip.dart';
 // export 'widgets/dialog.dart';
