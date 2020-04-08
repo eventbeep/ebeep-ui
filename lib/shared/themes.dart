@@ -31,7 +31,7 @@ mixin EBThemes {
       ),
       disabledColor: EBColors.disabled,
     ),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: EBColors.primary,
     ),
     inputDecorationTheme: InputDecorationTheme(

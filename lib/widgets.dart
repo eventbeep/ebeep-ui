@@ -20,5 +20,6 @@ export 'widgets/tab/tab_indicator.dart';
 export 'widgets/tag/tag.dart';
 export 'widgets/text/limited_text.dart';
 export 'widgets/text/text.dart';
+export 'widgets/text/text_styles.dart';
 export 'widgets/text_field/otp_field.dart';
 export 'widgets/text_field/text_field.dart';

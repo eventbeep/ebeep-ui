@@ -34,24 +34,6 @@ final List<String> imgList = <String>[
 //  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];
 
-final List<Function> onItemTapList = <Function>[
-  () {
-    print('index 1');
-  },
-  () {
-    print('index 2');
-  },
-  () {
-    print('index 3');
-  },
-  () {
-    print('index 4');
-  },
-  () {
-    print('index 5');
-  },
-];
-
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   final List<Tab> tabs = <Tab>[
