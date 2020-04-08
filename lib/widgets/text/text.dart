@@ -4,15 +4,90 @@ import '../../shared.dart';
 
 class EBText extends StatelessWidget {
   const EBText({
+    Key key,
     @required this.text,
     this.align = TextAlign.start,
     this.color = EBColors.textSecondary,
     this.weight = FontWeight.w100,
-    @required this.size,
+    this.size,
     this.fontFamily,
     this.maxLines,
     this.lineSpace = 1,
-  });
+  }) : super(key: key);
+
+/*
+  const EBText.primary({
+    Key key,
+    @required this.text,
+    this.align,
+    this.lineSpace,
+    this.maxLines,
+    this.color = EBColors.textPrimary,
+    this.weight,
+    this.size = EBDimens.textPrimary,
+    this.fontFamily,
+  }) : super(key: key);
+
+  const EBText.secondary({
+    Key key,
+    @required this.text,
+    this.align,
+    this.color,
+    this.weight,
+    this.size,
+    this.maxLines,
+    this.fontFamily,
+    this.lineSpace,
+  }) : super(key: key);
+
+  const EBText.appBar({
+    Key key,
+    @required this.text,
+    this.align,
+    this.color,
+    this.weight,
+    this.size,
+    this.maxLines,
+    this.fontFamily,
+    this.lineSpace,
+  }) : super(key: key);
+
+  const EBText.button({
+    Key key,
+    @required this.text,
+    this.align,
+    this.color,
+    this.weight,
+    this.size,
+    this.maxLines,
+    this.fontFamily,
+    this.lineSpace,
+  }) : super(key: key);
+
+  const EBText.heading({
+    Key key,
+    @required this.text,
+    this.align,
+    this.color,
+    this.weight,
+    this.size,
+    this.maxLines,
+    this.fontFamily,
+    this.lineSpace,
+  }) : super(key: key);
+
+  const EBText.title({
+    Key key,
+    @required this.text,
+    this.align,
+    this.color,
+    this.weight,
+    this.size,
+    this.maxLines,
+    this.fontFamily,
+    this.lineSpace,
+  }) : super(key: key);
+ */
 
   final String text;
   final TextAlign align;

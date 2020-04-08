@@ -56,65 +56,33 @@ class EBTextField extends StatelessWidget {
               color: EBColors.tertiary,
             ),
           ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
-          // height: 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: EBColors.tertiary.withAlpha(40),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                child: TextField(
-                  onSubmitted: onSubmit,
-                  onTap: onTap,
-                  enabled: enabled,
-                  focusNode: getKeyboard ? null : AlwaysDisabledFocusNode(),
-                  controller: controller,
-                  onChanged: onChanged,
-                  textCapitalization: textCapitalization,
-                  keyboardType: textInputType,
-                  obscureText: isPassword,
-                  maxLength: maxLength,
-                  maxLines: null,
-                  style: const TextStyle(fontFamily: 'Simple'),
-                  buildCounter: (
-                    BuildContext context, {
-                    int currentLength,
-                    int maxLength,
-                    bool isFocused,
-                  }) =>
-                      null,
-                  decoration: InputDecoration(
-                    hintText: hintText,
-                    border: InputBorder.none,
-                    counterText: '',
-                  ),
-                ),
-              ),
-              Icon(
-                icon,
-                color: EBColors.tertiary,
-              ),
-            ],
+        TextField(
+          onSubmitted: onSubmit,
+          onTap: onTap,
+          enabled: enabled,
+          focusNode: getKeyboard ? null : AlwaysDisabledFocusNode(),
+          controller: controller,
+          onChanged: onChanged,
+          textCapitalization: textCapitalization,
+          keyboardType: textInputType,
+          obscureText: isPassword,
+          maxLength: maxLength,
+          maxLines: null,
+          style: const TextStyle(fontFamily: 'Simple'),
+          buildCounter: (
+            BuildContext context, {
+            int currentLength,
+            int maxLength,
+            bool isFocused,
+          }) =>
+              null,
+          decoration: InputDecoration(
+            hintText: hintText,
+            counterText: '',
+            errorText: errorText,
+            prefixIcon: (icon == null) ? null : Icon(icon),
           ),
         ),
-        if (errorText != null && errorText.isNotEmpty)
-          Padding(
-            padding: const EdgeInsets.only(
-              left: EBDimens.padding,
-              right: EBDimens.padding,
-              top: 4.0,
-            ),
-            child: EBText(
-              text: errorText,
-              fontFamily: 'Simple',
-              size: 13,
-              color: EBColors.secondary,
-            ),
-          ),
       ],
     );
   }

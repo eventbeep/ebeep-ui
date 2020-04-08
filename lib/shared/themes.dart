@@ -23,27 +23,27 @@ mixin EBThemes {
       subtitle1: EBTextStyles.subtitle1,
       subtitle2: EBTextStyles.subtitle2,
     ),
+    buttonTheme: ButtonThemeData(
+      height: EBDimens.buttonHeight,
+      buttonColor: EBColors.primary,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(EBDimens.cornerRadius),
+      ),
+      disabledColor: EBColors.disabled,
+    ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: EBColors.primary,
+    ),
     inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(
         borderSide: BorderSide.none,
         borderRadius: BorderRadius.circular(EBDimens.padding),
       ),
-      // focusedBorder: OutlineInputBorder(
-      //   borderSide: BorderSide(
-      //     color: EBColors.tertiary.withAlpha(50),
-      //     width: 2,
-      //   ),
-      //   borderRadius: BorderRadius.circular(EBDimens.padding),
-      // ),
       contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
       filled: true,
       fillColor: EBColors.tertiary200,
-      labelStyle: EBTextStyles.bodyText1.copyWith(
-        color: EBColors.tertiary,
-        fontWeight: FontWeight.bold,
-      ),
+      labelStyle: const TextStyle(color: EBColors.tertiary),
       floatingLabelBehavior: FloatingLabelBehavior.always,
-      alignLabelWithHint: false,
     ),
   );
 

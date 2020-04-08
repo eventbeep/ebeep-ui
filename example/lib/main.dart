@@ -1,3 +1,4 @@
+import 'package:eventbeep_ui/widgets/text/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:eventbeep_ui/shared.dart';
 import 'package:eventbeep_ui/widgets.dart';
@@ -68,34 +69,48 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const EBAppBar(title: 'Title'),
-      floatingActionButton: EBFloatingButton(
-        icon: const Icon(Icons.home),
+      floatingActionButton: FloatingActionButton(
         onPressed: () => null,
+        child: Icon(Icons.phone_android),
       ),
       body: ListView(
-        // padding: EBPadding.horizontalXL,
+        padding: EBPadding.horizontalXL,
         children: <Widget>[
-          const Text('Amazing'),
+          const Text('Amazing', style: EBTextStyles.headline1),
+          const Text('Amazing', style: EBTextStyles.headline2),
+          const Text('Amazing', style: EBTextStyles.headline3),
+          const Text('Amazing', style: EBTextStyles.headline4),
+          const Text('Amazing', style: EBTextStyles.headline5),
+          const Text('Amazing', style: EBTextStyles.headline6),
+          const Text('Amazing', style: EBTextStyles.subtitle1),
+          const Text('Amazing', style: EBTextStyles.subtitle2),
+          const Text('Amazing', style: EBTextStyles.bodyText1),
+          const Text('Amazing', style: EBTextStyles.bodyText2),
+          const Text('Amazing', style: EBTextStyles.button),
+          const Text('Amazing', style: EBTextStyles.caption),
+          const Text('Amazing', style: EBTextStyles.overline),
           UIHelper.verticalL,
           const TextField(
             decoration: InputDecoration(
               labelText: 'Name',
+              hintText: 'Cool',
             ),
           ),
-          ClipPath(
-            clipper: ProfileCircleClipper(holeRadius: 60),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(15),
-                ),
-                color: Colors.amber,
+          UIHelper.verticalL,
+          Center(
+            child: RaisedButton.icon(
+              icon: Icon(
+                Icons.done,
+                color: EBColors.white,
               ),
-              height: 250,
-              padding: const EdgeInsets.all(35),
-              child: const Text('second example'),
+              label: const Text(
+                'Click here',
+                style: EBTextStyles.button,
+              ),
+              onPressed: () => null,
             ),
           ),
+          UIHelper.verticalL,
         ],
       ),
     );

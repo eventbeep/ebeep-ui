@@ -1,3 +1,4 @@
+import 'package:eventbeep_ui/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
@@ -51,19 +52,20 @@ class EBTextStyles {
   static const TextStyle bodyText2 = TextStyle(
     fontSize: 16,
     letterSpacing: 0.5,
-    fontWeight: FontWeight.bold,
+    color: EBColors.textPrimary,
   );
 
   static const TextStyle bodyText1 = TextStyle(
     fontSize: 14,
     letterSpacing: 0.25,
-    fontWeight: FontWeight.bold,
+    color: EBColors.textSecondary,
   );
 
   static const TextStyle button = TextStyle(
     fontSize: 14,
     letterSpacing: 1.25,
     fontWeight: FontWeight.bold,
+    color: EBColors.white,
   );
 
   static const TextStyle caption = TextStyle(

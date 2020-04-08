@@ -23,6 +23,7 @@ class EBColors {
   static const Color error = Color(0xfff03D3D);
   static const Color success = Color(0xff3ED3a3);
   static const Color warning = Color(0xffffaD0D);
+  static const Color disabled = Color(0xbbafb0b9);
 
   static const Color textPrimary = Color(0xff182c4f);
   static const Color textSecondary = Color(0xff7f7f7f);
