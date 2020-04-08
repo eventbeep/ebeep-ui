@@ -73,13 +73,27 @@ class _MyHomePageState extends State<MyHomePage>
         onPressed: () => null,
       ),
       body: ListView(
-        padding: EBPadding.horizontalXL,
-        children: const <Widget>[
-          Text('Amazing'),
+        // padding: EBPadding.horizontalXL,
+        children: <Widget>[
+          const Text('Amazing'),
           UIHelper.verticalL,
-          TextField(
+          const TextField(
             decoration: InputDecoration(
               labelText: 'Name',
+            ),
+          ),
+          ClipPath(
+            clipper: ProfileCircleClipper(holeRadius: 60),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(15),
+                ),
+                color: Colors.amber,
+              ),
+              height: 250,
+              padding: const EdgeInsets.all(35),
+              child: const Text('second example'),
             ),
           ),
         ],

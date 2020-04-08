@@ -9,6 +9,7 @@ export 'widgets/button/raised_button.dart';
 export 'widgets/card/card.dart';
 export 'widgets/carousal/carousal.dart';
 export 'widgets/chip/chip.dart';
+export 'widgets/clipper/profile_circle_clipper.dart';
 // export 'widgets/dialog.dart';
 export 'widgets/empty/empty.dart';
 export 'widgets/error/error.dart';
