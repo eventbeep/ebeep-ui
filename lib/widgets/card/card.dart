@@ -29,6 +29,7 @@ class EBCard extends StatelessWidget {
         boxShadow: EBShadows.lightShadow,
         borderRadius: BorderRadius.circular(borderRadius),
       ),
+      child: child,
     );
   }
 }
