@@ -27,8 +27,9 @@ class EBTextStyles {
   );
 
   static const TextStyle headline5 = TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.normal,
+    fontSize: 26,
+    letterSpacing: 1.0,
+    // fontWeight: FontWeight.bold,
   );
 
   static const TextStyle headline6 = TextStyle(

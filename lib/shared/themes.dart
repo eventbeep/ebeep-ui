@@ -23,7 +23,9 @@ mixin EBThemes {
       subtitle1: EBTextStyles.subtitle1,
       subtitle2: EBTextStyles.subtitle2,
     ),
+    iconTheme: const IconThemeData(size: EBDimens.iconSize),
     buttonTheme: ButtonThemeData(
+      padding: const EdgeInsets.symmetric(horizontal: 18),
       height: EBDimens.buttonHeight,
       buttonColor: EBColors.primary,
       shape: RoundedRectangleBorder(

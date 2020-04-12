@@ -28,14 +28,14 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
           right: EBDimens.cardMarginVertical,
         ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: EBDimens.cardMarginVertical,
+            if (leading != null)
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: EBDimens.cardMarginVertical,
+                ),
+                child: leading,
               ),
-              child: leading,
-            ),
             UIHelper.horizontalM,
             Expanded(
               child: Padding(
@@ -45,15 +45,16 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
                   singleLine: !isMultiline,
                   color: isDark ? EBColors.white : null,
                 ),
+                // child: Text(title, style: EBTextStyles.headline5),
               ),
             ),
-            (trailing == null)
-                ? Container()
-                : Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: EBDimens.cardMarginVertical),
-                    child: trailing,
-                  ),
+            UIHelper.horizontalM,
+            if (trailing != null)
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: EBDimens.cardMarginVertical),
+                child: trailing,
+              ),
           ],
         ),
       ),

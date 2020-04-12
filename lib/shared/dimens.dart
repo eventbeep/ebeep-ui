@@ -28,4 +28,6 @@ class EBDimens {
   static const double buttonHeight = 50.0;
 
   static const double ticketCornerRadius = 8.0;
+
+  static const double iconSize = 18.0;
 }
