@@ -1,4 +1,4 @@
-import 'package:eventbeep_ui/colors/colors.dart';
+import 'package:ebeep_ui/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 

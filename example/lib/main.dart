@@ -1,6 +1,6 @@
-import 'package:eventbeep_ui/shared.dart';
+import 'package:ebeep_ui/shared.dart';
 import 'package:flutter/material.dart';
-import 'package:eventbeep_ui/widgets.dart';
+import 'package:ebeep_ui/widgets.dart';
 
 void main() => runApp(EventbeepApp());
 

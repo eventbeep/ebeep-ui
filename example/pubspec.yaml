@@ -16,7 +16,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  eventbeep_ui:
+  ebeep_ui:
     path: ../
 
 dev_dependencies:
