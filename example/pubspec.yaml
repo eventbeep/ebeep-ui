@@ -1,12 +1,6 @@
 name: example
 description: Example application for the usage of eventbeep_ui plugin
 
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# Read more about versioning at semver.org.
 version: 1.0.0+1
 
 environment:
@@ -19,20 +13,15 @@ dependencies:
   ebeep_ui:
     path: ../
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
 flutter:
   uses-material-design: true
-
   fonts:
     - family: Simple
       fonts:
-        - asset: packages/eventbeep_ui/fonts/Lato-Regular.ttf
+        - asset: packages/ebeep_ui/fonts/Lato-Regular.ttf
     - family: Heading
       fonts:
-        - asset: packages/eventbeep_ui/fonts/Poppins-Regular.ttf
+        - asset: packages/ebeep_ui/fonts/Poppins-Regular.ttf
     - family: Title
       fonts:
-        - asset: packages/eventbeep_ui/fonts/JosefinSans-SemiBold.ttf
+        - asset: packages/ebeep_ui/fonts/JosefinSans-SemiBold.ttf
