@@ -34,43 +34,14 @@ class EBCarouselSlider extends StatefulWidget {
           initialPage: realPage + initialPage,
         );
 
-  /// The widgets to be shown in the carousel.
-  final List<String> items;
-
-  final List<Function> onItemTaps;
-
-  /// Set carousel height and overrides any existing [aspectRatio].
-  final double height;
-
   /// Aspect ratio is used if no height have been declared.
   /// Defaults to 16:9 aspect ratio.
   final double aspectRatio;
-
-  /// The fraction of the viewport that each page should occupy.
-  /// Defaults to 0.8, which means each page fills 80% of the carousel.
-  final num viewportFraction;
-
-  /// The page to show when first creating the [EBCarouselSlider].
-  /// Defaults to 0.
-  final num initialPage;
-
-  /// The actual index of the [PageView].
-  /// Defaults to 10000 to simulate infinite backwards scrolling.
-  final num realPage;
-
-  /// Reverse the order of items if set to true.
-  /// Defaults to false.
-  final bool reverse;
 
   /// Enables auto play, sliding one page at a time.
   /// Use [autoPlayInterval] to determent the frequency of slides.
   /// Defaults to false.
   final bool autoPlay;
-
-  /// Sets Duration to determent the frequency of slides when
-  /// [autoPlay] is set to true.
-  /// Defaults to 4 seconds.
-  final Duration autoPlayInterval;
 
   /// (Deprecated, use [autoPlayInterval] instead) Changed for ambiguous intent.
   /// interval did not explain what the variable was used for.
@@ -98,10 +69,10 @@ class EBCarouselSlider extends StatefulWidget {
   /// Defaults to [Curves.fastOutSlowIn].
   final Curve autoPlayCurve;
 
-  /// Sets a timer on touch detected that pause the auto play with
-  /// the given [Duration].
-  /// Touch Detection is only active if [autoPlay] is true.
-  final Duration pauseAutoPlayOnTouch;
+  /// Sets Duration to determent the frequency of slides when
+  /// [autoPlay] is set to true.
+  /// Defaults to 4 seconds.
+  final Duration autoPlayInterval;
 
   /// (Deprecated, use [enlargeCenterPage] instead) Changed for ambiguous intent.
   /// 'distortion' provided no information on how the image was distorted.
@@ -117,8 +88,17 @@ class EBCarouselSlider extends StatefulWidget {
   /// Defaults to false.
   final bool enlargeCenterPage;
 
-  /// Scroll direction of this carousel.
-  final Axis scrollDirection;
+  /// Set carousel height and overrides any existing [aspectRatio].
+  final double height;
+
+  /// The page to show when first creating the [EBCarouselSlider].
+  /// Defaults to 0.
+  final num initialPage;
+
+  /// The widgets to be shown in the carousel.
+  final List<String> items;
+
+  final List<Function> onItemTaps;
 
   /// (Deprecated, use [onPageChanged] instead) Changed for ambiguous intent.
   /// 'updateCallback' provided no information on when the callback was called.
@@ -132,6 +112,29 @@ class EBCarouselSlider extends StatefulWidget {
   /// [pageController] is created using the properties passed to the constructor
   /// and can be used to control the [PageView] it is passed to.
   final PageController pageController;
+
+  /// Sets a timer on touch detected that pause the auto play with
+  /// the given [Duration].
+  /// Touch Detection is only active if [autoPlay] is true.
+  final Duration pauseAutoPlayOnTouch;
+
+  /// The actual index of the [PageView].
+  /// Defaults to 10000 to simulate infinite backwards scrolling.
+  final num realPage;
+
+  /// Reverse the order of items if set to true.
+  /// Defaults to false.
+  final bool reverse;
+
+  /// Scroll direction of this carousel.
+  final Axis scrollDirection;
+
+  /// The fraction of the viewport that each page should occupy.
+  /// Defaults to 0.8, which means each page fills 80% of the carousel.
+  final num viewportFraction;
+
+  @override
+  _EBCarouselSliderState createState() => _EBCarouselSliderState();
 
   /// Animates the controlled [EBCarouselSlider] to the next page.
   ///
@@ -154,7 +157,7 @@ class EBCarouselSlider extends StatefulWidget {
   /// Jumps the page position from its current value to the given value,
   /// without animation, and without checking if the new value is in range.
   void jumpToPage(int page) {
-    final int index =
+    final index =
         _getRealIndex(pageController.page.toInt(), realPage, items.length);
     return pageController
         .jumpToPage(pageController.page.toInt() + page - index);
@@ -165,21 +168,69 @@ class EBCarouselSlider extends StatefulWidget {
   /// The animation lasts for the given duration and follows the given curve.
   /// The returned [Future] resolves when the animation completes.
   Future<void> animateToPage(int page, {Duration duration, Curve curve}) {
-    final int index =
+    final index =
         _getRealIndex(pageController.page.toInt(), realPage, items.length);
     return pageController.animateToPage(
         pageController.page.toInt() + page - index,
         duration: duration,
         curve: curve);
   }
-
-  @override
-  _EBCarouselSliderState createState() => _EBCarouselSliderState();
 }
 
 class _EBCarouselSliderState extends State<EBCarouselSlider>
     with TickerProviderStateMixin {
   int currentPage;
+
+  @override
+  Widget build(BuildContext context) {
+    return getWrapper(PageView.builder(
+      scrollDirection: widget.scrollDirection,
+      onPageChanged: (index) {
+        currentPage =
+            _getRealIndex(index, widget.realPage, widget.items.length);
+        if (widget.onPageChanged != null) {
+          widget.onPageChanged(currentPage);
+        }
+      },
+      controller: widget.pageController,
+      reverse: widget.reverse,
+      itemBuilder: (context, i) {
+        final index = _getRealIndex(i, widget.realPage, widget.items.length);
+
+        return AnimatedBuilder(
+            animation: widget.pageController,
+            builder: (context, child) {
+              // on the first render, the pageController.page is null,
+              // this is a dirty hack
+              if (widget.pageController.position.minScrollExtent == null ||
+                  widget.pageController.position.maxScrollExtent == null) {
+                Future<void>.delayed(const Duration(microseconds: 1), () {
+                  setState(() {});
+                });
+                return Container();
+              }
+              var value = widget.pageController.page - i;
+              value = (1 - (value.abs() * 0.3)).clamp(0.0, 1.0);
+
+              final height = widget.height ??
+                  MediaQuery.of(context).size.width * (1 / widget.aspectRatio);
+              final distortionValue = widget.enlargeCenterPage
+                  ? Curves.easeOut.transform(value)
+                  : 1.0;
+
+              return Center(
+                  child:
+                      SizedBox(height: distortionValue * height, child: child));
+            },
+            child: GestureDetector(
+              onTap: () {
+                widget.onItemTaps[index]();
+              },
+              child: getItemChild(widget.items[index], context),
+            ));
+      },
+    ));
+  }
 
   @override
   void initState() {
@@ -197,58 +248,6 @@ class _EBCarouselSliderState extends State<EBCarouselSlider>
       return wrapper;
     }
   }
-
-  @override
-  Widget build(BuildContext context) {
-    return getWrapper(PageView.builder(
-      scrollDirection: widget.scrollDirection,
-      onPageChanged: (int index) {
-        currentPage =
-            _getRealIndex(index, widget.realPage, widget.items.length);
-        if (widget.onPageChanged != null) {
-          widget.onPageChanged(currentPage);
-        }
-      },
-      controller: widget.pageController,
-      reverse: widget.reverse,
-      itemBuilder: (BuildContext context, int i) {
-        final int index =
-            _getRealIndex(i, widget.realPage, widget.items.length);
-
-        return AnimatedBuilder(
-            animation: widget.pageController,
-            builder: (BuildContext context, Widget child) {
-              // on the first render, the pageController.page is null,
-              // this is a dirty hack
-              if (widget.pageController.position.minScrollExtent == null ||
-                  widget.pageController.position.maxScrollExtent == null) {
-                Future<void>.delayed(const Duration(microseconds: 1), () {
-                  setState(() {});
-                });
-                return Container();
-              }
-              double value = widget.pageController.page - i;
-              value = (1 - (value.abs() * 0.3)).clamp(0.0, 1.0);
-
-              final double height = widget.height ??
-                  MediaQuery.of(context).size.width * (1 / widget.aspectRatio);
-              final double distortionValue = widget.enlargeCenterPage
-                  ? Curves.easeOut.transform(value)
-                  : 1.0;
-
-              return Center(
-                  child:
-                      SizedBox(height: distortionValue * height, child: child));
-            },
-            child: GestureDetector(
-              onTap: () {
-                widget.onItemTaps[index]();
-              },
-              child: getItemChild(widget.items[index], context),
-            ));
-      },
-    ));
-  }
 }
 
 Widget getItemChild(String url, BuildContext context) {
@@ -263,7 +262,7 @@ Widget getItemChild(String url, BuildContext context) {
           const BorderRadius.all(Radius.circular(EBDimens.cornerRadius)),
       child: CachedNetworkImage(
         imageUrl: url,
-        placeholder: (BuildContext context, String text) => Shimmer.fromColors(
+        placeholder: (context, text) => Shimmer.fromColors(
           highlightColor: Colors.grey[100],
           baseColor: Colors.grey[300],
           child: Container(color: EBColors.lightGrey),
@@ -287,14 +286,14 @@ Widget getItemChild(String url, BuildContext context) {
 /// This offset modulo our length, 6, will return a number between 0 and 5, which represent the image
 /// to be placed in the given position.
 int _getRealIndex(int position, int base, int length) {
-  final int offset = position - base;
+  final offset = position - base;
   return _remainder(offset, length);
 }
 
 /// Returns the remainder of the modulo operation [input] % [source], and adjust it for
 /// negative values.
 int _remainder(int input, int source) {
-  final int result = input % source;
+  final result = input % source;
   return result < 0 ? source + result : result;
 }
 

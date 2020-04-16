@@ -1,8 +1,34 @@
-import 'package:ebeep_ui/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
+import '../../colors/colors.dart';
+
 class EBTextStyles {
+  static const TextStyle bodyText1 = TextStyle(
+    fontSize: 14,
+    letterSpacing: 0.25,
+    color: EBColors.textSecondary,
+  );
+
+  static const TextStyle bodyText2 = TextStyle(
+    fontSize: 16,
+    letterSpacing: 0.5,
+    color: EBColors.textPrimary,
+  );
+
+  static const TextStyle button = TextStyle(
+    fontSize: 14,
+    letterSpacing: 1.25,
+    fontWeight: FontWeight.bold,
+    color: EBColors.white,
+  );
+
+  static const TextStyle caption = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    letterSpacing: 0.4,
+  );
+
   static const TextStyle headline1 = TextStyle(
     fontSize: 96,
     fontWeight: FontWeight.w300,
@@ -38,6 +64,12 @@ class EBTextStyles {
     fontWeight: FontWeight.bold,
   );
 
+  static const TextStyle overline = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.normal,
+    letterSpacing: 1.5,
+  );
+
   static const TextStyle subtitle1 = TextStyle(
     fontSize: 16,
     letterSpacing: 0.15,
@@ -48,36 +80,5 @@ class EBTextStyles {
     fontSize: 14,
     letterSpacing: 0.1,
     fontWeight: FontWeight.bold,
-  );
-
-  static const TextStyle bodyText2 = TextStyle(
-    fontSize: 16,
-    letterSpacing: 0.5,
-    color: EBColors.textPrimary,
-  );
-
-  static const TextStyle bodyText1 = TextStyle(
-    fontSize: 14,
-    letterSpacing: 0.25,
-    color: EBColors.textSecondary,
-  );
-
-  static const TextStyle button = TextStyle(
-    fontSize: 14,
-    letterSpacing: 1.25,
-    fontWeight: FontWeight.bold,
-    color: EBColors.white,
-  );
-
-  static const TextStyle caption = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.normal,
-    letterSpacing: 0.4,
-  );
-
-  static const TextStyle overline = TextStyle(
-    fontSize: 10,
-    fontWeight: FontWeight.normal,
-    letterSpacing: 1.5,
   );
 }

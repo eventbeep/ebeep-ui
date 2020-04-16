@@ -9,7 +9,7 @@ class ProfileCircleClipper extends CustomClipper<Path> {
 
   @override
   Path getClip(Size size) {
-    final Path path = Path()
+    final path = Path()
       ..moveTo(0, 0)
       ..lineTo(size.width, 0.0)
       ..lineTo(size.width, size.height)

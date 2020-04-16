@@ -138,16 +138,17 @@ class _RoundedBottomSheetState extends State<RoundedBottomSheet> {
       return;
     }
     if (details.velocity.pixelsPerSecond.dy > _kMinFlingVelocity) {
-      final double flingVelocity =
-          -details.velocity.pixelsPerSecond.dy / _childHeight;
-      if (widget.animationController.value > 0.0)
+      final flingVelocity = -details.velocity.pixelsPerSecond.dy / _childHeight;
+      if (widget.animationController.value > 0.0) {
         widget.animationController.fling(velocity: flingVelocity);
+      }
       if (flingVelocity < 0.0) {
         widget.onClosing();
       }
     } else if (widget.animationController.value < _kCloseProgressThreshold) {
-      if (widget.animationController.value > 0.0)
+      if (widget.animationController.value > 0.0) {
         widget.animationController.fling(velocity: -1.0);
+      }
       widget.onClosing();
     } else {
       widget.animationController.forward();
@@ -271,8 +272,7 @@ class _RoundedModalBottomSheetState<T>
       onTap: widget.route.dismissOnTap ? () => Navigator.pop(context) : null,
       child: AnimatedBuilder(
         animation: widget.route.animation,
-        builder: (BuildContext context, Widget child) =>
-            CustomSingleChildLayout(
+        builder: (context, child) => CustomSingleChildLayout(
           delegate: _RoundedModalBottomSheetLayout(
               widget.route.autoResize
                   ? MediaQuery.of(context).viewInsets.bottom
@@ -281,7 +281,7 @@ class _RoundedModalBottomSheetState<T>
           child: RoundedBottomSheet(
             animationController: widget.route.animationController,
             onClosing: () => Navigator.pop(context),
-            builder: (BuildContext context) => Container(
+            builder: (context) => Container(
               decoration: BoxDecoration(
                 color: widget.route.color,
                 borderRadius: BorderRadius.only(

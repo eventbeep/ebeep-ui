@@ -1,7 +1,8 @@
-import 'package:ebeep_ui/colors/colors.dart';
-import 'package:ebeep_ui/shared/dimens.dart';
-import 'package:ebeep_ui/shared/shadows.dart';
 import 'package:flutter/material.dart';
+
+import '../../colors/colors.dart';
+import '../../shared/dimens.dart';
+import '../../shared/shadows.dart';
 
 class EBCard extends StatelessWidget {
   const EBCard({

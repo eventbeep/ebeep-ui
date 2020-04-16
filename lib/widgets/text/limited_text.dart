@@ -17,22 +17,8 @@ class EBLimitedText extends StatefulWidget {
 
 class _EBLimitedTextState extends State<EBLimitedText> {
   String firstHalf;
-  String secondHalf;
-
   bool flag = true;
-
-  @override
-  void initState() {
-    super.initState();
-
-    if (widget.text.length > 80) {
-      firstHalf = widget.text.substring(0, 80);
-      secondHalf = widget.text.substring(80, widget.text.length);
-    } else {
-      firstHalf = widget.text;
-      secondHalf = '';
-    }
-  }
+  String secondHalf;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +27,7 @@ class _EBLimitedTextState extends State<EBLimitedText> {
         : Column(
             children: <Widget>[
               BeepSecondaryText(
-                  text: flag ? (firstHalf + '...') : (firstHalf + secondHalf)),
+                  text: flag ? ('$firstHalf...') : (firstHalf + secondHalf)),
               InkWell(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -60,5 +46,18 @@ class _EBLimitedTextState extends State<EBLimitedText> {
               ),
             ],
           );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.text.length > 80) {
+      firstHalf = widget.text.substring(0, 80);
+      secondHalf = widget.text.substring(80, widget.text.length);
+    } else {
+      firstHalf = widget.text;
+      secondHalf = '';
+    }
   }
 }
