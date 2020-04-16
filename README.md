@@ -1,4 +1,4 @@
-# eventbeep_ui
+# EventBeep UI
 
 An User Interface framework for flutter
 
