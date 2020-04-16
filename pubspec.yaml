@@ -21,6 +21,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # Linting
+  effective_dart: ^1.2.1
+
 flutter:
   fonts:
     - family: Simple

@@ -25,19 +25,19 @@ class EBTextField extends StatelessWidget {
     this.onSubmit,
   }) : super(key: key);
 
-  final TextCapitalization textCapitalization;
+  final TextEditingController controller;
+  final bool enabled;
+  final String errorText;
+  final bool getKeyboard;
   final String labelText, hintText;
+  final IconData icon;
   final bool isPassword;
-  final TextInputType textInputType;
+  final int maxLength;
   final Function onChanged;
   final Function onSubmit;
-  final String errorText;
-  final int maxLength;
-  final TextEditingController controller;
   final Function onTap;
-  final bool getKeyboard;
-  final IconData icon;
-  final bool enabled;
+  final TextCapitalization textCapitalization;
+  final TextInputType textInputType;
 
   @override
   Widget build(BuildContext context) {
@@ -69,12 +69,7 @@ class EBTextField extends StatelessWidget {
           maxLength: maxLength,
           maxLines: null,
           style: const TextStyle(fontFamily: 'Simple'),
-          buildCounter: (
-            BuildContext context, {
-            int currentLength,
-            int maxLength,
-            bool isFocused,
-          }) =>
+          buildCounter: (context, {currentLength, maxLength, isFocused}) =>
               null,
           decoration: InputDecoration(
             hintText: hintText,

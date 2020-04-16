@@ -53,8 +53,7 @@ class EBBottomAppBarState extends State<EBBottomAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> items =
-        List<Widget>.generate(widget.items.length, (int index) {
+    final items = List<Widget>.generate(widget.items.length, (index) {
       return _buildTabItem(
         item: widget.items[index],
         index: index,
@@ -104,10 +103,8 @@ class EBBottomAppBarState extends State<EBBottomAppBar> {
     int index,
     ValueChanged<int> onPressed,
   }) {
-    final Color color =
-        _selectedIndex == index ? widget.selectedColor : widget.color;
-    /*
-        */
+    final color = _selectedIndex == index ? widget.selectedColor : widget.color;
+
     return Expanded(
       child: SizedBox(
         height: widget.height,

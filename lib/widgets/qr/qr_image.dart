@@ -28,18 +28,19 @@ class EBQrImage extends StatelessWidget {
           onError: onError,
         );
 
-  final _QrPainter _painter;
   final Color backgroundColor;
+  final bool gapless;
+  final QrError onError;
   final EdgeInsets padding;
   final double size;
-  final QrError onError;
-  final bool gapless;
+
+  final _QrPainter _painter;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        final double widgetSize = size ?? constraints.biggest.shortestSide;
+      builder: (context, constraints) {
+        final widgetSize = size ?? constraints.biggest.shortestSide;
         return Container(
           width: widgetSize,
           height: widgetSize,
@@ -71,30 +72,16 @@ class _QrPainter extends CustomPainter {
     _init(data);
   }
 
-  final int version; // the qr code version
-  final int errorCorrectionLevel; // the qr code error correction level
   final Color color; // the color of the dark squares
   final Color emptyColor; // the other color
-  final QrError onError;
+  final int errorCorrectionLevel; // the qr code error correction level
   final bool gapless;
+  final QrError onError;
+  final int version; // the qr code version
 
-  final QrCode _qr; // our qr code data
-  final Paint _paint = Paint()..style = PaintingStyle.fill;
   bool _hasError = false;
-
-  void _init(String data) {
-    _paint.color = color;
-    // configure and make the QR code data
-    try {
-      _qr.addData(data);
-      _qr.make();
-    } catch (ex) {
-      if (onError != null) {
-        _hasError = true;
-        onError(ex);
-      }
-    }
-  }
+  final Paint _paint = Paint()..style = PaintingStyle.fill;
+  final QrCode _qr; // our qr code data
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -110,12 +97,12 @@ class _QrPainter extends CustomPainter {
       canvas.drawColor(emptyColor, BlendMode.color);
     }
 
-    final double squareSize = size.shortestSide / _qr.moduleCount.toDouble();
-    final int pxAdjustValue = gapless ? 1 : 0;
-    for (int x = 0; x < _qr.moduleCount; x++) {
-      for (int y = 0; y < _qr.moduleCount; y++) {
+    final squareSize = size.shortestSide / _qr.moduleCount.toDouble();
+    final pxAdjustValue = gapless ? 1 : 0;
+    for (var x = 0; x < _qr.moduleCount; x++) {
+      for (var y = 0; y < _qr.moduleCount; y++) {
         if (_qr.isDark(y, x)) {
-          final Rect squareRect = Rect.fromLTWH(x * squareSize, y * squareSize,
+          final squareRect = Rect.fromLTWH(x * squareSize, y * squareSize,
               squareSize + pxAdjustValue, squareSize + pxAdjustValue);
           canvas.drawRect(squareRect, _paint);
         }
@@ -134,17 +121,30 @@ class _QrPainter extends CustomPainter {
     return false;
   }
 
+  void _init(String data) {
+    _paint.color = color;
+    // configure and make the QR code data
+    try {
+      _qr.addData(data);
+      _qr.make();
+    } on Exception catch (ex) {
+      if (onError != null) {
+        _hasError = true;
+        onError(ex);
+      }
+    }
+  }
+
   ui.Picture toPicture(double size) {
-    final ui.PictureRecorder recorder = ui.PictureRecorder();
-    final Canvas canvas = Canvas(recorder);
+    final recorder = ui.PictureRecorder();
+    final canvas = Canvas(recorder);
     paint(canvas, Size(size, size));
     return recorder.endRecording();
   }
 
   Future<ByteData> toImageData(double size,
       {ui.ImageByteFormat format = ui.ImageByteFormat.png}) async {
-    final ui.Image uiImage =
-        await toPicture(size).toImage(size.toInt(), size.toInt());
+    final uiImage = await toPicture(size).toImage(size.toInt(), size.toInt());
     return await uiImage.toByteData(format: format);
   }
 }

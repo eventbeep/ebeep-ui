@@ -26,7 +26,7 @@ class EBFloatingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonThemeData buttonTheme =
+    final buttonTheme =
         ButtonTheme.of(context).copyWith(padding: const EdgeInsets.all(0.0));
     return FloatingActionButton(
       elevation: elevation,

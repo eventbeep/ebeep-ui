@@ -11,22 +11,21 @@ typedef OnDone = void Function(String text);
 typedef PinBoxDecoration = BoxDecoration Function(Color borderColor);
 
 mixin ProvidedPinBoxDecoration {
-  static PinBoxDecoration defaultPinBoxDecoration = (Color borderColor) {
+  static BoxDecoration defaultPinBoxDecoration(Color borderColor) {
     return BoxDecoration(
         color: borderColor,
         borderRadius:
             const BorderRadius.all(Radius.circular(EBDimens.cornerRadius)));
-  };
+  }
 
-  static PinBoxDecoration underlinedPinBoxDecoration = (Color borderColor) {
+  static BoxDecoration underlinedPinBoxDecoration(Color borderColor) {
     return BoxDecoration(
         border: Border(bottom: BorderSide(color: borderColor, width: 2.0)));
-  };
+  }
 }
 
 mixin ProvidedPinBoxTextAnimation {
-  static AnimatedSwitcherTransitionBuilder awesomeTransition =
-      (Widget child, Animation<double> animation) {
+  static Widget awesomeTransition(Widget child, Animation<double> animation) {
     return RotationTransition(
         child: DefaultTextStyleTransition(
           style: TextStyleTween(
@@ -39,28 +38,25 @@ mixin ProvidedPinBoxTextAnimation {
           ),
         ),
         turns: animation);
-  };
+  }
 
   /// Simple Scaling Transition
-  static AnimatedSwitcherTransitionBuilder scalingTransition =
-      (Widget child, Animation<double> animation) {
+  static Widget scalingTransition(Widget child, Animation<double> animation) {
     return ScaleTransition(
       child: child,
       scale: animation,
     );
-  };
+  }
 
   /// No transition
-  static AnimatedSwitcherTransitionBuilder defaultNoTransition =
-      (Widget child, Animation<double> animation) {
+  static Widget defaultNoTransition(Widget child, Animation<double> animation) {
     return child;
-  };
+  }
 
   /// Rotate Transition
-  static AnimatedSwitcherTransitionBuilder rotateTransition =
-      (Widget child, Animation<double> animation) {
+  static Widget rotateTransition(Widget child, Animation<double> animation) {
     return RotationTransition(child: child, turns: animation);
-  };
+  }
 }
 
 class EBOtpField extends StatefulWidget {
@@ -87,157 +83,51 @@ class EBOtpField extends StatefulWidget {
     this.onTextChanged,
     this.autofocus = false,
     this.wrapAlignment = WrapAlignment.center,
-    this.pinCodeTextFieldLayoutType = PinCodeTextFieldLayoutType.WRAP,
+    this.pinCodeTextFieldLayoutType = PinCodeTextFieldLayoutType.wrap,
     this.error = '',
     this.labelText = '',
   }) : super(key: key);
 
-  final bool isCupertino;
-  final int maxLength;
+  final bool autofocus;
   final TextEditingController controller;
+  final Color defaultBorderColor;
+  final String error;
+  final Color errorBorderColor;
+  final bool hasError;
+  final Color hasTextBorderColor;
   final bool hideCharacter;
   final bool highlight;
   final Color highlightColor;
-  final Color defaultBorderColor;
-  final PinBoxDecoration pinBoxDecoration;
+  final bool isCupertino;
+  final String labelText;
   final String maskCharacter;
-  final TextStyle pinTextStyle;
+  final int maxLength;
+  final OnDone onDone;
+  final PinBoxDecoration pinBoxDecoration;
   final double pinBoxHeight;
   final double pinBoxWidth;
-  final OnDone onDone;
-  final bool hasError;
-  final Color errorBorderColor;
-  final Color hasTextBorderColor;
-  final Function(String) onTextChanged;
-  final bool autofocus;
-  final AnimatedSwitcherTransitionBuilder pinTextAnimatedSwitcherTransition;
-  final Duration pinTextAnimatedSwitcherDuration;
-  final WrapAlignment wrapAlignment;
   final PinCodeTextFieldLayoutType pinCodeTextFieldLayoutType;
-  final String error;
-  final String labelText;
+  final Duration pinTextAnimatedSwitcherDuration;
+  final AnimatedSwitcherTransitionBuilder pinTextAnimatedSwitcherTransition;
+  final TextStyle pinTextStyle;
+  final WrapAlignment wrapAlignment;
 
   @override
   State<StatefulWidget> createState() {
     return PinCodeTextFieldState();
   }
+
+  final Function(String) onTextChanged;
 }
 
 class PinCodeTextFieldState extends State<EBOtpField> {
-  FocusNode focusNode = FocusNode();
-  String text = '';
   int currentIndex = 0;
-  List<String> strList = <String>[];
+  FocusNode focusNode = FocusNode();
   bool hasFocus = false;
   double pinWidth;
   double screenWidth;
-
-  @override
-  void didUpdateWidget(EBOtpField oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.maxLength < widget.maxLength) {
-      setState(() {
-        currentIndex = text.length;
-      });
-      widget.controller?.text = text;
-      widget.controller?.selection =
-          TextSelection.collapsed(offset: text.length);
-    } else if (oldWidget.maxLength > widget.maxLength &&
-        widget.maxLength > 0 &&
-        text.isNotEmpty &&
-        text.length > widget.maxLength) {
-      setState(() {
-        text = text.substring(0, widget.maxLength);
-        currentIndex = text.length;
-      });
-      widget.controller?.text = text;
-      widget.controller?.selection =
-          TextSelection.collapsed(offset: text.length);
-    }
-  }
-
-  Future<void> _calculateStrList() async {
-    if (strList.length > widget.maxLength) {
-      strList.length = widget.maxLength;
-    }
-    while (strList.length < widget.maxLength) {
-      strList.add('');
-    }
-  }
-
-  Future<void> _calculatePinWidth() async {
-    if (widget.pinCodeTextFieldLayoutType ==
-        PinCodeTextFieldLayoutType.AUTO_ADJUST_WIDTH) {
-      screenWidth = MediaQuery.of(context).size.width;
-      double tempPinWidth = widget.pinBoxWidth;
-      final int maxLength = widget.maxLength;
-      while ((tempPinWidth * maxLength) > screenWidth) {
-        tempPinWidth -= 4;
-      }
-      tempPinWidth -= 10;
-      setState(() {
-        pinWidth = tempPinWidth;
-      });
-    } else {
-      setState(() {
-        pinWidth = widget.pinBoxWidth;
-      });
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _initTextController();
-    _calculateStrList();
-    widget.controller?.addListener(() {
-      setState(() {
-        _initTextController();
-      });
-      widget.onTextChanged(widget.controller.text);
-    });
-    focusNode.addListener(() {
-      setState(() {
-        hasFocus = focusNode.hasFocus;
-      });
-    });
-  }
-
-  bool _isNumeric(String s) {
-    if (s == null) {
-      return false;
-    }
-    final int n = int.tryParse(s);
-    return n != null && n > -1;
-  }
-
-  void _initTextController() {
-    if (widget.controller == null) {
-      return;
-    }
-    strList.clear();
-    if (widget.controller.text.isNotEmpty) {
-      if (widget.controller.text.length > widget.maxLength) {
-        throw Exception('TextEditingController length exceeded maxLength!');
-      }
-
-      if (!_isNumeric(widget.controller.text)) {
-        throw Exception('TextEditingController can only contains numeric');
-      }
-    }
-
-    text = widget.controller.text;
-    for (int i = 0; i < text.length; i++) {
-      strList.add(widget.hideCharacter ? widget.maskCharacter : text[i]);
-    }
-  }
-
-  @override
-  void dispose() {
-    focusNode?.dispose();
-    widget.controller?.dispose();
-    super.dispose();
-  }
+  List<String> strList = <String>[];
+  String text = '';
 
   @override
   Widget build(BuildContext context) {
@@ -275,6 +165,111 @@ class PinCodeTextFieldState extends State<EBOtpField> {
     );
   }
 
+  @override
+  void didUpdateWidget(EBOtpField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.maxLength < widget.maxLength) {
+      setState(() {
+        currentIndex = text.length;
+      });
+      widget.controller?.text = text;
+      widget.controller?.selection =
+          TextSelection.collapsed(offset: text.length);
+    } else if (oldWidget.maxLength > widget.maxLength &&
+        widget.maxLength > 0 &&
+        text.isNotEmpty &&
+        text.length > widget.maxLength) {
+      setState(() {
+        text = text.substring(0, widget.maxLength);
+        currentIndex = text.length;
+      });
+      widget.controller?.text = text;
+      widget.controller?.selection =
+          TextSelection.collapsed(offset: text.length);
+    }
+  }
+
+  @override
+  void dispose() {
+    focusNode?.dispose();
+    widget.controller?.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initTextController();
+    _calculateStrList();
+    widget.controller?.addListener(() {
+      setState(_initTextController);
+      widget.onTextChanged(widget.controller.text);
+    });
+    focusNode.addListener(() {
+      setState(() {
+        hasFocus = focusNode.hasFocus;
+      });
+    });
+  }
+
+  Future<void> _calculateStrList() async {
+    if (strList.length > widget.maxLength) {
+      strList.length = widget.maxLength;
+    }
+    while (strList.length < widget.maxLength) {
+      strList.add('');
+    }
+  }
+
+  Future<void> _calculatePinWidth() async {
+    if (widget.pinCodeTextFieldLayoutType ==
+        PinCodeTextFieldLayoutType.autoAdjustWidth) {
+      screenWidth = MediaQuery.of(context).size.width;
+      var tempPinWidth = widget.pinBoxWidth;
+      final maxLength = widget.maxLength;
+      while ((tempPinWidth * maxLength) > screenWidth) {
+        tempPinWidth -= 4;
+      }
+      tempPinWidth -= 10;
+      setState(() {
+        pinWidth = tempPinWidth;
+      });
+    } else {
+      setState(() {
+        pinWidth = widget.pinBoxWidth;
+      });
+    }
+  }
+
+  bool _isNumeric(String s) {
+    if (s == null) {
+      return false;
+    }
+    final n = int.tryParse(s);
+    return n != null && n > -1;
+  }
+
+  void _initTextController() {
+    if (widget.controller == null) {
+      return;
+    }
+    strList.clear();
+    if (widget.controller.text.isNotEmpty) {
+      if (widget.controller.text.length > widget.maxLength) {
+        throw Exception('TextEditingController length exceeded maxLength!');
+      }
+
+      if (!_isNumeric(widget.controller.text)) {
+        throw Exception('TextEditingController can only contains numeric');
+      }
+    }
+
+    text = widget.controller.text;
+    for (var i = 0; i < text.length; i++) {
+      strList.add(widget.hideCharacter ? widget.maskCharacter : text[i]);
+    }
+  }
+
   Widget _touchPinBoxRow() {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
@@ -293,7 +288,7 @@ class PinCodeTextFieldState extends State<EBOtpField> {
   }
 
   Widget _fakeTextInput() {
-    final OutlineInputBorder transparentBorder = OutlineInputBorder(
+    final transparentBorder = OutlineInputBorder(
       borderSide: BorderSide(
         color: Colors.transparent,
         width: 0.0,
@@ -379,11 +374,10 @@ class PinCodeTextFieldState extends State<EBOtpField> {
   Widget _pinBoxRow(BuildContext context) {
     _calculateStrList();
     _calculatePinWidth();
-    final List<Widget> pinCodes =
-        List<Widget>.generate(widget.maxLength, (int i) {
+    final pinCodes = List<Widget>.generate(widget.maxLength, (i) {
       return _buildPinCode(i, context);
     });
-    return widget.pinCodeTextFieldLayoutType == PinCodeTextFieldLayoutType.WRAP
+    return widget.pinCodeTextFieldLayoutType == PinCodeTextFieldLayoutType.wrap
         ? Wrap(
             direction: Axis.horizontal,
             alignment: widget.wrapAlignment,
@@ -441,7 +435,7 @@ class PinCodeTextFieldState extends State<EBOtpField> {
       return AnimatedSwitcher(
         duration: widget.pinTextAnimatedSwitcherDuration,
         transitionBuilder: widget.pinTextAnimatedSwitcherTransition ??
-            (Widget child, Animation<double> animation) {
+            (child, animation) {
               return child;
             },
         child: Text(
@@ -460,4 +454,4 @@ class PinCodeTextFieldState extends State<EBOtpField> {
   }
 }
 
-enum PinCodeTextFieldLayoutType { NORMAL, WRAP, AUTO_ADJUST_WIDTH }
+enum PinCodeTextFieldLayoutType { normal, wrap, autoAdjustWidth }

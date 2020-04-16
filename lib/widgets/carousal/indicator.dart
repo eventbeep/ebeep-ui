@@ -10,6 +10,11 @@ class EBIndicator extends AnimatedWidget {
     this.color = Colors.white,
   }) : super(listenable: controller);
 
+  /// The color of the dots.
+  ///
+  /// Defaults to `Colors.white`.
+  final Color color;
+
   /// The PageController that this EBIndicator is representing.
   final PageController controller;
 
@@ -19,28 +24,31 @@ class EBIndicator extends AnimatedWidget {
   /// Called when a dot is tapped
   final ValueChanged<int> onPageSelected;
 
-  /// The color of the dots.
-  ///
-  /// Defaults to `Colors.white`.
-  final Color color;
-
   // The base size of the dots
   static const double _kDotSize = 8.0;
-
-  // The increase in the size of the selected dot
-  static const double _kMaxZoom = 2.0;
 
   // The distance between the center of each dot
   static const double _kDotSpacing = 25.0;
 
+  // The increase in the size of the selected dot
+  static const double _kMaxZoom = 2.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List<Widget>.generate(itemCount, _buildDot),
+    );
+  }
+
   Widget _buildDot(int index) {
-    final double selectedness = Curves.easeOut.transform(
+    final selectedness = Curves.easeOut.transform(
       max(
         0.0,
         1.0 - ((controller.page ?? controller.initialPage) - index).abs(),
       ),
     );
-    final double zoom = 1.0 + (_kMaxZoom - 1.0) * selectedness;
+    final zoom = 1.0 + (_kMaxZoom - 1.0) * selectedness;
     return Container(
       width: _kDotSpacing,
       child: Center(
@@ -56,14 +64,6 @@ class EBIndicator extends AnimatedWidget {
           ),
         ),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List<Widget>.generate(itemCount, _buildDot),
     );
   }
 }

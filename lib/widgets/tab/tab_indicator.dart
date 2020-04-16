@@ -26,10 +26,16 @@ class EBTabIndicator extends Decoration {
 
   final double indicatorHeight;
   final double indicatorRadius;
-  @override
-  final EdgeInsetsGeometry padding;
   final EdgeInsetsGeometry insets;
   final TabBarIndicatorSize tabBarIndicatorSize;
+
+  @override
+  final EdgeInsetsGeometry padding;
+
+  @override
+  _BubblePainter createBoxPainter([VoidCallback onChanged]) {
+    return _BubblePainter(this, onChanged);
+  }
 
   @override
   Decoration lerpFrom(Decoration a, double t) {
@@ -52,11 +58,6 @@ class EBTabIndicator extends Decoration {
     }
     return super.lerpTo(b, t);
   }
-
-  @override
-  _BubblePainter createBoxPainter([VoidCallback onChanged]) {
-    return _BubblePainter(this, onChanged);
-  }
 }
 
 class _BubblePainter extends BoxPainter {
@@ -65,6 +66,28 @@ class _BubblePainter extends BoxPainter {
         super(onChanged);
 
   final EBTabIndicator decoration;
+
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+    assert(configuration != null);
+    assert(configuration.size != null);
+    const Gradient gradient = LinearGradient(
+      colors: EBGradients.appBarGradient,
+      begin: FractionalOffset.topCenter,
+      end: FractionalOffset.bottomCenter,
+    );
+    final rect = Offset(
+            offset.dx, (configuration.size.height / 2) - indicatorHeight / 2) &
+        Size(configuration.size.width, indicatorHeight);
+    final textDirection = configuration.textDirection;
+    final indicator = _indicatorRectFor(rect, textDirection);
+    final paint = Paint();
+    paint.style = PaintingStyle.fill;
+    paint.shader = gradient.createShader(rect);
+    canvas.drawRRect(
+        RRect.fromRectAndRadius(indicator, Radius.circular(indicatorRadius)),
+        paint);
+  }
 
   double get indicatorHeight => decoration.indicatorHeight;
 
@@ -80,7 +103,7 @@ class _BubblePainter extends BoxPainter {
     assert(rect != null);
     assert(textDirection != null);
 
-    Rect indicator = padding.resolve(textDirection).inflateRect(rect);
+    var indicator = padding.resolve(textDirection).inflateRect(rect);
 
     if (tabBarIndicatorSize == TabBarIndicatorSize.tab) {
       indicator = insets.resolve(textDirection).deflateRect(rect);
@@ -92,27 +115,5 @@ class _BubblePainter extends BoxPainter {
       indicator.width,
       indicator.height,
     );
-  }
-
-  @override
-  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    assert(configuration != null);
-    assert(configuration.size != null);
-    const Gradient gradient = LinearGradient(
-      colors: EBGradients.appBarGradient,
-      begin: FractionalOffset.topCenter,
-      end: FractionalOffset.bottomCenter,
-    );
-    final Rect rect = Offset(
-            offset.dx, (configuration.size.height / 2) - indicatorHeight / 2) &
-        Size(configuration.size.width, indicatorHeight);
-    final TextDirection textDirection = configuration.textDirection;
-    final Rect indicator = _indicatorRectFor(rect, textDirection);
-    final Paint paint = Paint();
-    paint.style = PaintingStyle.fill;
-    paint.shader = gradient.createShader(rect);
-    canvas.drawRRect(
-        RRect.fromRectAndRadius(indicator, Radius.circular(indicatorRadius)),
-        paint);
   }
 }
