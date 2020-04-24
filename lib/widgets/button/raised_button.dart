@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../shared.dart';
 import '../../widgets.dart';
 
-class EBRaisedButtom extends StatelessWidget {
-  const EBRaisedButtom({
+class EBRaisedButton extends StatelessWidget {
+  const EBRaisedButton({
     Key key,
     @required this.title,
     @required this.onPressed,
