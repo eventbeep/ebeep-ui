@@ -10,33 +10,34 @@ class EBBottomAppBarItem {
     this.text,
     this.enableDot = false,
   });
+
+  final bool enableDot;
   final IconData iconData;
   final String text;
-  final bool enableDot;
 }
 
 class EBBottomAppBar extends StatefulWidget {
   const EBBottomAppBar({
-    this.items,
+    @required this.items,
+    @required this.onTabSelected,
     this.centerItemText,
-    this.height = 60.0,
     this.iconSize = 24.0,
-    this.backgroundColor,
-    this.color,
-    this.selectedColor,
+    this.height = 60.0,
+    this.color = EBColors.lightIcon,
+    this.backgroundColor = EBColors.white,
+    this.selectedColor = EBColors.primary,
     this.notchedShape,
-    this.onTabSelected,
-  }) : assert(items.length == 2 || items.length == 4);
+  }) : assert(items.length > 1);
 
-  final List<EBBottomAppBarItem> items;
+  final Color backgroundColor;
   final String centerItemText;
+  final Color color;
   final double height;
   final double iconSize;
-  final Color backgroundColor;
-  final Color color;
-  final Color selectedColor;
+  final List<EBBottomAppBarItem> items;
   final NotchedShape notchedShape;
   final ValueChanged<int> onTabSelected;
+  final Color selectedColor;
 
   @override
   State<StatefulWidget> createState() => EBBottomAppBarState();
@@ -44,12 +45,6 @@ class EBBottomAppBar extends StatefulWidget {
 
 class EBBottomAppBarState extends State<EBBottomAppBar> {
   int _selectedIndex = 0;
-  void _updateIndex(int index) {
-    widget.onTabSelected(index);
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +55,9 @@ class EBBottomAppBarState extends State<EBBottomAppBar> {
         onPressed: _updateIndex,
       );
     });
-    items.insert(items.length >> 1, _buildMiddleTabItem());
-
+    if (widget.centerItemText != null) {
+      items.insert(items.length >> 1, _buildMiddleTabItem());
+    }
     return BottomAppBar(
       shape: widget.notchedShape,
       notchMargin: 8,
@@ -73,6 +69,13 @@ class EBBottomAppBarState extends State<EBBottomAppBar> {
       ),
       color: widget.backgroundColor,
     );
+  }
+
+  void _updateIndex(int index) {
+    widget.onTabSelected(index);
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   Widget _buildMiddleTabItem() {

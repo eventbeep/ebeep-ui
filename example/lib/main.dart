@@ -23,28 +23,27 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>
-    with SingleTickerProviderStateMixin {
-  final List<Tab> tabs = <Tab>[
-    const Tab(text: 'Featured'),
-    const Tab(text: 'Popular'),
-    const Tab(text: 'Latest')
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: EBBottomAppBar(
+        items: [
+          EBBottomAppBarItem(iconData: Icons.event_seat, text: 'Booking'),
+          EBBottomAppBarItem(
+              iconData: Icons.playlist_add_check, text: 'Check-in'),
+          EBBottomAppBarItem(iconData: Icons.insert_chart, text: 'Analytics'),
+          EBBottomAppBarItem(iconData: Icons.people, text: 'Manage'),
+        ],
+        onTabSelected: (index) => print(index),
+        backgroundColor: EBColors.quaternary,
+        centerItemText: 'Search',
+      ),
       appBar: const EBAppBar(
-        // leading:
-        //     IconButton(icon: Icon(Icons.arrow_back), onPressed: () => null),
         title: 'EventBeep is the best app in the entire universe',
         isMultiline: true,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () => null,
         child: Icon(Icons.add),
