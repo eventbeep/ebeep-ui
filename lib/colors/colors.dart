@@ -40,7 +40,6 @@ class EBColors {
 
   static const Color lightShadow = Color(0x21000000);
   static const Color darkShadow = Color(0x3f000000);
-//  static const LinearGradient gradient = LinearGradient(colors: appBarGradient);
 
   static const Color translucentOverlay = Color(0x33708090);
 }

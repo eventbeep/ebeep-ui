@@ -15,5 +15,3 @@ analyzer:
     avoid_print: warning
     public_member_api_docs: ignore
     lines_longer_than_80_chars: ignore
-    one_member_abstracts: ignore
-    todo: ignore
