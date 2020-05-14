@@ -28,6 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: EBBottomAppBar(
+        selectedItemIndex: 0,
         items: [
           EBBottomAppBarItem(iconData: Icons.event_seat, text: 'Booking'),
           EBBottomAppBarItem(

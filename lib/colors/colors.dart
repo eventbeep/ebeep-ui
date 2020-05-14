@@ -42,4 +42,6 @@ class EBColors {
   static const Color darkShadow = Color(0x3f000000);
 
   static const Color translucentOverlay = Color(0x33708090);
+
+  static const Color scaffoldBackgroundColor = Color(0xFFFAFBFC);
 }

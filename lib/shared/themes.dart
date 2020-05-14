@@ -7,12 +7,20 @@ import 'dimens.dart';
 
 mixin EBThemes {
   static ThemeData lightTheme = ThemeData(
+    scaffoldBackgroundColor: EBColors.scaffoldBackgroundColor,
     brightness: Brightness.light,
     primaryColor: EBColors.primary,
     accentColor: EBColors.tertiary,
     appBarTheme: AppBarTheme(
       color: EBColors.white,
-      elevation: 2,
+      elevation: 4,
+    ),
+    cardTheme: CardTheme(
+      elevation: 4,
+      shadowColor: EBColors.darkShadow,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
     ),
     textTheme: const TextTheme(
       headline1: EBTextStyles.headline1,
@@ -26,6 +34,8 @@ mixin EBThemes {
       button: EBTextStyles.button,
       subtitle1: EBTextStyles.subtitle1,
       subtitle2: EBTextStyles.subtitle2,
+      caption: EBTextStyles.caption,
+      overline: EBTextStyles.overline,
     ),
     iconTheme: const IconThemeData(size: EBDimens.iconSize),
     buttonTheme: ButtonThemeData(

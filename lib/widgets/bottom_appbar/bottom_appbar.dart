@@ -16,10 +16,11 @@ class EBBottomAppBarItem {
   final String text;
 }
 
-class EBBottomAppBar extends StatefulWidget {
+class EBBottomAppBar extends StatelessWidget {
   const EBBottomAppBar({
     @required this.items,
     @required this.onTabSelected,
+    @required this.selectedItemIndex,
     this.centerItemText,
     this.iconSize = 24.0,
     this.height = 56.0,
@@ -38,60 +39,47 @@ class EBBottomAppBar extends StatefulWidget {
   final NotchedShape notchedShape;
   final ValueChanged<int> onTabSelected;
   final Color selectedColor;
-
-  @override
-  State<StatefulWidget> createState() => EBBottomAppBarState();
-}
-
-class EBBottomAppBarState extends State<EBBottomAppBar> {
-  int _selectedIndex = 0;
+  final int selectedItemIndex;
 
   @override
   Widget build(BuildContext context) {
-    final items = List<Widget>.generate(widget.items.length, (index) {
+    final tabItems = List<Widget>.generate(items.length, (index) {
       return _buildTabItem(
-        item: widget.items[index],
+        item: items[index],
         index: index,
-        onPressed: _updateIndex,
+        onPressed: onTabSelected,
       );
     });
-    if (widget.centerItemText != null) {
-      items.insert(items.length >> 1, _buildMiddleTabItem());
+    if (centerItemText != null) {
+      tabItems.insert(tabItems.length >> 1, _buildMiddleTabItem());
     }
     return BottomAppBar(
-      shape: widget.notchedShape,
+      shape: notchedShape,
       notchMargin: 8,
       elevation: 16,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: items,
+        children: tabItems,
       ),
-      color: widget.backgroundColor,
+      color: backgroundColor,
     );
-  }
-
-  void _updateIndex(int index) {
-    widget.onTabSelected(index);
-    setState(() {
-      _selectedIndex = index;
-    });
   }
 
   Widget _buildMiddleTabItem() {
     return Expanded(
       child: SizedBox(
-        height: widget.height,
+        height: height,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: widget.iconSize),
+            SizedBox(height: iconSize),
             UIHelper.verticalXS,
             EBText(
-              text: widget.centerItemText ?? '',
+              text: centerItemText ?? '',
               size: 14,
-              color: widget.color,
+              color: color,
               fontFamily: 'Simple',
               weight: FontWeight.bold,
             ),
@@ -106,11 +94,11 @@ class EBBottomAppBarState extends State<EBBottomAppBar> {
     int index,
     ValueChanged<int> onPressed,
   }) {
-    final color = _selectedIndex == index ? widget.selectedColor : widget.color;
+    final tabColor = selectedItemIndex == index ? selectedColor : color;
 
     return Expanded(
       child: SizedBox(
-        height: widget.height,
+        height: height,
         child: Material(
           type: MaterialType.transparency,
           child: InkWell(
@@ -134,11 +122,11 @@ class EBBottomAppBarState extends State<EBBottomAppBar> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Icon(item.iconData, color: color, size: widget.iconSize),
+                      Icon(item.iconData, color: tabColor, size: iconSize),
                       UIHelper.verticalXS,
                       EBText(
                         text: item.text,
-                        color: color,
+                        color: tabColor,
                         size: 14,
                         fontFamily: 'Simple',
                         weight: FontWeight.bold,
