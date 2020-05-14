@@ -22,7 +22,7 @@ class EBBottomAppBar extends StatefulWidget {
     @required this.onTabSelected,
     this.centerItemText,
     this.iconSize = 24.0,
-    this.height = 60.0,
+    this.height = 56.0,
     this.color = EBColors.lightIcon,
     this.backgroundColor = EBColors.white,
     this.selectedColor = EBColors.primary,

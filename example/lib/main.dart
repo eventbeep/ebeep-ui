@@ -39,9 +39,12 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: EBColors.quaternary,
         centerItemText: 'Search',
       ),
-      appBar: const EBAppBar(
-        title: 'EventBeep is the best app in the entire universe',
-        isMultiline: true,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () => null,
+        ),
+        title: Text('EventBeep'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
@@ -72,13 +75,60 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           UIHelper.verticalL,
-          Center(
-            child: RaisedButton.icon(
-              icon: Icon(Icons.message, color: EBColors.white),
-              label: const Text('Click here', style: EBTextStyles.button),
-              onPressed: () => null,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              RaisedButton(
+                child: const Text('Click here', style: EBTextStyles.button),
+                onPressed: () => null,
+              ),
+              RaisedButton.icon(
+                icon: Icon(Icons.message, color: EBColors.white),
+                label: const Text('Click here', style: EBTextStyles.button),
+                onPressed: () => null,
+              ),
+            ],
           ),
+          UIHelper.verticalL,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              OutlineButton(
+                child: const Text('Click here'),
+                onPressed: () => null,
+              ),
+              OutlineButton.icon(
+                icon: Icon(Icons.message),
+                label: const Text('Click here'),
+                onPressed: () => null,
+              ),
+            ],
+          ),
+          UIHelper.verticalL,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              FlatButton(
+                child: const Text('Click here'),
+                onPressed: () => null,
+              ),
+              FlatButton.icon(
+                icon: Icon(Icons.message),
+                label: const Text('Click here'),
+                onPressed: () => null,
+              ),
+            ],
+          ),
+          UIHelper.verticalL,
+          DefaultTabController(
+            length: 3,
+            child: TabBar(tabs: [
+              Tab(text: 'The Good'),
+              Tab(text: 'The Bad'),
+              Tab(text: 'The Ugly'),
+            ]),
+          ),
+          UIHelper.verticalL,
           UIHelper.verticalL,
         ],
       ),

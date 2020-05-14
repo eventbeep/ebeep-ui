@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:superellipse_shape/superellipse_shape.dart';
 
 import '../colors/colors.dart';
 import '../widgets/text/text_styles.dart';
@@ -9,7 +10,10 @@ mixin EBThemes {
     brightness: Brightness.light,
     primaryColor: EBColors.primary,
     accentColor: EBColors.tertiary,
-    fontFamily: 'Simple',
+    appBarTheme: AppBarTheme(
+      color: EBColors.white,
+      elevation: 2,
+    ),
     textTheme: const TextTheme(
       headline1: EBTextStyles.headline1,
       headline2: EBTextStyles.headline2,
@@ -33,8 +37,12 @@ mixin EBThemes {
       ),
       disabledColor: EBColors.disabled,
     ),
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: EBColors.primary,
+      shape: SuperellipseShape(
+        borderRadius: BorderRadius.circular(48),
+      ),
+      elevation: 4,
     ),
     inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(

@@ -16,12 +16,14 @@ class EBLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: radius * 2,
-      width: radius * 2,
-      child: CircularProgressIndicator(
-        strokeWidth: strokeWidth,
-        valueColor: AlwaysStoppedAnimation<Color>(color),
+    return Center(
+      child: SizedBox(
+        height: radius * 2,
+        width: radius * 2,
+        child: CircularProgressIndicator(
+          strokeWidth: strokeWidth,
+          valueColor: AlwaysStoppedAnimation<Color>(color),
+        ),
       ),
     );
   }
