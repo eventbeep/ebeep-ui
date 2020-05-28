@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:superellipse_shape/superellipse_shape.dart';
 
 import '../colors/colors.dart';
+import '../widgets.dart';
 import '../widgets/text/text_styles.dart';
 import 'dimens.dart';
 
@@ -11,9 +12,42 @@ mixin EBThemes {
     brightness: Brightness.light,
     primaryColor: EBColors.primary,
     accentColor: EBColors.tertiary,
+    dialogTheme: DialogTheme(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+    ),
+    // tabBarTheme: const TabBarTheme(
+    //   indicatorSize: TabBarIndicatorSize.label,
+    //   indicator: EBTabIndicator(),
+    //   labelColor: EBColors.white,
+    //   labelPadding: EdgeInsets.symmetric(horizontal: 18),
+    //   unselectedLabelColor: EBColors.textSecondary,
+    //   labelStyle: EBTextStyles.button,
+    // ),
+    chipTheme: ChipThemeData(
+      backgroundColor: EBColors.tertiary,
+      deleteIconColor: EBColors.white,
+      disabledColor: EBColors.lightGrey,
+      selectedColor: EBColors.primary,
+      secondarySelectedColor: EBColors.secondary,
+      labelPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      padding: EdgeInsets.zero,
+      shape: StadiumBorder(),
+      labelStyle: EBTextStyles.caption.copyWith(
+        color: EBColors.white,
+        fontWeight: FontWeight.bold,
+      ),
+      secondaryLabelStyle: EBTextStyles.caption.copyWith(
+        color: EBColors.white,
+        fontWeight: FontWeight.bold,
+      ),
+      brightness: Brightness.light,
+    ),
     appBarTheme: AppBarTheme(
-      color: EBColors.white,
-      elevation: 4,
+      color: EBColors.transparent,
+      elevation: 0,
     ),
     cardTheme: CardTheme(
       elevation: 4,
@@ -37,7 +71,6 @@ mixin EBThemes {
       caption: EBTextStyles.caption,
       overline: EBTextStyles.overline,
     ),
-    iconTheme: const IconThemeData(size: EBDimens.iconSize),
     buttonTheme: ButtonThemeData(
       padding: const EdgeInsets.symmetric(horizontal: 18),
       height: EBDimens.buttonHeight,

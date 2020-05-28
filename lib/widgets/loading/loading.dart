@@ -8,11 +8,13 @@ class EBLoading extends StatelessWidget {
     this.color = EBColors.tertiary,
     this.radius = 15,
     this.strokeWidth = 2,
+    this.value,
   }) : super(key: key);
 
   final Color color;
   final double radius;
   final double strokeWidth;
+  final double value;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class EBLoading extends StatelessWidget {
         child: CircularProgressIndicator(
           strokeWidth: strokeWidth,
           valueColor: AlwaysStoppedAnimation<Color>(color),
+          value: value,
         ),
       ),
     );

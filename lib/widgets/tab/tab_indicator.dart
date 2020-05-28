@@ -14,10 +14,10 @@ import '../../shared.dart';
 
 class EBTabIndicator extends Decoration {
   const EBTabIndicator({
-    this.indicatorHeight = 20.0,
-    this.indicatorRadius = 100.0,
+    this.indicatorHeight = 36.0,
+    this.indicatorRadius = 18.0,
     this.tabBarIndicatorSize = TabBarIndicatorSize.label,
-    this.padding = const EdgeInsets.symmetric(vertical: 2.0, horizontal: 8.0),
+    this.padding = const EdgeInsets.symmetric(vertical: 2.0, horizontal: 18.0),
     this.insets = const EdgeInsets.symmetric(horizontal: 5.0),
   })  : assert(indicatorHeight != null),
         assert(indicatorRadius != null),
