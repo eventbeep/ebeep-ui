@@ -22,12 +22,14 @@ class EBBottomAppBar extends StatelessWidget {
     @required this.onTabSelected,
     @required this.selectedItemIndex,
     this.centerItemText,
+    this.centerItemOnPressed,
     this.iconSize = 24.0,
     this.height = 56.0,
     this.color = EBColors.lightIcon,
     this.backgroundColor = EBColors.white,
     this.selectedColor = EBColors.primary,
     this.notchedShape,
+    this.centerItem,
   }) : assert(items.length > 1);
 
   final Color backgroundColor;
@@ -40,6 +42,8 @@ class EBBottomAppBar extends StatelessWidget {
   final ValueChanged<int> onTabSelected;
   final Color selectedColor;
   final int selectedItemIndex;
+  final Function centerItemOnPressed;
+  final Widget centerItem;
 
   @override
   Widget build(BuildContext context) {
@@ -74,15 +78,19 @@ class EBBottomAppBar extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: iconSize),
-            UIHelper.verticalXS,
-            EBText(
-              text: centerItemText ?? '',
-              size: 14,
-              color: color,
-              fontFamily: 'Simple',
-              weight: FontWeight.bold,
+            // SizedBox(height: iconSize),
+            IconButton(
+              icon: centerItem,
+              onPressed: centerItemOnPressed,
             ),
+            // UIHelper.verticalXS,
+            // EBText(
+            //   text: centerItemText ?? '',
+            //   size: 14,
+            //   color: color,
+            //   fontFamily: 'Simple',
+            //   weight: FontWeight.bold,
+            // ),
           ],
         ),
       ),

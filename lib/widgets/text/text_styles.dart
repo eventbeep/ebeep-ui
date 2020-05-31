@@ -17,9 +17,9 @@ class EBTextStyles {
   );
 
   static const TextStyle button = TextStyle(
-    fontSize: 14,
-    letterSpacing: 1.25,
-    fontWeight: FontWeight.bold,
+    fontSize: 16,
+    letterSpacing: 0.5,
+    // fontWeight: FontWeight.bold,
     color: EBColors.white,
   );
 

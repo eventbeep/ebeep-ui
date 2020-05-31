@@ -4,7 +4,6 @@ import 'package:superellipse_shape/superellipse_shape.dart';
 import '../colors/colors.dart';
 import '../widgets.dart';
 import '../widgets/text/text_styles.dart';
-import 'dimens.dart';
 
 mixin EBThemes {
   static ThemeData lightTheme = ThemeData(
@@ -17,15 +16,13 @@ mixin EBThemes {
     ),
     bottomSheetTheme: BottomSheetThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      backgroundColor: EBColors.scaffoldBackgroundColor,
     ),
-    // tabBarTheme: const TabBarTheme(
-    //   indicatorSize: TabBarIndicatorSize.label,
-    //   indicator: EBTabIndicator(),
-    //   labelColor: EBColors.white,
-    //   labelPadding: EdgeInsets.symmetric(horizontal: 18),
-    //   unselectedLabelColor: EBColors.textSecondary,
-    //   labelStyle: EBTextStyles.button,
-    // ),
+    tabBarTheme: TabBarTheme(
+      unselectedLabelColor: EBColors.textSecondary,
+      labelStyle: EBTextStyles.bodyText2.copyWith(fontWeight: FontWeight.bold),
+      unselectedLabelStyle: EBTextStyles.bodyText2,
+    ),
     chipTheme: ChipThemeData(
       backgroundColor: EBColors.tertiary,
       deleteIconColor: EBColors.white,
@@ -46,11 +43,13 @@ mixin EBThemes {
       brightness: Brightness.light,
     ),
     appBarTheme: AppBarTheme(
-      color: EBColors.transparent,
-      elevation: 0,
+      // color: EBColors.transparent,
+      color: EBColors.white,
+      elevation: 2,
     ),
     cardTheme: CardTheme(
       elevation: 4,
+      margin: EdgeInsets.zero,
       shadowColor: EBColors.darkShadow,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
@@ -73,10 +72,10 @@ mixin EBThemes {
     ),
     buttonTheme: ButtonThemeData(
       padding: const EdgeInsets.symmetric(horizontal: 18),
-      height: EBDimens.buttonHeight,
+      height: 48,
       buttonColor: EBColors.primary,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(EBDimens.cornerRadius),
+        borderRadius: BorderRadius.circular(8),
       ),
       disabledColor: EBColors.disabled,
     ),
@@ -89,12 +88,12 @@ mixin EBThemes {
     ),
     inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(
-        borderSide: BorderSide.none,
-        borderRadius: BorderRadius.circular(EBDimens.padding),
+        borderSide: BorderSide(width: 1, color: EBColors.primary),
+        borderRadius: BorderRadius.circular(8),
       ),
-      contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
+      contentPadding: const EdgeInsets.symmetric(vertical: 17, horizontal: 18),
       filled: true,
-      fillColor: EBColors.tertiary200,
+      fillColor: EBColors.white,
       labelStyle: const TextStyle(color: EBColors.tertiary),
       floatingLabelBehavior: FloatingLabelBehavior.always,
     ),
