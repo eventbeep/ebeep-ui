@@ -23,8 +23,8 @@ class EBBottomAppBar extends StatelessWidget {
     @required this.selectedItemIndex,
     this.centerItemText,
     this.centerItemOnPressed,
-    this.iconSize = 24.0,
-    this.height = 56.0,
+    this.iconSize = 24,
+    this.height = 56,
     this.color = EBColors.lightIcon,
     this.backgroundColor = EBColors.white,
     this.selectedColor = EBColors.primary,
@@ -59,13 +59,8 @@ class EBBottomAppBar extends StatelessWidget {
     }
     return BottomAppBar(
       shape: notchedShape,
-      notchMargin: 8,
       elevation: 16,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: tabItems,
-      ),
+      child: Row(children: tabItems),
       color: backgroundColor,
     );
   }
@@ -78,19 +73,10 @@ class EBBottomAppBar extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // SizedBox(height: iconSize),
             IconButton(
               icon: centerItem,
               onPressed: centerItemOnPressed,
             ),
-            // UIHelper.verticalXS,
-            // EBText(
-            //   text: centerItemText ?? '',
-            //   size: 14,
-            //   color: color,
-            //   fontFamily: 'Simple',
-            //   weight: FontWeight.bold,
-            // ),
           ],
         ),
       ),
@@ -113,9 +99,8 @@ class EBBottomAppBar extends StatelessWidget {
             onTap: () => onPressed(index),
             child: Stack(
               children: <Widget>[
-                Visibility(
-                  visible: item.enableDot,
-                  child: const Positioned(
+                if (item.enableDot)
+                  const Positioned(
                     right: 20,
                     top: 8,
                     child: Icon(
@@ -124,20 +109,19 @@ class EBBottomAppBar extends StatelessWidget {
                       size: 12,
                     ),
                   ),
-                ),
                 Center(
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Icon(item.iconData, color: tabColor, size: iconSize),
                       UIHelper.verticalXS,
-                      EBText(
-                        text: item.text,
-                        color: tabColor,
-                        size: 14,
-                        fontFamily: 'Simple',
-                        weight: FontWeight.bold,
+                      Text(
+                        item.text,
+                        style: EBTextStyles.caption.copyWith(
+                          color: tabColor,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),

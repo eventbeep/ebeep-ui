@@ -45,17 +45,10 @@ class EBTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        if (labelText != null && labelText.isNotEmpty)
-          Padding(
-            padding: const EdgeInsets.only(left: 12, bottom: 8),
-            child: EBText(
-              text: labelText,
-              size: 15,
-              fontFamily: 'Heading',
-              weight: FontWeight.bold,
-              color: EBColors.tertiary,
-            ),
-          ),
+        if (labelText != null && labelText.isNotEmpty) ...[
+          Text(labelText, style: EBTextStyles.subtitle2),
+          UIHelper.verticalS,
+        ],
         TextField(
           onSubmitted: onSubmit,
           onTap: onTap,

@@ -4,35 +4,30 @@ import '../../shared.dart';
 import '../../widgets.dart';
 
 class EBTag extends StatelessWidget {
-  const EBTag({Key key, this.text}) : super(key: key);
+  const EBTag({
+    Key key,
+    @required this.text,
+    this.color = EBColors.primary,
+  }) : super(key: key);
 
   final String text;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        boxShadow: EBShadows.darkShadow,
-        borderRadius: BorderRadius.circular(12.0),
-        gradient: LinearGradient(
-          colors: EBGradients.getGradient(text),
-          begin: const FractionalOffset(0.0, 0.0),
-          end: const FractionalOffset(1.0, 0.0),
-          stops: const <double>[0.0, 1.0],
-          tileMode: TileMode.clamp,
-        ),
+        borderRadius: BorderRadius.circular(6),
+        color: color,
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: EBText(
-          text: capitalize(text),
-          size: EBDimens.textSecondary,
+      padding: const EdgeInsets.all(6),
+      child: Text(
+        text,
+        style: EBTextStyles.caption.copyWith(
+          fontWeight: FontWeight.bold,
           color: EBColors.white,
-          fontFamily: 'Simple',
         ),
       ),
     );
   }
-
-  String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
 }

@@ -29,9 +29,9 @@ mixin EBThemes {
       disabledColor: EBColors.lightGrey,
       selectedColor: EBColors.primary,
       secondarySelectedColor: EBColors.secondary,
-      labelPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      labelPadding: const EdgeInsets.symmetric(horizontal: 12),
       padding: EdgeInsets.zero,
-      shape: StadiumBorder(),
+      shape: const StadiumBorder(),
       labelStyle: EBTextStyles.caption.copyWith(
         color: EBColors.white,
         fontWeight: FontWeight.bold,
