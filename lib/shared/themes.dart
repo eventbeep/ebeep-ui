@@ -28,8 +28,8 @@ mixin EBThemes {
       deleteIconColor: EBColors.white,
       disabledColor: EBColors.lightGrey,
       selectedColor: EBColors.primary,
-      secondarySelectedColor: EBColors.secondary,
-      labelPadding: const EdgeInsets.symmetric(horizontal: 12),
+      secondarySelectedColor: EBColors.primary,
+      labelPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
       padding: EdgeInsets.zero,
       shape: const StadiumBorder(),
       labelStyle: EBTextStyles.caption.copyWith(
@@ -37,7 +37,7 @@ mixin EBThemes {
         fontWeight: FontWeight.bold,
       ),
       secondaryLabelStyle: EBTextStyles.caption.copyWith(
-        color: EBColors.white,
+        color: EBColors.quaternary,
         fontWeight: FontWeight.bold,
       ),
       brightness: Brightness.light,
