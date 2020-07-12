@@ -62,5 +62,5 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(EBDimens.appBarHeight);
+  Size get preferredSize => const Size.fromHeight(60);
 }

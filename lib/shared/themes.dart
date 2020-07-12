@@ -4,6 +4,7 @@ import 'package:superellipse_shape/superellipse_shape.dart';
 import '../colors/colors.dart';
 import '../widgets.dart';
 import '../widgets/text/text_styles.dart';
+import 'dimens.dart';
 
 mixin EBThemes {
   static ThemeData lightTheme = ThemeData(
@@ -12,10 +13,12 @@ mixin EBThemes {
     primaryColor: EBColors.primary,
     accentColor: EBColors.tertiary,
     dialogTheme: DialogTheme(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(EBDimens.borderRadius)),
     ),
     bottomSheetTheme: BottomSheetThemeData(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(EBDimens.borderRadius)),
       backgroundColor: EBColors.scaffoldBackgroundColor,
     ),
     tabBarTheme: TabBarTheme(
@@ -33,11 +36,10 @@ mixin EBThemes {
       padding: EdgeInsets.zero,
       shape: const StadiumBorder(),
       labelStyle: EBTextStyles.caption.copyWith(
-        color: EBColors.white,
-        fontWeight: FontWeight.bold,
+        color: EBColors.textPrimary,
       ),
       secondaryLabelStyle: EBTextStyles.caption.copyWith(
-        color: EBColors.quaternary,
+        color: EBColors.white,
         fontWeight: FontWeight.bold,
       ),
       brightness: Brightness.light,
@@ -52,7 +54,7 @@ mixin EBThemes {
       margin: EdgeInsets.zero,
       shadowColor: EBColors.darkShadow,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
     ),
     textTheme: const TextTheme(
@@ -73,9 +75,10 @@ mixin EBThemes {
     buttonTheme: ButtonThemeData(
       padding: const EdgeInsets.symmetric(horizontal: 18),
       height: 48,
+      minWidth: 48,
       buttonColor: EBColors.primary,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
       disabledColor: EBColors.disabled,
     ),
@@ -89,7 +92,7 @@ mixin EBThemes {
     inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(
         borderSide: BorderSide(width: 1, color: EBColors.primary),
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
       contentPadding: const EdgeInsets.symmetric(vertical: 17, horizontal: 18),
       filled: true,

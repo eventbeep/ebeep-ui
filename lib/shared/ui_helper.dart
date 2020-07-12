@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'dimens.dart';
-
 class UIHelper {
   static const Widget verticalXS = SizedBox(height: 4);
   static const Widget verticalS = SizedBox(height: 8);
@@ -14,9 +12,4 @@ class UIHelper {
   static const Widget horizontalM = SizedBox(width: 12);
   static const Widget horizontalL = SizedBox(width: 16);
   static const Widget horizontalXL = SizedBox(width: 24);
-
-  static const SizedBox dummyBox = SizedBox(
-    height: EBDimens.appBarHeight,
-    width: EBDimens.appBarHeight,
-  );
 }

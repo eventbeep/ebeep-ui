@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
       ),
       body: ListView(
-        padding: EBPadding.horizontalXL,
+        padding: const EdgeInsets.all(24),
         children: <Widget>[
           const Text('Amazing', style: EBTextStyles.headline1),
           const Text('Amazing', style: EBTextStyles.headline2),
