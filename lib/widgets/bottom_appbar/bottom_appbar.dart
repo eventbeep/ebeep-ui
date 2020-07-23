@@ -69,15 +69,23 @@ class EBBottomAppBar extends StatelessWidget {
     return Expanded(
       child: SizedBox(
         height: height,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            IconButton(
-              icon: centerItem,
-              onPressed: centerItemOnPressed,
-            ),
-          ],
+        child: InkWell(
+          onTap: centerItemOnPressed,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              centerItem,
+              UIHelper.verticalXS,
+              Text(
+                centerItemText,
+                style: EBTextStyles.caption.copyWith(
+                  color: color,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -93,41 +101,38 @@ class EBBottomAppBar extends StatelessWidget {
     return Expanded(
       child: SizedBox(
         height: height,
-        child: Material(
-          type: MaterialType.transparency,
-          child: InkWell(
-            onTap: () => onPressed(index),
-            child: Stack(
-              children: <Widget>[
-                if (item.enableDot)
-                  const Positioned(
-                    right: 20,
-                    top: 8,
-                    child: Icon(
-                      Icons.brightness_1,
-                      color: EBColors.secondary,
-                      size: 12,
-                    ),
-                  ),
-                Center(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(item.iconData, color: tabColor, size: iconSize),
-                      UIHelper.verticalXS,
-                      Text(
-                        item.text,
-                        style: EBTextStyles.caption.copyWith(
-                          color: tabColor,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+        child: InkWell(
+          onTap: () => onPressed(index),
+          child: Stack(
+            children: <Widget>[
+              if (item.enableDot)
+                const Positioned(
+                  right: 20,
+                  top: 8,
+                  child: Icon(
+                    Icons.brightness_1,
+                    color: EBColors.secondary,
+                    size: 12,
                   ),
                 ),
-              ],
-            ),
+              Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(item.iconData, color: tabColor, size: iconSize),
+                    UIHelper.verticalXS,
+                    Text(
+                      item.text,
+                      style: EBTextStyles.caption.copyWith(
+                        color: tabColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
