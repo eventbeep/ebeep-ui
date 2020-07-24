@@ -18,7 +18,7 @@ export 'widgets/loading/loading.dart';
 export 'widgets/qr/qr_image.dart';
 export 'widgets/tab/tab_indicator.dart';
 export 'widgets/tag/tag.dart';
-export 'widgets/text/limited_text.dart';
+export 'widgets/text/read_more_text.dart';
 export 'widgets/text/text.dart';
 export 'widgets/text/text_styles.dart';
 export 'widgets/text_field/otp_field.dart';
