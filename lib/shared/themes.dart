@@ -18,7 +18,10 @@ mixin EBThemes {
     ),
     bottomSheetTheme: BottomSheetThemeData(
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(EBDimens.borderRadius)),
+          borderRadius: BorderRadius.only(
+        topRight: Radius.circular(EBDimens.borderRadius),
+        topLeft: Radius.circular(EBDimens.borderRadius),
+      )),
       backgroundColor: EBColors.scaffoldBackgroundColor,
     ),
     tabBarTheme: TabBarTheme(
