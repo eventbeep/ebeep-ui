@@ -3,63 +3,45 @@ import 'package:flutter/material.dart';
 import '../../shared.dart';
 import '../../widgets.dart';
 
-class EBChip extends StatefulWidget {
+class EBChip extends StatelessWidget {
   const EBChip({
     Key key,
     @required this.label,
     this.onDeleted,
-    this.onSelected,
     this.isSelected = false,
   }) : super(key: key);
 
   final String label;
   final Function onDeleted;
-  final Function onSelected;
   final bool isSelected;
 
   @override
-  _EBChipState createState() => _EBChipState();
-}
-
-class _EBChipState extends State<EBChip> {
-  bool isSelected;
-
-  @override
-  void didChangeDependencies() {
-    isSelected = widget.isSelected;
-    super.didChangeDependencies();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: isSelected
-          ? null
-          : () {
-              widget.onSelected();
-              setState(() {
-                isSelected = true;
-              });
-            },
-      child: Chip(
-        padding: const EdgeInsets.all(8),
-        label: EBText(
-          text: widget.label,
-          size: EBDimens.textPrimary,
-          color: isSelected ? EBColors.white : EBColors.tertiary,
-          fontFamily: 'Simple',
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Flexible(child: Text(label, style: EBTextStyles.bodyText1)),
+          if (onDeleted != null) ...[
+            EBSpacers.width12,
+            GestureDetector(
+              onTap: onDeleted,
+              child: const Icon(
+                Icons.cancel,
+                color: EBColors.primary,
+                size: 20,
+              ),
+            ),
+          ],
+        ],
+      ),
+      decoration: BoxDecoration(
+        color: isSelected ? EBColors.primaryLight : EBColors.grey20,
+        borderRadius: BorderRadius.circular(EBDimens.borderRadius),
+        border: Border.all(
+          color: isSelected ? EBColors.primary : EBColors.grey30,
         ),
-        backgroundColor: isSelected ? EBColors.primary : EBColors.lightGrey,
-        onDeleted: isSelected
-            ? () {
-                widget.onDeleted();
-                setState(() {
-                  isSelected = false;
-                });
-              }
-            : null,
-        deleteIconColor: EBColors.white,
-        deleteButtonTooltipMessage: 'Remove this interest',
       ),
     );
   }

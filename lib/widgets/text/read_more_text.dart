@@ -1,6 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../../colors/colors.dart';
+import '../../widgets.dart';
+
 enum TrimMode {
   length,
   line,
@@ -11,12 +14,12 @@ class ReadMoreText extends StatefulWidget {
     this.data, {
     Key key,
     this.trimExpandedText = ' read less',
-    this.trimCollapsedText = ' ...read more',
+    this.trimCollapsedText = ' read more',
     this.colorClickableText,
     this.trimLength = 240,
     this.trimLines = 3,
     this.trimMode = TrimMode.line,
-    this.style,
+    this.style = EBTextStyles.bodyText1,
     this.textAlign,
     this.textDirection,
     this.locale,
@@ -71,13 +74,11 @@ class ReadMoreTextState extends State<ReadMoreText> {
     final locale =
         widget.locale ?? Localizations.localeOf(context, nullOk: true);
 
-    final colorClickableText =
-        widget.colorClickableText ?? Theme.of(context).accentColor;
-
     final link = TextSpan(
       text: _readMore ? widget.trimCollapsedText : widget.trimExpandedText,
       style: effectiveTextStyle.copyWith(
-        color: colorClickableText,
+        color: EBColors.primary,
+        fontWeight: FontWeight.w500,
       ),
       recognizer: TapGestureRecognizer()..onTap = _onTapLink,
     );

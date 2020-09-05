@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 import '../../shared.dart';
-import '../../shared/focus_node.dart';
 import '../../widgets.dart';
 
 class EBTextField extends StatelessWidget {
@@ -17,25 +16,32 @@ class EBTextField extends StatelessWidget {
     this.textInputType = TextInputType.text,
     this.errorText,
     this.maxLength,
+    this.maxLines,
     this.controller,
     this.onTap,
-    this.getKeyboard = true,
     this.icon,
+    this.suffix,
+    this.autofocus = false,
     this.enabled = true,
+    this.readOnly = false,
     this.onSubmit,
   }) : super(key: key);
 
   final TextEditingController controller;
   final bool enabled;
-  final String errorText;
-  final bool getKeyboard;
-  final String labelText, hintText;
-  final IconData icon;
+  final bool autofocus;
+  final bool readOnly;
   final bool isPassword;
+  final String errorText;
+  final String labelText;
+  final String hintText;
+  final IconData icon;
   final int maxLength;
+  final int maxLines;
   final Function onChanged;
   final Function onSubmit;
   final Function onTap;
+  final Widget suffix;
   final TextCapitalization textCapitalization;
   final TextInputType textInputType;
 
@@ -46,28 +52,29 @@ class EBTextField extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         if (labelText != null && labelText.isNotEmpty) ...[
-          Text(labelText, style: EBTextStyles.subtitle2),
-          UIHelper.verticalS,
+          Text(labelText, style: EBTextStyles.label),
+          EBSpacers.height8,
         ],
         TextField(
+          readOnly: readOnly,
           onSubmitted: onSubmit,
+          autofocus: autofocus,
           onTap: onTap,
           enabled: enabled,
-          focusNode: getKeyboard ? null : AlwaysDisabledFocusNode(),
           controller: controller,
           onChanged: onChanged,
           textCapitalization: textCapitalization,
           keyboardType: textInputType,
           obscureText: isPassword,
           maxLength: maxLength,
-          maxLines: null,
-          style: const TextStyle(fontFamily: 'Simple'),
+          maxLines: maxLines,
           buildCounter: (context, {currentLength, maxLength, isFocused}) =>
               null,
           decoration: InputDecoration(
             hintText: hintText,
             counterText: '',
             errorText: errorText,
+            suffixIcon: suffix,
             prefixIcon: (icon == null) ? null : Icon(icon),
           ),
         ),

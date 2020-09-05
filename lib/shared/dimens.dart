@@ -8,11 +8,6 @@ class EBDimens {
   static const double textSmallHeading = 18.0;
   static const double textActionBar = 24.0;
 
-  // static const double cornerRadius = 16.0;
-
-  static const double cardMarginVertical = 12.0;
-  static const double cardMarginHorizontal = 24.0;
-
   static const double borderRadius = 12.0;
   static const double padding = 16.0;
 

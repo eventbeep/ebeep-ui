@@ -1,19 +1,18 @@
 library widgets;
 
 export 'widgets/app_bar/app_bar.dart';
-// export 'widgets/badge.dart';
 export 'widgets/bottom_appbar/bottom_appbar.dart';
 export 'widgets/bottom_sheet/bottom_sheet.dart';
 export 'widgets/button/floating_button.dart';
-export 'widgets/button/raised_button.dart';
+export 'widgets/button/primary_button.dart';
+export 'widgets/button/secondary_button.dart';
+export 'widgets/button/tertiary_button.dart';
 export 'widgets/card/card.dart';
 export 'widgets/carousal/carousal.dart';
 export 'widgets/chip/chip.dart';
 export 'widgets/clipper/profile_circle_clipper.dart';
-// export 'widgets/dialog.dart';
 export 'widgets/empty/empty.dart';
 export 'widgets/error/error.dart';
-// export 'widgets/indicator.dart';
 export 'widgets/loading/loading.dart';
 export 'widgets/qr/qr_image.dart';
 export 'widgets/tab/tab_indicator.dart';

@@ -1,66 +1,108 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import '../../shared.dart';
-import '../../shared/dimens.dart';
 import '../../widgets.dart';
 
 class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const EBAppBar({
+  EBAppBar({
     Key key,
-    @required this.title,
+    this.title = '',
     this.leading,
     this.trailing,
-    this.isMultiline = false,
-    this.isDark = false,
-  }) : super(key: key);
+    this.bottom,
+    this.actionButton,
+  })  : preferredSize =
+            Size.fromHeight(56 + (bottom?.preferredSize?.height ?? 0.0)),
+        super(key: key);
 
   final String title;
-  final Widget leading, trailing;
-  final bool isMultiline;
-  final bool isDark;
+  final Widget leading;
+  final Widget trailing;
+  final PreferredSizeWidget bottom;
+  final Widget actionButton;
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        padding: const EdgeInsets.only(
-          left: EBDimens.cardMarginVertical,
-          right: EBDimens.cardMarginVertical,
+    final ModalRoute<dynamic> parentRoute = ModalRoute.of(context);
+    final canPop = parentRoute?.canPop ?? false;
+    final useCloseButton =
+        parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
+    final statusBarHeight = MediaQuery.of(context).padding.top;
+    return Container(
+      height: preferredSize.height + statusBarHeight,
+      decoration: BoxDecoration(color: EBColors.white, boxShadow: [
+        BoxShadow(
+          color: EBColors.grey100.withOpacity(0.04),
+          blurRadius: 4,
+          offset: Offset(0, 2),
         ),
-        child: Row(
-          children: <Widget>[
-            if (leading != null)
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: EBDimens.cardMarginVertical,
+      ]),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SafeArea(
+            child: Row(
+              children: <Widget>[
+                if (leading == null && canPop) ...[
+                  EBSpacers.width4,
+                  SizedBox(
+                    height: 48,
+                    width: 48,
+                    child: useCloseButton
+                        ? IconButton(
+                            icon: const Icon(EBIcons.close),
+                            onPressed: () => Navigator.pop(context),
+                          )
+                        : IconButton(
+                            icon: const Icon(EBIcons.back),
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                  ),
+                  EBSpacers.width4,
+                ],
+                if (leading != null) ...[
+                  EBSpacers.width4,
+                  SizedBox(
+                    height: 48,
+                    width: 48,
+                    child: Center(child: leading),
+                  ),
+                  EBSpacers.width4,
+                ],
+                EBSpacers.width16,
+                Expanded(
+                  child: Text(
+                    title,
+                    style: EBTextStyles.appBar,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-                child: leading,
-              ),
-            UIHelper.horizontalM,
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: BeepActionBarText(
-                  text: title,
-                  singleLine: !isMultiline,
-                  color: isDark ? EBColors.white : null,
-                ),
-                // child: Text(title, style: EBTextStyles.headline5),
-              ),
+                EBSpacers.width16,
+                if (trailing != null) ...[
+                  SizedBox(
+                    height: 48,
+                    width: 48,
+                    child: Center(child: trailing),
+                  ),
+                  EBSpacers.width4,
+                ],
+                if (actionButton != null) ...[
+                  actionButton,
+                  EBSpacers.width16,
+                ]
+              ],
             ),
-            UIHelper.horizontalM,
-            if (trailing != null)
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: EBDimens.cardMarginVertical),
-                child: trailing,
-              ),
-          ],
-        ),
+          ),
+          if (bottom != null) bottom,
+        ],
       ),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(60);
+  final Size preferredSize;
 }

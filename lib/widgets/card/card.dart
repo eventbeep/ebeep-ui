@@ -1,18 +1,15 @@
+import 'package:ebeep_ui/shared/dimens.dart';
 import 'package:flutter/material.dart';
 
 import '../../colors/colors.dart';
-import '../../shared/dimens.dart';
 import '../../shared/shadows.dart';
 
 class EBCard extends StatelessWidget {
   const EBCard({
     @required this.child,
     this.backgroundColor = EBColors.white,
-    this.borderRadius = 16,
-    this.contentPadding = const EdgeInsets.symmetric(
-      vertical: EBDimens.cardMarginVertical,
-      horizontal: EBDimens.cardMarginHorizontal,
-    ),
+    this.borderRadius = EBDimens.borderRadius,
+    this.contentPadding = const EdgeInsets.all(16),
     Key key,
   }) : super(key: key);
 

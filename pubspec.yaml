@@ -5,11 +5,12 @@ author:
 homepage:
 
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+
   qr: ^1.2.0
   shimmer: ^1.1.1
   cached_network_image: ^2.2.0+1
@@ -21,3 +22,11 @@ dev_dependencies:
 
   # Linting
   effective_dart: ^1.2.1
+
+flutter:
+  fonts:
+    - family: EBIcons
+      fonts:
+        - asset: lib/icons/EBIcons.ttf
+
+  uses-material-design: true

@@ -76,12 +76,12 @@ class EBBottomAppBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               centerItem,
-              UIHelper.verticalXS,
+              EBSpacers.height4,
               Text(
                 centerItemText,
                 style: EBTextStyles.caption.copyWith(
                   color: color,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ],
@@ -121,12 +121,12 @@ class EBBottomAppBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Icon(item.iconData, color: tabColor, size: iconSize),
-                    UIHelper.verticalXS,
+                    EBSpacers.height4,
                     Text(
                       item.text,
                       style: EBTextStyles.caption.copyWith(
                         color: tabColor,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ],

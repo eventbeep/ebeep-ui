@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../text/text.dart';
+import '../../widgets.dart';
 
 class EBError extends StatelessWidget {
   const EBError({
@@ -13,9 +13,10 @@ class EBError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: BeepPrimaryText(
-        text: errorMessage,
-        align: TextAlign.center,
+      child: Text(
+        errorMessage,
+        style: EBTextStyles.bodyText1,
+        textAlign: TextAlign.center,
       ),
     );
   }

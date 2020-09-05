@@ -5,27 +5,29 @@ import '../../colors/colors.dart';
 
 class EBTextStyles {
   static const TextStyle bodyText1 = TextStyle(
-    fontSize: 14,
+    fontSize: 16,
     letterSpacing: 0.25,
-    color: EBColors.textSecondary,
+    fontWeight: FontWeight.normal,
+    color: EBColors.grey100,
   );
 
   static const TextStyle bodyText2 = TextStyle(
-    fontSize: 16,
+    fontSize: 14,
     letterSpacing: 0.5,
-    color: EBColors.textPrimary,
+    color: EBColors.grey60,
+    fontWeight: FontWeight.normal,
   );
 
   static const TextStyle button = TextStyle(
     fontSize: 16,
     letterSpacing: 0.5,
-    // fontWeight: FontWeight.bold,
-    color: EBColors.white,
+    fontWeight: FontWeight.w500,
   );
 
   static const TextStyle caption = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.normal,
+    color: EBColors.grey70,
     letterSpacing: 0.4,
   );
 
@@ -53,15 +55,17 @@ class EBTextStyles {
   );
 
   static const TextStyle headline5 = TextStyle(
-    fontSize: 26,
+    fontSize: 24,
     letterSpacing: 1.0,
-    // fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.bold,
+    color: EBColors.grey90,
   );
 
   static const TextStyle headline6 = TextStyle(
     fontSize: 20,
     letterSpacing: 0.15,
     fontWeight: FontWeight.bold,
+    color: EBColors.grey90,
   );
 
   static const TextStyle overline = TextStyle(
@@ -73,12 +77,27 @@ class EBTextStyles {
   static const TextStyle subtitle1 = TextStyle(
     fontSize: 16,
     letterSpacing: 0.15,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w500,
+    color: EBColors.grey90,
   );
 
   static const TextStyle subtitle2 = TextStyle(
     fontSize: 14,
     letterSpacing: 0.1,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w500,
+    color: EBColors.grey90,
+  );
+
+  static const TextStyle label = TextStyle(
+    fontSize: 14,
+    letterSpacing: 0.1,
+    fontWeight: FontWeight.w500,
+    color: EBColors.grey90,
+  );
+
+  static const TextStyle appBar = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.normal,
+    color: EBColors.grey100,
   );
 }

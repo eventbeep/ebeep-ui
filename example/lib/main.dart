@@ -68,14 +68,14 @@ class _MyHomePageState extends State<MyHomePage> {
           const Text('Amazing', style: EBTextStyles.button),
           const Text('Amazing', style: EBTextStyles.caption),
           const Text('Amazing', style: EBTextStyles.overline),
-          UIHelper.verticalL,
+          EBSpacers.height16,
           const TextField(
             decoration: InputDecoration(
               labelText: 'Name',
               hintText: 'Cool',
             ),
           ),
-          UIHelper.verticalL,
+          EBSpacers.height16,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -90,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-          UIHelper.verticalL,
+          EBSpacers.height16,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-          UIHelper.verticalL,
+          EBSpacers.height16,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-          UIHelper.verticalL,
+          EBSpacers.height16,
           DefaultTabController(
             length: 3,
             child: TabBar(tabs: [
@@ -129,8 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Tab(text: 'The Ugly'),
             ]),
           ),
-          UIHelper.verticalL,
-          UIHelper.verticalL,
+          EBSpacers.height16,
+          EBSpacers.height16,
         ],
       ),
     );
