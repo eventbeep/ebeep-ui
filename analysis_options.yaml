@@ -9,6 +9,7 @@ analyzer:
     - lib/**/*.config.dart
     - lib/**/*.g.dart
     - lib/**/*.freezed.dart
+    - lib/shared/icons.dart
 
   errors:
     missing_return: error

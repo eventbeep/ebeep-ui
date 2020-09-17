@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:superellipse_shape/superellipse_shape.dart';
 
 import '../colors/colors.dart';
 import '../widgets.dart';
@@ -98,9 +97,6 @@ mixin EBThemes {
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: EBColors.primary,
-      shape: SuperellipseShape(
-        borderRadius: BorderRadius.circular(48),
-      ),
       elevation: 4,
     ),
     inputDecorationTheme: InputDecorationTheme(

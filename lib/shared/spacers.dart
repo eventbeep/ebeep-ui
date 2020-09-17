@@ -8,6 +8,9 @@ class EBSpacers {
   static const Widget height20 = SizedBox(height: 20);
   static const Widget height24 = SizedBox(height: 24);
   static const Widget height32 = SizedBox(height: 32);
+  static const Widget height40 = SizedBox(height: 40);
+  static const Widget height48 = SizedBox(height: 48);
+  static const Widget height56 = SizedBox(height: 56);
 
   static const Widget width4 = SizedBox(width: 4);
   static const Widget width8 = SizedBox(width: 8);
