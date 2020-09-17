@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../text/text.dart';
+import '../../widgets.dart';
 
 class EBEmpty extends StatelessWidget {
   const EBEmpty({
@@ -12,6 +12,6 @@ class EBEmpty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: BeepPrimaryText(text: message));
+    return Center(child: Text(message, style: EBTextStyles.bodyText1));
   }
 }

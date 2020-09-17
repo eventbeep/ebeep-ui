@@ -5,8 +5,24 @@ class EBColors {
 
   static const Color transparent = Color(0x00000000);
 
-  static const Color primary = Color(0xfffcc117);
-  static const Color secondary = Color(0xffff6a7c);
+  // Cool grey pallete
+  static const grey100 = Color(0xFF091426);
+  static const grey90 = Color(0xFF3A4352);
+  static const grey80 = Color(0xFF525A67);
+  static const grey70 = Color(0xFF686F7A);
+  static const grey60 = Color(0xFF838992);
+  static const grey50 = Color(0xFFB5B8BE);
+  static const grey40 = Color(0xFFDFE1E5);
+  static const grey30 = Color(0xFFF0F1F5);
+  static const grey20 = Color(0xFFFAFBFC);
+  static const grey10 = Color(0xFFFFFFFF);
+
+  static const red = Color(0xFFEB2828);
+
+  static const Color primaryLight = Color(0xFFEEF4FF);
+
+  static const Color primary = Color(0xff1669f7);
+  static const Color secondary = Color(0xfffcc117);
   static const Color tertiary = Color(0xff6981ec);
   static const Color quaternary = Color(0xff0c0d2c);
 
@@ -40,7 +56,8 @@ class EBColors {
 
   static const Color lightShadow = Color(0x21000000);
   static const Color darkShadow = Color(0x3f000000);
-//  static const LinearGradient gradient = LinearGradient(colors: appBarGradient);
 
   static const Color translucentOverlay = Color(0x33708090);
+
+  static const Color scaffoldBackgroundColor = Color(0xFFFAFBFC);
 }

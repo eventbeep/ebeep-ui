@@ -15,7 +15,7 @@ mixin ProvidedPinBoxDecoration {
     return BoxDecoration(
         color: borderColor,
         borderRadius:
-            const BorderRadius.all(Radius.circular(EBDimens.cornerRadius)));
+            const BorderRadius.all(Radius.circular(EBDimens.borderRadius)));
   }
 
   static BoxDecoration underlinedPinBoxDecoration(Color borderColor) {
@@ -152,7 +152,7 @@ class PinCodeTextFieldState extends State<EBOtpField> {
           if (widget.hasError && widget.error != null)
             Container(
               alignment: Alignment.centerLeft,
-              padding: EBPadding.horizontalL,
+              padding: const EdgeInsets.all(24),
               child: EBText(
                 text: widget.error,
                 size: 12,
@@ -303,8 +303,8 @@ class PinCodeTextFieldState extends State<EBOtpField> {
         controller: widget.controller,
         keyboardType: TextInputType.number,
         style: TextStyle(
-          height: 0.1, color: Colors.transparent,
-//          color: Colors.transparent,
+          height: 0.1,
+          color: Colors.transparent,
         ),
         decoration: InputDecoration(
           focusedErrorBorder: transparentBorder,
@@ -319,7 +319,7 @@ class PinCodeTextFieldState extends State<EBOtpField> {
             color: Colors.transparent,
           ),
           labelStyle: const TextStyle(height: 0.1),
-          fillColor: Colors.transparent,
+          fillColor: EBColors.white,
           border: InputBorder.none,
         ),
         cursorColor: Colors.transparent,

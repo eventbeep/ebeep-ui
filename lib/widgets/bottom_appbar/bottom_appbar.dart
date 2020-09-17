@@ -10,89 +10,82 @@ class EBBottomAppBarItem {
     this.text,
     this.enableDot = false,
   });
+
+  final bool enableDot;
   final IconData iconData;
   final String text;
-  final bool enableDot;
 }
 
-class EBBottomAppBar extends StatefulWidget {
+class EBBottomAppBar extends StatelessWidget {
   const EBBottomAppBar({
-    this.items,
+    @required this.items,
+    @required this.onTabSelected,
+    @required this.selectedItemIndex,
     this.centerItemText,
-    this.height = 60.0,
-    this.iconSize = 24.0,
-    this.backgroundColor,
-    this.color,
-    this.selectedColor,
+    this.centerItemOnPressed,
+    this.iconSize = 24,
+    this.height = 56,
+    this.color = EBColors.lightIcon,
+    this.backgroundColor = EBColors.white,
+    this.selectedColor = EBColors.primary,
     this.notchedShape,
-    this.onTabSelected,
-  }) : assert(items.length == 2 || items.length == 4);
+    this.centerItem,
+  }) : assert(items.length > 1);
 
-  final List<EBBottomAppBarItem> items;
+  final Color backgroundColor;
   final String centerItemText;
+  final Color color;
   final double height;
   final double iconSize;
-  final Color backgroundColor;
-  final Color color;
-  final Color selectedColor;
+  final List<EBBottomAppBarItem> items;
   final NotchedShape notchedShape;
   final ValueChanged<int> onTabSelected;
-
-  @override
-  State<StatefulWidget> createState() => EBBottomAppBarState();
-}
-
-class EBBottomAppBarState extends State<EBBottomAppBar> {
-  int _selectedIndex = 0;
-  void _updateIndex(int index) {
-    widget.onTabSelected(index);
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  final Color selectedColor;
+  final int selectedItemIndex;
+  final Function centerItemOnPressed;
+  final Widget centerItem;
 
   @override
   Widget build(BuildContext context) {
-    final items = List<Widget>.generate(widget.items.length, (index) {
+    final tabItems = List<Widget>.generate(items.length, (index) {
       return _buildTabItem(
-        item: widget.items[index],
+        item: items[index],
         index: index,
-        onPressed: _updateIndex,
+        onPressed: onTabSelected,
       );
     });
-    items.insert(items.length >> 1, _buildMiddleTabItem());
-
+    if (centerItemText != null) {
+      tabItems.insert(tabItems.length >> 1, _buildMiddleTabItem());
+    }
     return BottomAppBar(
-      shape: widget.notchedShape,
-      notchMargin: 8,
+      shape: notchedShape,
       elevation: 16,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: items,
-      ),
-      color: widget.backgroundColor,
+      child: Row(children: tabItems),
+      color: backgroundColor,
     );
   }
 
   Widget _buildMiddleTabItem() {
     return Expanded(
       child: SizedBox(
-        height: widget.height,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(height: widget.iconSize),
-            UIHelper.verticalXS,
-            EBText(
-              text: widget.centerItemText ?? '',
-              size: 14,
-              color: widget.color,
-              fontFamily: 'Simple',
-              weight: FontWeight.bold,
-            ),
-          ],
+        height: height,
+        child: InkWell(
+          onTap: centerItemOnPressed,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              centerItem,
+              EBSpacers.height4,
+              Text(
+                centerItemText,
+                style: EBTextStyles.caption.copyWith(
+                  color: color,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -103,48 +96,43 @@ class EBBottomAppBarState extends State<EBBottomAppBar> {
     int index,
     ValueChanged<int> onPressed,
   }) {
-    final color = _selectedIndex == index ? widget.selectedColor : widget.color;
+    final tabColor = selectedItemIndex == index ? selectedColor : color;
 
     return Expanded(
       child: SizedBox(
-        height: widget.height,
-        child: Material(
-          type: MaterialType.transparency,
-          child: InkWell(
-            onTap: () => onPressed(index),
-            child: Stack(
-              children: <Widget>[
-                Visibility(
-                  visible: item.enableDot,
-                  child: const Positioned(
-                    right: 20,
-                    top: 8,
-                    child: Icon(
-                      Icons.brightness_1,
-                      color: EBColors.secondary,
-                      size: 12,
-                    ),
+        height: height,
+        child: InkWell(
+          onTap: () => onPressed(index),
+          child: Stack(
+            children: <Widget>[
+              if (item.enableDot)
+                const Positioned(
+                  right: 20,
+                  top: 8,
+                  child: Icon(
+                    Icons.brightness_1,
+                    color: EBColors.secondary,
+                    size: 12,
                   ),
                 ),
-                Center(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(item.iconData, color: color, size: widget.iconSize),
-                      UIHelper.verticalXS,
-                      EBText(
-                        text: item.text,
-                        color: color,
-                        size: 14,
-                        fontFamily: 'Simple',
-                        weight: FontWeight.bold,
+              Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(item.iconData, color: tabColor, size: iconSize),
+                    EBSpacers.height4,
+                    Text(
+                      item.text,
+                      style: EBTextStyles.caption.copyWith(
+                        color: tabColor,
+                        fontWeight: FontWeight.w500,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

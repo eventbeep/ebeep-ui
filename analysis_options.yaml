@@ -6,14 +6,19 @@ analyzer:
 
   exclude:
     - lib/**/*.gr.dart
-    - lib/**/*.iconfig.dart
+    - lib/**/*.config.dart
     - lib/**/*.g.dart
     - lib/**/*.freezed.dart
+    - lib/shared/icons.dart
 
   errors:
     missing_return: error
+
     avoid_print: warning
+    prefer_const_constructors: warning
+    prefer_const_constructors_in_immutables: warning
+    prefer_const_declarations: warning
+    prefer_const_literals_to_create_immutables: warning
+
     public_member_api_docs: ignore
     lines_longer_than_80_chars: ignore
-    one_member_abstracts: ignore
-    todo: ignore

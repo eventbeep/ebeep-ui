@@ -23,34 +23,37 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>
-    with SingleTickerProviderStateMixin {
-  final List<Tab> tabs = <Tab>[
-    const Tab(text: 'Featured'),
-    const Tab(text: 'Popular'),
-    const Tab(text: 'Latest')
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const EBAppBar(
-        // leading:
-        //     IconButton(icon: Icon(Icons.arrow_back), onPressed: () => null),
-        title: 'EventBeep is the best app in the entire universe',
-        isMultiline: true,
+      bottomNavigationBar: EBBottomAppBar(
+        selectedItemIndex: 0,
+        items: [
+          EBBottomAppBarItem(iconData: Icons.event_seat, text: 'Booking'),
+          EBBottomAppBarItem(
+              iconData: Icons.playlist_add_check, text: 'Check-in'),
+          EBBottomAppBarItem(iconData: Icons.insert_chart, text: 'Analytics'),
+          EBBottomAppBarItem(iconData: Icons.people, text: 'Manage'),
+        ],
+        onTabSelected: (index) => print(index),
+        backgroundColor: EBColors.quaternary,
+        centerItemText: 'Search',
       ),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () => null,
+        ),
+        title: Text('EventBeep'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () => null,
         child: Icon(Icons.add),
       ),
       body: ListView(
-        padding: EBPadding.horizontalXL,
+        padding: const EdgeInsets.all(24),
         children: <Widget>[
           const Text('Amazing', style: EBTextStyles.headline1),
           const Text('Amazing', style: EBTextStyles.headline2),
@@ -65,22 +68,69 @@ class _MyHomePageState extends State<MyHomePage>
           const Text('Amazing', style: EBTextStyles.button),
           const Text('Amazing', style: EBTextStyles.caption),
           const Text('Amazing', style: EBTextStyles.overline),
-          UIHelper.verticalL,
+          EBSpacers.height16,
           const TextField(
             decoration: InputDecoration(
               labelText: 'Name',
               hintText: 'Cool',
             ),
           ),
-          UIHelper.verticalL,
-          Center(
-            child: RaisedButton.icon(
-              icon: Icon(Icons.message, color: EBColors.white),
-              label: const Text('Click here', style: EBTextStyles.button),
-              onPressed: () => null,
-            ),
+          EBSpacers.height16,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              RaisedButton(
+                child: const Text('Click here', style: EBTextStyles.button),
+                onPressed: () => null,
+              ),
+              RaisedButton.icon(
+                icon: Icon(Icons.message, color: EBColors.white),
+                label: const Text('Click here', style: EBTextStyles.button),
+                onPressed: () => null,
+              ),
+            ],
           ),
-          UIHelper.verticalL,
+          EBSpacers.height16,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              OutlineButton(
+                child: const Text('Click here'),
+                onPressed: () => null,
+              ),
+              OutlineButton.icon(
+                icon: Icon(Icons.message),
+                label: const Text('Click here'),
+                onPressed: () => null,
+              ),
+            ],
+          ),
+          EBSpacers.height16,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              FlatButton(
+                child: const Text('Click here'),
+                onPressed: () => null,
+              ),
+              FlatButton.icon(
+                icon: Icon(Icons.message),
+                label: const Text('Click here'),
+                onPressed: () => null,
+              ),
+            ],
+          ),
+          EBSpacers.height16,
+          DefaultTabController(
+            length: 3,
+            child: TabBar(tabs: [
+              Tab(text: 'The Good'),
+              Tab(text: 'The Bad'),
+              Tab(text: 'The Ugly'),
+            ]),
+          ),
+          EBSpacers.height16,
+          EBSpacers.height16,
         ],
       ),
     );

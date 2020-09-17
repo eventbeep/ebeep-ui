@@ -253,13 +253,13 @@ class _EBCarouselSliderState extends State<EBCarouselSlider>
 Widget getItemChild(String url, BuildContext context) {
   return Container(
     decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(EBDimens.cornerRadius),
+        borderRadius: BorderRadius.circular(EBDimens.borderRadius),
         boxShadow: EBShadows.lightShadow),
     margin:
         const EdgeInsets.only(left: 8.0, right: 8.0, bottom: EBDimens.padding),
     child: ClipRRect(
       borderRadius:
-          const BorderRadius.all(Radius.circular(EBDimens.cornerRadius)),
+          const BorderRadius.all(Radius.circular(EBDimens.borderRadius)),
       child: CachedNetworkImage(
         imageUrl: url,
         placeholder: (context, text) => Shimmer.fromColors(
@@ -316,7 +316,7 @@ class EBLoadingCarousal extends StatelessWidget {
           margin: const EdgeInsets.only(left: 46, right: 46, bottom: 16),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(
-              Radius.circular(EBDimens.cornerRadius),
+              Radius.circular(EBDimens.borderRadius),
             ),
             color: EBColors.white,
           ),
