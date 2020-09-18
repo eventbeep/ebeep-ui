@@ -12,6 +12,7 @@ class EBIcons {
 
   static const String _fontFamily = 'EBIcons';
 
+  static const IconData comment = IconData(0xe909, fontFamily: _fontFamily);
   static const IconData add_user = IconData(0xe900, fontFamily: _fontFamily);
   static const IconData back = IconData(0xe901, fontFamily: _fontFamily);
   static const IconData chevron_down =
@@ -24,14 +25,12 @@ class EBIcons {
   static const IconData claps = IconData(0xe906, fontFamily: _fontFamily);
   static const IconData close = IconData(0xe907, fontFamily: _fontFamily);
   static const IconData college = IconData(0xe908, fontFamily: _fontFamily);
-  static const IconData comment = IconData(0xe909, fontFamily: _fontFamily);
   static const IconData create = IconData(0xe90a, fontFamily: _fontFamily);
   static const IconData date_time = IconData(0xe90b, fontFamily: _fontFamily);
   static const IconData degree = IconData(0xe90c, fontFamily: _fontFamily);
   static const IconData edit = IconData(0xe90d, fontFamily: _fontFamily);
   static const IconData events = IconData(0xe90e, fontFamily: _fontFamily);
   static const IconData filter = IconData(0xe90f, fontFamily: _fontFamily);
-  static const IconData follow_user = IconData(0xe910, fontFamily: _fontFamily);
   static const IconData forward = IconData(0xe911, fontFamily: _fontFamily);
   static const IconData funbox = IconData(0xe912, fontFamily: _fontFamily);
   static const IconData home = IconData(0xe913, fontFamily: _fontFamily);
@@ -43,8 +42,6 @@ class EBIcons {
   static const IconData menu_hamburger =
       IconData(0xe91a, fontFamily: _fontFamily);
   static const IconData menu_kebab = IconData(0xe91b, fontFamily: _fontFamily);
-  static const IconData menu_meatballs =
-      IconData(0xe91c, fontFamily: _fontFamily);
   static const IconData message = IconData(0xe91d, fontFamily: _fontFamily);
   static const IconData notification =
       IconData(0xe91f, fontFamily: _fontFamily);
@@ -53,9 +50,7 @@ class EBIcons {
   static const IconData search = IconData(0xe922, fontFamily: _fontFamily);
   static const IconData see_more = IconData(0xe923, fontFamily: _fontFamily);
   static const IconData send_fill = IconData(0xe924, fontFamily: _fontFamily);
-  static const IconData send = IconData(0xe925, fontFamily: _fontFamily);
   static const IconData share = IconData(0xe926, fontFamily: _fontFamily);
   static const IconData two_users = IconData(0xe927, fontFamily: _fontFamily);
   static const IconData user = IconData(0xe928, fontFamily: _fontFamily);
-  static const IconData verified = IconData(0xe929, fontFamily: _fontFamily);
 }
