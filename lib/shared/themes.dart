@@ -100,14 +100,6 @@ mixin EBThemes {
       elevation: 4,
     ),
     inputDecorationTheme: InputDecorationTheme(
-      border: OutlineInputBorder(
-        borderSide: BorderSide(width: 1, color: EBColors.primary),
-        borderRadius: BorderRadius.circular(EBDimens.borderRadius),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(width: 1, color: EBColors.primary),
-        borderRadius: BorderRadius.circular(EBDimens.borderRadius),
-      ),
       contentPadding: const EdgeInsets.all(EBDimens.padding),
       filled: true,
       fillColor: EBColors.white,

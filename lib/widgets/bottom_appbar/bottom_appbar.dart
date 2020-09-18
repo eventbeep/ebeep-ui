@@ -5,7 +5,7 @@ import '../../shared.dart';
 import '../../widgets.dart';
 
 class EBBottomAppBarItem {
-  EBBottomAppBarItem({
+  const EBBottomAppBarItem({
     this.iconData,
     this.text,
     this.enableDot = false,

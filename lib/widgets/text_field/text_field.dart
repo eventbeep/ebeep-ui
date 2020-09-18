@@ -71,6 +71,14 @@ class EBTextField extends StatelessWidget {
           buildCounter: (context, {currentLength, maxLength, isFocused}) =>
               null,
           decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderSide: BorderSide(width: 1, color: EBColors.primary),
+              borderRadius: BorderRadius.circular(EBDimens.borderRadius),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(width: 1, color: EBColors.primary),
+              borderRadius: BorderRadius.circular(EBDimens.borderRadius),
+            ),
             hintText: hintText,
             counterText: '',
             errorText: errorText,
