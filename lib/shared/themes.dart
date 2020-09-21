@@ -10,7 +10,6 @@ mixin EBThemes {
     primaryIconTheme: IconThemeData(color: EBColors.grey100),
     primaryColorLight: EBColors.primaryLight,
     scaffoldBackgroundColor: EBColors.grey20,
-    brightness: Brightness.light,
     primaryColor: EBColors.primary,
     accentColor: EBColors.secondary,
     dialogTheme: DialogTheme(
@@ -55,7 +54,6 @@ mixin EBThemes {
       brightness: Brightness.light,
     ),
     appBarTheme: AppBarTheme(
-      // color: EBColors.transparent,
       color: EBColors.white,
       textTheme: TextTheme(headline6: EBTextStyles.appBar),
       shadowColor: EBColors.grey10,
