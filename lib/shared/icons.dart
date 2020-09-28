@@ -12,6 +12,7 @@ class EBIcons {
 
   static const String _fontFamily = 'EBIcons';
 
+  static const IconData group = IconData(0xe910, fontFamily: _fontFamily);
   static const IconData comment = IconData(0xe909, fontFamily: _fontFamily);
   static const IconData add_user = IconData(0xe900, fontFamily: _fontFamily);
   static const IconData back = IconData(0xe901, fontFamily: _fontFamily);

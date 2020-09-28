@@ -76,7 +76,7 @@ class EBTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(EBDimens.borderRadius),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(width: 1, color: EBColors.primary),
+              borderSide: BorderSide(width: 2, color: EBColors.primary),
               borderRadius: BorderRadius.circular(EBDimens.borderRadius),
             ),
             hintText: hintText,
