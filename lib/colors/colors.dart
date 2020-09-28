@@ -17,9 +17,15 @@ class EBColors {
   static const grey20 = Color(0xFFFAFBFC);
   static const grey10 = Color(0xFFFFFFFF);
 
+  static const blue = Color(0xFF2876EB);
   static const red = Color(0xFFEB2828);
+  static const orange = Color(0xFFFA892A);
+  static const green = Color(0xFF1DAB7C);
 
-  static const Color primaryLight = Color(0xFFEEF4FF);
+  static const lightBlue = Color(0xFFF1F6FE);
+  static const lightRed = Color(0xFFFFEDED);
+  static const lightOrange = Color(0xFFFFFBF0);
+  static const lightGreen = Color(0xFFECFFF9);
 
   static const Color primary = Color(0xff1669f7);
   static const Color secondary = Color(0xfffcc117);

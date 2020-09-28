@@ -1,6 +1,7 @@
 library widgets;
 
 export 'widgets/app_bar/app_bar.dart';
+export 'widgets/app_bar/fancy_app_bar.dart';
 export 'widgets/bottom_appbar/bottom_appbar.dart';
 export 'widgets/bottom_sheet/bottom_sheet.dart';
 export 'widgets/button/floating_button.dart';

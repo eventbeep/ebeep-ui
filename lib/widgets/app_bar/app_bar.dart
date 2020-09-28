@@ -13,6 +13,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.trailing,
     this.bottom,
     this.actionButton,
+    this.isDark = false,
   })  : preferredSize =
             Size.fromHeight(56 + (bottom?.preferredSize?.height ?? 0.0)),
         super(key: key);
@@ -20,6 +21,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Widget leading;
   final Widget trailing;
+  final bool isDark;
   final PreferredSizeWidget bottom;
   final Widget actionButton;
 
@@ -32,13 +34,15 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
     final statusBarHeight = MediaQuery.of(context).padding.top;
     return Container(
       height: preferredSize.height + statusBarHeight,
-      decoration: BoxDecoration(color: EBColors.white, boxShadow: [
-        BoxShadow(
-          color: EBColors.grey100.withOpacity(0.04),
-          blurRadius: 4,
-          offset: Offset(0, 2),
-        ),
-      ]),
+      decoration: BoxDecoration(
+          color: isDark ? EBColors.grey100 : EBColors.grey10,
+          boxShadow: [
+            BoxShadow(
+              color: EBColors.grey100.withOpacity(0.04),
+              blurRadius: 4,
+              offset: Offset(0, 2),
+            ),
+          ]),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -54,11 +58,17 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
                     width: 48,
                     child: useCloseButton
                         ? IconButton(
-                            icon: const Icon(EBIcons.close),
+                            icon: Icon(
+                              EBIcons.close,
+                              color: isDark ? EBColors.white : EBColors.grey100,
+                            ),
                             onPressed: () => Navigator.pop(context),
                           )
                         : IconButton(
-                            icon: const Icon(EBIcons.back),
+                            icon: Icon(
+                              EBIcons.back,
+                              color: isDark ? EBColors.white : EBColors.grey100,
+                            ),
                             onPressed: () => Navigator.pop(context),
                           ),
                   ),
@@ -77,7 +87,8 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
                 Expanded(
                   child: Text(
                     title,
-                    style: EBTextStyles.appBar,
+                    style: EBTextStyles.appBar.copyWith(
+                        color: isDark ? EBColors.white : EBColors.grey100),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),

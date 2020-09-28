@@ -37,7 +37,7 @@ class EBChip extends StatelessWidget {
         ],
       ),
       decoration: BoxDecoration(
-        color: isSelected ? EBColors.primaryLight : EBColors.grey20,
+        color: isSelected ? EBColors.lightBlue : EBColors.grey20,
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
         border: Border.all(
           color: isSelected ? EBColors.primary : EBColors.grey30,

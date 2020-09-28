@@ -8,10 +8,11 @@ import 'dimens.dart';
 mixin EBThemes {
   static ThemeData lightTheme = ThemeData(
     primaryIconTheme: IconThemeData(color: EBColors.grey100),
-    primaryColorLight: EBColors.primaryLight,
+    primaryColorLight: EBColors.lightBlue,
     scaffoldBackgroundColor: EBColors.grey20,
     primaryColor: EBColors.primary,
     accentColor: EBColors.secondary,
+    snackBarTheme: SnackBarThemeData(behavior: SnackBarBehavior.floating),
     dialogTheme: DialogTheme(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
