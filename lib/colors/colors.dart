@@ -27,6 +27,11 @@ class EBColors {
   static const lightOrange = Color(0xFFFFFBF0);
   static const lightGreen = Color(0xFFECFFF9);
 
+  static const white = grey10;
+
+  static const Color textPrimary = grey90;
+  static const Color textSecondary = grey60;
+
   static const Color primary = Color(0xff1669f7);
   static const Color secondary = Color(0xfffcc117);
   static const Color tertiary = Color(0xff6981ec);
@@ -47,15 +52,11 @@ class EBColors {
   static const Color warning = Color(0xffffaD0D);
   static const Color disabled = Color(0xbbafb0b9);
 
-  static const Color textPrimary = Color(0xff182c4f);
-  static const Color textSecondary = Color(0xff7f7f7f);
-
   static const Color darkIcon = Color(0xff292752);
   static const Color lightIcon = Color(0xffafb0b9);
   static const Color bottomNavigationIcon = Color(0xffd8d8de);
   static const Color cardBackground = Color(0xfff9fafc);
 
-  static const Color white = Color(0xffffffff);
   static const Color black = Color(0xff182c4f);
   static const Color lightGrey = Color(0xffededf1);
   static const Color darkGrey = Color(0xff8f909e);

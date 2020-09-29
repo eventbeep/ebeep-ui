@@ -52,9 +52,9 @@ class EBTertiaryButton extends StatelessWidget {
       onPressed: onPressed,
       isLoading: isLoading,
       height: 40,
-      fontSize: 16,
+      fontSize: 14,
       icon: icon,
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 16),
     );
   }
 
@@ -64,7 +64,7 @@ class EBTertiaryButton extends StatelessWidget {
       height: height,
       minWidth: 48,
       shape: RoundedRectangleBorder(
-        side: const BorderSide(color: EBColors.grey30),
+        side: const BorderSide(color: EBColors.grey40),
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),

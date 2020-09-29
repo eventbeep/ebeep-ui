@@ -22,7 +22,11 @@ class EBChip extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Flexible(child: Text(label, style: EBTextStyles.bodyText1)),
+          Flexible(
+              child: Text(label,
+                  style: EBTextStyles.bodyText1.copyWith(
+                      color:
+                          isSelected ? EBColors.primary : EBColors.grey100))),
           if (onDeleted != null) ...[
             EBSpacers.width12,
             GestureDetector(
@@ -37,10 +41,11 @@ class EBChip extends StatelessWidget {
         ],
       ),
       decoration: BoxDecoration(
-        color: isSelected ? EBColors.lightBlue : EBColors.grey20,
+        color: isSelected ? EBColors.lightBlue : EBColors.grey10,
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
         border: Border.all(
           color: isSelected ? EBColors.primary : EBColors.grey30,
+          width: isSelected ? 2 : 1,
         ),
       ),
     );

@@ -79,6 +79,7 @@ class EBTextField extends StatelessWidget {
               borderSide: BorderSide(width: 2, color: EBColors.primary),
               borderRadius: BorderRadius.circular(EBDimens.borderRadius),
             ),
+            hintStyle: EBTextStyles.bodyText1.copyWith(color: EBColors.grey50),
             hintText: hintText,
             counterText: '',
             errorText: errorText,

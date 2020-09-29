@@ -7,7 +7,7 @@ class EBTag extends StatelessWidget {
   const EBTag({
     Key key,
     @required this.text,
-    this.color = EBColors.primary,
+    this.color = EBColors.lightBlue,
   }) : super(key: key);
 
   final String text;
@@ -20,13 +20,10 @@ class EBTag extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
         color: color,
       ),
-      padding: const EdgeInsets.all(6),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       child: Text(
         text,
-        style: EBTextStyles.caption.copyWith(
-          fontWeight: FontWeight.bold,
-          color: EBColors.white,
-        ),
+        style: EBTextStyles.caption.copyWith(color: EBColors.textPrimary),
       ),
     );
   }

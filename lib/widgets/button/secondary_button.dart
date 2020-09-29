@@ -52,9 +52,9 @@ class EBSecondaryButton extends StatelessWidget {
       onPressed: onPressed,
       isLoading: isLoading,
       height: 40,
-      fontSize: 16,
+      fontSize: 14,
       icon: icon,
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 16),
     );
   }
 
@@ -64,14 +64,14 @@ class EBSecondaryButton extends StatelessWidget {
       height: height,
       minWidth: 48,
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: Color(0xFFDDEAFF)),
+        side: BorderSide(color: EBColors.primary),
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
       child: FlatButton(
         padding: padding,
         textColor: EBColors.primary,
-        color: Color(0xFFF1F6FE),
+        color: EBColors.grey10,
         child: isLoading
             ? const EBLoading(radius: 8, color: EBColors.primary)
             : Row(
