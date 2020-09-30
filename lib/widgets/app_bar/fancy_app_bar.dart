@@ -1,33 +1,41 @@
 import 'package:flutter/material.dart';
 
-import '../../colors/colors.dart';
-import '../../shared/icons.dart';
 import '../../widgets.dart';
 
 class FancyAppBar extends StatelessWidget {
-  const FancyAppBar({Key key}) : super(key: key);
+  const FancyAppBar({
+    Key key,
+    @required this.color,
+    @required this.backgroundColor,
+    @required this.title,
+    @required this.icon,
+  }) : super(key: key);
+
+  final Color color;
+  final Color backgroundColor;
+  final String title;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
     final statusBarHeight = MediaQuery.of(context).padding.top;
     return BottomWaveContainer(
-      Container(
+      shadowColor: color.withOpacity(0.16),
+      child: Container(
         padding: EdgeInsets.only(
-          top: 32 + statusBarHeight,
-          bottom: 72,
+          top: 40 + statusBarHeight,
+          bottom: 74,
           left: 16,
           right: 16,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('THis is an amaozng', style: EBTextStyles.headline5),
-            Icon(EBIcons.two_users, size: 56),
+            Text(title, style: EBTextStyles.headline5.copyWith(color: color)),
+            Icon(icon, size: 56, color: color),
           ],
         ),
-        decoration: BoxDecoration(
-          color: EBColors.lightBlue,
-        ),
+        decoration: BoxDecoration(color: backgroundColor),
       ),
     );
   }
@@ -35,8 +43,12 @@ class FancyAppBar extends StatelessWidget {
 
 class BottomWaveContainer extends StatelessWidget {
   final Widget child;
+  final Color shadowColor;
 
-  BottomWaveContainer(this.child);
+  BottomWaveContainer({
+    this.child,
+    this.shadowColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +57,9 @@ class BottomWaveContainer extends StatelessWidget {
       painter: _ClipShadowShadowPainter(
         clipper: const BottomWaveClipper(),
         shadow: Shadow(
-          blurRadius: 8,
-          color: EBColors.primary.withOpacity(0.3),
+          blurRadius: 12,
+          offset: const Offset(0, 4),
+          color: shadowColor,
         ),
       ),
       child: ClipPath(child: child, clipper: const BottomWaveClipper()),
