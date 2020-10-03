@@ -21,5 +21,4 @@ export 'widgets/tag/tag.dart';
 export 'widgets/text/read_more_text.dart';
 export 'widgets/text/text.dart';
 export 'widgets/text/text_styles.dart';
-export 'widgets/text_field/otp_field.dart';
 export 'widgets/text_field/text_field.dart';
