@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
 
 import '../../colors/colors.dart';
 import '../../widgets.dart';
@@ -172,13 +173,11 @@ class ReadMoreTextState extends State<ReadMoreText> {
                 'TrimMode type: ${widget.trimMode} is not supported');
         }
 
-        return RichText(
+        return Linkify(
           textAlign: textAlign,
           textDirection: textDirection,
           softWrap: true,
-          //softWrap,
           overflow: TextOverflow.clip,
-          //overflow,
           textScaleFactor: textScaleFactor,
           text: textSpan,
         );
