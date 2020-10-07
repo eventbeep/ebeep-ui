@@ -173,7 +173,7 @@ class ReadMoreTextState extends State<ReadMoreText> {
                 'TrimMode type: ${widget.trimMode} is not supported');
         }
 
-        return Linkify(
+        return RichText(
           textAlign: textAlign,
           textDirection: textDirection,
           softWrap: true,
