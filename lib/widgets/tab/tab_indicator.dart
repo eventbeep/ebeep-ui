@@ -14,11 +14,11 @@ import '../../shared.dart';
 
 class EBTabIndicator extends Decoration {
   const EBTabIndicator({
-    this.indicatorHeight = 48.0,
-    this.indicatorRadius = 8,
-    this.tabBarIndicatorSize = TabBarIndicatorSize.label,
+    this.indicatorHeight = 40,
+    this.indicatorRadius = 6,
+    this.tabBarIndicatorSize = TabBarIndicatorSize.tab,
     this.padding = const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-    this.insets = const EdgeInsets.symmetric(horizontal: 5.0),
+    this.insets = const EdgeInsets.symmetric(horizontal: 2),
   })  : assert(indicatorHeight != null),
         assert(indicatorRadius != null),
         assert(padding != null),
@@ -71,11 +71,6 @@ class _BubblePainter extends BoxPainter {
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     assert(configuration != null);
     assert(configuration.size != null);
-    const Gradient gradient = LinearGradient(
-      colors: EBGradients.appBarGradient,
-      begin: FractionalOffset.topCenter,
-      end: FractionalOffset.bottomCenter,
-    );
     final rect = Offset(
             offset.dx, (configuration.size.height / 2) - indicatorHeight / 2) &
         Size(configuration.size.width, indicatorHeight);
@@ -83,7 +78,8 @@ class _BubblePainter extends BoxPainter {
     final indicator = _indicatorRectFor(rect, textDirection);
     final paint = Paint();
     paint.style = PaintingStyle.fill;
-    paint.shader = gradient.createShader(rect);
+    // paint.shader = gradient.createShader(rect);
+    paint.color = EBColors.grey10;
     canvas.drawRRect(
         RRect.fromRectAndRadius(indicator, Radius.circular(indicatorRadius)),
         paint);

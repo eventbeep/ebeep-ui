@@ -9,7 +9,7 @@ class EBCard extends StatelessWidget {
     @required this.child,
     this.backgroundColor = EBColors.white,
     this.borderRadius = EBDimens.borderRadius,
-    this.contentPadding = const EdgeInsets.all(16),
+    this.contentPadding = const EdgeInsets.all(EBDimens.padding),
     Key key,
   }) : super(key: key);
 

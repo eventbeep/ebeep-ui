@@ -13,6 +13,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.trailing,
     this.bottom,
     this.actionButton,
+    this.hasShadow = true,
     this.isDark = false,
   })  : preferredSize =
             Size.fromHeight(56 + (bottom?.preferredSize?.height ?? 0.0)),
@@ -22,6 +23,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget leading;
   final Widget trailing;
   final bool isDark;
+  final bool hasShadow;
   final PreferredSizeWidget bottom;
   final Widget actionButton;
 
@@ -36,13 +38,15 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
       height: preferredSize.height + statusBarHeight,
       decoration: BoxDecoration(
           color: isDark ? EBColors.grey100 : EBColors.grey10,
-          boxShadow: [
-            BoxShadow(
-              color: EBColors.grey100.withOpacity(0.04),
-              blurRadius: 4,
-              offset: Offset(0, 2),
-            ),
-          ]),
+          boxShadow: hasShadow
+              ? [
+                  BoxShadow(
+                    color: EBColors.grey100.withOpacity(0.04),
+                    blurRadius: 4,
+                    offset: Offset(0, 2),
+                  ),
+                ]
+              : null),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
