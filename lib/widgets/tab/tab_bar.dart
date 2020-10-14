@@ -1,3 +1,4 @@
+import 'package:ebeep_ui/widgets/text/text_styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared.dart';
@@ -13,6 +14,7 @@ class EBTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 40,
       padding: const EdgeInsets.all(2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
@@ -20,6 +22,9 @@ class EBTabBar extends StatelessWidget {
       ),
       child: TabBar(
         tabs: tabs,
+        labelStyle:
+            EBTextStyles.bodyText2.copyWith(fontWeight: FontWeight.w500),
+        unselectedLabelStyle: EBTextStyles.bodyText2,
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           color: EBColors.grey10,
