@@ -1,7 +1,7 @@
-import 'package:ebeep_ui/widgets/text/text_styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared.dart';
+import '../text/text_styles.dart';
 
 class EBTabBar extends StatelessWidget {
   const EBTabBar({
