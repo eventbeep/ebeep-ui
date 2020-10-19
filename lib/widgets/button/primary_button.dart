@@ -11,6 +11,7 @@ class EBPrimaryButton extends StatelessWidget {
     @required this.onPressed,
     this.title = '',
     this.height = 48,
+    this.minWidth = 48,
     this.isLoading = false,
     this.fontSize = 16,
     this.padding = const EdgeInsets.all(16),
@@ -20,6 +21,7 @@ class EBPrimaryButton extends StatelessWidget {
 
   final String title;
   final double height;
+  final double minWidth;
   final Function onPressed;
   final bool isLoading;
   final double fontSize;
@@ -33,12 +35,14 @@ class EBPrimaryButton extends StatelessWidget {
     bool isLoading = false,
     Color color = EBColors.primary,
     Icon icon,
+    double minWidth = 40,
   }) {
     return EBPrimaryButton(
       title: title,
       onPressed: onPressed,
       isLoading: isLoading,
       height: 40,
+      minWidth: minWidth,
       fontSize: 16,
       icon: icon,
       color: color,
@@ -58,6 +62,7 @@ class EBPrimaryButton extends StatelessWidget {
       onPressed: onPressed,
       isLoading: isLoading,
       height: 36,
+      minWidth: 36,
       fontSize: 14,
       icon: icon,
       color: color,
@@ -69,7 +74,7 @@ class EBPrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ButtonTheme(
       height: height,
-      minWidth: 48,
+      minWidth: minWidth,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),

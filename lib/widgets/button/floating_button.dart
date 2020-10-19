@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import '../../shared.dart';
 
 class EBFloatingButton extends StatelessWidget {
-  const EBFloatingButton(
-      {@required this.icon,
-      @required this.onPressed,
-      this.increaseHeightBy = 30.0,
-      this.increaseWidthBy = 0.0,
-      this.elevation = 8.0,
-      this.materialTapTargetSize,
-      this.heroTag,
-      this.tooltip,
-      this.shape});
+  const EBFloatingButton({
+    @required this.icon,
+    @required this.onPressed,
+    this.increaseHeightBy = 30.0,
+    this.increaseWidthBy = 0.0,
+    this.elevation = 8.0,
+    this.materialTapTargetSize,
+    this.heroTag,
+    this.tooltip,
+    this.shape,
+  });
 
   final Widget icon;
   final VoidCallback onPressed;

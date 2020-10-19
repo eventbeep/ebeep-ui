@@ -21,8 +21,6 @@ class EBBottomAppBar extends StatelessWidget {
     @required this.items,
     @required this.onTabSelected,
     @required this.selectedItemIndex,
-    this.centerItemText,
-    this.centerItemOnPressed,
     this.iconSize = 24,
     this.height = 56,
     this.color = EBColors.lightIcon,
@@ -33,7 +31,6 @@ class EBBottomAppBar extends StatelessWidget {
   }) : assert(items.length > 1);
 
   final Color backgroundColor;
-  final String centerItemText;
   final Color color;
   final double height;
   final double iconSize;
@@ -42,7 +39,6 @@ class EBBottomAppBar extends StatelessWidget {
   final ValueChanged<int> onTabSelected;
   final Color selectedColor;
   final int selectedItemIndex;
-  final Function centerItemOnPressed;
   final Widget centerItem;
 
   @override
@@ -54,7 +50,7 @@ class EBBottomAppBar extends StatelessWidget {
         onPressed: onTabSelected,
       );
     });
-    if (centerItemText != null) {
+    if (centerItem != null) {
       tabItems.insert(tabItems.length >> 1, _buildMiddleTabItem());
     }
     return BottomAppBar(
@@ -69,24 +65,7 @@ class EBBottomAppBar extends StatelessWidget {
     return Expanded(
       child: SizedBox(
         height: height,
-        child: InkWell(
-          onTap: centerItemOnPressed,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              centerItem,
-              EBSpacers.height4,
-              Text(
-                centerItemText,
-                style: EBTextStyles.caption.copyWith(
-                  color: color,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-        ),
+        child: centerItem,
       ),
     );
   }

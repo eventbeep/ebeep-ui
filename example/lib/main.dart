@@ -38,11 +38,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         onTabSelected: (index) => print(index),
         backgroundColor: EBColors.quaternary,
-        centerItemText: 'Search',
       ),
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.menu),
+          icon: const Icon(Icons.menu),
           onPressed: () => null,
         ),
         title: Text('EventBeep'),

@@ -5,6 +5,7 @@ export 'widgets/app_bar/fancy_app_bar.dart';
 export 'widgets/bottom_appbar/bottom_appbar.dart';
 export 'widgets/bottom_sheet/bottom_sheet.dart';
 export 'widgets/button/floating_button.dart';
+export 'widgets/button/icon_button.dart';
 export 'widgets/button/primary_button.dart';
 export 'widgets/button/secondary_button.dart';
 export 'widgets/button/tertiary_button.dart';
