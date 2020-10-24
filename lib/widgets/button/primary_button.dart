@@ -15,6 +15,7 @@ class EBPrimaryButton extends StatelessWidget {
     this.isLoading = false,
     this.fontSize = 16,
     this.padding = const EdgeInsets.all(16),
+    this.gap = EBSpacers.width16,
     this.color = EBColors.primary,
     this.icon,
   }) : super(key: key);
@@ -28,6 +29,7 @@ class EBPrimaryButton extends StatelessWidget {
   final EdgeInsets padding;
   final Icon icon;
   final Color color;
+  final Widget gap;
 
   factory EBPrimaryButton.medium({
     String title = '',
@@ -42,6 +44,7 @@ class EBPrimaryButton extends StatelessWidget {
       onPressed: onPressed,
       isLoading: isLoading,
       height: 40,
+      gap: EBSpacers.width12,
       minWidth: minWidth,
       fontSize: 16,
       icon: icon,
@@ -63,6 +66,7 @@ class EBPrimaryButton extends StatelessWidget {
       isLoading: isLoading,
       height: 36,
       minWidth: 36,
+      gap: EBSpacers.width8,
       fontSize: 14,
       icon: icon,
       color: color,
@@ -91,7 +95,7 @@ class EBPrimaryButton extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   if (icon != null) icon,
-                  if (icon != null && title.isNotEmpty) EBSpacers.width16,
+                  if (icon != null && title.isNotEmpty) gap,
                   if (title.isNotEmpty)
                     Text(
                       title,

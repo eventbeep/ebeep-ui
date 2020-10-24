@@ -12,6 +12,7 @@ class EBTertiaryButton extends StatelessWidget {
     this.fontSize = 16,
     this.isLoading = false,
     this.padding = const EdgeInsets.all(16),
+    this.gap = EBSpacers.width16,
     this.icon,
   }) : super(key: key);
 
@@ -22,6 +23,7 @@ class EBTertiaryButton extends StatelessWidget {
   final double fontSize;
   final EdgeInsets padding;
   final Widget icon;
+  final Widget gap;
 
   factory EBTertiaryButton.small({
     @required Function onPressed,
@@ -35,6 +37,7 @@ class EBTertiaryButton extends StatelessWidget {
       isLoading: isLoading,
       fontSize: 14,
       height: 36,
+      gap: EBSpacers.width8,
       icon: icon,
       padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 12),
     );
@@ -53,6 +56,7 @@ class EBTertiaryButton extends StatelessWidget {
       isLoading: isLoading,
       height: 40,
       fontSize: 14,
+      gap: EBSpacers.width12,
       icon: icon,
       padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 16),
     );
@@ -78,7 +82,7 @@ class EBTertiaryButton extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   if (icon != null) icon,
-                  if (icon != null && title.isNotEmpty) EBSpacers.width16,
+                  if (icon != null && title.isNotEmpty) gap,
                   if (title.isNotEmpty)
                     Text(
                       title,

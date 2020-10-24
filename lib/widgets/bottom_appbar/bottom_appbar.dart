@@ -101,13 +101,8 @@ class EBBottomAppBar extends StatelessWidget {
                   children: <Widget>[
                     Icon(item.iconData, color: tabColor, size: iconSize),
                     EBSpacers.height4,
-                    Text(
-                      item.text,
-                      style: EBTextStyles.caption.copyWith(
-                        color: tabColor,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                    Text(item.text,
+                        style: EBTextStyles.caption.copyWith(color: tabColor)),
                   ],
                 ),
               ),
