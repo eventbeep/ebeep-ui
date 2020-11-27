@@ -53,8 +53,12 @@ class EBSecondaryButton extends StatelessWidget {
     @required Function onPressed,
     bool isLoading = false,
     Icon icon,
+    Color color = EBColors.grey10,
+    Color textColor = EBColors.primary,
   }) {
     return EBSecondaryButton(
+      color: color,
+      textColor: textColor,
       title: title,
       onPressed: onPressed,
       isLoading: isLoading,
