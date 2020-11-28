@@ -13,6 +13,8 @@ class EBSecondaryButton extends StatelessWidget {
     this.isLoading = false,
     this.padding = const EdgeInsets.all(16),
     this.icon,
+    this.color = EBColors.grey10,
+    this.textColor = EBColors.primary,
   }) : super(key: key);
 
   final String title;
@@ -22,14 +24,20 @@ class EBSecondaryButton extends StatelessWidget {
   final double fontSize;
   final EdgeInsets padding;
   final Widget icon;
+  final Color color;
+  final Color textColor;
 
   factory EBSecondaryButton.small({
     @required Function onPressed,
+    Color color = EBColors.grey10,
+    Color textColor = EBColors.primary,
     String title = '',
     bool isLoading = false,
     Icon icon,
   }) {
     return EBSecondaryButton(
+      color: color,
+      textColor: textColor,
       title: title,
       onPressed: onPressed,
       isLoading: isLoading,
@@ -44,10 +52,13 @@ class EBSecondaryButton extends StatelessWidget {
     String title = '',
     @required Function onPressed,
     bool isLoading = false,
-    Color color = EBColors.primary,
     Icon icon,
+    Color color = EBColors.grey10,
+    Color textColor = EBColors.primary,
   }) {
     return EBSecondaryButton(
+      color: color,
+      textColor: textColor,
       title: title,
       onPressed: onPressed,
       isLoading: isLoading,
@@ -70,8 +81,8 @@ class EBSecondaryButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
       child: FlatButton(
         padding: padding,
-        textColor: EBColors.primary,
-        color: EBColors.grey10,
+        textColor: textColor,
+        color: color,
         child: isLoading
             ? const EBLoading(radius: 8, color: EBColors.primary)
             : Row(
