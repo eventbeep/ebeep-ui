@@ -67,3 +67,46 @@ class BottomWaveContainer extends StatelessWidget {
     );
   }
 }
+
+class BottomCurveContainer extends StatelessWidget {
+  BottomCurveContainer({
+    this.child,
+    this.shadowColor,
+  });
+
+  final Widget child;
+  final Color shadowColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      key: UniqueKey(),
+      painter: ClipShadowShadowPainter(
+        clipper: const BottomWaveClipper(),
+        shadow: Shadow(
+          blurRadius: 12,
+          offset: const Offset(0, 4),
+          color: shadowColor,
+        ),
+      ),
+      child: ClipPath(child: child, clipper: const BottomCurveClipper()),
+    );
+  }
+}
+
+class BottomCurveClipper extends CustomClipper<Path> {
+  const BottomCurveClipper() : super();
+
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(0, size.height - 75);
+    path.quadraticBezierTo(
+        size.width / 2, size.height, size.width, size.height - 75);
+    path.lineTo(size.width, 0);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
+}
