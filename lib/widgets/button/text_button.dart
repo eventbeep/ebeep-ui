@@ -21,7 +21,13 @@ class EBTextButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
       child: FlatButton(
-        child: Text(title),
+        child: Text(
+          title,
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
         onPressed: onPressed,
       ),
     );
