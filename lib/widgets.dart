@@ -9,6 +9,7 @@ export 'widgets/button/icon_button.dart';
 export 'widgets/button/primary_button.dart';
 export 'widgets/button/secondary_button.dart';
 export 'widgets/button/tertiary_button.dart';
+export 'widgets/button/text_button.dart';
 export 'widgets/card/card.dart';
 export 'widgets/card/fancy_card.dart';
 export 'widgets/carousal/carousal.dart';

@@ -99,7 +99,7 @@ class BottomCurveClipper extends CustomClipper<Path> {
 
   @override
   Path getClip(Size size) {
-    Path path = Path();
+    final path = Path();
     path.lineTo(0, size.height - 75);
     path.quadraticBezierTo(
         size.width / 2, size.height, size.width, size.height - 75);
