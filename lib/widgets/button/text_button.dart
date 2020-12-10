@@ -26,6 +26,7 @@ class EBTextButton extends StatelessWidget {
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.normal,
+            color: EBColors.primary,
           ),
         ),
         onPressed: onPressed,
