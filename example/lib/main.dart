@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
           EBBottomAppBarItem(iconData: Icons.insert_chart, text: 'Analytics'),
           EBBottomAppBarItem(iconData: Icons.people, text: 'Manage'),
         ],
-        onTabSelected: (index) => print(index),
+        onTabSelected: print,
         backgroundColor: EBColors.quaternary,
       ),
       appBar: AppBar(

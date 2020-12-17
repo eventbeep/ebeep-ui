@@ -13,7 +13,7 @@ class EBColors {
   static const grey60 = Color(0xFF838992);
   static const grey50 = Color(0xFFB5B8BE);
   static const grey40 = Color(0xFFDFE1E5);
-  static const grey30 = Color(0xFFF0F1F5);
+  static const grey30 = Color(0xFFEBECF2);
   static const grey20 = Color(0xFFFAFBFC);
   static const grey10 = Color(0xFFFFFFFF);
 
