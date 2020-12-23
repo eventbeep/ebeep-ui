@@ -86,6 +86,7 @@ class EBPrimaryButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
       child: RaisedButton(
         padding: padding,
+        elevation: 0,
         color: color,
         textColor: EBColors.white,
         disabledTextColor: EBColors.white,
