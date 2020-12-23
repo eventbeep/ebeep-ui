@@ -12,7 +12,13 @@ mixin EBThemes {
     scaffoldBackgroundColor: EBColors.grey20,
     primaryColor: EBColors.primary,
     accentColor: EBColors.secondary,
-    snackBarTheme: SnackBarThemeData(behavior: SnackBarBehavior.floating),
+    snackBarTheme: SnackBarThemeData(
+      backgroundColor: EBColors.primary,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(EBDimens.borderRadius),
+      ),
+      behavior: SnackBarBehavior.floating,
+    ),
     dialogTheme: DialogTheme(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
