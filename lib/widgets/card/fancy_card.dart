@@ -42,7 +42,10 @@ class FancyCard extends StatelessWidget {
                 ],
               ),
             ),
-            trailing,
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
+              child: trailing,
+            ),
           ],
         ),
         decoration: BoxDecoration(color: EBColors.grey10),

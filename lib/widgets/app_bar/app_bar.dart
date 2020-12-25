@@ -10,7 +10,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
     Key key,
     this.title = '',
     this.leading,
-    this.trailing,
+    this.actions = const [],
     this.bottom,
     this.actionButton,
     this.hasShadow = true,
@@ -21,7 +21,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final String title;
   final Widget leading;
-  final Widget trailing;
+  final List<Widget> actions;
   final bool isDark;
   final bool hasShadow;
   final PreferredSizeWidget bottom;
@@ -99,11 +99,13 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
                 EBSpacers.width16,
-                if (trailing != null) ...[
-                  SizedBox(
-                    height: 48,
-                    width: 48,
-                    child: Center(child: trailing),
+                if (actions.isNotEmpty) ...[
+                  ...actions.map(
+                    (widget) => SizedBox(
+                      height: 48,
+                      width: 48,
+                      child: Center(child: widget),
+                    ),
                   ),
                   EBSpacers.width4,
                 ],
