@@ -75,7 +75,8 @@ class EBSecondaryButton extends StatelessWidget {
       height: height,
       minWidth: 48,
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: EBColors.primary),
+        side: BorderSide(
+            color: onPressed == null ? EBColors.grey50 : EBColors.primary),
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),

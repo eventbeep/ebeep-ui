@@ -9,32 +9,61 @@ class EBChip extends StatelessWidget {
     @required this.label,
     this.onDeleted,
     this.isSelected = false,
+    this.padding = const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+    this.labelStyle = EBTextStyles.bodyText1,
+    this.iconSize = 20,
+    this.cornerRadius = EBDimens.borderRadius,
   }) : super(key: key);
 
   final String label;
   final Function onDeleted;
   final bool isSelected;
+  final EdgeInsets padding;
+  final TextStyle labelStyle;
+  final double iconSize;
+  final double cornerRadius;
+
+  factory EBChip.small({
+    Key key,
+    @required String label,
+    Function onDeleted,
+    bool isSelected = false,
+  }) {
+    return EBChip(
+      key: key,
+      label: label,
+      onDeleted: onDeleted,
+      isSelected: isSelected,
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+      labelStyle: EBTextStyles.caption,
+      iconSize: 12,
+      cornerRadius: 6,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+      padding: padding,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Flexible(
-              child: Text(label,
-                  style: EBTextStyles.bodyText1.copyWith(
-                      color:
-                          isSelected ? EBColors.primary : EBColors.grey100))),
+            child: Text(
+              label,
+              style: labelStyle.copyWith(
+                color: isSelected ? EBColors.primary : EBColors.grey100,
+              ),
+            ),
+          ),
           if (onDeleted != null) ...[
             EBSpacers.width12,
             GestureDetector(
               onTap: onDeleted,
-              child: const Icon(
+              child: Icon(
                 Icons.cancel,
                 color: EBColors.primary,
-                size: 20,
+                size: iconSize,
               ),
             ),
           ],
@@ -42,10 +71,10 @@ class EBChip extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: isSelected ? EBColors.lightBlue : EBColors.grey10,
-        borderRadius: BorderRadius.circular(EBDimens.borderRadius),
+        borderRadius: BorderRadius.circular(cornerRadius),
         border: Border.all(
           color: isSelected ? EBColors.primary : EBColors.grey30,
-          width: isSelected ? 2 : 1,
+          width: 1,
         ),
       ),
     );
