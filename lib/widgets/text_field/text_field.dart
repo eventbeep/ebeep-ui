@@ -19,7 +19,7 @@ class EBTextField extends StatelessWidget {
     this.maxLines,
     this.controller,
     this.onTap,
-    this.icon,
+    this.prefix,
     this.suffix,
     this.autofocus = false,
     this.enabled = true,
@@ -35,13 +35,13 @@ class EBTextField extends StatelessWidget {
   final String errorText;
   final String labelText;
   final String hintText;
-  final IconData icon;
   final int maxLength;
   final int maxLines;
   final Function onChanged;
   final Function onSubmit;
   final Function onTap;
   final Widget suffix;
+  final Widget prefix;
   final TextCapitalization textCapitalization;
   final TextInputType textInputType;
 
@@ -84,7 +84,7 @@ class EBTextField extends StatelessWidget {
             counterText: '',
             errorText: errorText,
             suffixIcon: suffix,
-            prefixIcon: (icon == null) ? null : Icon(icon),
+            prefixIcon: prefix,
           ),
         ),
       ],
