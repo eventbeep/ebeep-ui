@@ -80,7 +80,7 @@ class EBSecondaryButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
-      child: FlatButton(
+      child: MaterialButton(
         padding: padding,
         textColor: textColor,
         color: color,

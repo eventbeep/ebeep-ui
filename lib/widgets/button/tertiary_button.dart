@@ -72,7 +72,7 @@ class EBTertiaryButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
-      child: FlatButton(
+      child: MaterialButton(
         padding: padding,
         textColor: EBColors.grey90,
         color: EBColors.grey10,

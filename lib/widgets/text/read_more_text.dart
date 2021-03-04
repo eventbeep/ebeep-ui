@@ -72,7 +72,7 @@ class ReadMoreTextState extends State<ReadMoreText> {
         widget.textScaleFactor ?? MediaQuery.textScaleFactorOf(context);
     final overflow = defaultTextStyle.overflow;
     final locale =
-        widget.locale ?? Localizations.localeOf(context, nullOk: true);
+        widget.locale ?? Localizations.maybeLocaleOf(context);
 
     final link = TextSpan(
       text: _readMore ? widget.trimCollapsedText : widget.trimExpandedText,

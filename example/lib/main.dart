@@ -78,11 +78,11 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 child: const Text('Click here', style: EBTextStyles.button),
                 onPressed: () => null,
               ),
-              RaisedButton.icon(
+              ElevatedButton.icon(
                 icon: Icon(Icons.message, color: EBColors.white),
                 label: const Text('Click here', style: EBTextStyles.button),
                 onPressed: () => null,
@@ -93,11 +93,11 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              OutlineButton(
+              OutlinedButton(
                 child: const Text('Click here'),
                 onPressed: () => null,
               ),
-              OutlineButton.icon(
+              OutlinedButton.icon(
                 icon: Icon(Icons.message),
                 label: const Text('Click here'),
                 onPressed: () => null,
@@ -108,11 +108,11 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              FlatButton(
+              TextButton(
                 child: const Text('Click here'),
                 onPressed: () => null,
               ),
-              FlatButton.icon(
+              TextButton.icon(
                 icon: Icon(Icons.message),
                 label: const Text('Click here'),
                 onPressed: () => null,

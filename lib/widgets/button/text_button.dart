@@ -20,7 +20,7 @@ class EBTextButton extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
-      child: FlatButton(
+      child: TextButton(
         child: Text(
           title,
           style: TextStyle(
