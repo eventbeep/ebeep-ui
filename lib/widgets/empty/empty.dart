@@ -12,6 +12,11 @@ class EBEmpty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text(message, style: EBTextStyles.bodyText1));
+    return Center(
+      child: Text(
+        message,
+        style: EBTextStyles.bodyText1.copyWith(color: EBColors.grey70),
+      ),
+    );
   }
 }
