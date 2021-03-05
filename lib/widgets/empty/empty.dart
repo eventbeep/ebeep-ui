@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../shared.dart';
 import '../../widgets.dart';
 
 class EBEmpty extends StatelessWidget {
