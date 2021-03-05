@@ -84,6 +84,9 @@ class EBSecondaryButton extends StatelessWidget {
         padding: padding,
         textColor: textColor,
         color: color,
+        disabledColor: EBColors.grey50,
+        disabledTextColor: EBColors.white,
+        elevation: 0,
         child: isLoading
             ? const EBLoading(radius: 8, color: EBColors.primary)
             : Row(

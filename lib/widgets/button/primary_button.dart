@@ -89,6 +89,7 @@ class EBPrimaryButton extends StatelessWidget {
         elevation: 0,
         color: color,
         textColor: EBColors.white,
+        disabledColor: EBColors.grey50,
         disabledTextColor: EBColors.white,
         child: isLoading
             ? const EBLoading(radius: 8, color: EBColors.white)

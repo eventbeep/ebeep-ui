@@ -74,6 +74,9 @@ class EBTertiaryButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
       child: MaterialButton(
         padding: padding,
+        elevation: 0,
+        disabledColor: EBColors.grey50,
+        disabledTextColor: EBColors.white,
         textColor: EBColors.grey90,
         color: EBColors.grey10,
         child: isLoading
