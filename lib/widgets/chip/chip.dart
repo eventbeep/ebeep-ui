@@ -5,8 +5,8 @@ import '../../widgets.dart';
 
 class EBChip extends StatelessWidget {
   const EBChip({
-    Key key,
-    @required this.label,
+    Key? key,
+    required this.label,
     this.onDeleted,
     this.isSelected = false,
     this.padding = const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -16,7 +16,7 @@ class EBChip extends StatelessWidget {
   }) : super(key: key);
 
   final String label;
-  final Function onDeleted;
+  final Function? onDeleted;
   final bool isSelected;
   final EdgeInsets padding;
   final TextStyle labelStyle;
@@ -24,9 +24,9 @@ class EBChip extends StatelessWidget {
   final double cornerRadius;
 
   factory EBChip.small({
-    Key key,
-    @required String label,
-    Function onDeleted,
+    Key? key,
+    required String label,
+    Function? onDeleted,
     bool isSelected = false,
   }) {
     return EBChip(
@@ -59,7 +59,7 @@ class EBChip extends StatelessWidget {
           if (onDeleted != null) ...[
             EBSpacers.width12,
             GestureDetector(
-              onTap: onDeleted,
+              onTap: onDeleted as void Function()?,
               child: Icon(
                 Icons.cancel,
                 color: EBColors.primary,

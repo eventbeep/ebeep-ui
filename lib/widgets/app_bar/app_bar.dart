@@ -7,7 +7,7 @@ import '../../widgets.dart';
 
 class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
   EBAppBar({
-    Key key,
+    Key? key,
     this.title = '',
     this.leading,
     this.actions = const [],
@@ -16,20 +16,20 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.hasShadow = true,
     this.isDark = false,
   })  : preferredSize =
-            Size.fromHeight(56 + (bottom?.preferredSize?.height ?? 0.0)),
+            Size.fromHeight(56 + (bottom?.preferredSize.height ?? 0.0)),
         super(key: key);
 
   final String title;
-  final Widget leading;
+  final Widget? leading;
   final List<Widget> actions;
   final bool isDark;
   final bool hasShadow;
-  final PreferredSizeWidget bottom;
-  final Widget actionButton;
+  final PreferredSizeWidget? bottom;
+  final Widget? actionButton;
 
   @override
   Widget build(BuildContext context) {
-    final ModalRoute<dynamic> parentRoute = ModalRoute.of(context);
+    final ModalRoute<dynamic>? parentRoute = ModalRoute.of(context);
     final canPop = parentRoute?.canPop ?? false;
     final useCloseButton =
         parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
@@ -110,13 +110,13 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
                   EBSpacers.width4,
                 ],
                 if (actionButton != null) ...[
-                  actionButton,
+                  actionButton ?? const SizedBox(),
                   EBSpacers.width16,
                 ]
               ],
             ),
           ),
-          if (bottom != null) bottom,
+          if (bottom != null) bottom!,
         ],
       ),
     );

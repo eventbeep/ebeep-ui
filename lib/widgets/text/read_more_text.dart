@@ -12,7 +12,7 @@ enum TrimMode {
 class ReadMoreText extends StatefulWidget {
   const ReadMoreText(
     this.data, {
-    Key key,
+    Key? key,
     this.trimExpandedText = ' read less',
     this.trimCollapsedText = ' read more',
     this.colorClickableText,
@@ -25,22 +25,21 @@ class ReadMoreText extends StatefulWidget {
     this.locale,
     this.textScaleFactor,
     this.semanticsLabel,
-  })  : assert(data != null),
-        super(key: key);
+  }) : super(key: key);
 
   final String data;
   final String trimExpandedText;
   final String trimCollapsedText;
-  final Color colorClickableText;
+  final Color? colorClickableText;
   final int trimLength;
   final int trimLines;
   final TrimMode trimMode;
   final TextStyle style;
-  final TextAlign textAlign;
-  final TextDirection textDirection;
-  final Locale locale;
-  final double textScaleFactor;
-  final String semanticsLabel;
+  final TextAlign? textAlign;
+  final TextDirection? textDirection;
+  final Locale? locale;
+  final double? textScaleFactor;
+  final String? semanticsLabel;
 
   @override
   ReadMoreTextState createState() => ReadMoreTextState();
@@ -61,7 +60,7 @@ class ReadMoreTextState extends State<ReadMoreText> {
   Widget build(BuildContext context) {
     final defaultTextStyle = DefaultTextStyle.of(context);
     var effectiveTextStyle = widget.style;
-    if (widget.style == null || widget.style.inherit) {
+    if (widget.style.inherit) {
       effectiveTextStyle = defaultTextStyle.style.merge(widget.style);
     }
 
@@ -71,8 +70,7 @@ class ReadMoreTextState extends State<ReadMoreText> {
     final textScaleFactor =
         widget.textScaleFactor ?? MediaQuery.textScaleFactorOf(context);
     final overflow = defaultTextStyle.overflow;
-    final locale =
-        widget.locale ?? Localizations.maybeLocaleOf(context);
+    final locale = widget.locale ?? Localizations.maybeLocaleOf(context);
 
     final link = TextSpan(
       text: _readMore ? widget.trimCollapsedText : widget.trimExpandedText,

@@ -5,8 +5,8 @@ import '../../widgets.dart';
 
 class EBTag extends StatelessWidget {
   const EBTag({
-    Key key,
-    @required this.text,
+    Key? key,
+    required this.text,
     this.color = EBColors.lightBlue,
   }) : super(key: key);
 

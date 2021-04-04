@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class EBIndicator extends AnimatedWidget {
   const EBIndicator({
-    this.controller,
+    required this.controller,
     this.itemCount,
     this.onPageSelected,
     this.color = Colors.white,
@@ -19,10 +19,10 @@ class EBIndicator extends AnimatedWidget {
   final PageController controller;
 
   /// The number of items managed by the PageController
-  final int itemCount;
+  final int? itemCount;
 
   /// Called when a dot is tapped
-  final ValueChanged<int> onPageSelected;
+  final ValueChanged<int>? onPageSelected;
 
   // The base size of the dots
   static const double _kDotSize = 8.0;
@@ -37,7 +37,7 @@ class EBIndicator extends AnimatedWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: List<Widget>.generate(itemCount, _buildDot),
+      children: List<Widget>.generate(itemCount!, _buildDot),
     );
   }
 
@@ -59,7 +59,7 @@ class EBIndicator extends AnimatedWidget {
             width: _kDotSize * zoom,
             height: _kDotSize * zoom,
             child: InkWell(
-              onTap: () => onPageSelected(index),
+              onTap: () => onPageSelected!(index),
             ),
           ),
         ),

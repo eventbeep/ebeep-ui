@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ProfileCircleClipper extends CustomClipper<Path> {
   ProfileCircleClipper({
-    @required this.holeRadius,
+    required this.holeRadius,
   });
 
   final double holeRadius;

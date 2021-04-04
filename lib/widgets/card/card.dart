@@ -6,11 +6,11 @@ import '../../shared/shadows.dart';
 
 class EBCard extends StatelessWidget {
   const EBCard({
-    @required this.child,
+    required this.child,
     this.backgroundColor = EBColors.white,
     this.borderRadius = EBDimens.borderRadius,
     this.contentPadding = const EdgeInsets.all(EBDimens.padding),
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final double borderRadius;

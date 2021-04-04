@@ -4,9 +4,9 @@ import '../../shared.dart';
 
 class EBTextButton extends StatelessWidget {
   const EBTextButton({
-    Key key,
-    @required this.title,
-    @required this.onPressed,
+    Key? key,
+    required this.title,
+    required this.onPressed,
   }) : super(key: key);
 
   final String title;
@@ -29,7 +29,7 @@ class EBTextButton extends StatelessWidget {
             color: EBColors.primary,
           ),
         ),
-        onPressed: onPressed,
+        onPressed: onPressed as void Function()?,
       ),
     );
   }

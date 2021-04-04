@@ -9,8 +9,8 @@ import '../../shared.dart';
 
 class EBCarouselSlider extends StatefulWidget {
   EBCarouselSlider({
-    @required this.items,
-    @required this.onItemTaps,
+    required this.items,
+    required this.onItemTaps,
     this.height,
     this.aspectRatio = 2,
     this.viewportFraction = 0.8,
@@ -18,11 +18,11 @@ class EBCarouselSlider extends StatefulWidget {
     this.realPage = 100,
     this.reverse = false,
     this.autoPlay = false,
-    Duration autoPlayInterval,
-    Duration autoPlayAnimationDuration,
+    Duration? autoPlayInterval,
+    Duration? autoPlayAnimationDuration,
     this.autoPlayCurve = Curves.fastOutSlowIn,
     this.pauseAutoPlayOnTouch,
-    bool enlargeCenterPage,
+    bool? enlargeCenterPage,
     this.onPageChanged,
     this.scrollDirection = Axis.horizontal,
   })  : autoPlayInterval = autoPlayInterval ?? const Duration(seconds: 4),
@@ -30,8 +30,8 @@ class EBCarouselSlider extends StatefulWidget {
         autoPlayAnimationDuration =
             autoPlayAnimationDuration ?? const Duration(milliseconds: 500),
         pageController = PageController(
-          viewportFraction: viewportFraction,
-          initialPage: realPage + initialPage,
+          viewportFraction: viewportFraction as double,
+          initialPage: realPage + initialPage as int,
         );
 
   /// Aspect ratio is used if no height have been declared.
@@ -89,7 +89,7 @@ class EBCarouselSlider extends StatefulWidget {
   final bool enlargeCenterPage;
 
   /// Set carousel height and overrides any existing [aspectRatio].
-  final double height;
+  final double? height;
 
   /// The page to show when first creating the [EBCarouselSlider].
   /// Defaults to 0.
@@ -107,7 +107,7 @@ class EBCarouselSlider extends StatefulWidget {
   /// Called whenever the page in the center of the viewport changes.
 
   /// Called whenever the page in the center of the viewport changes.
-  final Function onPageChanged;
+  final Function? onPageChanged;
 
   /// [pageController] is created using the properties passed to the constructor
   /// and can be used to control the [PageView] it is passed to.
@@ -116,7 +116,7 @@ class EBCarouselSlider extends StatefulWidget {
   /// Sets a timer on touch detected that pause the auto play with
   /// the given [Duration].
   /// Touch Detection is only active if [autoPlay] is true.
-  final Duration pauseAutoPlayOnTouch;
+  final Duration? pauseAutoPlayOnTouch;
 
   /// The actual index of the [PageView].
   /// Defaults to 10000 to simulate infinite backwards scrolling.
@@ -140,7 +140,7 @@ class EBCarouselSlider extends StatefulWidget {
   ///
   /// The animation lasts for the given duration and follows the given curve.
   /// The returned [Future] resolves when the animation completes.
-  Future<void> nextPage({Duration duration, Curve curve}) {
+  Future<void> nextPage({required Duration duration, required Curve curve}) {
     return pageController.nextPage(duration: duration, curve: curve);
   }
 
@@ -148,7 +148,8 @@ class EBCarouselSlider extends StatefulWidget {
   ///
   /// The animation lasts for the given duration and follows the given curve.
   /// The returned [Future] resolves when the animation completes.
-  Future<void> previousPage({Duration duration, Curve curve}) {
+  Future<void> previousPage(
+      {required Duration duration, required Curve curve}) {
     return pageController.previousPage(duration: duration, curve: curve);
   }
 
@@ -157,21 +158,22 @@ class EBCarouselSlider extends StatefulWidget {
   /// Jumps the page position from its current value to the given value,
   /// without animation, and without checking if the new value is in range.
   void jumpToPage(int page) {
-    final index =
-        _getRealIndex(pageController.page.toInt(), realPage, items.length);
+    final index = _getRealIndex(
+        pageController.page!.toInt(), realPage as int, items.length);
     return pageController
-        .jumpToPage(pageController.page.toInt() + page - index);
+        .jumpToPage(pageController.page!.toInt() + page - index);
   }
 
   /// Animates the controlled [EBCarouselSlider] from the current page to the given page.
   ///
   /// The animation lasts for the given duration and follows the given curve.
   /// The returned [Future] resolves when the animation completes.
-  Future<void> animateToPage(int page, {Duration duration, Curve curve}) {
-    final index =
-        _getRealIndex(pageController.page.toInt(), realPage, items.length);
+  Future<void> animateToPage(int page,
+      {required Duration duration, required Curve curve}) {
+    final index = _getRealIndex(
+        pageController.page!.toInt(), realPage as int, items.length);
     return pageController.animateToPage(
-        pageController.page.toInt() + page - index,
+        pageController.page!.toInt() + page - index,
         duration: duration,
         curve: curve);
   }
@@ -179,7 +181,7 @@ class EBCarouselSlider extends StatefulWidget {
 
 class _EBCarouselSliderState extends State<EBCarouselSlider>
     with TickerProviderStateMixin {
-  int currentPage;
+  int? currentPage;
 
   @override
   Widget build(BuildContext context) {
@@ -187,29 +189,29 @@ class _EBCarouselSliderState extends State<EBCarouselSlider>
       scrollDirection: widget.scrollDirection,
       onPageChanged: (index) {
         currentPage =
-            _getRealIndex(index, widget.realPage, widget.items.length);
+            _getRealIndex(index, widget.realPage as int, widget.items.length);
         if (widget.onPageChanged != null) {
-          widget.onPageChanged(currentPage);
+          widget.onPageChanged!(currentPage);
         }
       },
       controller: widget.pageController,
       reverse: widget.reverse,
       itemBuilder: (context, i) {
-        final index = _getRealIndex(i, widget.realPage, widget.items.length);
+        final index =
+            _getRealIndex(i, widget.realPage as int, widget.items.length);
 
         return AnimatedBuilder(
             animation: widget.pageController,
             builder: (context, child) {
               // on the first render, the pageController.page is null,
               // this is a dirty hack
-              if (widget.pageController.position.minScrollExtent == null ||
-                  widget.pageController.position.maxScrollExtent == null) {
-                Future<void>.delayed(const Duration(microseconds: 1), () {
-                  setState(() {});
-                });
-                return Container();
-              }
-              var value = widget.pageController.page - i;
+              // if (widget.pageController.position.maxScrollExtent == null) {
+              //   Future<void>.delayed(const Duration(microseconds: 1), () {
+              //     setState(() {});
+              //   });
+              //   return Container();
+              // }
+              var value = widget.pageController.page! - i;
               value = (1 - (value.abs() * 0.3)).clamp(0.0, 1.0);
 
               final height = widget.height ??
@@ -235,7 +237,7 @@ class _EBCarouselSliderState extends State<EBCarouselSlider>
   @override
   void initState() {
     super.initState();
-    currentPage = widget.initialPage;
+    currentPage = widget.initialPage as int?;
   }
 
   Widget getWrapper(Widget child) {
@@ -263,8 +265,8 @@ Widget getItemChild(String url, BuildContext context) {
       child: CachedNetworkImage(
         imageUrl: url,
         placeholder: (context, text) => Shimmer.fromColors(
-          highlightColor: Colors.grey[100],
-          baseColor: Colors.grey[300],
+          highlightColor: Colors.grey[100]!,
+          baseColor: Colors.grey[300]!,
           child: Container(color: EBColors.lightGrey),
         ),
         fit: BoxFit.cover,
@@ -299,7 +301,7 @@ int _remainder(int input, int source) {
 
 class EBLoadingCarousal extends StatelessWidget {
   const EBLoadingCarousal({
-    Key key,
+    Key? key,
     this.aspectRatio = 2.0,
   }) : super(key: key);
 
@@ -310,8 +312,8 @@ class EBLoadingCarousal extends StatelessWidget {
     return AspectRatio(
       aspectRatio: aspectRatio,
       child: Shimmer.fromColors(
-        highlightColor: Colors.grey[100],
-        baseColor: Colors.grey[300],
+        highlightColor: Colors.grey[100]!,
+        baseColor: Colors.grey[300]!,
         child: Container(
           margin: const EdgeInsets.only(left: 46, right: 46, bottom: 16),
           decoration: const BoxDecoration(
