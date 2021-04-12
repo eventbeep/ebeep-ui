@@ -24,16 +24,18 @@ import 'package:flutter/material.dart';
 ///
 /// ```
 
-Future<T?> showRoundedBottomSheet<T>({
-  required BuildContext context,
-  required WidgetBuilder builder,
+Future<T> showRoundedBottomSheet<T>({
+  @required BuildContext context,
+  @required WidgetBuilder builder,
   Color color = Colors.white,
   double radius = 10.0,
   bool autoResize = true,
   bool dismissOnTap = true,
 }) {
-  assert(radius > 0.0);
-  assert(color != Colors.transparent);
+  assert(context != null);
+  assert(builder != null);
+  assert(radius != null && radius > 0.0);
+  assert(color != null && color != Colors.transparent);
   return Navigator.push<T>(
     context,
     RoundedCornerModalRoute<T>(
@@ -72,17 +74,19 @@ class RoundedBottomSheet extends StatefulWidget {
   /// [ScaffoldState.showBottomSheet], for persistent bottom sheets, or by
   /// [showModalBottomSheet], for modal bottom sheets.
   const RoundedBottomSheet(
-      {Key? key,
+      {Key key,
       this.animationController,
-      required this.onClosing,
-      required this.builder})
-      : super(key: key);
+      @required this.onClosing,
+      @required this.builder})
+      : assert(onClosing != null),
+        assert(builder != null),
+        super(key: key);
 
   /// The animation that controls the bottom sheet's position.
   ///
   /// The BottomSheet widget will manipulate the position of this animation, it
   /// is not just a passive observer.
-  final AnimationController? animationController;
+  final AnimationController animationController;
 
   /// Called when the bottom sheet begins to close.
   ///
@@ -114,18 +118,19 @@ class _RoundedBottomSheetState extends State<RoundedBottomSheet> {
   final GlobalKey _childKey = GlobalKey(debugLabel: 'RoundedBottomSheet child');
 
   double get _childHeight {
-    final renderBox = _childKey.currentContext!.findRenderObject() as RenderBox;
+    final RenderBox renderBox = _childKey.currentContext.findRenderObject();
     return renderBox.size.height;
   }
 
   bool get _dismissUnderway =>
-      widget.animationController!.status == AnimationStatus.reverse;
+      widget.animationController.status == AnimationStatus.reverse;
 
   void _handleDragUpdate(DragUpdateDetails details) {
     if (_dismissUnderway) {
       return;
     }
-    widget.animationController!.value -= details.primaryDelta! / (_childHeight);
+    widget.animationController.value -=
+        details.primaryDelta / (_childHeight ?? details.primaryDelta);
   }
 
   void _handleDragEnd(DragEndDetails details) {
@@ -134,19 +139,19 @@ class _RoundedBottomSheetState extends State<RoundedBottomSheet> {
     }
     if (details.velocity.pixelsPerSecond.dy > _kMinFlingVelocity) {
       final flingVelocity = -details.velocity.pixelsPerSecond.dy / _childHeight;
-      if (widget.animationController!.value > 0.0) {
-        widget.animationController!.fling(velocity: flingVelocity);
+      if (widget.animationController.value > 0.0) {
+        widget.animationController.fling(velocity: flingVelocity);
       }
       if (flingVelocity < 0.0) {
         widget.onClosing();
       }
-    } else if (widget.animationController!.value < _kCloseProgressThreshold) {
-      if (widget.animationController!.value > 0.0) {
-        widget.animationController!.fling(velocity: -1.0);
+    } else if (widget.animationController.value < _kCloseProgressThreshold) {
+      if (widget.animationController.value > 0.0) {
+        widget.animationController.fling(velocity: -1.0);
       }
       widget.onClosing();
     } else {
-      widget.animationController!.forward();
+      widget.animationController.forward();
     }
   }
 
@@ -198,12 +203,12 @@ class RoundedCornerModalRoute<T> extends PopupRoute<T> {
     this.radius,
     this.autoResize = false,
     this.dismissOnTap = true,
-    RouteSettings? settings,
+    RouteSettings settings,
   }) : super(settings: settings);
 
-  final WidgetBuilder? builder;
-  final double? radius;
-  final Color? color;
+  final WidgetBuilder builder;
+  final double radius;
+  final Color color;
   final bool autoResize;
   final bool dismissOnTap;
 
@@ -223,16 +228,16 @@ class RoundedCornerModalRoute<T> extends PopupRoute<T> {
   bool get maintainState => false;
 
   @override
-  String? barrierLabel;
+  String barrierLabel;
 
-  AnimationController? animationController;
+  AnimationController animationController;
 
   @override
   AnimationController createAnimationController() {
     assert(animationController == null);
     animationController =
-        BottomSheet.createAnimationController(navigator!.overlay!);
-    return animationController!;
+        BottomSheet.createAnimationController(navigator.overlay);
+    return animationController;
   }
 
   @override
@@ -250,9 +255,9 @@ class RoundedCornerModalRoute<T> extends PopupRoute<T> {
 }
 
 class RoundedModalBottomSheet<T> extends StatefulWidget {
-  const RoundedModalBottomSheet({Key? key, this.route}) : super(key: key);
+  const RoundedModalBottomSheet({Key key, this.route}) : super(key: key);
 
-  final RoundedCornerModalRoute<T>? route;
+  final RoundedCornerModalRoute<T> route;
 
   @override
   _RoundedModalBottomSheetState<T> createState() =>
@@ -264,28 +269,28 @@ class _RoundedModalBottomSheetState<T>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.route!.dismissOnTap ? () => Navigator.pop(context) : null,
+      onTap: widget.route.dismissOnTap ? () => Navigator.pop(context) : null,
       child: AnimatedBuilder(
-        animation: widget.route!.animation!,
+        animation: widget.route.animation,
         builder: (context, child) => CustomSingleChildLayout(
           delegate: _RoundedModalBottomSheetLayout(
-              widget.route!.autoResize
+              widget.route.autoResize
                   ? MediaQuery.of(context).viewInsets.bottom
                   : 0.0,
-              widget.route!.animation!.value),
+              widget.route.animation.value),
           child: RoundedBottomSheet(
-            animationController: widget.route!.animationController,
+            animationController: widget.route.animationController,
             onClosing: () => Navigator.pop(context),
             builder: (context) => Container(
               decoration: BoxDecoration(
-                color: widget.route!.color,
+                color: widget.route.color,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(widget.route!.radius!),
-                  topRight: Radius.circular(widget.route!.radius!),
+                  topLeft: Radius.circular(widget.route.radius),
+                  topRight: Radius.circular(widget.route.radius),
                 ),
               ),
               child: SafeArea(
-                child: Builder(builder: widget.route!.builder!),
+                child: Builder(builder: widget.route.builder),
               ),
             ),
           ),

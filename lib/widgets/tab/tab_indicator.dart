@@ -19,7 +19,10 @@ class EBTabIndicator extends Decoration {
     this.tabBarIndicatorSize = TabBarIndicatorSize.tab,
     this.padding = const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
     this.insets = const EdgeInsets.symmetric(horizontal: 2),
-  });
+  })  : assert(indicatorHeight != null),
+        assert(indicatorRadius != null),
+        assert(padding != null),
+        assert(insets != null);
 
   final double indicatorHeight;
   final double indicatorRadius;
@@ -30,27 +33,27 @@ class EBTabIndicator extends Decoration {
   final EdgeInsetsGeometry padding;
 
   @override
-  _BubblePainter createBoxPainter([VoidCallback? onChanged]) {
+  _BubblePainter createBoxPainter([VoidCallback onChanged]) {
     return _BubblePainter(this, onChanged);
   }
 
   @override
-  Decoration? lerpFrom(Decoration? a, double t) {
+  Decoration lerpFrom(Decoration a, double t) {
     if (a is EBTabIndicator) {
       return EBTabIndicator(
-        padding: EdgeInsetsGeometry.lerp(a.padding, padding, t)!,
-        insets: EdgeInsetsGeometry.lerp(a.insets, insets, t)!,
+        padding: EdgeInsetsGeometry.lerp(a.padding, padding, t),
+        insets: EdgeInsetsGeometry.lerp(a.insets, insets, t),
       );
     }
     return super.lerpFrom(a, t);
   }
 
   @override
-  Decoration? lerpTo(Decoration? b, double t) {
+  Decoration lerpTo(Decoration b, double t) {
     if (b is EBTabIndicator) {
       return EBTabIndicator(
-        padding: EdgeInsetsGeometry.lerp(padding, b.padding, t)!,
-        insets: EdgeInsetsGeometry.lerp(insets, b.insets, t)!,
+        padding: EdgeInsetsGeometry.lerp(padding, b.padding, t),
+        insets: EdgeInsetsGeometry.lerp(insets, b.insets, t),
       );
     }
     return super.lerpTo(b, t);
@@ -58,17 +61,20 @@ class EBTabIndicator extends Decoration {
 }
 
 class _BubblePainter extends BoxPainter {
-  _BubblePainter(this.decoration, VoidCallback? onChanged) : super(onChanged);
+  _BubblePainter(this.decoration, VoidCallback onChanged)
+      : assert(decoration != null),
+        super(onChanged);
 
   final EBTabIndicator decoration;
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+    assert(configuration != null);
     assert(configuration.size != null);
     final rect = Offset(
-            offset.dx, (configuration.size!.height / 2) - indicatorHeight / 2) &
-        Size(configuration.size!.width, indicatorHeight);
-    final textDirection = configuration.textDirection!;
+            offset.dx, (configuration.size.height / 2) - indicatorHeight / 2) &
+        Size(configuration.size.width, indicatorHeight);
+    final textDirection = configuration.textDirection;
     final indicator = _indicatorRectFor(rect, textDirection);
     final paint = Paint();
     paint.style = PaintingStyle.fill;
@@ -90,6 +96,9 @@ class _BubblePainter extends BoxPainter {
   TabBarIndicatorSize get tabBarIndicatorSize => decoration.tabBarIndicatorSize;
 
   Rect _indicatorRectFor(Rect rect, TextDirection textDirection) {
+    assert(rect != null);
+    assert(textDirection != null);
+
     var indicator = padding.resolve(textDirection).inflateRect(rect);
 
     if (tabBarIndicatorSize == TabBarIndicatorSize.tab) {

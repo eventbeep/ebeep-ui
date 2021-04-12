@@ -4,9 +4,9 @@ import '../../colors/colors.dart';
 
 class EBIconButton extends StatelessWidget {
   const EBIconButton({
-    Key? key,
-    required this.icon,
-    required this.onPressed,
+    Key key,
+    @required this.icon,
+    @required this.onPressed,
   }) : super(key: key);
 
   final Widget icon;

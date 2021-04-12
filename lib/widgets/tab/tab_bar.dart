@@ -5,8 +5,8 @@ import '../text/text_styles.dart';
 
 class EBTabBar extends StatelessWidget {
   const EBTabBar({
-    Key? key,
-    required this.tabs,
+    Key key,
+    @required this.tabs,
   }) : super(key: key);
 
   final List<Tab> tabs;

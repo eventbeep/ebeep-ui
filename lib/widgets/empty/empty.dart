@@ -5,7 +5,7 @@ import '../../widgets.dart';
 
 class EBEmpty extends StatelessWidget {
   const EBEmpty({
-    Key? key,
+    Key key,
     this.message = 'Sorry! This is empty',
   }) : super(key: key);
 

@@ -5,11 +5,11 @@ import '../clipper/wave_clipper.dart';
 
 class FancyAppBar extends StatelessWidget {
   const FancyAppBar({
-    Key? key,
-    required this.color,
-    required this.backgroundColor,
-    required this.title,
-    required this.icon,
+    Key key,
+    @required this.color,
+    @required this.backgroundColor,
+    @required this.title,
+    @required this.icon,
   }) : super(key: key);
 
   final Color color;

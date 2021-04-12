@@ -5,9 +5,9 @@ import '../../widgets.dart';
 
 class EBTertiaryButton extends StatelessWidget {
   const EBTertiaryButton({
-    Key? key,
+    Key key,
     this.title = '',
-    required this.onPressed,
+    @required this.onPressed,
     this.height = 48,
     this.fontSize = 16,
     this.isLoading = false,
@@ -22,14 +22,14 @@ class EBTertiaryButton extends StatelessWidget {
   final bool isLoading;
   final double fontSize;
   final EdgeInsets padding;
-  final Widget? icon;
+  final Widget icon;
   final Widget gap;
 
   factory EBTertiaryButton.small({
-    required Function onPressed,
+    @required Function onPressed,
     String title = '',
     bool isLoading = false,
-    Icon? icon,
+    Icon icon,
   }) {
     return EBTertiaryButton(
       title: title,
@@ -45,10 +45,10 @@ class EBTertiaryButton extends StatelessWidget {
 
   factory EBTertiaryButton.medium({
     String title = '',
-    required Function onPressed,
+    @required Function onPressed,
     bool isLoading = false,
     Color color = EBColors.primary,
-    Icon? icon,
+    Icon icon,
   }) {
     return EBTertiaryButton(
       title: title,
@@ -84,7 +84,7 @@ class EBTertiaryButton extends StatelessWidget {
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (icon != null) icon!,
+                  if (icon != null) icon,
                   if (icon != null && title.isNotEmpty) gap,
                   if (title.isNotEmpty)
                     Text(
@@ -93,7 +93,7 @@ class EBTertiaryButton extends StatelessWidget {
                     ),
                 ],
               ),
-        onPressed: isLoading ? null : onPressed as void Function()?,
+        onPressed: isLoading ? null : onPressed,
       ),
     );
   }

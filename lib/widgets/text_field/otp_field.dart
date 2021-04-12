@@ -61,7 +61,7 @@ mixin ProvidedPinBoxTextAnimation {
 
 class EBOtpField extends StatefulWidget {
   const EBOtpField({
-    Key? key,
+    Key key,
     this.isCupertino = false,
     this.maxLength = 6,
     this.controller,
@@ -89,7 +89,7 @@ class EBOtpField extends StatefulWidget {
   }) : super(key: key);
 
   final bool autofocus;
-  final TextEditingController? controller;
+  final TextEditingController controller;
   final Color defaultBorderColor;
   final String error;
   final Color errorBorderColor;
@@ -102,13 +102,13 @@ class EBOtpField extends StatefulWidget {
   final String labelText;
   final String maskCharacter;
   final int maxLength;
-  final OnDone? onDone;
-  final PinBoxDecoration? pinBoxDecoration;
+  final OnDone onDone;
+  final PinBoxDecoration pinBoxDecoration;
   final double pinBoxHeight;
   final double pinBoxWidth;
   final PinCodeTextFieldLayoutType pinCodeTextFieldLayoutType;
   final Duration pinTextAnimatedSwitcherDuration;
-  final AnimatedSwitcherTransitionBuilder? pinTextAnimatedSwitcherTransition;
+  final AnimatedSwitcherTransitionBuilder pinTextAnimatedSwitcherTransition;
   final TextStyle pinTextStyle;
   final WrapAlignment wrapAlignment;
 
@@ -117,15 +117,15 @@ class EBOtpField extends StatefulWidget {
     return PinCodeTextFieldState();
   }
 
-  final Function(String)? onTextChanged;
+  final Function(String) onTextChanged;
 }
 
 class PinCodeTextFieldState extends State<EBOtpField> {
   int currentIndex = 0;
   FocusNode focusNode = FocusNode();
   bool hasFocus = false;
-  double? pinWidth;
-  late double screenWidth;
+  double pinWidth;
+  double screenWidth;
   List<String> strList = <String>[];
   String text = '';
 
@@ -135,7 +135,7 @@ class PinCodeTextFieldState extends State<EBOtpField> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          if (widget.labelText.isNotEmpty)
+          if (widget.labelText != null && widget.labelText.isNotEmpty)
             Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.only(left: 12, bottom: 8),
@@ -149,7 +149,7 @@ class PinCodeTextFieldState extends State<EBOtpField> {
             ),
           _touchPinBoxRow(),
           !widget.isCupertino ? _fakeTextInput() : _fakeTextInputCupertino(),
-          if (widget.hasError)
+          if (widget.hasError && widget.error != null)
             Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.all(24),
@@ -191,7 +191,7 @@ class PinCodeTextFieldState extends State<EBOtpField> {
 
   @override
   void dispose() {
-    focusNode.dispose();
+    focusNode?.dispose();
     widget.controller?.dispose();
     super.dispose();
   }
@@ -203,7 +203,7 @@ class PinCodeTextFieldState extends State<EBOtpField> {
     _calculateStrList();
     widget.controller?.addListener(() {
       setState(_initTextController);
-      widget.onTextChanged!(widget.controller!.text);
+      widget.onTextChanged(widget.controller.text);
     });
     focusNode.addListener(() {
       setState(() {
@@ -242,6 +242,9 @@ class PinCodeTextFieldState extends State<EBOtpField> {
   }
 
   bool _isNumeric(String s) {
+    if (s == null) {
+      return false;
+    }
     final n = int.tryParse(s);
     return n != null && n > -1;
   }
@@ -251,17 +254,17 @@ class PinCodeTextFieldState extends State<EBOtpField> {
       return;
     }
     strList.clear();
-    if (widget.controller!.text.isNotEmpty) {
-      if (widget.controller!.text.length > widget.maxLength) {
+    if (widget.controller.text.isNotEmpty) {
+      if (widget.controller.text.length > widget.maxLength) {
         throw Exception('TextEditingController length exceeded maxLength!');
       }
 
-      if (!_isNumeric(widget.controller!.text)) {
+      if (!_isNumeric(widget.controller.text)) {
         throw Exception('TextEditingController can only contains numeric');
       }
     }
 
-    text = widget.controller!.text;
+    text = widget.controller.text;
     for (var i = 0; i < text.length; i++) {
       strList.add(widget.hideCharacter ? widget.maskCharacter : text[i]);
     }
@@ -351,7 +354,7 @@ class PinCodeTextFieldState extends State<EBOtpField> {
 
   void _onTextChanged(String text) {
     if (widget.onTextChanged != null) {
-      widget.onTextChanged!(text);
+      widget.onTextChanged(text);
     }
     setState(() {
       this.text = text;
@@ -364,7 +367,7 @@ class PinCodeTextFieldState extends State<EBOtpField> {
       currentIndex = text.length;
     });
     if (text.length == widget.maxLength) {
-      widget.onDone!(text);
+      widget.onDone(text);
     }
   }
 
@@ -407,7 +410,7 @@ class PinCodeTextFieldState extends State<EBOtpField> {
     }
 
     if (widget.pinBoxDecoration != null) {
-      boxDecoration = widget.pinBoxDecoration!(borderColor);
+      boxDecoration = widget.pinBoxDecoration(borderColor);
     } else {
       boxDecoration =
           ProvidedPinBoxDecoration.defaultPinBoxDecoration(borderColor);

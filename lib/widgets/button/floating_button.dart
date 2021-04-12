@@ -4,8 +4,8 @@ import '../../shared.dart';
 
 class EBFloatingButton extends StatelessWidget {
   const EBFloatingButton({
-    required this.icon,
-    required this.onPressed,
+    @required this.icon,
+    @required this.onPressed,
     this.increaseHeightBy = 30.0,
     this.increaseWidthBy = 0.0,
     this.elevation = 8.0,
@@ -20,10 +20,10 @@ class EBFloatingButton extends StatelessWidget {
   final double elevation;
   final double increaseHeightBy;
   final double increaseWidthBy;
-  final String? tooltip;
-  final ShapeBorder? shape;
-  final Object? heroTag;
-  final MaterialTapTargetSize? materialTapTargetSize;
+  final String tooltip;
+  final ShapeBorder shape;
+  final Object heroTag;
+  final MaterialTapTargetSize materialTapTargetSize;
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import '../../widgets.dart';
 
 class EBError extends StatelessWidget {
   const EBError({
-    Key? key,
+    Key key,
     this.errorMessage = 'Oops! Some error occured',
   }) : super(key: key);
 

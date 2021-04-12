@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ui' as ui;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:qr/qr.dart';
@@ -9,7 +10,7 @@ import '../../shared.dart';
 
 class EBQrImage extends StatelessWidget {
   EBQrImage({
-    required String data,
+    @required String data,
     this.size,
     this.padding = const EdgeInsets.all(10.0),
     this.backgroundColor,
@@ -27,11 +28,11 @@ class EBQrImage extends StatelessWidget {
           onError: onError,
         );
 
-  final Color? backgroundColor;
+  final Color backgroundColor;
   final bool gapless;
-  final QrError? onError;
+  final QrError onError;
   final EdgeInsets padding;
-  final double? size;
+  final double size;
 
   final _QrPainter _painter;
 
@@ -60,8 +61,8 @@ typedef QrError = void Function(dynamic error);
 
 class _QrPainter extends CustomPainter {
   _QrPainter({
-    required String data,
-    required this.version,
+    @required String data,
+    @required this.version,
     this.errorCorrectionLevel = QrErrorCorrectLevel.L,
     this.color = EBColors.black,
     this.emptyColor,
@@ -72,10 +73,10 @@ class _QrPainter extends CustomPainter {
   }
 
   final Color color; // the color of the dark squares
-  final Color? emptyColor; // the other color
+  final Color emptyColor; // the other color
   final int errorCorrectionLevel; // the qr code error correction level
   final bool gapless;
-  final QrError? onError;
+  final QrError onError;
   final int version; // the qr code version
 
   bool _hasError = false;
@@ -93,7 +94,7 @@ class _QrPainter extends CustomPainter {
     }
 
     if (emptyColor != null) {
-      canvas.drawColor(emptyColor!, BlendMode.color);
+      canvas.drawColor(emptyColor, BlendMode.color);
     }
 
     final squareSize = size.shortestSide / _qr.moduleCount.toDouble();
@@ -129,7 +130,7 @@ class _QrPainter extends CustomPainter {
     } on Exception catch (ex) {
       if (onError != null) {
         _hasError = true;
-        onError!(ex);
+        onError(ex);
       }
     }
   }
@@ -141,7 +142,7 @@ class _QrPainter extends CustomPainter {
     return recorder.endRecording();
   }
 
-  Future<ByteData?> toImageData(double size,
+  Future<ByteData> toImageData(double size,
       {ui.ImageByteFormat format = ui.ImageByteFormat.png}) async {
     final uiImage = await toPicture(size).toImage(size.toInt(), size.toInt());
     return await uiImage.toByteData(format: format);
