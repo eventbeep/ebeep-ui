@@ -13,6 +13,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions = const [],
     this.bottom,
     this.actionButton,
+    this.isInSafeArea = true,
     this.hasShadow = true,
     this.isDark = false,
   })  : preferredSize =
@@ -24,6 +25,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget> actions;
   final bool isDark;
   final bool hasShadow;
+  final bool isInSafeArea;
   final PreferredSizeWidget bottom;
   final Widget actionButton;
 
@@ -52,73 +54,78 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          SafeArea(
-            child: Row(
-              children: <Widget>[
-                if (leading == null && canPop) ...[
-                  EBSpacers.width4,
-                  SizedBox(
-                    height: 48,
-                    width: 48,
-                    child: useCloseButton
-                        ? IconButton(
-                            icon: Icon(
-                              EBIcons.close,
-                              color:
-                                  isDark ? EBColors.grey10 : EBColors.grey100,
-                            ),
-                            onPressed: () => Navigator.pop(context),
-                          )
-                        : IconButton(
-                            icon: Icon(
-                              EBIcons.back,
-                              color:
-                                  isDark ? EBColors.grey10 : EBColors.grey100,
-                            ),
-                            onPressed: () => Navigator.pop(context),
-                          ),
-                  ),
-                  EBSpacers.width4,
-                ],
-                if (leading != null) ...[
-                  EBSpacers.width4,
-                  SizedBox(
-                    height: 48,
-                    width: 48,
-                    child: Center(child: leading),
-                  ),
-                  EBSpacers.width4,
-                ],
-                EBSpacers.width16,
-                Expanded(
-                  child: Text(
-                    title,
-                    style: EBTextStyles.appBar.copyWith(
-                        color: isDark ? EBColors.white : EBColors.grey100),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                EBSpacers.width16,
-                if (actions.isNotEmpty) ...[
-                  ...actions.map(
-                    (widget) => SizedBox(
-                      height: 48,
-                      width: 48,
-                      child: Center(child: widget),
-                    ),
-                  ),
-                  EBSpacers.width4,
-                ],
-                if (actionButton != null) ...[
-                  actionButton,
-                  EBSpacers.width16,
-                ]
-              ],
-            ),
-          ),
+          isInSafeArea
+              ? SafeArea(
+                  child: _buildAppBarContent(canPop, useCloseButton, context),
+                )
+              : _buildAppBarContent(canPop, useCloseButton, context),
           if (bottom != null) bottom,
         ],
       ),
+    );
+  }
+
+  Row _buildAppBarContent(
+      bool canPop, bool useCloseButton, BuildContext context) {
+    return Row(
+      children: <Widget>[
+        if (leading == null && canPop) ...[
+          EBSpacers.width4,
+          SizedBox(
+            height: 48,
+            width: 48,
+            child: useCloseButton
+                ? IconButton(
+                    icon: Icon(
+                      EBIcons.close,
+                      color: isDark ? EBColors.grey10 : EBColors.grey100,
+                    ),
+                    onPressed: () => Navigator.pop(context),
+                  )
+                : IconButton(
+                    icon: Icon(
+                      EBIcons.back,
+                      color: isDark ? EBColors.grey10 : EBColors.grey100,
+                    ),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+          ),
+          EBSpacers.width4,
+        ],
+        if (leading != null) ...[
+          EBSpacers.width4,
+          SizedBox(
+            height: 48,
+            width: 48,
+            child: Center(child: leading),
+          ),
+          EBSpacers.width4,
+        ],
+        EBSpacers.width16,
+        Expanded(
+          child: Text(
+            title,
+            style: EBTextStyles.appBar
+                .copyWith(color: isDark ? EBColors.white : EBColors.grey100),
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        EBSpacers.width16,
+        if (actions.isNotEmpty) ...[
+          ...actions.map(
+            (widget) => SizedBox(
+              height: 48,
+              width: 48,
+              child: Center(child: widget),
+            ),
+          ),
+          EBSpacers.width4,
+        ],
+        if (actionButton != null) ...[
+          actionButton,
+          EBSpacers.width16,
+        ]
+      ],
     );
   }
 
