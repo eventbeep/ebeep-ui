@@ -16,8 +16,8 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.isInSafeArea = true,
     this.hasShadow = true,
     this.isDark = false,
-  })  : preferredSize =
-            Size.fromHeight(56 + (bottom?.preferredSize?.height ?? 0.0)),
+  })  : preferredSize = Size.fromHeight(
+            56 + (isInSafeArea ? (bottom?.preferredSize?.height ?? 0.0) : 0.0)),
         super(key: key);
 
   final String title;
@@ -37,7 +37,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
         parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
     final statusBarHeight = MediaQuery.of(context).padding.top;
     return Container(
-      height: preferredSize.height + statusBarHeight,
+      height: preferredSize.height + (isInSafeArea ? statusBarHeight : 0.0),
       decoration: BoxDecoration(
           color: isDark ? EBColors.grey100 : EBColors.grey10,
           boxShadow: hasShadow
