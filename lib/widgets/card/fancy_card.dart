@@ -7,14 +7,14 @@ import '../clipper/wave_clipper.dart';
 
 class FancyCard extends StatelessWidget {
   const FancyCard({
-    Key key,
-    @required this.title,
-    @required this.trailing,
+    Key? key,
+    required this.title,
+    required this.trailing,
     this.subtitle,
   }) : super(key: key);
 
   final String title;
-  final String subtitle;
+  final String? subtitle;
   final Widget trailing;
 
   @override
@@ -35,9 +35,9 @@ class FancyCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(title, style: EBTextStyles.headline5),
-                  if (subtitle != null && subtitle.isNotEmpty) ...[
+                  if (subtitle != null && subtitle!.isNotEmpty) ...[
                     EBSpacers.height8,
-                    Text(subtitle, style: EBTextStyles.bodyText2),
+                    Text(subtitle!, style: EBTextStyles.bodyText2),
                   ]
                 ],
               ),

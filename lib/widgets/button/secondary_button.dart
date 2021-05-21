@@ -5,9 +5,9 @@ import '../../widgets.dart';
 
 class EBSecondaryButton extends StatelessWidget {
   const EBSecondaryButton({
-    Key key,
+    Key? key,
     this.title = '',
-    @required this.onPressed,
+    required this.onPressed,
     this.height = 48,
     this.fontSize = 16,
     this.isLoading = false,
@@ -19,21 +19,21 @@ class EBSecondaryButton extends StatelessWidget {
 
   final String title;
   final double height;
-  final Function onPressed;
+  final Function? onPressed;
   final bool isLoading;
   final double fontSize;
   final EdgeInsets padding;
-  final Widget icon;
+  final Widget? icon;
   final Color color;
   final Color textColor;
 
   factory EBSecondaryButton.small({
-    @required Function onPressed,
+    required Function? onPressed,
     Color color = EBColors.grey10,
     Color textColor = EBColors.primary,
     String title = '',
     bool isLoading = false,
-    Icon icon,
+    Icon? icon,
   }) {
     return EBSecondaryButton(
       color: color,
@@ -50,9 +50,9 @@ class EBSecondaryButton extends StatelessWidget {
 
   factory EBSecondaryButton.medium({
     String title = '',
-    @required Function onPressed,
+    required Function? onPressed,
     bool isLoading = false,
-    Icon icon,
+    Icon? icon,
     Color color = EBColors.grey10,
     Color textColor = EBColors.primary,
   }) {
@@ -92,7 +92,7 @@ class EBSecondaryButton extends StatelessWidget {
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (icon != null) icon,
+                  if (icon != null) icon!,
                   if (icon != null && title.isNotEmpty) EBSpacers.width16,
                   if (title.isNotEmpty)
                     Text(
@@ -101,7 +101,7 @@ class EBSecondaryButton extends StatelessWidget {
                     ),
                 ],
               ),
-        onPressed: isLoading ? null : onPressed,
+        onPressed: isLoading ? null : onPressed as void Function()?,
       ),
     );
   }

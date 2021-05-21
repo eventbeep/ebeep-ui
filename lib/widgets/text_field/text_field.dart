@@ -7,7 +7,7 @@ import '../../widgets.dart';
 
 class EBTextField extends StatelessWidget {
   const EBTextField({
-    Key key,
+    Key? key,
     this.textCapitalization = TextCapitalization.none,
     this.labelText,
     this.hintText,
@@ -27,21 +27,21 @@ class EBTextField extends StatelessWidget {
     this.onSubmit,
   }) : super(key: key);
 
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final bool enabled;
   final bool autofocus;
   final bool readOnly;
   final bool isPassword;
-  final String errorText;
-  final String labelText;
-  final String hintText;
-  final int maxLength;
-  final int maxLines;
-  final Function onChanged;
-  final Function onSubmit;
-  final Function onTap;
-  final Widget suffix;
-  final Widget prefix;
+  final String? errorText;
+  final String? labelText;
+  final String? hintText;
+  final int? maxLength;
+  final int? maxLines;
+  final Function? onChanged;
+  final Function? onSubmit;
+  final Function? onTap;
+  final Widget? suffix;
+  final Widget? prefix;
   final TextCapitalization textCapitalization;
   final TextInputType textInputType;
 
@@ -51,24 +51,25 @@ class EBTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        if (labelText != null && labelText.isNotEmpty) ...[
-          Text(labelText, style: EBTextStyles.label),
+        if (labelText != null && labelText!.isNotEmpty) ...[
+          Text(labelText!, style: EBTextStyles.label),
           EBSpacers.height8,
         ],
         TextField(
           readOnly: readOnly,
-          onSubmitted: onSubmit,
+          onSubmitted: onSubmit as void Function(String)?,
           autofocus: autofocus,
-          onTap: onTap,
+          onTap: onTap as void Function()?,
           enabled: enabled,
           controller: controller,
-          onChanged: onChanged,
+          onChanged: onChanged as void Function(String)?,
           textCapitalization: textCapitalization,
           keyboardType: textInputType,
           obscureText: isPassword,
           maxLength: maxLength,
           maxLines: maxLines,
-          buildCounter: (context, {currentLength, maxLength, isFocused}) =>
+          buildCounter: (context,
+                  {required currentLength, maxLength, required isFocused}) =>
               null,
           decoration: InputDecoration(
             border: OutlineInputBorder(

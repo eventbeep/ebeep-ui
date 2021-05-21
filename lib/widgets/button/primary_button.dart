@@ -7,8 +7,8 @@ import '../../widgets.dart';
 
 class EBPrimaryButton extends StatelessWidget {
   const EBPrimaryButton({
-    Key key,
-    @required this.onPressed,
+    Key? key,
+    required this.onPressed,
     this.title = '',
     this.height = 48,
     this.minWidth = 48,
@@ -23,20 +23,20 @@ class EBPrimaryButton extends StatelessWidget {
   final String title;
   final double height;
   final double minWidth;
-  final Function onPressed;
+  final Function? onPressed;
   final bool isLoading;
   final double fontSize;
   final EdgeInsets padding;
-  final Icon icon;
+  final Icon? icon;
   final Color color;
   final Widget gap;
 
   factory EBPrimaryButton.medium({
     String title = '',
-    @required Function onPressed,
+    required Function? onPressed,
     bool isLoading = false,
     Color color = EBColors.primary,
-    Icon icon,
+    Icon? icon,
     double minWidth = 40,
   }) {
     return EBPrimaryButton(
@@ -55,10 +55,10 @@ class EBPrimaryButton extends StatelessWidget {
 
   factory EBPrimaryButton.small({
     String title = '',
-    @required Function onPressed,
+    required Function? onPressed,
     bool isLoading = false,
     Color color = EBColors.primary,
-    Icon icon,
+    Icon? icon,
   }) {
     return EBPrimaryButton(
       title: title,
@@ -96,7 +96,7 @@ class EBPrimaryButton extends StatelessWidget {
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (icon != null) icon,
+                  if (icon != null) icon!,
                   if (icon != null && title.isNotEmpty) gap,
                   if (title.isNotEmpty)
                     Text(
@@ -105,7 +105,7 @@ class EBPrimaryButton extends StatelessWidget {
                     ),
                 ],
               ),
-        onPressed: isLoading ? null : onPressed,
+        onPressed: isLoading ? null : onPressed as void Function()?,
       ),
     );
   }

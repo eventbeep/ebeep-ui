@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ClipShadowShadowPainter extends CustomPainter {
-  ClipShadowShadowPainter({@required this.shadow, @required this.clipper});
+  ClipShadowShadowPainter({required this.shadow, required this.clipper});
 
   final CustomClipper<Path> clipper;
   final Shadow shadow;
@@ -48,8 +48,8 @@ class BottomWaveContainer extends StatelessWidget {
     this.shadowColor,
   });
 
-  final Widget child;
-  final Color shadowColor;
+  final Widget? child;
+  final Color? shadowColor;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class BottomWaveContainer extends StatelessWidget {
         shadow: Shadow(
           blurRadius: 12,
           offset: const Offset(0, 4),
-          color: shadowColor,
+          color: shadowColor!,
         ),
       ),
       child: ClipPath(child: child, clipper: const BottomWaveClipper()),
@@ -74,8 +74,8 @@ class BottomCurveContainer extends StatelessWidget {
     this.shadowColor,
   });
 
-  final Widget child;
-  final Color shadowColor;
+  final Widget? child;
+  final Color? shadowColor;
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +86,7 @@ class BottomCurveContainer extends StatelessWidget {
         shadow: Shadow(
           blurRadius: 12,
           offset: const Offset(0, 4),
-          color: shadowColor,
+          color: shadowColor!,
         ),
       ),
       child: ClipPath(child: child, clipper: const BottomCurveClipper()),

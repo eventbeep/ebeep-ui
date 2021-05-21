@@ -12,7 +12,6 @@ export 'widgets/button/tertiary_button.dart';
 export 'widgets/button/text_button.dart';
 export 'widgets/card/card.dart';
 export 'widgets/card/fancy_card.dart';
-export 'widgets/carousal/carousal.dart';
 export 'widgets/chip/chip.dart';
 export 'widgets/clipper/profile_circle_clipper.dart';
 export 'widgets/empty/empty.dart';

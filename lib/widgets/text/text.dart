@@ -4,8 +4,8 @@ import '../../shared.dart';
 
 class EBText extends StatelessWidget {
   const EBText({
-    Key key,
-    @required this.text,
+    Key? key,
+    required this.text,
     this.align = TextAlign.start,
     this.color = EBColors.textSecondary,
     this.weight = FontWeight.w100,
@@ -89,19 +89,19 @@ class EBText extends StatelessWidget {
   }) : super(key: key);
  */
 
-  final String text;
-  final TextAlign align;
+  final String? text;
+  final TextAlign? align;
   final Color color;
   final FontWeight weight;
-  final double size;
-  final int maxLines;
-  final String fontFamily;
-  final double lineSpace;
+  final double? size;
+  final int? maxLines;
+  final String? fontFamily;
+  final double? lineSpace;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      text,
+      text!,
       maxLines: maxLines,
       overflow: (maxLines != null) ? TextOverflow.ellipsis : null,
       textAlign: align,
@@ -124,10 +124,10 @@ class BeepPrimaryText extends StatelessWidget {
     this.maxLines,
   });
 
-  final String text;
-  final TextAlign align;
-  final double lineSpace;
-  final int maxLines;
+  final String? text;
+  final TextAlign? align;
+  final double? lineSpace;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -151,10 +151,10 @@ class BeepSecondaryText extends StatelessWidget {
     this.lineSpace,
   });
 
-  final String text;
-  final TextAlign align;
-  final int maxLines;
-  final double lineSpace;
+  final String? text;
+  final TextAlign? align;
+  final int? maxLines;
+  final double? lineSpace;
 
   @override
   Widget build(BuildContext context) {
@@ -177,7 +177,7 @@ class BeepActionBarText extends StatelessWidget {
     this.color = EBColors.quaternary,
   });
 
-  final String text;
+  final String? text;
   final bool singleLine;
   final Color color;
 
@@ -222,10 +222,10 @@ class BeepLargeHeading extends StatelessWidget {
     this.lineSpace,
   });
 
-  final String text;
-  final TextAlign align;
-  final int maxLines;
-  final double lineSpace;
+  final String? text;
+  final TextAlign? align;
+  final int? maxLines;
+  final double? lineSpace;
 
   @override
   Widget build(BuildContext context) {
@@ -248,9 +248,9 @@ class BeepSmallHeading extends StatelessWidget {
     this.maxLines,
   });
 
-  final String text;
-  final TextAlign align;
-  final int maxLines;
+  final String? text;
+  final TextAlign? align;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {

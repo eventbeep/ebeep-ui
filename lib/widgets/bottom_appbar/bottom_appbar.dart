@@ -12,15 +12,15 @@ class EBBottomAppBarItem {
   });
 
   final bool enableDot;
-  final IconData iconData;
-  final String text;
+  final IconData? iconData;
+  final String? text;
 }
 
 class EBBottomAppBar extends StatelessWidget {
   const EBBottomAppBar({
-    @required this.items,
-    @required this.onTabSelected,
-    @required this.selectedItemIndex,
+    required this.items,
+    required this.onTabSelected,
+    required this.selectedItemIndex,
     this.iconSize = 24,
     this.height = 56,
     this.color = EBColors.lightIcon,
@@ -35,11 +35,11 @@ class EBBottomAppBar extends StatelessWidget {
   final double height;
   final double iconSize;
   final List<EBBottomAppBarItem> items;
-  final NotchedShape notchedShape;
-  final ValueChanged<int> onTabSelected;
+  final NotchedShape? notchedShape;
+  final ValueChanged<int?> onTabSelected;
   final Color selectedColor;
   final int selectedItemIndex;
-  final Widget centerItem;
+  final Widget? centerItem;
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +71,9 @@ class EBBottomAppBar extends StatelessWidget {
   }
 
   Widget _buildTabItem({
-    EBBottomAppBarItem item,
-    int index,
-    ValueChanged<int> onPressed,
+    required EBBottomAppBarItem item,
+    int? index,
+    ValueChanged<int?>? onPressed,
   }) {
     final tabColor = selectedItemIndex == index ? selectedColor : color;
 
@@ -81,7 +81,7 @@ class EBBottomAppBar extends StatelessWidget {
       child: SizedBox(
         height: height,
         child: InkWell(
-          onTap: () => onPressed(index),
+          onTap: () => onPressed!(index),
           child: Stack(
             children: <Widget>[
               if (item.enableDot)
@@ -101,7 +101,7 @@ class EBBottomAppBar extends StatelessWidget {
                   children: <Widget>[
                     Icon(item.iconData, color: tabColor, size: iconSize),
                     EBSpacers.height4,
-                    Text(item.text,
+                    Text(item.text!,
                         style: EBTextStyles.caption.copyWith(color: tabColor)),
                   ],
                 ),
