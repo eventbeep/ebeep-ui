@@ -6,13 +6,13 @@ import '../../widgets.dart';
 
 class EBBottomAppBarItem {
   const EBBottomAppBarItem({
-    this.iconData,
+    required this.icon,
     this.text,
     this.enableDot = false,
   });
 
   final bool enableDot;
-  final IconData? iconData;
+  final Widget icon;
   final String? text;
 }
 
@@ -99,7 +99,7 @@ class EBBottomAppBar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(item.iconData, color: tabColor, size: iconSize),
+                    item.icon,
                     EBSpacers.height4,
                     Text(item.text!,
                         style: EBTextStyles.caption.copyWith(color: tabColor)),
