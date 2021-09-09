@@ -30,11 +30,11 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: EBBottomAppBar(
         selectedItemIndex: 0,
         items: [
-          EBBottomAppBarItem(iconData: Icons.event_seat, text: 'Booking'),
+          EBBottomAppBarItem(icon: Icon(Icons.event_seat), text: 'Booking'),
           EBBottomAppBarItem(
-              iconData: Icons.playlist_add_check, text: 'Check-in'),
-          EBBottomAppBarItem(iconData: Icons.insert_chart, text: 'Analytics'),
-          EBBottomAppBarItem(iconData: Icons.people, text: 'Manage'),
+              icon: Icon(Icons.playlist_add_check), text: 'Check-in'),
+          EBBottomAppBarItem(icon: Icon(Icons.insert_chart), text: 'Analytics'),
+          EBBottomAppBarItem(icon: Icon(Icons.people), text: 'Manage'),
         ],
         onTabSelected: print,
         backgroundColor: EBColors.quaternary,

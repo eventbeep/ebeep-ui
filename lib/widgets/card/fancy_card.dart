@@ -11,14 +11,18 @@ class FancyCard extends StatelessWidget {
     required this.title,
     required this.trailing,
     this.subtitle,
+    this.automaticallyImplyLeading = true,
   }) : super(key: key);
 
   final String title;
   final String? subtitle;
   final Widget trailing;
+  final bool automaticallyImplyLeading;
 
   @override
   Widget build(BuildContext context) {
+    final ModalRoute<dynamic>? parentRoute = ModalRoute.of(context);
+    final canPop = parentRoute?.canPop ?? false;
     return BottomWaveContainer(
       shadowColor: EBColors.grey30,
       child: Container(
@@ -34,9 +38,21 @@ class FancyCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(title, style: EBTextStyles.headline5),
+                  Row(
+                    children: [
+                      if (automaticallyImplyLeading && canPop)
+                        InkWell(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 16),
+                            child: Icon(Icons.arrow_back),
+                          ),
+                          onTap: () => Navigator.pop(context),
+                        ),
+                      Text(title, style: EBTextStyles.headline5),
+                    ],
+                  ),
                   if (subtitle != null && subtitle!.isNotEmpty) ...[
-                    EBSpacers.height8,
+                    EBSpacers.height12,
                     Text(subtitle!, style: EBTextStyles.bodyText2),
                   ]
                 ],
