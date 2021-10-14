@@ -7,6 +7,7 @@ import 'dimens.dart';
 
 mixin EBThemes {
   static ThemeData lightTheme = ThemeData(
+    brightness: Brightness.light,
     primaryIconTheme: IconThemeData(color: EBColors.grey100),
     primaryColorLight: EBColors.lightBlue,
     scaffoldBackgroundColor: EBColors.grey20,
