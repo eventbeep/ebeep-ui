@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 
-import '../../colors/colors.dart';
 import '../../widgets.dart';
 
 class EBError extends StatelessWidget {
   const EBError({
     Key? key,
     this.errorMessage = 'Oops! Some error occured',
-    this.textColor = EBColors.grey100,
   }) : super(key: key);
 
   final String errorMessage;
-  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Text(
         errorMessage,
-        style: EBTextStyles.bodyText1.copyWith(color: textColor),
+        style: EBTextStyles.bodyText1,
         textAlign: TextAlign.center,
       ),
     );

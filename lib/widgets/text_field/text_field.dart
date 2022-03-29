@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 import '../../shared.dart';
@@ -27,10 +28,6 @@ class EBTextField extends StatelessWidget {
     this.readOnly = false,
     this.onSubmit,
     this.maxHieght,
-    this.borderColor,
-    this.focusedBorderColor = EBColors.primary,
-    this.width = 1,
-    this.inputFormatters,
   }) : super(key: key);
 
   final TextEditingController? controller;
@@ -53,10 +50,6 @@ class EBTextField extends StatelessWidget {
   final TextCapitalization textCapitalization;
   final TextInputType textInputType;
   final double? maxHieght;
-  final Color? borderColor;
-  final Color focusedBorderColor;
-  final double width;
-  final List<TextInputFormatter>? inputFormatters;
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +65,6 @@ class EBTextField extends StatelessWidget {
           constraints: BoxConstraints(maxHeight: maxHieght ?? double.infinity),
           child: TextField(
             readOnly: readOnly,
-            textAlignVertical: TextAlignVertical.center,
-            inputFormatters: inputFormatters,
             onSubmitted: onSubmit as void Function(String)?,
             autofocus: autofocus,
             onTap: onTap as void Function()?,
@@ -91,22 +82,14 @@ class EBTextField extends StatelessWidget {
                     {required currentLength, maxLength, required isFocused}) =>
                 null,
             decoration: InputDecoration(
-              isCollapsed: true,
               border: OutlineInputBorder(
-                borderSide: BorderSide(width: width, color: focusedBorderColor),
+                borderSide: BorderSide(width: 1, color: EBColors.primary),
                 borderRadius: BorderRadius.circular(EBDimens.borderRadius),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 2, color: focusedBorderColor),
+                borderSide: BorderSide(width: 2, color: EBColors.primary),
                 borderRadius: BorderRadius.circular(EBDimens.borderRadius),
               ),
-              enabledBorder: borderColor != null
-                  ? OutlineInputBorder(
-                      borderSide: BorderSide(width: width, color: borderColor!),
-                      borderRadius:
-                          BorderRadius.circular(EBDimens.borderRadius),
-                    )
-                  : null,
               hintStyle:
                   EBTextStyles.bodyText1.copyWith(color: EBColors.grey50),
               hintText: hintText,

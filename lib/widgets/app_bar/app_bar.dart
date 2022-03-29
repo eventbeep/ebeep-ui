@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import '../../shared.dart';
@@ -14,7 +16,6 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.isInSafeArea = true,
     this.hasShadow = true,
     this.isDark = false,
-    this.backgroundColor,
   })  : preferredSize = Size.fromHeight(
             56 + (isInSafeArea ? (bottom?.preferredSize.height ?? 0.0) : 0.0)),
         super(key: key);
@@ -27,7 +28,6 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isInSafeArea;
   final PreferredSizeWidget? bottom;
   final Widget? actionButton;
-  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +39,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       height: preferredSize.height + (isInSafeArea ? statusBarHeight : 0.0),
       decoration: BoxDecoration(
-          color:
-              backgroundColor ?? (isDark ? EBColors.grey100 : EBColors.grey10),
+          color: isDark ? EBColors.grey100 : EBColors.grey10,
           boxShadow: hasShadow
               ? [
                   BoxShadow(

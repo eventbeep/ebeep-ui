@@ -12,6 +12,7 @@ mixin EBThemes {
     primaryColorLight: EBColors.lightBlue,
     scaffoldBackgroundColor: EBColors.grey20,
     primaryColor: EBColors.primary,
+    accentColor: EBColors.secondary,
     snackBarTheme: SnackBarThemeData(
       backgroundColor: EBColors.primary,
       shape: RoundedRectangleBorder(
@@ -62,10 +63,9 @@ mixin EBThemes {
     ),
     appBarTheme: AppBarTheme(
       color: EBColors.white,
+      textTheme: TextTheme(headline6: EBTextStyles.appBar),
       shadowColor: EBColors.grey10,
       elevation: 2,
-      toolbarTextStyle: TextTheme(headline6: EBTextStyles.appBar).bodyText2,
-      titleTextStyle: TextTheme(headline6: EBTextStyles.appBar).headline6,
     ),
     cardTheme: CardTheme(
       elevation: 4,
@@ -111,8 +111,6 @@ mixin EBThemes {
       fillColor: EBColors.white,
       labelStyle: const TextStyle(color: EBColors.tertiary),
     ),
-    colorScheme:
-        ColorScheme.fromSwatch().copyWith(secondary: EBColors.secondary),
   );
 
   static ThemeData darkTheme = ThemeData(

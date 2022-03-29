@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../colors/colors.dart';
 import '../../shared.dart';
+import '../../shared/dimens.dart';
 import '../../widgets.dart';
 
 class EBPrimaryButton extends StatelessWidget {
@@ -11,12 +13,10 @@ class EBPrimaryButton extends StatelessWidget {
     this.height = 48,
     this.minWidth = 48,
     this.isLoading = false,
-    this.hideDisableWhenLoading = false,
     this.fontSize = 16,
     this.padding = const EdgeInsets.all(16),
     this.gap = EBSpacers.width16,
     this.color = EBColors.primary,
-    this.textColor = EBColors.white,
     this.icon,
   }) : super(key: key);
 
@@ -25,12 +25,10 @@ class EBPrimaryButton extends StatelessWidget {
   final double minWidth;
   final Function? onPressed;
   final bool isLoading;
-  final bool hideDisableWhenLoading;
   final double fontSize;
   final EdgeInsets padding;
   final Icon? icon;
   final Color color;
-  final Color textColor;
   final Widget gap;
 
   factory EBPrimaryButton.medium({
@@ -38,7 +36,6 @@ class EBPrimaryButton extends StatelessWidget {
     required Function? onPressed,
     bool isLoading = false,
     Color color = EBColors.primary,
-    Color textColor = EBColors.white,
     Icon? icon,
     double minWidth = 40,
   }) {
@@ -52,7 +49,6 @@ class EBPrimaryButton extends StatelessWidget {
       fontSize: 16,
       icon: icon,
       color: color,
-      textColor: textColor,
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
     );
   }
@@ -62,7 +58,6 @@ class EBPrimaryButton extends StatelessWidget {
     required Function? onPressed,
     bool isLoading = false,
     Color color = EBColors.primary,
-    Color textColor = EBColors.white,
     Icon? icon,
   }) {
     return EBPrimaryButton(
@@ -75,7 +70,6 @@ class EBPrimaryButton extends StatelessWidget {
       fontSize: 14,
       icon: icon,
       color: color,
-      textColor: textColor,
       padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 12),
     );
   }
@@ -88,16 +82,14 @@ class EBPrimaryButton extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
-      disabledColor:
-          hideDisableWhenLoading && isLoading ? color : EBColors.grey50,
+      disabledColor: EBColors.grey50,
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
       child: MaterialButton(
         padding: padding,
         elevation: 0,
         color: color,
         textColor: EBColors.white,
-        disabledColor:
-            hideDisableWhenLoading && isLoading ? color : EBColors.grey50,
+        disabledColor: EBColors.grey50,
         disabledTextColor: EBColors.white,
         child: isLoading
             ? const EBLoading(radius: 8, color: EBColors.white)
@@ -109,8 +101,7 @@ class EBPrimaryButton extends StatelessWidget {
                   if (title.isNotEmpty)
                     Text(
                       title,
-                      style: EBTextStyles.button
-                          .copyWith(fontSize: fontSize, color: textColor),
+                      style: EBTextStyles.button.copyWith(fontSize: fontSize),
                     ),
                 ],
               ),
