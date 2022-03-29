@@ -67,5 +67,5 @@ class EBColors {
   static const Color translucentOverlay = Color(0x33708090);
 
   static const Color scaffoldBackgroundColor = Color(0xFFFAFBFC);
-  // static const Color Orange = Color(0xFFFC9E63);
+  static const Color beepYellow = Color(0xFFFCCE00);
 }
