@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart' show CupertinoTextField;
 import 'package:flutter/material.dart';
 
