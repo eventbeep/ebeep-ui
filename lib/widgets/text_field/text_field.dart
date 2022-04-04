@@ -13,6 +13,7 @@ class EBTextField extends StatelessWidget {
     this.onChanged,
     this.isPassword = false,
     this.textInputType = TextInputType.text,
+    this.textInputAction,
     this.errorText,
     this.maxLength,
     this.maxLines,
@@ -52,6 +53,7 @@ class EBTextField extends StatelessWidget {
   final Widget? prefix;
   final TextCapitalization textCapitalization;
   final TextInputType textInputType;
+  final TextInputAction? textInputAction;
   final double? maxHieght;
   final Color? borderColor;
   final Color focusedBorderColor;
@@ -72,6 +74,7 @@ class EBTextField extends StatelessWidget {
           constraints: BoxConstraints(maxHeight: maxHieght ?? double.infinity),
           child: TextField(
             readOnly: readOnly,
+            textInputAction: textInputAction,
             textAlignVertical: TextAlignVertical.center,
             inputFormatters: inputFormatters,
             onSubmitted: onSubmit as void Function(String)?,
