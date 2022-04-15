@@ -6,7 +6,7 @@ import '../../widgets.dart';
 class EBError extends StatelessWidget {
   const EBError({
     Key? key,
-    this.errorMessage = 'Oops! Some error occured',
+    this.errorMessage = 'Oops! Some error occurred',
     this.textColor = EBColors.grey100,
   }) : super(key: key);
 
