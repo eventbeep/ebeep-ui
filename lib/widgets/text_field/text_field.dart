@@ -31,6 +31,8 @@ class EBTextField extends StatelessWidget {
     this.borderColor,
     this.focusedBorderColor = EBColors.primary,
     this.width = 1,
+    this.textStyle,
+    this.cursorColor,
     this.inputFormatters,
   }) : super(key: key);
 
@@ -57,7 +59,9 @@ class EBTextField extends StatelessWidget {
   final double? maxHieght;
   final Color? borderColor;
   final Color focusedBorderColor;
+  final Color? cursorColor;
   final double width;
+  final TextStyle? textStyle;
   final List<TextInputFormatter>? inputFormatters;
 
   @override
@@ -74,6 +78,8 @@ class EBTextField extends StatelessWidget {
           constraints: BoxConstraints(maxHeight: maxHieght ?? double.infinity),
           child: TextField(
             readOnly: readOnly,
+            cursorColor: cursorColor,
+            style: textStyle,
             textInputAction: textInputAction,
             textAlignVertical: TextAlignVertical.center,
             inputFormatters: inputFormatters,
