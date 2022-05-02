@@ -3,25 +3,34 @@ import 'package:flutter/material.dart';
 import '../../colors/colors.dart';
 
 class EBIconButton extends StatelessWidget {
-  const EBIconButton({
-    Key? key,
-    required this.icon,
-    required this.onPressed,
-  }) : super(key: key);
+  const EBIconButton(
+      {Key? key,
+      required this.icon,
+      required this.onPressed,
+      this.height = 40,
+      this.width = 40,
+      this.fillColor = EBColors.lightBlue})
+      : super(key: key);
 
   final Widget icon;
+  final double height;
+  final double width;
+  final Color fillColor;
   final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return RawMaterialButton(
-      constraints: const BoxConstraints(minWidth: 40, minHeight: 40),
-      elevation: 0,
-      fillColor: EBColors.lightBlue,
-      // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      shape: const CircleBorder(),
-      child: icon,
-      onPressed: onPressed,
+    return SizedBox(
+      height: height,
+      width: width,
+      child: RawMaterialButton(
+        elevation: 0,
+        fillColor: fillColor,
+        // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        shape: const CircleBorder(),
+        child: icon,
+        onPressed: onPressed,
+      ),
     );
   }
 }
