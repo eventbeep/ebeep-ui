@@ -21,5 +21,8 @@ flutter:
     - family: EBIcons
       fonts:
         - asset: packages/ebeep_ui/fonts/EBIcons.ttf
+    - family: BeepIcons
+      fonts:
+        - asset: packages/ebeep_ui/fonts/BeepIcons.ttf
 
   uses-material-design: true

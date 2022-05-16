@@ -83,6 +83,20 @@ class EBBottomAppBar extends StatelessWidget {
           onTap: () => onPressed!(index),
           child: Stack(
             children: <Widget>[
+              if (selectedItemIndex == index)
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    width: 40,
+                    height: 4,
+                    decoration: BoxDecoration(
+                        color: selectedColor,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(20),
+                          bottomRight: Radius.circular(20),
+                        )),
+                  ),
+                ),
               if (item.enableDot)
                 const Positioned(
                   right: 20,
