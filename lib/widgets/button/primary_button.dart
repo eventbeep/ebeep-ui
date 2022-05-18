@@ -16,6 +16,7 @@ class EBPrimaryButton extends StatelessWidget {
     this.padding = const EdgeInsets.all(16),
     this.gap = EBSpacers.width16,
     this.color = EBColors.primary,
+    this.borderColor,
     this.textColor = EBColors.white,
     this.icon,
   }) : super(key: key);
@@ -30,6 +31,7 @@ class EBPrimaryButton extends StatelessWidget {
   final EdgeInsets padding;
   final Icon? icon;
   final Color color;
+  final Color? borderColor;
   final Color textColor;
   final Widget gap;
 
@@ -86,6 +88,7 @@ class EBPrimaryButton extends StatelessWidget {
       height: height,
       minWidth: minWidth,
       shape: RoundedRectangleBorder(
+        side: BorderSide(color: borderColor == null ? color : borderColor!),
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
       disabledColor:
@@ -109,7 +112,7 @@ class EBPrimaryButton extends StatelessWidget {
                   if (title.isNotEmpty)
                     Text(
                       title,
-                      style: EBTextStyles.button
+                      style: BeepTextStyles.textField
                           .copyWith(fontSize: fontSize, color: textColor),
                     ),
                 ],

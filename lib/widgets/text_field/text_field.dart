@@ -71,7 +71,7 @@ class EBTextField extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         if (labelText != null && labelText!.isNotEmpty) ...[
-          Text(labelText!, style: EBTextStyles.label),
+          Text(labelText!, style: BeepTextStyles.label),
           EBSpacers.height8,
         ],
         Container(
@@ -116,8 +116,7 @@ class EBTextField extends StatelessWidget {
                           BorderRadius.circular(EBDimens.borderRadius),
                     )
                   : null,
-              hintStyle:
-                  EBTextStyles.bodyText1.copyWith(color: EBColors.grey50),
+              hintStyle: BeepTextStyles.body1.copyWith(color: EBColors.grey50),
               hintText: hintText,
               counterText: '',
               errorText: errorText,
