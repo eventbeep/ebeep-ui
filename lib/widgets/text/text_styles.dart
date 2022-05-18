@@ -1,5 +1,7 @@
+// ignore_for_file: avoid_classes_with_only_static_members
+
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../colors/colors.dart';
 
@@ -99,5 +101,88 @@ class EBTextStyles {
     fontSize: 18,
     fontWeight: FontWeight.normal,
     color: EBColors.grey100,
+  );
+}
+
+class BeepTextStyles {
+  static TextStyle heading1 = GoogleFonts.poppins(
+    fontSize: 48,
+    fontWeight: FontWeight.w800,
+    color: Colors.black,
+  );
+
+  static TextStyle heading2 = GoogleFonts.poppins(
+    fontSize: 34,
+    fontWeight: FontWeight.w800,
+    color: Colors.black,
+  );
+
+  static TextStyle heading3 = GoogleFonts.poppins(
+    fontSize: 34,
+    fontWeight: FontWeight.w700,
+    color: Colors.black,
+  );
+
+  static TextStyle heading4 = GoogleFonts.poppins(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: Colors.black,
+  );
+
+  static TextStyle heading5 = GoogleFonts.poppins(
+    fontSize: 24,
+    fontWeight: FontWeight.w500,
+    color: Colors.black,
+  );
+
+  static TextStyle textField = GoogleFonts.poppins(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: Colors.black,
+  );
+
+  static TextStyle body1B = GoogleFonts.poppins(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: Colors.black,
+  );
+
+  static TextStyle body1 = GoogleFonts.poppins(
+    fontSize: 16,
+    color: Colors.black,
+  );
+
+  static TextStyle body2B = GoogleFonts.poppins(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    color: Colors.black,
+  );
+
+  static TextStyle body2 = GoogleFonts.poppins(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: Colors.black,
+  );
+
+  static TextStyle caption = GoogleFonts.poppins(
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle overline = GoogleFonts.poppins(
+    fontSize: 10,
+    fontWeight: FontWeight.w600,
+    color: Colors.black,
+  );
+
+  static TextStyle label = GoogleFonts.poppins(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: Colors.black,
+  );
+
+  static TextStyle subtitle = GoogleFonts.poppins(
+    fontSize: 12,
+    fontWeight: FontWeight.w300,
   );
 }
