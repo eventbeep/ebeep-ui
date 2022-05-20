@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../shared.dart';
 import '../../widgets.dart';
@@ -88,20 +89,32 @@ class EBPrimaryButton extends StatelessWidget {
       height: height,
       minWidth: minWidth,
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: borderColor == null ? color : borderColor!),
+        side: BorderSide(
+            color: onPressed == null
+                ? EBColors.grey50
+                : borderColor == null
+                    ? color
+                    : borderColor!),
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
-      disabledColor:
-          hideDisableWhenLoading && isLoading ? color : EBColors.grey50,
+      disabledColor: hideDisableWhenLoading && isLoading
+          ? color
+          : color == Colors.white
+              ? color
+              : EBColors.grey50,
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
       child: MaterialButton(
         padding: padding,
         elevation: 0,
         color: color,
-        textColor: EBColors.white,
-        disabledColor:
-            hideDisableWhenLoading && isLoading ? color : EBColors.grey50,
-        disabledTextColor: EBColors.white,
+        textColor: textColor,
+        disabledColor: hideDisableWhenLoading && isLoading
+            ? color
+            : color == Colors.white
+                ? color
+                : EBColors.grey50,
+        disabledTextColor:
+            color == Colors.white ? EBColors.grey50 : EBColors.white,
         child: isLoading
             ? const EBLoading(radius: 8, color: EBColors.white)
             : Row(
@@ -112,8 +125,10 @@ class EBPrimaryButton extends StatelessWidget {
                   if (title.isNotEmpty)
                     Text(
                       title,
-                      style: BeepTextStyles.textField
-                          .copyWith(fontSize: fontSize, color: textColor),
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                 ],
               ),
