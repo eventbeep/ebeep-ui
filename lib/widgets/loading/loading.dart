@@ -5,7 +5,7 @@ import '../../shared.dart';
 class EBLoading extends StatelessWidget {
   const EBLoading({
     Key? key,
-    this.color = EBColors.tertiary,
+    this.color = EBColors.beepGreen,
     this.radius = 15,
     this.strokeWidth = 2,
     this.value,
