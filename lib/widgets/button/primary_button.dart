@@ -14,7 +14,7 @@ class EBPrimaryButton extends StatelessWidget {
     this.isLoading = false,
     this.hideDisableWhenLoading = false,
     this.fontSize = 16,
-    this.padding = const EdgeInsets.all(16),
+    this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
     this.gap = EBSpacers.width16,
     this.color = EBColors.primary,
     this.borderColor,
@@ -56,7 +56,7 @@ class EBPrimaryButton extends StatelessWidget {
       icon: icon,
       color: color,
       textColor: textColor,
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+      padding: const EdgeInsets.only(top: 10, bottom: 14, left: 16, right: 16),
     );
   }
 
@@ -123,11 +123,12 @@ class EBPrimaryButton extends StatelessWidget {
                   if (icon != null) icon!,
                   if (icon != null && title.isNotEmpty) gap,
                   if (title.isNotEmpty)
-                    Text(
-                      title,
-                      style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
+                    FittedBox(
+                      child: Text(
+                        title,
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                 ],

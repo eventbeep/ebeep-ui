@@ -22,49 +22,46 @@ import 'package:flutter/widgets.dart';
 class BeepIcons {
   BeepIcons._();
 
-  static const _fontfamily = 'BeepIcons';
+  static const _kFontFam = 'BeepIcons';
 
-  static const IconData arroba = IconData(0xe800, fontFamily: _fontfamily);
-  static const IconData attachment = IconData(0xe801, fontFamily: _fontfamily);
-  static const IconData bell_filled = IconData(0xe802, fontFamily: _fontfamily);
-  static const IconData bell = IconData(0xe803, fontFamily: _fontfamily);
-  static const IconData bin = IconData(0xe804, fontFamily: _fontfamily);
+  static const IconData arroba = IconData(0xe800, fontFamily: _kFontFam);
+  static const IconData attachment = IconData(0xe801, fontFamily: _kFontFam);
+  static const IconData bell_filled = IconData(0xe802, fontFamily: _kFontFam);
+  static const IconData bell = IconData(0xe803, fontFamily: _kFontFam);
+  static const IconData bin = IconData(0xe804, fontFamily: _kFontFam);
   static const IconData checkmark_circle =
-      IconData(0xe805, fontFamily: _fontfamily);
-  static const IconData checkmark = IconData(0xe806, fontFamily: _fontfamily);
-  static const IconData close = IconData(0xe807, fontFamily: _fontfamily);
-  static const IconData degree = IconData(0xe808, fontFamily: _fontfamily);
-  static const IconData home_filled = IconData(0xe809, fontFamily: _fontfamily);
-  static const IconData home = IconData(0xe80a, fontFamily: _fontfamily);
-  static const IconData hyperlink = IconData(0xe80b, fontFamily: _fontfamily);
-  static const IconData logout = IconData(0xe80c, fontFamily: _fontfamily);
-  static const IconData mail = IconData(0xe80d, fontFamily: _fontfamily);
-  static const IconData file = IconData(0xe80e, fontFamily: _fontfamily);
-  static const IconData mic_filled = IconData(0xe80f, fontFamily: _fontfamily);
-  static const IconData mic = IconData(0xe810, fontFamily: _fontfamily);
-  static const IconData paper_plane = IconData(0xe811, fontFamily: _fontfamily);
-  static const IconData reply = IconData(0xe812, fontFamily: _fontfamily);
-  static const IconData reward_filled =
-      IconData(0xe813, fontFamily: _fontfamily);
-  static const IconData reward = IconData(0xe814, fontFamily: _fontfamily);
-  static const IconData search = IconData(0xe815, fontFamily: _fontfamily);
-  static const IconData speech_bubble =
-      IconData(0xe816, fontFamily: _fontfamily);
+      IconData(0xe805, fontFamily: _kFontFam);
+  static const IconData checkmark = IconData(0xe806, fontFamily: _kFontFam);
+  static const IconData close = IconData(0xe807, fontFamily: _kFontFam);
+  static const IconData degree = IconData(0xe808, fontFamily: _kFontFam);
+  static const IconData home_filled = IconData(0xe809, fontFamily: _kFontFam);
+  static const IconData home = IconData(0xe80a, fontFamily: _kFontFam);
+  static const IconData hyperlink = IconData(0xe80b, fontFamily: _kFontFam);
+  static const IconData logout = IconData(0xe80c, fontFamily: _kFontFam);
+  static const IconData mail = IconData(0xe80d, fontFamily: _kFontFam);
+  static const IconData file = IconData(0xe80e, fontFamily: _kFontFam);
+  static const IconData mic_filled = IconData(0xe80f, fontFamily: _kFontFam);
+  static const IconData mic = IconData(0xe810, fontFamily: _kFontFam);
+  static const IconData paper_plane = IconData(0xe811, fontFamily: _kFontFam);
+  static const IconData reply = IconData(0xe812, fontFamily: _kFontFam);
+  static const IconData reward_filled = IconData(0xe813, fontFamily: _kFontFam);
+  static const IconData reward = IconData(0xe814, fontFamily: _kFontFam);
+  static const IconData search = IconData(0xe815, fontFamily: _kFontFam);
+  static const IconData speech_bubble = IconData(0xe816, fontFamily: _kFontFam);
   static const IconData speech_bubbles =
-      IconData(0xe817, fontFamily: _fontfamily);
-  static const IconData user_single = IconData(0xe818, fontFamily: _fontfamily);
-  static const IconData users = IconData(0xe819, fontFamily: _fontfamily);
-  static const IconData visible_off = IconData(0xe81a, fontFamily: _fontfamily);
-  static const IconData visible = IconData(0xe81b, fontFamily: _fontfamily);
-  static const IconData menu_icon_horizontal =
-      IconData(0xe81c, fontFamily: _fontfamily);
-  static const IconData unpin = IconData(0xe81d, fontFamily: _fontfamily);
-  static const IconData clock = IconData(0xe81e, fontFamily: _fontfamily);
-  static const IconData calendar = IconData(0xe81f, fontFamily: _fontfamily);
-  static const IconData share_filled =
-      IconData(0xe822, fontFamily: _fontfamily);
-  static const IconData mic_off = IconData(0xe823, fontFamily: _fontfamily);
+      IconData(0xe817, fontFamily: _kFontFam);
+  static const IconData user_single = IconData(0xe818, fontFamily: _kFontFam);
+  static const IconData users = IconData(0xe819, fontFamily: _kFontFam);
+  static const IconData visible_off = IconData(0xe81a, fontFamily: _kFontFam);
+  static const IconData visible = IconData(0xe81b, fontFamily: _kFontFam);
+  static const IconData menu_dots = IconData(0xe81c, fontFamily: _kFontFam);
+  static const IconData unpin = IconData(0xe81d, fontFamily: _kFontFam);
+  static const IconData clock = IconData(0xe81e, fontFamily: _kFontFam);
+  static const IconData calendar = IconData(0xe81f, fontFamily: _kFontFam);
+  static const IconData back = IconData(0xe820, fontFamily: _kFontFam);
+  static const IconData share_filled = IconData(0xe822, fontFamily: _kFontFam);
+  static const IconData mic_off = IconData(0xe823, fontFamily: _kFontFam);
   static const IconData mic_off_filled =
-      IconData(0xe824, fontFamily: _fontfamily);
-  static const IconData pushpin = IconData(0xe832, fontFamily: _fontfamily);
+      IconData(0xe824, fontFamily: _kFontFam);
+  static const IconData pushpin = IconData(0xe832, fontFamily: _kFontFam);
 }

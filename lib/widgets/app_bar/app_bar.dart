@@ -1,3 +1,4 @@
+import 'package:ebeep_ui/shared/beep_icons.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared.dart';
@@ -78,14 +79,14 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: useCloseButton
                 ? IconButton(
                     icon: Icon(
-                      EBIcons.close,
+                      BeepIcons.close,
                       color: isDark ? EBColors.grey10 : EBColors.grey100,
                     ),
                     onPressed: () => Navigator.pop(context),
                   )
                 : IconButton(
                     icon: Icon(
-                      EBIcons.back,
+                      BeepIcons.back,
                       color: isDark ? EBColors.grey10 : EBColors.grey100,
                     ),
                     onPressed: () => Navigator.pop(context),
@@ -106,7 +107,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
         Expanded(
           child: Text(
             title,
-            style: EBTextStyles.appBar
+            style: BeepTextStyles.body1B
                 .copyWith(color: isDark ? EBColors.white : EBColors.grey100),
             overflow: TextOverflow.ellipsis,
           ),
