@@ -86,7 +86,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
                   )
                 : IconButton(
                     icon: Icon(
-                      Icons.arrow_back_ios_rounded,
+                      BeepIcons.back_arrow,
                       color: isDark ? EBColors.grey10 : EBColors.grey100,
                     ),
                     onPressed: () => Navigator.pop(context),

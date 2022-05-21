@@ -23,6 +23,7 @@ class BeepIcons {
   BeepIcons._();
 
   static const _kFontFam = 'BeepIcons';
+  static const String? _kFontPkg = null;
 
   static const IconData arroba = IconData(0xe800, fontFamily: _kFontFam);
   static const IconData attachment = IconData(0xe801, fontFamily: _kFontFam);
@@ -55,13 +56,19 @@ class BeepIcons {
   static const IconData visible_off = IconData(0xe81a, fontFamily: _kFontFam);
   static const IconData visible = IconData(0xe81b, fontFamily: _kFontFam);
   static const IconData menu_dots = IconData(0xe81c, fontFamily: _kFontFam);
-  static const IconData unpin = IconData(0xe81d, fontFamily: _kFontFam);
   static const IconData clock = IconData(0xe81e, fontFamily: _kFontFam);
   static const IconData calendar = IconData(0xe81f, fontFamily: _kFontFam);
-  static const IconData back = IconData(0xe820, fontFamily: _kFontFam);
-  static const IconData share_filled = IconData(0xe822, fontFamily: _kFontFam);
   static const IconData mic_off = IconData(0xe823, fontFamily: _kFontFam);
   static const IconData mic_off_filled =
       IconData(0xe824, fontFamily: _kFontFam);
+  static const IconData star_filled = IconData(0xe826, fontFamily: _kFontFam);
+  static const IconData star = IconData(0xe827, fontFamily: _kFontFam);
+  static const IconData share_filled = IconData(0xe828, fontFamily: _kFontFam);
+  static const IconData back_arrow = IconData(0xe829, fontFamily: _kFontFam);
+  static const IconData unpin = IconData(0xe82a, fontFamily: _kFontFam);
+  static const IconData camera = IconData(0xe82b, fontFamily: _kFontFam);
+  static const IconData clipboard = IconData(0xe82c, fontFamily: _kFontFam);
+  static const IconData images = IconData(0xe82d, fontFamily: _kFontFam);
+  static const IconData video = IconData(0xe82e, fontFamily: _kFontFam);
   static const IconData pushpin = IconData(0xe832, fontFamily: _kFontFam);
 }
