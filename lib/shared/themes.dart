@@ -11,10 +11,10 @@ mixin EBThemes {
     primaryIconTheme: IconThemeData(color: EBColors.grey100),
     primaryColorLight: EBColors.lightBlue,
     scaffoldBackgroundColor: EBColors.grey20,
-    primaryColor: EBColors.primary,
+    primaryColor: EBColors.beepGreen,
     accentColor: EBColors.secondary,
     snackBarTheme: SnackBarThemeData(
-      backgroundColor: EBColors.primary,
+      backgroundColor: EBColors.beepGreen,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
@@ -37,7 +37,7 @@ mixin EBThemes {
       unselectedLabelColor: EBColors.grey70,
       labelColor: EBColors.grey100,
       indicator: UnderlineTabIndicator(
-        borderSide: BorderSide(color: EBColors.primary, width: 2),
+        borderSide: BorderSide(color: EBColors.beepGreen, width: 2),
       ),
       labelStyle: EBTextStyles.bodyText1.copyWith(fontWeight: FontWeight.w500),
       unselectedLabelStyle: EBTextStyles.bodyText1,
@@ -46,8 +46,8 @@ mixin EBThemes {
       backgroundColor: EBColors.tertiary,
       deleteIconColor: EBColors.white,
       disabledColor: EBColors.lightGrey,
-      selectedColor: EBColors.primary,
-      secondarySelectedColor: EBColors.primary,
+      selectedColor: EBColors.beepGreen,
+      secondarySelectedColor: EBColors.beepGreen,
       labelPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
       padding: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
@@ -94,7 +94,7 @@ mixin EBThemes {
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
       height: 48,
       minWidth: 48,
-      buttonColor: EBColors.primary,
+      buttonColor: EBColors.beepGreen,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
@@ -102,7 +102,7 @@ mixin EBThemes {
       disabledColor: EBColors.disabled,
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: EBColors.primary,
+      backgroundColor: EBColors.beepGreen,
       elevation: 4,
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -115,7 +115,7 @@ mixin EBThemes {
 
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    primaryColor: EBColors.primary,
+    primaryColor: EBColors.beepGreen,
     accentColor: EBColors.secondary,
     fontFamily: 'Simple',
     textTheme: TextTheme(

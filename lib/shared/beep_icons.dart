@@ -56,11 +56,11 @@ class BeepIcons {
   static const IconData visible_off = IconData(0xe81a, fontFamily: _kFontFam);
   static const IconData visible = IconData(0xe81b, fontFamily: _kFontFam);
   static const IconData menu_dots = IconData(0xe81c, fontFamily: _kFontFam);
+  static const IconData mic_off_filled =
+      IconData(0xe81d, fontFamily: _kFontFam);
   static const IconData clock = IconData(0xe81e, fontFamily: _kFontFam);
   static const IconData calendar = IconData(0xe81f, fontFamily: _kFontFam);
-  static const IconData mic_off = IconData(0xe823, fontFamily: _kFontFam);
-  static const IconData mic_off_filled =
-      IconData(0xe824, fontFamily: _kFontFam);
+  static const IconData smiley = IconData(0xe820, fontFamily: _kFontFam);
   static const IconData star_filled = IconData(0xe826, fontFamily: _kFontFam);
   static const IconData star = IconData(0xe827, fontFamily: _kFontFam);
   static const IconData share_filled = IconData(0xe828, fontFamily: _kFontFam);
