@@ -18,7 +18,7 @@ class EBError extends StatelessWidget {
     return Center(
       child: Text(
         errorMessage,
-        style: EBTextStyles.bodyText1.copyWith(color: textColor),
+        style: BeepTextStyles.body2.copyWith(color: textColor),
         textAlign: TextAlign.center,
       ),
     );

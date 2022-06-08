@@ -28,6 +28,7 @@ class EBTextField extends StatelessWidget {
     this.readOnly = false,
     this.onSubmit,
     this.maxHieght,
+    this.borderRadius = EBDimens.borderRadius,
     this.borderColor,
     this.focusedBorderColor = EBColors.primary,
     this.width = 1,
@@ -57,6 +58,7 @@ class EBTextField extends StatelessWidget {
   final TextInputType textInputType;
   final TextInputAction? textInputAction;
   final double? maxHieght;
+  final double borderRadius;
   final Color? borderColor;
   final Color focusedBorderColor;
   final Color? cursorColor;
@@ -103,17 +105,16 @@ class EBTextField extends StatelessWidget {
               isCollapsed: true,
               border: OutlineInputBorder(
                 borderSide: BorderSide(width: width, color: focusedBorderColor),
-                borderRadius: BorderRadius.circular(EBDimens.borderRadius),
+                borderRadius: BorderRadius.circular(borderRadius),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(width: 2, color: focusedBorderColor),
-                borderRadius: BorderRadius.circular(EBDimens.borderRadius),
+                borderRadius: BorderRadius.circular(borderRadius),
               ),
               enabledBorder: borderColor != null
                   ? OutlineInputBorder(
                       borderSide: BorderSide(width: width, color: borderColor!),
-                      borderRadius:
-                          BorderRadius.circular(EBDimens.borderRadius),
+                      borderRadius: BorderRadius.circular(borderRadius),
                     )
                   : null,
               hintStyle: BeepTextStyles.body1.copyWith(color: EBColors.grey50),

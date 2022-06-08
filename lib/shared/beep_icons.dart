@@ -61,6 +61,8 @@ class BeepIcons {
   static const IconData hourglass = IconData(0xe821, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData question = IconData(0xe822, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData trophy = IconData(0xe823, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData downvote = IconData(0xe824, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData arrow_down_circle = IconData(0xe825, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData star_filled = IconData(0xe826, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData star = IconData(0xe827, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_filled = IconData(0xe828, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -71,5 +73,9 @@ class BeepIcons {
   static const IconData images = IconData(0xe82d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData video = IconData(0xe82e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData information = IconData(0xe82f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_image = IconData(0xe830, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData upvote = IconData(0xe831, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData pushpin = IconData(0xe832, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData external_link = IconData(0xe833, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData upload = IconData(0xe834, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

@@ -75,7 +75,7 @@ class ReadMoreTextState extends State<ReadMoreText> {
     final link = TextSpan(
       text: _readMore ? widget.trimCollapsedText : widget.trimExpandedText,
       style: effectiveTextStyle.copyWith(
-        color: EBColors.primary,
+        color: widget.colorClickableText ?? EBColors.beepGreen,
         fontWeight: FontWeight.w500,
       ),
       recognizer: TapGestureRecognizer()..onTap = _onTapLink,

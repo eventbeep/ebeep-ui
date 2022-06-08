@@ -16,7 +16,7 @@ class EBEmpty extends StatelessWidget {
     return Center(
       child: Text(
         message,
-        style: EBTextStyles.bodyText1.copyWith(color: EBColors.grey70),
+        style: BeepTextStyles.body2.copyWith(color: EBColors.beepNeutral2),
       ),
     );
   }
