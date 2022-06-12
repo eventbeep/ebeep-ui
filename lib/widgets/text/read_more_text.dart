@@ -25,6 +25,7 @@ class ReadMoreText extends StatefulWidget {
     this.locale,
     this.textScaleFactor,
     this.semanticsLabel,
+    this.customTapAction,
   }) : super(key: key);
 
   final String data;
@@ -40,6 +41,7 @@ class ReadMoreText extends StatefulWidget {
   final Locale? locale;
   final double? textScaleFactor;
   final String? semanticsLabel;
+  final void Function()? customTapAction;
 
   @override
   ReadMoreTextState createState() => ReadMoreTextState();
@@ -53,7 +55,11 @@ class ReadMoreTextState extends State<ReadMoreText> {
   bool _readMore = true;
 
   void _onTapLink() {
-    setState(() => _readMore = !_readMore);
+    if (widget.customTapAction != null) {
+      widget.customTapAction!();
+    } else {
+      setState(() => _readMore = !_readMore);
+    }
   }
 
   @override

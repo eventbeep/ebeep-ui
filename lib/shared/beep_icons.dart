@@ -78,4 +78,7 @@ class BeepIcons {
   static const IconData pushpin = IconData(0xe832, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData external_link = IconData(0xe833, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData upload = IconData(0xe834, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData blocks_filled = IconData(0xe835, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData blocks = IconData(0xe836, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData close_circle = IconData(0xe837, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
