@@ -118,7 +118,7 @@ class BeepTextStyles {
   );
 
   static TextStyle heading3 = GoogleFonts.poppins(
-    fontSize: 34,
+    fontSize: 24,
     fontWeight: FontWeight.w700,
     color: Colors.black,
   );

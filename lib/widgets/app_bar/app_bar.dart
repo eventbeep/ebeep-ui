@@ -103,7 +103,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           EBSpacers.width4,
         ],
-        EBSpacers.width16,
+        // EBSpacers.width8,
         Expanded(
           child: Text(
             title,

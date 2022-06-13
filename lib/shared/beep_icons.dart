@@ -79,6 +79,10 @@ class BeepIcons {
   static const IconData external_link = IconData(0xe833, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData upload = IconData(0xe834, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData blocks_filled = IconData(0xe835, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData blocks = IconData(0xe836, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData edit_line = IconData(0xe836, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData close_circle = IconData(0xe837, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData camera_plus = IconData(0xe838, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData upload_alt = IconData(0xe839, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData circle_check = IconData(0xe83a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData blocks = IconData(0xe83c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

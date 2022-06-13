@@ -21,14 +21,16 @@ class EBTextField extends StatelessWidget {
     this.focusNode,
     this.controller,
     this.onTap,
+    this.onEditingComplete,
     this.prefix,
     this.suffix,
     this.autofocus = false,
     this.enabled = true,
     this.readOnly = false,
+    this.useTextfieldLabel = false,
     this.onSubmit,
     this.maxHieght,
-    this.borderRadius = EBDimens.borderRadius,
+    this.borderRadius = 16,
     this.borderColor,
     this.focusedBorderColor = EBColors.primary,
     this.width = 1,
@@ -42,6 +44,7 @@ class EBTextField extends StatelessWidget {
   final bool autofocus;
   final bool readOnly;
   final bool isPassword;
+  final bool useTextfieldLabel;
   final String? errorText;
   final String? labelText;
   final String? hintText;
@@ -52,6 +55,7 @@ class EBTextField extends StatelessWidget {
   final Function? onChanged;
   final Function? onSubmit;
   final Function? onTap;
+  final Function? onEditingComplete;
   final Widget? suffix;
   final Widget? prefix;
   final TextCapitalization textCapitalization;
@@ -72,7 +76,9 @@ class EBTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        if (labelText != null && labelText!.isNotEmpty) ...[
+        if (labelText != null &&
+            labelText!.isNotEmpty &&
+            !useTextfieldLabel) ...[
           Text(labelText!, style: BeepTextStyles.label),
           EBSpacers.height8,
         ],
@@ -83,6 +89,7 @@ class EBTextField extends StatelessWidget {
             cursorColor: cursorColor,
             style: textStyle,
             textInputAction: textInputAction,
+            onEditingComplete: onEditingComplete as void Function()?,
             textAlignVertical: TextAlignVertical.center,
             inputFormatters: inputFormatters,
             onSubmitted: onSubmit as void Function(String)?,
@@ -108,7 +115,7 @@ class EBTextField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(borderRadius),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 2, color: focusedBorderColor),
+                borderSide: BorderSide(width: width, color: focusedBorderColor),
                 borderRadius: BorderRadius.circular(borderRadius),
               ),
               enabledBorder: borderColor != null
@@ -117,8 +124,12 @@ class EBTextField extends StatelessWidget {
                       borderRadius: BorderRadius.circular(borderRadius),
                     )
                   : null,
-              hintStyle: BeepTextStyles.body1.copyWith(color: EBColors.grey50),
+              hintStyle: BeepTextStyles.textField
+                  .copyWith(color: EBColors.beepNeutral3),
+              labelStyle: BeepTextStyles.textField
+                  .copyWith(color: EBColors.beepNeutral3),
               hintText: hintText,
+              labelText: useTextfieldLabel ? labelText : null,
               counterText: '',
               errorText: errorText,
               suffixIcon: suffix,

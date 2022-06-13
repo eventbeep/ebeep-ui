@@ -19,6 +19,7 @@ class EBPrimaryButton extends StatelessWidget {
     this.color = EBColors.primary,
     this.borderColor,
     this.textColor = EBColors.white,
+    this.disabledTextColor,
     this.icon,
   }) : super(key: key);
 
@@ -34,6 +35,7 @@ class EBPrimaryButton extends StatelessWidget {
   final Color color;
   final Color? borderColor;
   final Color textColor;
+  final Color? disabledTextColor;
   final Widget gap;
 
   factory EBPrimaryButton.medium({
@@ -85,36 +87,37 @@ class EBPrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final disabled = isLoading || onPressed == null ? true : false;
     return ButtonTheme(
       height: height,
       minWidth: minWidth,
       shape: RoundedRectangleBorder(
         side: BorderSide(
             color: onPressed == null
-                ? EBColors.grey50
+                ? EBColors.beepNeutral4
                 : borderColor == null
                     ? color
                     : borderColor!),
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
-      disabledColor: hideDisableWhenLoading && isLoading
-          ? color
-          : color == Colors.white
-              ? color
-              : EBColors.grey50,
+      disabledColor:
+          hideDisableWhenLoading && isLoading ? color : EBColors.beepNeutral5,
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
       child: MaterialButton(
         padding: padding,
-        elevation: 0,
+        elevation: 1,
         color: color,
         textColor: textColor,
         disabledColor: hideDisableWhenLoading && isLoading
             ? color
             : color == Colors.white
                 ? color
-                : EBColors.grey50,
-        disabledTextColor:
-            color == Colors.white ? EBColors.grey50 : EBColors.white,
+                : EBColors.beepNeutral4,
+        disabledTextColor: disabledTextColor != null
+            ? disabledTextColor
+            : color == Colors.white
+                ? EBColors.beepNeutral4
+                : EBColors.white,
         child: isLoading
             ? const EBLoading(radius: 8, color: EBColors.white)
             : Row(
@@ -124,12 +127,11 @@ class EBPrimaryButton extends StatelessWidget {
                   if (icon != null && title.isNotEmpty) gap,
                   if (title.isNotEmpty)
                     FittedBox(
-                      child: Text(
-                        title,
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
+                      child: Text(title,
+                          style: BeepTextStyles.textField.copyWith(
+                              color: disabled
+                                  ? disabledTextColor ?? EBColors.beepNeutral3
+                                  : textColor)),
                     ),
                 ],
               ),
