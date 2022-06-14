@@ -47,7 +47,7 @@ class EBTertiaryButton extends StatelessWidget {
     String title = '',
     required Function? onPressed,
     bool isLoading = false,
-    Color color = EBColors.primary,
+    Color color = EBColors.beepGreen,
     Icon? icon,
   }) {
     return EBTertiaryButton(
@@ -80,7 +80,7 @@ class EBTertiaryButton extends StatelessWidget {
         textColor: EBColors.grey90,
         color: EBColors.grey10,
         child: isLoading
-            ? const EBLoading(radius: 8, color: EBColors.primary)
+            ? const EBLoading(radius: 8, color: EBColors.beepGreen)
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

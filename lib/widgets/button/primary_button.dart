@@ -44,6 +44,7 @@ class EBPrimaryButton extends StatelessWidget {
     bool isLoading = false,
     Color color = EBColors.primary,
     Color textColor = EBColors.white,
+    Color? borderColor,
     Icon? icon,
     double minWidth = 40,
   }) {
@@ -54,6 +55,7 @@ class EBPrimaryButton extends StatelessWidget {
       height: 40,
       gap: EBSpacers.width12,
       minWidth: minWidth,
+      borderColor: borderColor,
       fontSize: 16,
       icon: icon,
       color: color,

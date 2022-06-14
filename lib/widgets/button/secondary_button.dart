@@ -14,7 +14,7 @@ class EBSecondaryButton extends StatelessWidget {
     this.padding = const EdgeInsets.all(16),
     this.icon,
     this.color = EBColors.grey10,
-    this.textColor = EBColors.primary,
+    this.textColor = EBColors.beepGreen,
   }) : super(key: key);
 
   final String title;
@@ -30,7 +30,7 @@ class EBSecondaryButton extends StatelessWidget {
   factory EBSecondaryButton.small({
     required Function? onPressed,
     Color color = EBColors.grey10,
-    Color textColor = EBColors.primary,
+    Color textColor = EBColors.beepGreen,
     String title = '',
     bool isLoading = false,
     Icon? icon,
@@ -53,8 +53,8 @@ class EBSecondaryButton extends StatelessWidget {
     required Function? onPressed,
     bool isLoading = false,
     Icon? icon,
-    Color color = EBColors.grey10,
-    Color textColor = EBColors.primary,
+    Color color = Colors.white,
+    Color textColor = EBColors.beepGreen,
   }) {
     return EBSecondaryButton(
       color: color,
@@ -76,7 +76,7 @@ class EBSecondaryButton extends StatelessWidget {
       minWidth: 48,
       shape: RoundedRectangleBorder(
         side: BorderSide(
-            color: onPressed == null ? EBColors.grey50 : EBColors.primary),
+            color: onPressed == null ? EBColors.grey50 : EBColors.beepGreen),
         borderRadius: BorderRadius.circular(EBDimens.borderRadius),
       ),
       padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
@@ -88,7 +88,7 @@ class EBSecondaryButton extends StatelessWidget {
         disabledTextColor: EBColors.white,
         elevation: 0,
         child: isLoading
-            ? const EBLoading(radius: 8, color: EBColors.primary)
+            ? const EBLoading(radius: 8, color: EBColors.beepGreen)
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -97,7 +97,7 @@ class EBSecondaryButton extends StatelessWidget {
                   if (title.isNotEmpty)
                     Text(
                       title,
-                      style: EBTextStyles.button.copyWith(fontSize: fontSize),
+                      style: BeepTextStyles.body2B.copyWith(fontSize: fontSize),
                     ),
                 ],
               ),

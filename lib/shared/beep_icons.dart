@@ -84,5 +84,8 @@ class BeepIcons {
   static const IconData camera_plus = IconData(0xe838, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData upload_alt = IconData(0xe839, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData circle_check = IconData(0xe83a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData pencil = IconData(0xe83b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData blocks = IconData(0xe83c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData settings = IconData(0xe83d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData refer = IconData(0xe83e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
