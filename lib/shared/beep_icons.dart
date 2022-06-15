@@ -88,4 +88,5 @@ class BeepIcons {
   static const IconData blocks = IconData(0xe83c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData settings = IconData(0xe83d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData refer = IconData(0xe83e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData flag = IconData(0xe83f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
