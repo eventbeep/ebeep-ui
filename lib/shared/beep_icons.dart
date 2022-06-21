@@ -92,4 +92,6 @@ class BeepIcons {
   static const IconData check_circle_filled = IconData(0xe840, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData close_circle_filled = IconData(0xe841, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData members = IconData(0xe842, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData image_single = IconData(0xe843, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_video = IconData(0xe844, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
