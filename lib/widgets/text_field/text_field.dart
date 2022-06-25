@@ -37,6 +37,7 @@ class EBTextField extends StatelessWidget {
     this.textStyle,
     this.cursorColor,
     this.inputFormatters,
+    this.contentPadding,
   }) : super(key: key);
 
   final TextEditingController? controller;
@@ -69,6 +70,7 @@ class EBTextField extends StatelessWidget {
   final double width;
   final TextStyle? textStyle;
   final List<TextInputFormatter>? inputFormatters;
+  final EdgeInsetsGeometry? contentPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -110,6 +112,7 @@ class EBTextField extends StatelessWidget {
                 null,
             decoration: InputDecoration(
               isCollapsed: true,
+              contentPadding: contentPadding,
               border: OutlineInputBorder(
                 borderSide: BorderSide(width: width, color: focusedBorderColor),
                 borderRadius: BorderRadius.circular(borderRadius),
