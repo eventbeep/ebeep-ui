@@ -22,9 +22,9 @@ class EBBottomAppBar extends StatelessWidget {
     required this.selectedItemIndex,
     this.iconSize = 24,
     this.height = 56,
-    this.color = EBColors.lightIcon,
+    this.color = EBColors.beepNeutral3,
     this.backgroundColor = EBColors.white,
-    this.selectedColor = EBColors.primary,
+    this.selectedColor = EBColors.beepGreen,
     this.notchedShape,
     this.centerItem,
   }) : assert(items.length > 1);
@@ -115,7 +115,8 @@ class EBBottomAppBar extends StatelessWidget {
                     item.icon,
                     EBSpacers.height4,
                     Text(item.text!,
-                        style: EBTextStyles.caption.copyWith(color: tabColor)),
+                        style: BeepTextStyles.caption
+                            .copyWith(fontSize: 10, color: tabColor)),
                   ],
                 ),
               ),
