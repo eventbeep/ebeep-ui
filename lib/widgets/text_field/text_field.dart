@@ -35,6 +35,7 @@ class EBTextField extends StatelessWidget {
     this.focusedBorderColor = EBColors.primary,
     this.width = 1,
     this.textStyle,
+    this.hintStyle,
     this.cursorColor,
     this.inputFormatters,
     this.contentPadding,
@@ -69,6 +70,7 @@ class EBTextField extends StatelessWidget {
   final Color? cursorColor;
   final double width;
   final TextStyle? textStyle;
+  final TextStyle? hintStyle;
   final List<TextInputFormatter>? inputFormatters;
   final EdgeInsetsGeometry? contentPadding;
 
@@ -127,8 +129,9 @@ class EBTextField extends StatelessWidget {
                       borderRadius: BorderRadius.circular(borderRadius),
                     )
                   : null,
-              hintStyle: BeepTextStyles.textField
-                  .copyWith(color: EBColors.beepNeutral3),
+              hintStyle: hintStyle ??
+                  BeepTextStyles.textField
+                      .copyWith(color: EBColors.beepNeutral3),
               labelStyle: BeepTextStyles.textField
                   .copyWith(color: EBColors.beepNeutral3),
               hintText: hintText,
