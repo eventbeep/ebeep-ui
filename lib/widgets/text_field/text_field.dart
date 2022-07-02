@@ -27,10 +27,11 @@ class EBTextField extends StatelessWidget {
     this.autofocus = false,
     this.enabled = true,
     this.readOnly = false,
+    this.showShadow = true,
     this.useTextfieldLabel = false,
     this.onSubmit,
     this.maxHieght,
-    this.borderRadius = 16,
+    this.borderRadius = EBDimens.borderRadius,
     this.borderColor,
     this.focusedBorderColor = EBColors.primary,
     this.width = 1,
@@ -46,6 +47,7 @@ class EBTextField extends StatelessWidget {
   final bool autofocus;
   final bool readOnly;
   final bool isPassword;
+  final bool showShadow;
   final bool useTextfieldLabel;
   final String? errorText;
   final String? labelText;
@@ -88,6 +90,20 @@ class EBTextField extends StatelessWidget {
         ],
         Container(
           constraints: BoxConstraints(maxHeight: maxHieght ?? double.infinity),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(borderRadius),
+            color: Colors.white,
+            boxShadow: showShadow
+                ? [
+                    BoxShadow(
+                      color: EBColors.lightShadow,
+                      offset: Offset(0, 0.5),
+                      spreadRadius: 0,
+                      blurRadius: 0.2,
+                    )
+                  ]
+                : null,
+          ),
           child: TextField(
             readOnly: readOnly,
             cursorColor: cursorColor,

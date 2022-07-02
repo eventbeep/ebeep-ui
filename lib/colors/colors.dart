@@ -69,6 +69,7 @@ class EBColors {
   static const Color scaffoldBackgroundColor = Color(0xFFFAFBFC);
 
   static const Color beepYellow = Color(0xFFFCCE00);
+  static const Color beepRed = Color(0xFFFF4545);
   static const Color beepGreen = Color(0xFF16C083);
   static const Color beepPurple = Color(0xFF7B61FF);
   static const Color beepLightPurple = Color(0xFF963BF9);
