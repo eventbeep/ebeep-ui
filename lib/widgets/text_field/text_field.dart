@@ -97,7 +97,7 @@ class EBTextField extends StatelessWidget {
                 ? [
                     BoxShadow(
                       color: EBColors.lightShadow,
-                      offset: Offset(0, 0.5),
+                      offset: Offset(0, 0.8),
                       spreadRadius: 0,
                       blurRadius: 0.2,
                     )
