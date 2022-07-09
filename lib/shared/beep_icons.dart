@@ -96,4 +96,5 @@ class BeepIcons {
   static const IconData add_video = IconData(0xe844, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData instagram = IconData(0xe845, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData linkedin = IconData(0xe846, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData share = IconData(0xe847, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
