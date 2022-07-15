@@ -29,6 +29,7 @@ class EBTextField extends StatelessWidget {
     this.readOnly = false,
     this.showShadow = true,
     this.useTextfieldLabel = false,
+    this.allowCopyPaste = true,
     this.onSubmit,
     this.maxHieght,
     this.borderRadius = EBDimens.borderRadius,
@@ -49,6 +50,7 @@ class EBTextField extends StatelessWidget {
   final bool isPassword;
   final bool showShadow;
   final bool useTextfieldLabel;
+  final bool allowCopyPaste;
   final String? errorText;
   final String? labelText;
   final String? hintText;
@@ -108,6 +110,7 @@ class EBTextField extends StatelessWidget {
             readOnly: readOnly,
             cursorColor: cursorColor,
             style: textStyle,
+            enableInteractiveSelection: allowCopyPaste,
             textInputAction: textInputAction,
             onEditingComplete: onEditingComplete as void Function()?,
             textAlignVertical: TextAlignVertical.center,
