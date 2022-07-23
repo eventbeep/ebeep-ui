@@ -1,7 +1,7 @@
-import 'package:ebeep_ui/shared/beep_icons.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared.dart';
+import '../../shared/beep_icons.dart';
 import '../../widgets.dart';
 
 class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -16,6 +16,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.hasShadow = true,
     this.isDark = false,
     this.backgroundColor,
+    this.onPop,
   })  : preferredSize = Size.fromHeight(
             56 + (isInSafeArea ? (bottom?.preferredSize.height ?? 0.0) : 0.0)),
         super(key: key);
@@ -29,6 +30,7 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
   final PreferredSizeWidget? bottom;
   final Widget? actionButton;
   final Color? backgroundColor;
+  final Function? onPop;
 
   @override
   Widget build(BuildContext context) {
@@ -82,14 +84,20 @@ class EBAppBar extends StatelessWidget implements PreferredSizeWidget {
                       BeepIcons.close,
                       color: isDark ? EBColors.grey10 : EBColors.grey100,
                     ),
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () {
+                      onPop as void Function()?;
+                      Navigator.pop(context);
+                    },
                   )
                 : IconButton(
                     icon: Icon(
                       BeepIcons.back_arrow,
                       color: isDark ? EBColors.grey10 : EBColors.grey100,
                     ),
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () {
+                      onPop as void Function()?;
+                      Navigator.pop(context);
+                    },
                   ),
           ),
           EBSpacers.width4,
