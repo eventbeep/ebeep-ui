@@ -10,7 +10,7 @@ mixin EBThemes {
     brightness: Brightness.light,
     primaryIconTheme: IconThemeData(color: EBColors.grey100),
     primaryColorLight: EBColors.lightBlue,
-    scaffoldBackgroundColor: EBColors.grey20,
+    scaffoldBackgroundColor: EBColors.beepNeutral6,
     primaryColor: EBColors.beepGreen,
     accentColor: EBColors.secondary,
     snackBarTheme: SnackBarThemeData(
@@ -31,7 +31,7 @@ mixin EBThemes {
         topRight: Radius.circular(EBDimens.borderRadius),
         topLeft: Radius.circular(EBDimens.borderRadius),
       )),
-      backgroundColor: EBColors.scaffoldBackgroundColor,
+      backgroundColor: EBColors.beepNeutral6,
     ),
     tabBarTheme: TabBarTheme(
       unselectedLabelColor: EBColors.grey70,

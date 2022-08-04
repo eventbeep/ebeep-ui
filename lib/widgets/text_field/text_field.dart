@@ -142,6 +142,12 @@ class EBTextField extends StatelessWidget {
                 borderSide: BorderSide(width: width, color: focusedBorderColor),
                 borderRadius: BorderRadius.circular(borderRadius),
               ),
+              disabledBorder: borderColor != null
+                  ? OutlineInputBorder(
+                      borderSide: BorderSide(width: width, color: borderColor!),
+                      borderRadius: BorderRadius.circular(borderRadius),
+                    )
+                  : null,
               enabledBorder: borderColor != null
                   ? OutlineInputBorder(
                       borderSide: BorderSide(width: width, color: borderColor!),
