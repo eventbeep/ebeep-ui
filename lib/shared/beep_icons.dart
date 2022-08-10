@@ -99,4 +99,7 @@ class BeepIcons {
   static const IconData share = IconData(0xe847, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData verified_filled = IconData(0xe848, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData bookmark = IconData(0xe849, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData copy = IconData(0xe84a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData message_share = IconData(0xe84b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData message_plus = IconData(0xe84c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
