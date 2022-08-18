@@ -21,6 +21,7 @@ class EBPrimaryButton extends StatelessWidget {
     this.textColor = EBColors.white,
     this.disabledTextColor,
     this.icon,
+    this.widgetSpan,
   }) : super(key: key);
 
   final String title;
@@ -37,6 +38,7 @@ class EBPrimaryButton extends StatelessWidget {
   final Color textColor;
   final Color? disabledTextColor;
   final Widget gap;
+  final Widget? widgetSpan;
 
   factory EBPrimaryButton.medium({
     String title = '',
@@ -145,12 +147,28 @@ class EBPrimaryButton extends StatelessWidget {
                     if (icon != null && title.isNotEmpty) gap,
                     if (title.isNotEmpty)
                       FittedBox(
-                        child: Text(title,
-                            style: BeepTextStyles.textField.copyWith(
-                                color: disabled
-                                    ? disabledTextColor ?? EBColors.beepNeutral4
-                                    : textColor)),
-                      ),
+                          child: RichText(
+                        text: TextSpan(
+                          style: BeepTextStyles.textField.copyWith(
+                              color: disabled
+                                  ? disabledTextColor ?? EBColors.beepNeutral4
+                                  : textColor),
+                          children: [
+                            TextSpan(text: title),
+                            if (widgetSpan != null)
+                              WidgetSpan(
+                                alignment: PlaceholderAlignment.middle,
+                                child: widgetSpan!,
+                              )
+                          ],
+                        ),
+                      )
+                          // Text(title,
+                          //     style: BeepTextStyles.textField.copyWith(
+                          //         color: disabled
+                          //             ? disabledTextColor ?? EBColors.beepNeutral4
+                          //             : textColor)),
+                          ),
                   ],
                 ),
           onPressed: isLoading ? null : onPressed as void Function()?,

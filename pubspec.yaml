@@ -13,6 +13,7 @@ dependencies:
 
   qr: ^2.0.0
   shimmer: ^2.0.0
+  auto_size_text: ^3.0.0
   cached_network_image: ^3.0.0
   flutter_linkify: ^5.0.2
   google_fonts: ^2.3.2

@@ -138,10 +138,9 @@ class PinCodeTextFieldState extends State<EBOtpField> {
             Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.only(left: 12, bottom: 8),
-              child: EBText(
+              child: EBAutoSizeText(
                 text: widget.labelText,
                 size: 15,
-                fontFamily: 'Heading',
                 weight: FontWeight.bold,
                 color: EBColors.tertiary,
               ),
@@ -152,11 +151,10 @@ class PinCodeTextFieldState extends State<EBOtpField> {
             Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.all(24),
-              child: EBText(
+              child: EBAutoSizeText(
                 text: widget.error,
                 size: 12,
                 color: EBColors.error,
-                fontFamily: 'Simple',
               ),
             ),
         ],
