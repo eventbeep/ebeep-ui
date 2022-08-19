@@ -77,18 +77,27 @@ class EBBottomAppBar extends StatelessWidget {
     final tabColor = selectedItemIndex == index ? selectedColor : color;
 
     return Expanded(
-      child: SizedBox(
+      child: Container(
         height: height,
+        decoration: BoxDecoration(shape: BoxShape.circle),
         child: InkWell(
           onTap: () => onPressed!(index),
-          child: Stack(
-            children: <Widget>[
-              if (selectedItemIndex == index)
+          splashColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          focusColor: Colors.transparent,
+          child: Ink(
+            decoration: BoxDecoration(shape: BoxShape.circle),
+            height: height,
+            width: height,
+            child: Stack(
+              children: <Widget>[
                 Align(
                   alignment: Alignment.topCenter,
-                  child: Container(
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 150),
                     width: 40,
-                    height: 4,
+                    height: selectedItemIndex == index ? 4 : 0,
                     decoration: BoxDecoration(
                         color: selectedColor,
                         borderRadius: BorderRadius.only(
@@ -97,30 +106,31 @@ class EBBottomAppBar extends StatelessWidget {
                         )),
                   ),
                 ),
-              if (item.enableDot)
-                const Positioned(
-                  right: 20,
-                  top: 8,
-                  child: Icon(
-                    Icons.brightness_1,
-                    color: EBColors.secondary,
-                    size: 12,
+                if (item.enableDot)
+                  const Positioned(
+                    right: 20,
+                    top: 8,
+                    child: Icon(
+                      Icons.brightness_1,
+                      color: EBColors.secondary,
+                      size: 12,
+                    ),
+                  ),
+                Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      item.icon,
+                      EBSpacers.height4,
+                      Text(item.text!,
+                          style: BeepTextStyles.caption
+                              .copyWith(fontSize: 10, color: tabColor)),
+                    ],
                   ),
                 ),
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    item.icon,
-                    EBSpacers.height4,
-                    Text(item.text!,
-                        style: BeepTextStyles.caption
-                            .copyWith(fontSize: 10, color: tabColor)),
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

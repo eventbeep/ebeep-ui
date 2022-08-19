@@ -41,6 +41,7 @@ class EBTextField extends StatelessWidget {
     this.cursorColor,
     this.inputFormatters,
     this.contentPadding,
+    this.scrollController,
   }) : super(key: key);
 
   final TextEditingController? controller;
@@ -77,6 +78,7 @@ class EBTextField extends StatelessWidget {
   final TextStyle? hintStyle;
   final List<TextInputFormatter>? inputFormatters;
   final EdgeInsetsGeometry? contentPadding;
+  final ScrollController? scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +110,7 @@ class EBTextField extends StatelessWidget {
           ),
           child: TextField(
             readOnly: readOnly,
+            scrollController: scrollController,
             cursorColor: cursorColor,
             style: textStyle,
             enableInteractiveSelection: allowCopyPaste,
