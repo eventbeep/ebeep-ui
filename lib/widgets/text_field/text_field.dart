@@ -31,7 +31,7 @@ class EBTextField extends StatelessWidget {
     this.useTextfieldLabel = false,
     this.allowCopyPaste = true,
     this.onSubmit,
-    this.maxHieght,
+    this.maxHeight,
     this.borderRadius = EBDimens.borderRadius,
     this.borderColor,
     this.focusedBorderColor = EBColors.primary,
@@ -68,7 +68,7 @@ class EBTextField extends StatelessWidget {
   final TextCapitalization textCapitalization;
   final TextInputType textInputType;
   final TextInputAction? textInputAction;
-  final double? maxHieght;
+  final double? maxHeight;
   final double borderRadius;
   final Color? borderColor;
   final Color focusedBorderColor;
@@ -93,7 +93,7 @@ class EBTextField extends StatelessWidget {
           EBSpacers.height8,
         ],
         Container(
-          constraints: BoxConstraints(maxHeight: maxHieght ?? double.infinity),
+          constraints: BoxConstraints(maxHeight: maxHeight ?? double.infinity),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(borderRadius),
             color: Colors.white,
