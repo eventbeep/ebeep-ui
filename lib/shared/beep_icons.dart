@@ -104,4 +104,7 @@ class BeepIcons {
   static const IconData message_plus = IconData(0xe84c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData wallet = IconData(0xe84d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData beep = IconData(0xe84e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData video_off = IconData(0xe84f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData video_on = IconData(0xe850, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData screen_share = IconData(0xe851, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

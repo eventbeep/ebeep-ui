@@ -44,6 +44,7 @@ class EBIconButton extends StatelessWidget {
           EBSpacers.height4,
           Text(
             text!,
+            textAlign: TextAlign.center,
             style: BeepTextStyles.caption.copyWith(color: Colors.black),
           )
         ]
