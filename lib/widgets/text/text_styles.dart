@@ -185,4 +185,16 @@ class BeepTextStyles {
     fontSize: 12,
     fontWeight: FontWeight.w300,
   );
+
+  static TextStyle custom({
+    required double fontSize,
+    required FontWeight fontWeight,
+    required Color color,
+  }) {
+    return GoogleFonts.poppins(
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+      color: color,
+    );
+  }
 }
