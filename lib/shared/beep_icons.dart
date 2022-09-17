@@ -107,4 +107,8 @@ class BeepIcons {
   static const IconData video_off = IconData(0xe84f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData video_on = IconData(0xe850, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData screen_share = IconData(0xe851, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData flip_camera = IconData(0xe852, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData flash_off_filled = IconData(0xe853, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData flash_on_filled = IconData(0xe854, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData capture_image = IconData(0xe855, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

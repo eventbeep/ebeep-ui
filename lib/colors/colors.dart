@@ -75,6 +75,8 @@ class EBColors {
   static const Color beepPurple = Color(0xFF7B61FF);
   static const Color beepLightPurple = Color(0xFF963BF9);
   static const Color beepDarkPurple = Color(0xFF5244C9);
+
+  static const Color beepDarkBackground = Color(0xFF1F1F1F);
   static const Color beepNeutral1 = Color(0xFF2D2B2C);
   static const Color beepNeutral2 = Color(0xFF747474);
   static const Color beepNeutral3 = Color(0xFF929292);
