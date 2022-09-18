@@ -158,6 +158,12 @@ class BeepTextStyles {
     color: Colors.black,
   );
 
+  static TextStyle body2M = GoogleFonts.poppins(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: Colors.black,
+  );
+
   static TextStyle body2 = GoogleFonts.poppins(
     fontSize: 14,
     fontWeight: FontWeight.w400,

@@ -13,6 +13,7 @@ class EBAutoSizeText extends StatelessWidget {
     this.minSize = 12,
     this.maxLines,
     this.lineSpace,
+    this.fontFamily,
   }) : super(key: key);
 
   final String text;
@@ -23,6 +24,7 @@ class EBAutoSizeText extends StatelessWidget {
   final double minSize;
   final int? maxLines;
   final double? lineSpace;
+  final String? fontFamily;
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +34,20 @@ class EBAutoSizeText extends StatelessWidget {
       minFontSize: minSize,
       overflow: (maxLines != null) ? TextOverflow.ellipsis : null,
       textAlign: align,
-      style: GoogleFonts.poppins(
-        height: lineSpace,
-        color: color,
-        fontWeight: weight,
-        fontSize: size,
-      ),
+      style: fontFamily == null
+          ? GoogleFonts.poppins(
+              height: lineSpace,
+              color: color,
+              fontWeight: weight,
+              fontSize: size,
+            )
+          : TextStyle(
+              height: lineSpace,
+              color: color,
+              fontWeight: weight,
+              fontSize: size,
+              fontFamily: fontFamily,
+            ),
     );
   }
 }
