@@ -39,6 +39,7 @@ class EBTextField extends StatelessWidget {
     this.textStyle,
     this.hintStyle,
     this.cursorColor,
+    this.backgroundColor,
     this.inputFormatters,
     this.contentPadding,
     this.scrollController,
@@ -73,6 +74,7 @@ class EBTextField extends StatelessWidget {
   final Color? borderColor;
   final Color focusedBorderColor;
   final Color? cursorColor;
+  final Color? backgroundColor;
   final double width;
   final TextStyle? textStyle;
   final TextStyle? hintStyle;
@@ -96,7 +98,7 @@ class EBTextField extends StatelessWidget {
           constraints: BoxConstraints(maxHeight: maxHeight ?? double.infinity),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(borderRadius),
-            color: Colors.white,
+            color: backgroundColor ?? Colors.white,
             boxShadow: showShadow
                 ? [
                     BoxShadow(
@@ -137,6 +139,7 @@ class EBTextField extends StatelessWidget {
             decoration: InputDecoration(
               isCollapsed: true,
               contentPadding: contentPadding,
+              fillColor: backgroundColor,
               border: OutlineInputBorder(
                 borderSide: BorderSide(width: width, color: focusedBorderColor),
                 borderRadius: BorderRadius.circular(borderRadius),
