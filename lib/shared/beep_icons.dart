@@ -112,4 +112,5 @@ class BeepIcons {
   static const IconData flash_on_filled = IconData(0xe854, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData capture_image = IconData(0xe855, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData users_filled = IconData(0xe856, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData presenter = IconData(0xe857, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
