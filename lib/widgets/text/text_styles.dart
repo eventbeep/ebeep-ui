@@ -192,15 +192,27 @@ class BeepTextStyles {
     fontWeight: FontWeight.w300,
   );
 
-  static TextStyle custom({
-    required double fontSize,
-    required FontWeight fontWeight,
-    required Color color,
-  }) {
+  static TextStyle custom(
+      {required double fontSize,
+      required FontWeight fontWeight,
+      required Color color,
+      List<Shadow>? shadows}) {
     return GoogleFonts.poppins(
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        color: color,
+        shadows: shadows);
+  }
+
+  static TextStyle clashDisplay(
+      {required double fontSize,
+      required FontWeight fontWeight,
+      required Color color}) {
+    return TextStyle(
       fontSize: fontSize,
       fontWeight: fontWeight,
       color: color,
+      fontFamily: 'ClashDisplay',
     );
   }
 }
