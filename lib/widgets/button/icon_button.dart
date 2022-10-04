@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../colors/colors.dart';
@@ -42,8 +43,9 @@ class EBIconButton extends StatelessWidget {
         ),
         if (text != null) ...[
           EBSpacers.height4,
-          Text(
+          AutoSizeText(
             text!,
+            maxLines: 2,
             textAlign: TextAlign.center,
             style: BeepTextStyles.caption.copyWith(color: Colors.black),
           )
