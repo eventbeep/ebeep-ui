@@ -115,4 +115,6 @@ class BeepIcons {
   static const IconData presenter = IconData(0xe857, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData heart = IconData(0xe858, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData speech_bubble_filled = IconData(0xe859, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData moments = IconData(0xe85a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData notification_bell = IconData(0xe85b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

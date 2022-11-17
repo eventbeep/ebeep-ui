@@ -33,5 +33,19 @@ flutter:
     - family: BeepIcons
       fonts:
         - asset: lib/icons/BeepIcons.ttf
+    - family: ClashDisplay
+      fonts:
+        - asset: lib/fonts/ClashDisplay/ClashDisplay-Bold.otf
+          weight: 700
+        - asset: lib/fonts/ClashDisplay/ClashDisplay-Semibold.otf
+          weight: 600
+        - asset: lib/fonts/ClashDisplay/ClashDisplay-Medium.otf
+          weight: 500
+        - asset: lib/fonts/ClashDisplay/ClashDisplay-Regular.otf
+          weight: 400
+        - asset: lib/fonts/ClashDisplay/ClashDisplay-Light.otf
+          weight: 300
+        - asset: lib/fonts/ClashDisplay/ClashDisplay-Extralight.otf
+          weight: 200
 
   uses-material-design: true
