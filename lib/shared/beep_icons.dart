@@ -118,4 +118,5 @@ class BeepIcons {
   static const IconData moments = IconData(0xe85a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData notification_bell = IconData(0xe85b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData lock_closed = IconData(0xe85c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData ban = IconData(0xe85d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_classes_with_only_static_members
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../colors/colors.dart';
@@ -106,49 +107,49 @@ class EBTextStyles {
 
 class BeepTextStyles {
   static TextStyle heading1 = GoogleFonts.poppins(
-    fontSize: 48,
+    fontSize: 48.sp,
     fontWeight: FontWeight.w800,
     color: Colors.black,
   );
 
   static TextStyle heading2 = GoogleFonts.poppins(
-    fontSize: 34,
+    fontSize: 34.sp,
     fontWeight: FontWeight.w800,
     color: Colors.black,
   );
 
   static TextStyle heading3 = GoogleFonts.poppins(
-    fontSize: 24,
+    fontSize: 24.sp,
     fontWeight: FontWeight.w700,
     color: Colors.black,
   );
 
   static TextStyle heading4 = GoogleFonts.poppins(
-    fontSize: 20,
+    fontSize: 20.sp,
     fontWeight: FontWeight.w600,
     color: Colors.black,
   );
 
   static TextStyle heading5 = GoogleFonts.poppins(
-    fontSize: 24,
+    fontSize: 24.sp,
     fontWeight: FontWeight.w500,
     color: Colors.black,
   );
 
   static TextStyle textField = GoogleFonts.poppins(
-    fontSize: 18,
+    fontSize: 18.sp,
     fontWeight: FontWeight.w500,
     color: Colors.black,
   );
 
   static TextStyle body1B = GoogleFonts.poppins(
-    fontSize: 16,
+    fontSize: 16.sp,
     fontWeight: FontWeight.w600,
     color: Colors.black,
   );
 
   static TextStyle body1 = GoogleFonts.poppins(
-    fontSize: 16,
+    fontSize: 16.sp,
     color: Colors.black,
   );
 
@@ -159,36 +160,36 @@ class BeepTextStyles {
   );
 
   static TextStyle body2M = GoogleFonts.poppins(
-    fontSize: 14,
+    fontSize: 14.sp,
     fontWeight: FontWeight.w500,
     color: Colors.black,
   );
 
   static TextStyle body2 = GoogleFonts.poppins(
-    fontSize: 14,
+    fontSize: 14.sp,
     fontWeight: FontWeight.w400,
     color: Colors.black,
   );
 
   static TextStyle caption = GoogleFonts.poppins(
-    fontSize: 12,
+    fontSize: 12.sp,
     fontWeight: FontWeight.w400,
   );
 
   static TextStyle overline = GoogleFonts.poppins(
-    fontSize: 10,
+    fontSize: 10.sp,
     fontWeight: FontWeight.w600,
     color: Colors.black,
   );
 
   static TextStyle label = GoogleFonts.poppins(
-    fontSize: 14,
+    fontSize: 14.sp,
     fontWeight: FontWeight.w500,
     color: Colors.black,
   );
 
   static TextStyle subtitle = GoogleFonts.poppins(
-    fontSize: 12,
+    fontSize: 12.sp,
     fontWeight: FontWeight.w300,
   );
 
@@ -214,5 +215,17 @@ class BeepTextStyles {
       color: color,
       fontFamily: 'ClashDisplay',
     );
+  }
+
+  static TextStyle montserrat(
+      {required double fontSize,
+      required FontWeight fontWeight,
+      required Color color,
+      List<Shadow>? shadows}) {
+    return GoogleFonts.montserrat(
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        color: color,
+        shadows: shadows);
   }
 }
