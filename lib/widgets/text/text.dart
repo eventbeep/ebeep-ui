@@ -15,6 +15,7 @@ class EBAutoSizeText extends StatelessWidget {
     this.lineSpace,
     this.fontFamily,
     this.shadows,
+    this.fontStyle,
   }) : super(key: key);
 
   final String text;
@@ -27,6 +28,7 @@ class EBAutoSizeText extends StatelessWidget {
   final double? lineSpace;
   final String? fontFamily;
   final List<Shadow>? shadows;
+  final FontStyle? fontStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +44,18 @@ class EBAutoSizeText extends StatelessWidget {
               color: color,
               fontWeight: weight,
               fontSize: size,
-              shadows: shadows)
+              shadows: shadows,
+              fontStyle: fontStyle,
+            )
           : TextStyle(
               height: lineSpace,
               color: color,
               fontWeight: weight,
               fontSize: size,
               fontFamily: fontFamily,
-              shadows: shadows),
+              shadows: shadows,
+              fontStyle: fontStyle,
+            ),
     );
   }
 }
