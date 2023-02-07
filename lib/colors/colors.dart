@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class EBColors {
@@ -83,4 +85,15 @@ class EBColors {
   static const Color beepNeutral4 = Color(0xFFDCDCDC);
   static const Color beepNeutral5 = Color(0xFFEDEFEE);
   static const Color beepNeutral6 = Color(0xFFF6F6F6);
+
+  /// Colors for SymBeep
+  static const Color symbeepLightOrangePrimary = Color(0xFFF87E2C);
+  static Color symbeepLightOrangeTertiary = Color(0xFFF87E2C).withOpacity(0.2);
+  static const Color symbeepDarkOrangePrimary = Color(0xFFCD5606);
+  static Color symbeepDarkOrangeTertiary = Color(0xFFCD5606).withOpacity(0.2);
+  static const Color symbeepDarkBackground = Color(0xFF0B0A10);
+  static const Color symbeepLightTextPrimary = Color(0xFF191833);
+  static const Color symbeepDarkTextPrimary = Color(0xFFD4D5E0);
+  static const Color symbeepLightTextSecondary = Color(0xFF6E6E7E);
+  static const Color symbeepDarkTextSecondary = Color(0xFF858D99);
 }

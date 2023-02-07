@@ -133,3 +133,53 @@ mixin EBThemes {
     ),
   );
 }
+
+mixin SymBeepThemes {
+  static ThemeData lightTheme = ThemeData(
+    brightness: Brightness.light,
+    primaryIconTheme: IconThemeData(color: EBColors.symbeepLightTextPrimary),
+    scaffoldBackgroundColor: Colors.white,
+    primaryColor: EBColors.symbeepLightOrangePrimary,
+    accentColor: EBColors.symbeepLightOrangeTertiary,
+    tabBarTheme: TabBarTheme(
+      unselectedLabelColor: EBColors.symbeepLightTextSecondary,
+      labelColor: EBColors.symbeepLightTextPrimary,
+      indicator: UnderlineTabIndicator(
+        borderSide:
+            BorderSide(color: EBColors.symbeepLightTextPrimary, width: 2),
+      ),
+      labelStyle: EBTextStyles.bodyText1.copyWith(fontWeight: FontWeight.w500),
+      unselectedLabelStyle: EBTextStyles.bodyText1,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      contentPadding: const EdgeInsets.all(EBDimens.padding),
+      filled: true,
+      fillColor: Colors.transparent,
+      labelStyle: SymBeepTextStyles.body_small,
+    ),
+  );
+
+  static ThemeData darkTheme = ThemeData(
+    brightness: Brightness.dark,
+    primaryIconTheme: IconThemeData(color: EBColors.symbeepDarkTextPrimary),
+    scaffoldBackgroundColor: EBColors.symbeepDarkBackground,
+    primaryColor: EBColors.symbeepDarkOrangePrimary,
+    accentColor: EBColors.symbeepDarkOrangeTertiary,
+    tabBarTheme: TabBarTheme(
+      unselectedLabelColor: EBColors.symbeepDarkTextSecondary,
+      labelColor: EBColors.symbeepDarkTextPrimary,
+      indicator: UnderlineTabIndicator(
+        borderSide:
+            BorderSide(color: EBColors.symbeepDarkTextPrimary, width: 2),
+      ),
+      labelStyle: EBTextStyles.bodyText1.copyWith(fontWeight: FontWeight.w500),
+      unselectedLabelStyle: EBTextStyles.bodyText1,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      contentPadding: const EdgeInsets.all(EBDimens.padding),
+      filled: true,
+      fillColor: Colors.transparent,
+      labelStyle: SymBeepTextStyles.body_small,
+    ),
+  );
+}

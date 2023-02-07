@@ -229,3 +229,50 @@ class BeepTextStyles {
         shadows: shadows);
   }
 }
+
+class SymBeepTextStyles {
+  static TextStyle heading_large = GoogleFonts.baloo2(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle heading_medium = GoogleFonts.baloo2(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle heading_medium_M = GoogleFonts.baloo2(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle display_medium = GoogleFonts.baloo2(
+    fontSize: 28.sp,
+    fontWeight: FontWeight.w800,
+  );
+
+  static TextStyle body_small = GoogleFonts.baloo2(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle body_medium = GoogleFonts.baloo2(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle body_large = GoogleFonts.baloo2(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle option_CTA = GoogleFonts.baloo2(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle misc_char = GoogleFonts.baloo2(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w700,
+  );
+}

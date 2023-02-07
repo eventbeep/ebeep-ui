@@ -86,4 +86,13 @@ class EBGradients {
         return EBGradients.appBarGradient;
     }
   }
+
+  static const RadialGradient symbeepLightGradient = RadialGradient(
+    colors: [Color(0xFFF6AB3B), Color(0xFFF93F16)],
+    stops: [0, 1],
+  );
+  static const RadialGradient symbeepDarkGradient = RadialGradient(
+    colors: [Color(0xFFDF8E14), Color(0xFF952209)],
+    stops: [0, 1],
+  );
 }

@@ -16,8 +16,6 @@ dependencies:
   flutter_linkify: ^5.0.2
   flutter_screenutil: ^5.5.4
   google_fonts: ^2.3.2
-  qr: ^2.0.0
-  shimmer: ^2.0.0
 
 dev_dependencies:
   flutter_test:

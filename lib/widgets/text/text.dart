@@ -47,15 +47,55 @@ class EBAutoSizeText extends StatelessWidget {
               shadows: shadows,
               fontStyle: fontStyle,
             )
-          : TextStyle(
+          : generateGoogleFont(
+              family: fontFamily,
               height: lineSpace,
               color: color,
               fontWeight: weight,
-              fontSize: size,
-              fontFamily: fontFamily,
+              size: size,
               shadows: shadows,
               fontStyle: fontStyle,
             ),
     );
+  }
+
+  TextStyle generateGoogleFont({
+    required String? family,
+    required double? height,
+    required Color color,
+    required FontWeight fontWeight,
+    required double? size,
+    required List<Shadow>? shadows,
+    required FontStyle? fontStyle,
+  }) {
+    if (family == 'poppins') {
+      return GoogleFonts.poppins(
+        height: lineSpace,
+        color: color,
+        fontWeight: weight,
+        fontSize: size,
+        shadows: shadows,
+        fontStyle: fontStyle,
+      );
+    } else if (family == 'baloo 2') {
+      return GoogleFonts.baloo2(
+        height: lineSpace,
+        color: color,
+        fontWeight: weight,
+        fontSize: size,
+        shadows: shadows,
+        fontStyle: fontStyle,
+      );
+    } else {
+      return TextStyle(
+        height: lineSpace,
+        color: color,
+        fontWeight: weight,
+        fontSize: size,
+        fontFamily: fontFamily,
+        shadows: shadows,
+        fontStyle: fontStyle,
+      );
+    }
   }
 }
