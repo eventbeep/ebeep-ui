@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../colors/colors.dart';
 import '../widgets.dart';
@@ -140,6 +141,9 @@ mixin SymBeepThemes {
     primaryIconTheme: IconThemeData(color: EBColors.symbeepLightTextPrimary),
     scaffoldBackgroundColor: Colors.white,
     primaryColor: EBColors.symbeepLightOrangePrimary,
+    textTheme: TextTheme().apply(
+        displayColor: EBColors.symbeepLightTextPrimary,
+        bodyColor: EBColors.symbeepLightTextPrimary),
     accentColor: EBColors.symbeepLightOrangeTertiary,
     tabBarTheme: TabBarTheme(
       unselectedLabelColor: EBColors.symbeepLightTextSecondary,
@@ -151,11 +155,18 @@ mixin SymBeepThemes {
       labelStyle: EBTextStyles.bodyText1.copyWith(fontWeight: FontWeight.w500),
       unselectedLabelStyle: EBTextStyles.bodyText1,
     ),
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: EBColors.symbeepLightTextPrimary,
+    ),
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(EBDimens.padding),
       filled: true,
       fillColor: Colors.transparent,
-      labelStyle: SymBeepTextStyles.body_small,
+      focusColor: Colors.transparent,
+      prefixStyle: SymBeepTextStyles.display_small
+          .copyWith(color: EBColors.symbeepLightTextSecondary, height: 1),
+      suffixStyle: SymBeepTextStyles.display_small
+          .copyWith(color: EBColors.symbeepLightTextSecondary, height: 1),
     ),
   );
 
@@ -164,6 +175,9 @@ mixin SymBeepThemes {
     primaryIconTheme: IconThemeData(color: EBColors.symbeepDarkTextPrimary),
     scaffoldBackgroundColor: EBColors.symbeepDarkBackground,
     primaryColor: EBColors.symbeepDarkOrangePrimary,
+    textTheme: TextTheme().apply(
+        displayColor: EBColors.symbeepDarkTextPrimary,
+        bodyColor: EBColors.symbeepDarkTextPrimary),
     accentColor: EBColors.symbeepDarkOrangeTertiary,
     tabBarTheme: TabBarTheme(
       unselectedLabelColor: EBColors.symbeepDarkTextSecondary,
@@ -175,11 +189,18 @@ mixin SymBeepThemes {
       labelStyle: EBTextStyles.bodyText1.copyWith(fontWeight: FontWeight.w500),
       unselectedLabelStyle: EBTextStyles.bodyText1,
     ),
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: EBColors.symbeepDarkTextPrimary,
+    ),
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(EBDimens.padding),
       filled: true,
       fillColor: Colors.transparent,
-      labelStyle: SymBeepTextStyles.body_small,
+      focusColor: Colors.transparent,
+      prefixStyle: SymBeepTextStyles.display_small
+          .copyWith(color: EBColors.symbeepDarkTextSecondary, height: 1),
+      suffixStyle: SymBeepTextStyles.display_small
+          .copyWith(color: EBColors.symbeepDarkTextSecondary, height: 1),
     ),
   );
 }

@@ -251,6 +251,11 @@ class SymBeepTextStyles {
     fontWeight: FontWeight.w800,
   );
 
+  static TextStyle display_small = GoogleFonts.baloo2(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w500,
+  );
+
   static TextStyle body_small = GoogleFonts.baloo2(
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
