@@ -139,12 +139,14 @@ mixin SymBeepThemes {
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryIconTheme: IconThemeData(color: EBColors.symbeepLightTextPrimary),
+    iconTheme: IconThemeData(color: EBColors.symbeepLightTextPrimary),
     scaffoldBackgroundColor: Colors.white,
     primaryColor: EBColors.symbeepLightOrangePrimary,
     textTheme: TextTheme().apply(
         displayColor: EBColors.symbeepLightTextPrimary,
         bodyColor: EBColors.symbeepLightTextPrimary),
     accentColor: EBColors.symbeepLightOrangeTertiary,
+    unselectedWidgetColor: EBColors.symbeepLightOrangePrimary,
     tabBarTheme: TabBarTheme(
       unselectedLabelColor: EBColors.symbeepLightTextSecondary,
       labelColor: EBColors.symbeepLightTextPrimary,
@@ -157,6 +159,18 @@ mixin SymBeepThemes {
     ),
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: EBColors.symbeepLightTextPrimary,
+    ),
+    radioTheme: RadioThemeData(
+        fillColor:
+            MaterialStateProperty.all(EBColors.symbeepLightOrangePrimary)),
+    buttonTheme: ButtonThemeData(
+      padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
+      buttonColor: EBColors.symbeepLightOrangePrimary,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(EBDimens.borderRadius),
+      ),
+      textTheme: ButtonTextTheme.primary,
+      disabledColor: EBColors.symbeepLightOrangeTertiary,
     ),
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(EBDimens.padding),
@@ -173,12 +187,14 @@ mixin SymBeepThemes {
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     primaryIconTheme: IconThemeData(color: EBColors.symbeepDarkTextPrimary),
+    iconTheme: IconThemeData(color: EBColors.symbeepDarkTextPrimary),
     scaffoldBackgroundColor: EBColors.symbeepDarkBackground,
     primaryColor: EBColors.symbeepDarkOrangePrimary,
     textTheme: TextTheme().apply(
         displayColor: EBColors.symbeepDarkTextPrimary,
         bodyColor: EBColors.symbeepDarkTextPrimary),
     accentColor: EBColors.symbeepDarkOrangeTertiary,
+    unselectedWidgetColor: EBColors.symbeepDarkOrangePrimary,
     tabBarTheme: TabBarTheme(
       unselectedLabelColor: EBColors.symbeepDarkTextSecondary,
       labelColor: EBColors.symbeepDarkTextPrimary,
@@ -191,6 +207,18 @@ mixin SymBeepThemes {
     ),
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: EBColors.symbeepDarkTextPrimary,
+    ),
+    radioTheme: RadioThemeData(
+        fillColor:
+            MaterialStateProperty.all(EBColors.symbeepDarkOrangePrimary)),
+    buttonTheme: ButtonThemeData(
+      padding: const EdgeInsets.symmetric(horizontal: EBDimens.padding),
+      buttonColor: EBColors.symbeepDarkOrangePrimary,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(EBDimens.borderRadius),
+      ),
+      textTheme: ButtonTextTheme.primary,
+      disabledColor: EBColors.symbeepDarkOrangeTertiary,
     ),
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(EBDimens.padding),

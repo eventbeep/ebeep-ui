@@ -32,6 +32,9 @@ flutter:
     - family: BeepIcons
       fonts:
         - asset: lib/icons/BeepIcons.ttf
+    - family: SymBeepIcons
+      fonts:
+        - asset: lib/icons/SymBeepIcons.ttf
     - family: ClashDisplay
       fonts:
         - asset: lib/fonts/ClashDisplay/ClashDisplay-Bold.otf

@@ -91,7 +91,7 @@ class EBColors {
   static Color symbeepLightOrangeTertiary = Color(0xFFF87E2C).withOpacity(0.2);
   static const Color symbeepDarkOrangePrimary = Color(0xFFCD5606);
   static Color symbeepDarkOrangeTertiary = Color(0xFFCD5606).withOpacity(0.2);
-  static const Color symbeepDarkBackground = Color(0xFF1E1E1E);
+  static const Color symbeepDarkBackground = Color(0xFF0B0A10);
   static const Color symbeepLightTextPrimary = Color(0xFF191833);
   static const Color symbeepDarkTextPrimary = Color(0xFFD4D5E0);
   static const Color symbeepLightTextSecondary = Color(0xFF6E6E7E);
@@ -100,4 +100,6 @@ class EBColors {
   static const Color symbeepLightFailure = Color(0xFFDB1717);
   static const Color symbeepDarkSuccess = Color(0xFF30D158);
   static const Color symbeepDarkFailure = Color(0xFFFF453A);
+  static const Color symbeepDarkTertiary = Color(0xFF1F1F29);
+  static const Color symbeepLightTertiary = Color(0xFFEDEFF4);
 }
