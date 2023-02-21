@@ -1,9 +1,9 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/Users/fatboy/fvm/versions/2.10.5"
-export "FLUTTER_APPLICATION_PATH=/Users/fatboy/Documents/EventBeep/Beep/ebeep-ui/example"
+export "FLUTTER_ROOT=D:\flutter_0"
+export "FLUTTER_APPLICATION_PATH=D:\Dev\EventBeep\ebeep-ui\example"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
-export "FLUTTER_TARGET=lib/main.dart"
+export "FLUTTER_TARGET=lib\main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"
 export "FLUTTER_BUILD_NUMBER=1"
