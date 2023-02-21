@@ -82,7 +82,7 @@ class ReadMoreTextState extends State<ReadMoreText> {
       text: _readMore ? widget.trimCollapsedText : widget.trimExpandedText,
       style: effectiveTextStyle.copyWith(
         color: widget.colorClickableText ?? EBColors.beepGreen,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
       ),
       recognizer: TapGestureRecognizer()..onTap = _onTapLink,
     );

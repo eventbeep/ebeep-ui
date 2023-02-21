@@ -18,4 +18,6 @@ class EBSpacers {
   static const Widget width16 = SizedBox(width: 16);
   static const Widget width20 = SizedBox(width: 20);
   static const Widget width24 = SizedBox(width: 24);
+  static const Widget width32 = SizedBox(width: 32);
+  static const Widget width40 = SizedBox(width: 40);
 }

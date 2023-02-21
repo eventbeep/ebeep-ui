@@ -231,9 +231,9 @@ class BeepTextStyles {
 }
 
 class SymBeepTextStyles {
-  static TextStyle heading_large = GoogleFonts.baloo2(
-    fontSize: 16.sp,
-    fontWeight: FontWeight.w700,
+  static TextStyle heading_small = GoogleFonts.baloo2(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w500,
   );
 
   static TextStyle heading_medium = GoogleFonts.baloo2(
@@ -246,14 +246,19 @@ class SymBeepTextStyles {
     fontWeight: FontWeight.w500,
   );
 
-  static TextStyle display_medium = GoogleFonts.baloo2(
-    fontSize: 28.sp,
-    fontWeight: FontWeight.w800,
+  static TextStyle heading_large = GoogleFonts.baloo2(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w700,
   );
 
   static TextStyle display_small = GoogleFonts.baloo2(
     fontSize: 24.sp,
     fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle display_medium = GoogleFonts.baloo2(
+    fontSize: 28.sp,
+    fontWeight: FontWeight.w800,
   );
 
   static TextStyle body_small = GoogleFonts.baloo2(

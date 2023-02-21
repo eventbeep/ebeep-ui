@@ -88,10 +88,17 @@ class EBColors {
 
   /// Colors for SymBeep
   static const Color symbeepLightOrangePrimary = Color(0xFFF87E2C);
+  static const Color symbeepLightOrangeSecondary = Color(0xFFF9A36E);
   static Color symbeepLightOrangeTertiary = Color(0xFFF87E2C).withOpacity(0.2);
+  static Color symbeepLightPurple = Color(0xFFC272E8);
   static const Color symbeepDarkOrangePrimary = Color(0xFFCD5606);
+  static const Color symbeepDarkOrangeSecondary = Color(0xFFCC7A47);
   static Color symbeepDarkOrangeTertiary = Color(0xFFCD5606).withOpacity(0.2);
+  static Color symbeepDarkPurple = Color(0xFF9F46C9);
+
   static const Color symbeepDarkBackground = Color(0xFF0B0A10);
+  static const Color symbeepDarkDisabled = Color(0xFF313140);
+  static const Color symbeepLightDisabled = Color(0xFFCFD1D6);
   static const Color symbeepLightTextPrimary = Color(0xFF191833);
   static const Color symbeepDarkTextPrimary = Color(0xFFD4D5E0);
   static const Color symbeepLightTextSecondary = Color(0xFF6E6E7E);
@@ -102,4 +109,12 @@ class EBColors {
   static const Color symbeepDarkFailure = Color(0xFFFF453A);
   static const Color symbeepDarkTertiary = Color(0xFF1F1F29);
   static const Color symbeepLightTertiary = Color(0xFFEDEFF4);
+  static const Color symbeepPoll = Color(0xFF27B06E);
+  static const Color symbeepQuestion = Color(0xFF1867FF);
+  static const Color symbeepThoughts = Color(0xFFBA38F6);
+  static const Color symbeepConfession = Color(0xFFFF5290);
+  static const Color symbeepDarkPoll = Color(0xFF153A64);
+  static const Color symbeepDarkPollSelected = Color(0xFF007AFF);
+  static const Color symbeepLightPoll = Color(0xFFA3D8FF);
+  static const Color symbeepLightPollSelected = Color(0xFF409CFF);
 }

@@ -148,15 +148,17 @@ mixin SymBeepThemes {
     accentColor: EBColors.symbeepLightOrangeTertiary,
     unselectedWidgetColor: EBColors.symbeepLightOrangePrimary,
     tabBarTheme: TabBarTheme(
-      unselectedLabelColor: EBColors.symbeepLightTextSecondary,
-      labelColor: EBColors.symbeepLightTextPrimary,
-      indicator: UnderlineTabIndicator(
-        borderSide:
-            BorderSide(color: EBColors.symbeepLightTextPrimary, width: 2),
-      ),
-      labelStyle: EBTextStyles.bodyText1.copyWith(fontWeight: FontWeight.w500),
-      unselectedLabelStyle: EBTextStyles.bodyText1,
-    ),
+        unselectedLabelColor: EBColors.symbeepLightTextSecondary,
+        labelColor: EBColors.symbeepLightTextPrimary,
+        labelPadding: EdgeInsets.symmetric(vertical: 8),
+        indicator: UnderlineTabIndicator(
+          borderSide:
+              BorderSide(color: EBColors.symbeepLightTextPrimary, width: 2),
+        ),
+        labelStyle: SymBeepTextStyles.heading_medium
+            .copyWith(fontWeight: FontWeight.w700),
+        unselectedLabelStyle: SymBeepTextStyles.heading_medium
+            .copyWith(color: EBColors.symbeepLightTextSecondary)),
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: EBColors.symbeepLightTextPrimary,
     ),
@@ -198,12 +200,15 @@ mixin SymBeepThemes {
     tabBarTheme: TabBarTheme(
       unselectedLabelColor: EBColors.symbeepDarkTextSecondary,
       labelColor: EBColors.symbeepDarkTextPrimary,
+      labelPadding: EdgeInsets.symmetric(vertical: 8),
       indicator: UnderlineTabIndicator(
         borderSide:
             BorderSide(color: EBColors.symbeepDarkTextPrimary, width: 2),
       ),
-      labelStyle: EBTextStyles.bodyText1.copyWith(fontWeight: FontWeight.w500),
-      unselectedLabelStyle: EBTextStyles.bodyText1,
+      labelStyle: SymBeepTextStyles.heading_medium
+          .copyWith(fontWeight: FontWeight.w700),
+      unselectedLabelStyle: SymBeepTextStyles.heading_medium
+          .copyWith(color: EBColors.symbeepDarkTextSecondary),
     ),
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: EBColors.symbeepDarkTextPrimary,
