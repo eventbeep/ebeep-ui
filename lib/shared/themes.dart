@@ -155,9 +155,9 @@ mixin SymBeepThemes {
           borderSide:
               BorderSide(color: EBColors.symbeepLightTextPrimary, width: 2),
         ),
-        labelStyle: SymBeepTextStyles.heading_medium
+        labelStyle: SymBeepTextStyles.heading_small
             .copyWith(fontWeight: FontWeight.w700),
-        unselectedLabelStyle: SymBeepTextStyles.heading_medium
+        unselectedLabelStyle: SymBeepTextStyles.heading_small
             .copyWith(color: EBColors.symbeepLightTextSecondary)),
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: EBColors.symbeepLightTextPrimary,
@@ -205,9 +205,9 @@ mixin SymBeepThemes {
         borderSide:
             BorderSide(color: EBColors.symbeepDarkTextPrimary, width: 2),
       ),
-      labelStyle: SymBeepTextStyles.heading_medium
-          .copyWith(fontWeight: FontWeight.w700),
-      unselectedLabelStyle: SymBeepTextStyles.heading_medium
+      labelStyle:
+          SymBeepTextStyles.heading_small.copyWith(fontWeight: FontWeight.w700),
+      unselectedLabelStyle: SymBeepTextStyles.heading_small
           .copyWith(color: EBColors.symbeepDarkTextSecondary),
     ),
     textSelectionTheme: TextSelectionThemeData(

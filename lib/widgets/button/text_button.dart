@@ -41,7 +41,7 @@ class EBTextButton extends StatelessWidget {
       ),
       child: TextButton(
         child: EBAutoSizeText(
-          text: title,
+          title,
           align: align,
           color: color,
           weight: weight,
