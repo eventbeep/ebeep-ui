@@ -12,6 +12,10 @@
 ///       - asset: fonts/BeepIcons.ttf
 ///
 ///
+/// * Linearicons Free, Copyright (C) Linearicons.com
+///         Author:    Perxis
+///         License:   CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+///         Homepage:  https://linearicons.com
 ///
 import 'package:flutter/widgets.dart';
 
@@ -211,4 +215,16 @@ class BeepIcons {
       IconData(0xe85d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData polls =
       IconData(0xe85e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData bookmark_filled =
+      IconData(0xe85f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData phone =
+      IconData(0xe860, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData bluetooth =
+      IconData(0xe861, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sound_on =
+      IconData(0xe862, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sound_off =
+      IconData(0xe863, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sound_on_outlined =
+      IconData(0xe864, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
